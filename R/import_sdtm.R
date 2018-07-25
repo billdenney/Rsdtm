@@ -111,7 +111,6 @@ import_sdtm_file <- function(path,
 #' Simplify a filename down to the SDTM list name that should be provided.
 #' @param filenames The filenames to simplify.
 #' @importFrom tools file_path_sans_ext
-#' @importFrom base basename
 make_sdtm_list_name_from_filename <- function(filenames) {
   base::basename(tools::file_path_sans_ext(filenames))
 }
