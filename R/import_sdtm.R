@@ -25,7 +25,7 @@ import_sdtm <- function(path,
                         ignore_case=TRUE,
                         ...) {
   stopifnot(is.character(path),
-            any(is.na(path)))
+            all(!is.na(path)))
   name_type <- match.arg(name_type)
   mask_dir <- dir.exists(path)
   mask_file <- file.exists(path) & !mask_dir
@@ -60,7 +60,7 @@ import_sdtm_dir <- function(path,
                             name_type=c("domain", "filename"),
                             ignore_case=TRUE,
                             ...) {
-  stopifnot(length(path) == 1, any(is.na(path)))
+  stopifnot(length(path) == 1, all(!is.na(path)))
   name_type <- match.arg(name_type)
   ret <- list()
   for (current_ext in extension_choice) {
@@ -95,6 +95,15 @@ import_sdtm_file <- function(path,
   ret <- rio::import(file=path, ...)
   if (return_type == "list") {
     name_type <- match.arg(name_type)
+    if (nrow(ret) == 0 &
+        name_type %in% "domain") {
+      warning("No data in file ", path, " returning the filename as the list name instead of the domain value.")
+      name_type <- "filename"
+    } else if (!("DOMAIN" %in% names(ret)) &
+               name_type %in% "domain") {
+      warning("No DOMAIN column in file ", path, " returning the filename as the list name instead of the domain value.")
+      name_type <- "filename"
+    }
     list_name <-
       if (name_type %in% "domain") {
         make_sdtm_list_name_from_domain(ret)
@@ -120,7 +129,8 @@ make_sdtm_list_name_from_filename <- function(filenames) {
 make_sdtm_list_name_from_domain <- function(data) {
   ret <- unique(data$DOMAIN)
   if (length(ret) != 1) {
-    stop("More than one DOMAIN value cannot be present to make an SDTM list name.")
+    stop("More than one DOMAIN value cannot be present to make an SDTM list name. DOMAIN values found are: ",
+         paste(ret, collapse=", "))
   }
   ret
 }
