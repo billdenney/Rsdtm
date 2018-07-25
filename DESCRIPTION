@@ -5,9 +5,9 @@ Authors@R: person("William", "Denney", email = "wdenney@humanpredictions.com", r
 Description: Assist with management of clinical trial data in the SDTM format.
   The package assists with creation, import, export, manipulation, and
   verification of SDTM data.
-
 Depends: R (>= 3.4.3),
  rio
 License: AGPL-3
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1.9000
