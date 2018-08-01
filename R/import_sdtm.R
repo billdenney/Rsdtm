@@ -112,7 +112,7 @@ import_sdtm_file <- function(path,
       } else {
         stop("Invalid name_type") #nocov
       }
-    ret <- setNames(object=list(ret), nm=list_name)
+    ret <- stats::setNames(object=list(ret), nm=list_name)
   }
   ret
 }
