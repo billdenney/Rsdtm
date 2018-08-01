@@ -30,7 +30,7 @@ sdtm_time_actual.list <- function(x, ...) {
 sdtm_time_actual.data.frame <- function(x, ref_col="DTC_first_dose", dtc_col_pattern="DTC$", units="hours", tz=NULL, ...) {
   dtc_cols <- grep(pattern=dtc_col_pattern, x=names(x), value=TRUE)
   for (current_name in dtc_cols) {
-    new_name <- gsub(pattern=dtc_col_pattern, replacement=paste0("_actual_", units), x=current_name)
+    new_name <- gsub(pattern=dtc_col_pattern, replacement=paste0("actual_", units), x=current_name)
     if (is.null(tz)) {
       x[[new_name]] <- difftime(time1=x[[current_name]], time2=x[[ref_col]])
     } else {
