@@ -7,13 +7,12 @@
 \title{Import an SDTM file or directory of files}
 \usage{
 import_sdtm(path, extension_choice = c(".sas7bdat", ".xpt"),
-  name_type = c("domain", "filename"), ignore_case = TRUE, ...)
+  ignore_case = TRUE, ...)
 
 import_sdtm_dir(path, extension_choice = c(".sas7bdat", ".xpt"),
-  name_type = c("domain", "filename"), ignore_case = TRUE, ...)
+  ignore_case = TRUE, ...)
 
-import_sdtm_file(path, name_type = c("domain", "filename"),
-  return_type = c("data.frame", "list"), ...)
+import_sdtm_file(path, return_type = c("data.frame", "list"), ...)
 }
 \arguments{
 \item{path}{The path to the directory or file.}
@@ -21,9 +20,6 @@ import_sdtm_file(path, name_type = c("domain", "filename"),
 \item{extension_choice}{What file extension(s) should be searched for within
 the directory?  (If more than one file with the same extension exists, the
 first extension in \code{extension_choice} will be used.}
-
-\item{name_type}{When receiving a list return value, how should the list be
-named?}
 
 \item{ignore_case}{Passed to \code{list.files} when loading a directory.}
 
