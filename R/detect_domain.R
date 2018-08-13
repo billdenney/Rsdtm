@@ -8,31 +8,14 @@ detect_domain <- function(x, filename, verbose=TRUE) {
   if ("RELID" %in% names(x)) {
     return("RELREC")
   }
-  domain_column_name <- intersect(c("DOMAIN", "ADDOMAIN", "RDOMAIN"), names(x))
-  if (length(domain_column_name) == 0) {
-    name_type <- "filename"
-  } else if (length(domain_column_name) == 1) {
-    name_type <- "domain"
-  } else {
-    stop("Unknown how to handle x with columns named both DOMAIN and ADDOMAIN")
-  }
-  if (nrow(x) == 0 & name_type %in% "domain") {
-    warning(
-      "No data in file ", filename,
-      " returning the filename as the domain instead of the value in the domain column."
-    )
-    name_type <- "filename"
-  }
-  if (name_type %in% "domain") {
-    ret <- make_sdtm_domain_from_domain(x)
-    if (verbose) {
-      message("Detected ", ret, " from domain column.")
-    }
-  } else if (name_type %in% "filename") {
+  ret <- make_sdtm_domain_from_domain(x)
+  if (is.null(ret)) {
     ret <- make_sdtm_domain_from_filename(filename)
     if (verbose) {
-      message("Detected ", ret, " from filename.")
+      message("Detected domain ", ret, " from filename.")
     }
+  } else if (verbose) {
+    message("Detected domain ", ret, " from data.")
   }
   ret
 }
@@ -51,11 +34,31 @@ make_sdtm_domain_from_filename <- function(filenames = NULL) {
 #' Extract the domain from a dataset.
 #' @param data The data with a DOMAIN column for extraction
 make_sdtm_domain_from_domain <- function(data) {
+  if (nrow(data) == 0) {
+    # TODO: detect based on column names present
+    return(NULL)
+  }
   domain_column_name <- intersect(c("DOMAIN", "ADDOMAIN", "RDOMAIN"), names(data))
+  if (length(domain_column_name) == 0) {
+    return(NULL)
+  } else if (length(domain_column_name) == 1) {
+    # Proceed
+  } else if (length(domain_column_name) > 1) {
+    # Determine the right column for the domain
+    if ("DOMAIN" %in% domain_column_name) {
+      domain_column_name <- "DOMAIN"
+    } else {
+      stop("Multiple columns that may define the domain are present (",
+           paste(domain_column_name, collapse=", "),
+           "); uncertain how to proceed.")
+    }
+  }
   ret <- unique(data[[domain_column_name]])
   if (length(ret) != 1) {
     stop(
-      "More than one DOMAIN value cannot be present to make an SDTM list name. DOMAIN values found are: ",
+      "More than one domain value cannot be present to make an SDTM name. ",
+      domain_column_name,
+      " values found are: ",
       paste(ret, collapse = ", ")
     )
   }
