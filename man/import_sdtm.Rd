@@ -4,7 +4,7 @@
 \alias{import_sdtm}
 \alias{import_sdtm_dir}
 \alias{import_sdtm_file}
-\title{Import an SDTM file or directory of files}
+\title{Import an SDTM or ADaM file or directory of files}
 \usage{
 import_sdtm(path, extension_choice = c(".sas7bdat", ".xpt"),
   ignore_case = TRUE, ...)
@@ -35,7 +35,7 @@ If a directory or a vector of files is given in \code{path}, a list
   data.frame.
 }
 \description{
-Import an SDTM file or directory of files
+Import an SDTM or ADaM file or directory of files
 }
 \details{
 It is an error to import the same filename base (filename without

@@ -1,10 +1,10 @@
 Package: Rsdtm
 Title: Study Data Tabulation Model (SDTM) import, export, and management assistance
-Version: 0.0.0.9002
+Version: 0.0.0.9003
 Authors@R: person("William", "Denney", email = "wdenney@humanpredictions.com", role = c("aut", "cre"))
-Description: Assist with management of clinical trial data in the SDTM format.
-  The package assists with creation, import, export, manipulation, and
-  verification of SDTM data.
+Description: Assist with management of clinical trial data in the SDTM and ADaM
+  formats.  The package assists with creation, import, export, manipulation,
+  and verification of SDTM data.
 Depends: R (>= 3.4.3),
  dplyr,
  lubridate,

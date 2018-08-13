@@ -4,7 +4,7 @@
 \alias{detect_domain}
 \title{Detect the SDTM or ADaM domain of a dataset (possibly via filename)}
 \usage{
-detect_domain(x, filename)
+detect_domain(x, filename, verbose = TRUE)
 }
 \arguments{
 \item{x}{The data}
