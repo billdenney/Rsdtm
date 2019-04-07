@@ -19,7 +19,8 @@ import_sdtm_file(path, return_type = c("data.frame", "list"), ...)
 
 \item{extension_choice}{What file extension(s) should be searched for within
 the directory?  (If more than one file with the same extension exists, the
-first extension in \code{extension_choice} will be used.}
+first extension in \code{extension_choice} with a usable file will be used,
+and a warning will be given for subsequent files.}
 
 \item{ignore_case}{Passed to \code{list.files} when loading a directory.}
 
