@@ -10,7 +10,7 @@ import_sdtm(path, extension_choice = c(".sas7bdat", ".xpt"),
   ignore_case = TRUE, ...)
 
 import_sdtm_dir(path, extension_choice = c(".sas7bdat", ".xpt"),
-  ignore_case = TRUE, ...)
+  ignore_case = TRUE, ignore_filename = c(), ...)
 
 import_sdtm_file(path, return_type = c("data.frame", "list"), ...)
 }
@@ -25,6 +25,9 @@ and a warning will be given for subsequent files.}
 \item{ignore_case}{Passed to \code{list.files} when loading a directory.}
 
 \item{...}{Arguments passed to \code{rio::import}}
+
+\item{ignore_filename}{A vector of filenames not to load (case sensitive,
+filename only excluding directory name)}
 
 \item{return_type}{When loading a single file, what type of output should be
 provided?}

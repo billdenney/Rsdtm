@@ -57,10 +57,13 @@ import_sdtm <- function(path,
 }
 
 #' @describeIn import_sdtm Load a directory of SDTM files.
+#' @param ignore_filename A vector of filenames not to load (case sensitive,
+#'   filename only excluding directory name)
 #' @export
 import_sdtm_dir <- function(path,
                             extension_choice = c(".sas7bdat", ".xpt"),
                             ignore_case = TRUE,
+                            ignore_filename=c(),
                             ...) {
   stopifnot(length(path) == 1, all(!is.na(path)))
   ret <- list()
@@ -77,6 +80,12 @@ import_sdtm_dir <- function(path,
         include.dirs = FALSE,
         ignore.case = ignore_case
       )
+    mask_ignored_filenames <- basename(current_files) %in% ignore_filename
+    if (any(mask_ignored_filenames)) {
+      warning("Not loading the following file(s) as specified in `ignore_filename`: ",
+              paste(current_files[mask_ignored_filenames], collapse="; "))
+      current_files <- current_files[!mask_ignored_filenames]
+    }
     for (current_file in current_files) {
       tmp_ret <- import_sdtm_file(
         path = current_file,
