@@ -3,7 +3,8 @@
 #' @param path The path to the directory or file.
 #' @param extension_choice What file extension(s) should be searched for within
 #'   the directory?  (If more than one file with the same extension exists, the
-#'   first extension in \code{extension_choice} will be used.
+#'   first extension in \code{extension_choice} with a usable file will be used,
+#'   and a warning will be given for subsequent files.
 #' @param ignore_case Passed to \code{list.files} when loading a directory.
 #' @param return_type When loading a single file, what type of output should be
 #'   provided?
@@ -42,7 +43,7 @@ import_sdtm <- function(path,
       ignore_case = ignore_case,
       ...
     )
-    ret <- append_no_duplicate_names(ret, tmp_ret)
+    ret <- append_no_duplicate_names(ret, tmp_ret, method=stop)
   }
   for (file_idx in which(mask_file)) {
     tmp_ret <- import_sdtm_file(
@@ -50,7 +51,7 @@ import_sdtm <- function(path,
       return_type = "list",
       ...
     )
-    ret <- append_no_duplicate_names(ret, tmp_ret)
+    ret <- append_no_duplicate_names(ret, tmp_ret, method=stop)
   }
   ret
 }
@@ -63,6 +64,7 @@ import_sdtm_dir <- function(path,
                             ...) {
   stopifnot(length(path) == 1, all(!is.na(path)))
   ret <- list()
+  current_method <- stop
   for (current_ext in extension_choice) {
     current_ext_pattern <-
       gsub(".", "\\.", current_ext, fixed = TRUE)
@@ -81,8 +83,9 @@ import_sdtm_dir <- function(path,
         return_type = "list",
         ...
       )
-      ret <- append_no_duplicate_names(ret, tmp_ret)
+      ret <- append_no_duplicate_names(ret, tmp_ret, method=current_method)
     }
+    current_method <- warning
   }
   ret
 }
@@ -109,10 +112,13 @@ import_sdtm_file <- function(path,
 #' @param x,values,after See \code{base::append}
 #' @param ignore_blank Ignore blank names? (Blank names \code{""} occur when an
 #'   unnamed vector is appeneded to a named vector.)
+#' @param method Function to notify the user if a duplicate is provided?  It is
+#'   called with a message indicating the name of the duplicate. Typically this
+#'   will be \code{stop} or \code{warning}.
 #' @return See \code{base::append}
-append_no_duplicate_names <- function(x, values, after = length(x), ignore_blank = TRUE) {
+append_no_duplicate_names <- function(x, values, after = length(x), ignore_blank = TRUE, method = stop) {
   if (!(is.null(names(x)) |
-    is.null(names(values)))) {
+        is.null(names(values)))) {
     names_x <- names(x)
     names_values <- names(values)
     if (ignore_blank) {
@@ -121,11 +127,16 @@ append_no_duplicate_names <- function(x, values, after = length(x), ignore_blank
     }
     name_overlap <- intersect(names_x, names_values)
     if (length(name_overlap)) {
-      stop(
+      method(
         "The following names are duplicated: ",
         paste(name_overlap, collapse = ", ")
       )
+      values <- NULL
     }
   }
-  append(x = x, values = values, after = after)
+  if (is.null(x)) {
+    x
+  } else {
+    append(x = x, values = values, after = after)
+  }
 }
