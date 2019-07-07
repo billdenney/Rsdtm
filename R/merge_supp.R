@@ -27,7 +27,7 @@ merge_supp <- function(primary, supplementary, remove_attributes = c("label")) {
   for (current_supp_idx in seq_along(supp_prep)) {
     current_supp <- supp_prep[[current_supp_idx]]
     current_idvar <- names(supp_prep)[current_supp_idx]
-    current_join_vars <- c("STUDYID", "DOMAIN", "USUBJID", current_idvar)
+    current_join_vars <- setdiff(c("STUDYID", "DOMAIN", "USUBJID", current_idvar), "")
     missed_rows <- dplyr::anti_join(current_supp, ret, by = current_join_vars)
     if (nrow(missed_rows)) {
       stop(
@@ -77,15 +77,35 @@ supp_reformat_single <- function(x, auto_convert=TRUE) {
     stop("APID and POOLID are not yet supported.")
   }
   # Columns to drop
-  ret <- x[, setdiff(names(x), c("IDVAR", "QLABEL", "QORIG", "QEVAL")), drop=FALSE]
-  ret <-
-    rename_at(
-      .tbl=ret,
-      .vars=c("RDOMAIN", "IDVARVAL"),
-      .funs=recode,
-      RDOMAIN="DOMAIN",
-      IDVARVAL=idvar
+  if (all(x$IDVAR %in% "" & x$IDVARVAL %in% "")) {
+    message(
+      "No IDVAR or IDVARVAL in SUPP", unique(x$RDOMAIN),
+      " data; assuming USUBJID is sufficient for merge."
     )
+    ret <- x[, setdiff(names(x), c("IDVAR", "IDVARVAL", "QLABEL", "QORIG", "QEVAL")), drop=FALSE]
+    ret <-
+      rename_at(
+        .tbl=ret,
+        .vars="RDOMAIN",
+        .funs=recode,
+        RDOMAIN="DOMAIN"
+      )
+  } else {
+    if (any(x$IDVAR %in% "")) {
+      stop("Some IDVAR values are missing (when some IDVAR or IDVARVAL are present) in SUPP", unique(x$RDOMAIN))
+    } else if (any(x$IDVARVAL %in% "")) {
+      stop("Some IDVARVAL values are missing (when some IDVAR or IDVARVAL are present) in SUPP", unique(x$RDOMAIN))
+    }
+    ret <- x[, setdiff(names(x), c("IDVAR", "QLABEL", "QORIG", "QEVAL")), drop=FALSE]
+    ret <-
+      rename_at(
+        .tbl=ret,
+        .vars=c("RDOMAIN", "IDVARVAL"),
+        .funs=recode,
+        RDOMAIN="DOMAIN",
+        IDVARVAL=idvar
+      )
+  }
   ret <-
     tidyr::spread(
       ret,
