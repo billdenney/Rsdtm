@@ -2,6 +2,7 @@
 #' 
 #' @param x The data
 #' @param filename The filename associated with \code{x}
+#' @param verbose Report domain detected and detection method?
 #' @return A character scalar with the name of the domain
 #' @export
 detect_domain <- function(x, filename, verbose=TRUE) {

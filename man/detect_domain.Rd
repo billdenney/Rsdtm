@@ -10,6 +10,8 @@ detect_domain(x, filename, verbose = TRUE)
 \item{x}{The data}
 
 \item{filename}{The filename associated with \code{x}}
+
+\item{verbose}{Report domain detected and detection method?}
 }
 \value{
 A character scalar with the name of the domain

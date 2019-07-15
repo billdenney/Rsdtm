@@ -64,7 +64,7 @@ supp_reformat <- function(x, auto_convert=TRUE) {
   ret
 }
 
-#' @importFrom dplyr rename_at
+#' @importFrom dplyr rename_at recode
 #' @importFrom tidyr spread
 #' @importFrom readr type_convert
 supp_reformat_single <- function(x, auto_convert=TRUE) {
@@ -87,7 +87,7 @@ supp_reformat_single <- function(x, auto_convert=TRUE) {
       rename_at(
         .tbl=ret,
         .vars="RDOMAIN",
-        .funs=recode,
+        .funs=dplyr::recode,
         RDOMAIN="DOMAIN"
       )
   } else {
@@ -125,12 +125,14 @@ supp_reformat_single <- function(x, auto_convert=TRUE) {
 #'   vector, only the named attributes are removed.
 #' @param columns_only Do not strip attributes from the data.frame; only strip
 #'   them from the columns of the data.frame.
+#' @param ... Passed to other `strip_attributes()` methods.
 #' @return \code{x} with fewer attributes.
 #' @export
 strip_attributes <- function(x, specific=NULL, ...) {
   UseMethod("strip_attributes")
 }
 
+#' @rdname strip_attributes
 strip_attributes.data.frame <- function(x, specific=NULL, columns_only=TRUE, ...) {
   if (columns_only) {
     for (nm in seq_along(x)) {
@@ -142,6 +144,7 @@ strip_attributes.data.frame <- function(x, specific=NULL, columns_only=TRUE, ...
   }
 }
 
+#' @rdname strip_attributes
 strip_attributes.default <- function(x, specific=NULL, ...) {
   if (is.null(specific)) {
     attributes(x) <- NULL

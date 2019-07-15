@@ -2,15 +2,24 @@
 % Please edit documentation in R/merge_supp.R
 \name{strip_attributes}
 \alias{strip_attributes}
+\alias{strip_attributes.data.frame}
+\alias{strip_attributes.default}
 \title{Remove attributes from an object}
 \usage{
 strip_attributes(x, specific = NULL, ...)
+
+\method{strip_attributes}{data.frame}(x, specific = NULL,
+  columns_only = TRUE, ...)
+
+\method{strip_attributes}{default}(x, specific = NULL, ...)
 }
 \arguments{
 \item{x}{The object to remove attributes from}
 
 \item{specific}{If \code{NULL}, all attributes are removed.  If a character
 vector, only the named attributes are removed.}
+
+\item{...}{Passed to other `strip_attributes()` methods.}
 
 \item{columns_only}{Do not strip attributes from the data.frame; only strip
 them from the columns of the data.frame.}
