@@ -5,8 +5,13 @@
 \title{Add elements to a vector, only if names are not duplicated in \code{x} and
 \code{values}}
 \usage{
-append_no_duplicate_names(x, values, after = length(x),
-  ignore_blank = TRUE, method = stop)
+append_no_duplicate_names(
+  x,
+  values,
+  after = length(x),
+  ignore_blank = TRUE,
+  method = stop
+)
 }
 \arguments{
 \item{x, values, after}{See \code{base::append}}
