@@ -1,6 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE$
-^data-raw$
+^data-raw.*$
 ^\.travis\.yml$
 ^codecov\.yml$
