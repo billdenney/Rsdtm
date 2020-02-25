@@ -1,0 +1,14 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,SV,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.,Req
+VISITNUM,Visit Number,Num,,Topic,"1. Clinical encounter number. (Decimal numbering may be useful for inserting unplanned visits.). 
+2. Numeric version of VISIT, used for sorting.",Req
+VISIT,Visit Name,Char,,Synonym Qualifier,"1. Protocol-defined description of clinical encounter. 
+2. May be used in addition to VISITNUM and/or VISITDY as a text description of the clinical encounter.",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,Planned study day of the start of the visit based upon RFSTDTC in Demographics.,Perm
+SVSTDTC,Start Date/Time of Visit,Char,ISO 8601,Timing,Start date/time for a Visit.,Exp
+SVENDTC,End Date/Time of Visit,Char,ISO 8601,Timing,End date/time of a Visit.,Exp
+SVSTDY,Study Day of Start of Visit,Num,,Timing,Study day of start of visit relative to the sponsor-defined RFSTDTC.,Perm
+SVENDY,Study Day of End of Visit,Num,,Timing,Study day of end of visit relative to the sponsor-defined RFSTDTC.,Perm
+SVUPDES,Description of Unplanned Visit,Char,,Synonym Qualifier,Description of what happened to the subject during an unplanned visit.,Perm
