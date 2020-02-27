@@ -1,0 +1,9 @@
+Variable Name,Variable Label,Type,Role,Description
+STUDYID,Study Identifier,Char,Identifier,Unique identifier for a study.
+DOMAIN,Domain Abbreviation,Char,Identifier,"2-character abbreviation for the domain, which must be ""TI""."
+IETESTCD,Inclusion/Exclusion Criterion Short Name,Char,Topic,"Short name IETEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in IETESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., ""1TEST""). IETESTCD cannot contain characters other than letters, numbers, or underscores. The prefix ""IE"" is used to ensure consistency with the IE domain."
+IETEST,Inclusion/Exclusion Criterion,Char,Synonym Qualifier of IETESTCD,"Full text of the inclusion or exclusion criterion. The prefix ""IE"" is used to ensure consistency with the IE domain."
+IECAT,Inclusion/Exclusion Category,Char,Grouping Qualifier,"Used for categorization of the Inclusion/Exclusion Criterion: ""INCLUSION"", ""EXCLUSION""."
+IESCAT,Inclusion/Exclusion Subcategory,Char,Grouping Qualifier,"A further categorization of the exception criterion. Can be used to distinguish criteria for a sub-study or for to categorize as a major or minor exceptions. Examples: ""MAJOR"", ""MINOR""."
+TIRL,Inclusion/Exclusion Criterion Rule,Char,Rule,Rule that expresses the criterion in computer-executable form.
+TIVERS,Protocol Criteria Versions,Char,Record Qualifier,The number of this version of the Inclusion/Exclusion criteria. May be omitted if there is only 1 version.

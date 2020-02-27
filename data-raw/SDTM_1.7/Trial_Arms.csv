@@ -1,0 +1,11 @@
+Variable Name,Variable Label,Type,Role,Description
+STUDYID,Study Identifier,Char,Identifier,Unique identifier for a study.
+DOMAIN,Domain Abbreviation,Char,Identifier,"2-character abbreviation for the domain, which must be ""TA""."
+ARMCD,Planned Arm Code,Char,Topic,ARMCD is limited to 20 characters and does not have special character restrictions.
+ARM,Description of Planned Arm,Char,Synonym Qualifier of ARMCD,Name given to Arm or treatment group.
+TAETORD,Planned Order of Element within Arm,Num,Timing,Number that gives the order of the Element within the Arm.
+ETCD,Element Code,Char,Record Qualifier,"ETCD (the companion to ELEMENT) is limited to 8 characters and does not have special character restrictions. These values should be short for ease of use in programming, but it is not expected that ETCD will need to serve as a variable name."
+ELEMENT,Description of Element,Char,Synonym Qualifier of ETCD,The name of the Element.
+TABRANCH,Branch,Char,Rule,"Condition subjects meet, at a ""branch"" in the Trial Design at the end of this Element, to be included in this Arm. Example: Randomization to DRUG X."
+TATRANS,Transition Rule,Char,Rule,"If the trial design allows a subject to transition to an Element other than the next Element in sequence, then the conditions for transitioning to those other Elements, and the alternative Element sequences, are specified in this rule (e.g., Responders go to washout)."
+EPOCH,Epoch,Char,Timing,Name of the Trial Epoch with which this Element of the Arm is associated.
