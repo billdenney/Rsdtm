@@ -1,0 +1,8 @@
+Variable Name,Variable Label,Type,Format,Description
+STUDYID,Study Identifier,Char,,Unique identifier for a study.
+DOMAIN,Domain Abbreviation,Char,,"Two-character abbreviation for the domain, which must be TT."
+RSTGCD,Repro Stage Code,Char,,Short name of the Repro Stage used for programming and sorting. Maximum 8 characters.
+RSTAGE,Description of Repro Stage,Char,,The name of the Repro Stage.
+TTSTRL,Rule for Start of Repro Stage,Char,,Expresses the rule for beginning the Repro Stage.
+TTENRL,Rule for End of Repro Stage,Char,,Expresses the rule for ending the Repro Stage. Either TTENRL or TTDUR must be present for each Repro Stage.
+TTDUR,Planned Duration of Repro Stage,Char,ISO 8601,Planned Duration of Repro Stage. Used when the rule for ending the Repro Stage is applied after a fixed duration.

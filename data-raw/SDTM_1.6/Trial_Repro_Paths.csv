@@ -1,0 +1,11 @@
+Variable Name,Variable Label,Type,Description
+STUDYID,Study Identifier,Char,Unique identifier for a study.
+DOMAIN,Domain Abbreviation,Char,"Two-character abbreviation for the domain, which must be TP."
+RPATHCD,Planned Repro Path Code,Char,Short name for the planned Repro Path. Limited to 20 characters. Should be populated in Demographics when Repro Paths have been defined in this domain.
+RPATH,Description of Planned Repro Path,Char,Name of the planned Repro Path.
+TPSTGORD,Order of Repro Stage within Repro Path,Num,Number that gives the planned order of the Repro Stage within the Repro Path.
+RSTGCD,Repro Stage Code,Char,Short name of the Repro Stage used for programming and sorting. Maximum 8 characters. The values of RSTGCD used in the Trial Paths dataset must match values for the same Repro Stage in the Trial Stages dataset.
+RSTAGE,Description of Repro Stage,Char,The name of the Repro Stage.
+TPBRANCH,Branch,Char,"Conditions subjects meet, occurring at the end of a Repro Stage, which cause a Repro Path to branch off from another Repro Path."
+RPHASE,Repro Phase,Char,Name of the reproductive phase with which this Repro Stage of the Repro Path is associated.
+RPRFDY,Repro Phase Start Reference Day,Num,Sponsor Protocol-defined first day of Repro Phase. Should be 0 or 1.

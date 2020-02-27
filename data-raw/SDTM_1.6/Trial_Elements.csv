@@ -1,0 +1,8 @@
+Variable Name,Variable Label,Type,Format,Description
+STUDYID,Study Identifier,Char,,Unique identifier for a study.
+DOMAIN,Domain Abbreviation,Char,,"Two-character abbreviation for the domain, which must be TE."
+ETCD,Element Code,Char,,"ETCD (the companion to ELEMENT) is limited to 8 characters and does not have special character restrictions. These values should be short for ease of use in programming, but it is not expected that ETCD will need to serve as a variable name."
+ELEMENT,Description of Element,Char,,The name of the Element.
+TESTRL,Rule for Start of Element,Char,,Expresses the rule for beginning the Element.
+TEENRL,Rule for End of Element,Char,,Expresses the rule for ending the Element. Either TEENRL or TEDUR must be present for each Element.
+TEDUR,Planned Duration of Element,Char,ISO 8601,Planned Duration of Element. Used when the rule for ending the Element is applied after a fixed duration.

@@ -1,0 +1,10 @@
+Variable Name,Variable Label,Type,Format,Description
+STUDYID,Study Identifier,Char,,Unique identifier for a study.
+DOMAIN,Domain Abbreviation,Char,,"Two-character abbreviation for the domain, which must be TD."
+TDORDER,Sequence of Planned Assessment Schedule,Num,,A number given to ensure ordinal sequencing of the planned assessment schedules within a trial.
+TDANCVAR,Anchor Variable Name,Char,,A reference to the date variable name that provides the start point from which the planned disease assessment schedule is measured. This must be referenced from the ADaM ADSL dataset e.g. ANCH1DT. Note: TDANCVAR is to contain the name of a reference date variable name.
+TDSTOFF,Offset from the Anchor,Char,ISO 8601,A fixed offset from the date provided by the variable referenced in TDANCVAR. This is used when the timing of planned cycles does not start on the exact day referenced in the variable indicated in TDANCVAR. The value of this variable will be either zero or a positive value.
+TDTGTPAI,Planned Assessment Interval,Char,ISO 8601,The planned interval between disease assessments.
+TDMINPAI,Planned Assessment Interval Minimum,Char,ISO 8601,The lower limit of the allowed range for the planned interval between disease assessments.
+TDMAXPAI,Planned Assessment Interval Maximum,Char,ISO 8601,The upper limit of the allowed range for the planned interval between disease assessments.
+TDNUMRPT,Maximum Number of Actual Assessments,Num,,"This variable must represent the maximum number of actual assessments for the analysis that this disease assessment schedule describes. In a trial where the maximum number of assessments is not defined explicitly in the protocol (e.g. assessments occur until death) TDNUMRPT should represent the maximum number of disease assessments that support the efficacy analysis, encountered by any subject across the trial at that point in time."
