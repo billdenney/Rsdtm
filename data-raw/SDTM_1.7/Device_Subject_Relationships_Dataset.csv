@@ -1,0 +1,5 @@
+Variable Name,Variable Label,Type,Role,Description
+STUDYID,Study Identifier,Char,Identifier,Study Identifier of the domain record(s).
+DOMAIN,Domain Abbreviation,Char,Identifier,"2-character abbreviation for the domain, which must be ""DR""."
+USUBJID,Unique Subject Identifier,Char,Identifier,Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+SPDEVID,Sponsor Device Identifier,Char,Identifier,"Sponsor-defined identifier for the device. It must be unique for each tracked unit of the device under study, and can be at whatever level of granularity the device should be identified (e.g., model or serial number, combination of identifiers) as defined in DI."

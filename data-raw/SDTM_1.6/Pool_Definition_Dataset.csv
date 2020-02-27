@@ -1,0 +1,5 @@
+Variable Name,Variable Label,Type,Description
+STUDYID,Study Identifier,Char,Study Identifier of the parent record(s).
+POOLID,Pool Identifier,Char,Identifier used for pooling subjects to assign a single finding to multiple subjects.
+USUBJID,Unique Subject Identifier,Char,Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+APID,Associated Persons Identifier,Char,"Identifier for a single associated person, a group of associated persons, or a pool of associated persons."

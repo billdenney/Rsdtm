@@ -1,0 +1,10 @@
+Variable Name,Variable Label,Type,Role,Description
+STUDYID,Study Identifier,Char,Identifier,Study Identifier of the domain record(s).
+RDOMAIN,Related Domain Abbreviation,Char,Identifier,2-character abbreviation for the domain of the parent record(s).
+USUBJID,Unique Subject Identifier,Char,Identifier,Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.
+APID,Associated Persons Identifier,Char,Identifier,"Identifier for a single associated person, a group of associated persons, or a pool of associated persons. If APID identifies a pool, POOLDEF records must exist for each associated person (see Section 4.1.3, Pool Definition Dataset and Section 6.2, Associated Persons Relationships)."
+POOLID,Pool Identifier,Char,Identifier,Identifier used for pooling subjects to assign a single finding to multiple subjects.
+IDVAR,Identifying Variable,Char,Identifier,Name of the identifying variable in the general-observation-class dataset that identifies the related record(s). Examples: --SEQ and --GRPID.
+IDVARVAL,Identifying Variable Value,Char,Identifier,"Value of identifying variable described in IDVAR. If --SEQ is the variable being used to describe this record, then the value of --SEQ is entered here."
+RELTYPE,Relationship Type,Char,Record Qualifier,"Identifies the hierarchical level of the records in the relationship. Values should be either ONE or MANY. However, values are only necessary when identifying a relationship between datasets."
+RELID,Relationship Identifier,Char,Record Qualifier,"RELID value should be unique within the ID variable (e.g., USUBJID, APID, POOLID, SPDEVID) that is the subject of the relationship. All records with this ID variable that have the same RELID are considered ""related/associated."" RELID can be any value the sponsor chooses, and is only meaningful within the RELREC dataset to identify the related/associated Domain records."

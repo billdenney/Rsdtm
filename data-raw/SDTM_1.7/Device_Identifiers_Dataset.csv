@@ -1,0 +1,8 @@
+Variable Name,Variable Label,Type,Role,Description
+STUDYID,Study Identifier,Char,Identifier,Unique identifier for a study.
+DOMAIN,Domain Abbreviation,Char,Identifier,"2-character abbreviation for the domain, which must be ""DI""."
+SPDEVID,Sponsor Device Identifier,Char,Identifier,Sponsor-defined identifier for the device.
+DISEQ,Sequence Number,Num,Identifier,Sequence number given to ensure uniqueness within a parameter within a device (SPDEVID).
+DIPARMCD,Device Identifier Element Short Name,Char,Topic,Short name of the identifier characteristic of the device.
+DIPARM,Device Identifier Element Name,Char,Synonym Qualifier of DIPARMCD,Name of the identifier characteristic of the device.
+DIVAL,Device Identifier Element Value,Char,Result Qualifier,Value for the parameter.

@@ -1,0 +1,12 @@
+Variable Name,Variable Label,Type,Description
+STUDYID,Study Identifier,Char,Unique identifier for a study.
+DOMAIN,Domain Abbreviation,Char,"Two-character abbreviation for the domain, which must be TS."
+TSSEQ,Sequence Number,Num,Sequence number to ensure uniqueness within the dataset.
+TSGRPID,Group ID,Char,Used to tie together a group of related records.
+TSPARMCD,Trial Summary Parameter Short Name,Char,"TSPARMCD (the companion to TSPARM) is limited to 8 characters and does not have special character restrictions. These values should be short for ease of use in programming, but it is not expected that TSPARMCD will need to serve as variable names. Examples: AGEMIN, AGEMAX"
+TSPARM,Trial Summary Parameter,Char,"Term for the Trial Summary Parameter. The value in TSPARM cannot be longer than 40 characters. Examples Planned Minimum Age of Subjects, Planned Maximum Age of Subjects"
+TSVAL,Parameter Value,Char,"Value of TSPARM. Example: ""ASTHMA"" when TSPARM value is ""Trial Indications"". If TSVAL is null; a value is required for TSVALNF. Text over 200 characters can be added to additional columns TSVAL1-TSVALn."
+TSVALNF,Parameter Null Flavor,Char,"Null flavor for the value of TSVAL describing the reason the value is null, to be populated if and only if TSVAL is null."
+TSVALCD,Parameter Value Code,Char,Code of the term in TSVAL from Reference Terminology cited in TSVCDREF.
+TSVCDREF,Name of the Reference Terminology,Char,"The name of the reference terminology or standard format from which TSVALCD is taken. For example; CDISC, SNOMED, ISO8601."
+TSVCDVER,Version of the Reference Terminology,Char,"The version number of the Reference Terminology cited in TSVCDREF, if applicable."

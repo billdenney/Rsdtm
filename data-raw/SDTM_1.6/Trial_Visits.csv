@@ -1,0 +1,10 @@
+Variable Name,Variable Label,Type,Description
+STUDYID,Study Identifier,Char,Unique identifier for a study.
+DOMAIN,Domain Abbreviation,Char,"Two-character abbreviation for the domain, which must be TV."
+VISITNUM,Visit Number,Num,Clinical encounter number. Numeric version of VISIT can be used for sorting.
+VISIT,Visit Name,Char,Protocol-defined description of the clinical encounter. May be used in addition to VISITNUM and/or VISITDY as a text description of the clinical encounter.
+VISITDY,Planned Study Day of Visit,Num,"Planned study day of VISIT. Due to its sequential nature, can be used for sorting."
+ARMCD,Planned Arm Code,Char,"ARMCD is limited to 20 characters and does not have special character restrictions. If the timing of visits for a trial does not depend on which ARM a subject is in, then ARMCD should be null."
+ARM,Description of Planned Arm,Char,Name given to Arm or treatment group.
+TVSTRL,Visit Start Rule,Char,"Rule describing when the visit starts, in relation to the sequence of Elements."
+TVENRL,Visit End Rule,Char,"Rule describing when the visit ends, in relation to the sequence of Elements."
