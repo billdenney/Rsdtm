@@ -1,0 +1,100 @@
+"Variable
+Name ",Variable Label ,Type ,Role ,Description
+STUDYID ,Study Identifier ,Char ,Identifier ,Unique identifier for a study.
+DOMAIN ,"Domain
+Abbreviation",Char ,Identifier ,Two-character abbreviation for the domain which must be DM.
+USUBJID ,"Unique Subject
+Identifier",Char ,Identifier ,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product."
+SUBJID ,"Subject Identifier
+for the Study",Char ,Topic ,"Subject identifier, which must be unique within the study. Often the ID
+of the subject as recorded on a CRF."
+RFSTDTC ,"Subject Reference
+Start Date/Time",Char ,Qualifier ,"Reference Start Date/time for the subject in ISO 8601 character format.
+Usually equivalent to date/time when subject was first exposed to study
+treatment. Required for all randomized subjects; will be null for all
+subjects who did not meet the milestone the date requires, such as screen
+failures or unassigned subjects."
+RFENDTC ,"Subject Reference
+End Date/Time",Char ,Qualifier ,"Reference End Date/time for the subject in ISO 8601 character format.
+Usually equivalent to the date/time when subject was determined to have
+ended the trial, and often equivalent to date/time of last exposure to study
+treatment. Required for all randomized subjects; null for screen failures
+or unassigned subjects."
+RFXSTDTC ,"Date/Time of First
+Study Treatment",Char ,Qualifier ,"First date/time of exposure to any protocol-specified treatment or therapy
+for the subject in ISO 8601 character format."
+RFXENDTC ,"Date/Time of Last
+Study Treatment",Char ,Qualifier ,"Last date/time of exposure to any protocol-specified treatment or therapy
+for the subject in ISO 8601 character format."
+RFICDTC ,"Date/Time of
+Informed Consent",Char ,Qualifier ,Date/time of informed consent in ISO 8601 character format.
+RFPENDTC ,"Date/Time of End
+of Participation",Char ,Qualifier ,"Date/time when subject ended participation or follow-up in a trial, in ISO
+8601 character format. Should correspond to the last known date of
+contact."
+DTHDTC ,"Date/Time of
+Death",Char ,Qualifier ,"Date/time of death for any subject who died, in ISO 8601 format. Should
+represent the date/time that is captured in the clinical-trial database."
+DTHFL ,"Subject Death
+Flag",Char ,Qualifier ,"A value of 'Y' indicates the subject died. Should be Y or null. Should be
+populated even when the death date is unknown."
+SITEID ,"Study Site
+Identifier",Char ,Qualifier ,Unique identifier for a site within a study.
+INVID ,"Investigator
+Identifier",Char ,Qualifier ,"An identifier to describe the Investigator for the study. May be used in
+addition to the SITEID. Not needed if SITEID is equivalent to INVID."
+INVNAM ,Investigator Name ,Char ,Qualifier ,Name of the investigator for a site.
+BRTHDTC ,"Date/Time of
+Birth",Char ,Qualifier ,Date/time of birth of the subject in ISO 8601 character format.
+AGE ,Age ,Num ,Qualifier ,"Age expressed in AGEU. May be derived as (RFSTDTC-BRTHDTC),
+but BRTHDTC may not be available in all cases (due to subject privacy
+concerns)."
+AGETXT ,Age Text ,Char ,Qualifier ,"The age of the subject at study start, as planned, expressed as a range. If
+an age integer value is available, then populate the age variable instead.
+Either the AGE or AGETXT variable should be populated, but not both."
+AGEU ,Age Units ,Char ,Qualifier ,Units associated with AGE or AGETXT.
+SEX ,Sex ,Char ,Qualifier ,Sex of the subject.
+RACE ,Race ,Char ,Qualifier ,"Race of the subject. Sponsors should refer to ""Collection of Race and
+Ethnicity Data in Clinical Trials"" (FDA, September 2005) for guidance
+regarding the collection of race. (http://www.fda.gov/downloads/RegulatoryInformation/Guidances/ucm1
+26396.pdf)."
+ETHNIC ,Ethnicity ,Char ,Qualifier ,"The ethnicity of the subject. Sponsors should refer to ""Collection of Race
+and Ethnicity Data in Clinical Trials"" (FDA, September 2005) for
+guidance regarding the collection of ethnicity
+(http://www.fda.gov/downloads/RegulatoryInformation/Guidances/ucm1
+26396.pdf)."
+SPECIES ,Species ,Char ,Qualifier ,"Used to identify the common species name of the subject (i.e., test
+system) under study (e.g., MOUSE, RAT, DOG, MONKEY)."
+STRAIN ,Strain/Substrain ,Char ,Qualifier ,"Used to identify the vendor-supplied strain/substrain designation for the
+subject (i.e., test system) under study. When applicable, it combines the
+root strain, substrain, and associated genetic modifications, as supplied
+by the vendor (e.g., C57BL/6, A/J, B6.129-Pparg<tm2Rev>/J, FISCHER
+344, SPRAGUE DAWLEY IGS, WISTAR Kyoto, BEAGLE,
+CYNOMOLGUS, CHIMPANZEE)."
+SBSTRAIN ,"Strain/Substrain
+Details",Char ,Qualifier ,"Free-text field that allows the sponsor to enter additional details
+regarding the subject (i.e. test system) under study, such as a description
+of a specific genetic alteration."
+ARMCD ,"Planned Arm
+Code",Char ,Qualifier ,"Short name for the Arm to which the subject was assigned, limited to 20
+characters."
+ARM ,"Description of
+Planned Arm",Char ,Qualifier ,Name of the Arm to which the subject was assigned.
+ACTARMCD ,Actual Arm Code ,Char ,Qualifier ,"Short name for the actual Arm in which the subject participated during
+the trial, limited to 20 characters."
+ACTARM ,"Description of
+Actual Arm",Char ,Qualifier ,"Description of the actual Arm in which the subject participated during
+the trial."
+SETCD ,Set Code ,Char ,Qualifier ,"Short name of a specific Trial Set (see Table 3.2.4), as defined by the
+sponsor. Maximum of 8 characters. This represents the code for the Trial
+Set for which parameters are being submitted."
+COUNTRY ,Country ,Char ,Qualifier ,"Country of the investigational site at which the subject participated in the
+trial in ISO 3166 three-character format."
+DMDTC ,"Date/Time of
+Collection",Char ,Timing ,"Date/time of collection of the demographic information in ISO 8601
+character format."
+DMDY ,"Study Day of
+Collection",Num ,Timing ,"Study day of collection measured as integer days. Algorithm for
+calculations must be relative to the sponsor-defined RFSTDTC in
+Demographics."
