@@ -1,0 +1,270 @@
+"Variable
+Name ",Variable Label ,Type ,Role ,Description
+Topic Variable,,,,
+--TESTCD ,"Short Name of
+Measurement, Test
+or Examination",Char ,Topic ,"Short character value for --TEST used as a column name when
+converting a dataset from a vertical format to a horizontal
+format. The short value can be up to 8 characters. Examples:
+PLAT, SYSBP, RRMIN, EYEEXAM."
+Qualifier Variables,,,,
+--TEST ,"Name of
+Measurement, Test
+or Examination",Char ,"Synonym
+Qualifier of
+--TESTCD","Long name For --TESTCD. Examples: Platelet, Systolic Blood
+Pressure, Summary (Min) RR Duration, Eye Examination."
+--MODIFY ,Modified Term ,Char ,"Synonym
+Qualifier of
+--ORRES","If the value of --ORRES is modified for coding purposes, then
+the modified text is placed here."
+--TSTDTL ,"Measurement, Test
+or Examination
+Detail",Char ,"Variable
+Qualifier of
+--TESTCD and
+--TEST","Further description of --TESTCD and --TEST. Example: “The
+percentage of cells with +1 intensity of staining” when
+MITESTCD = TTF1."
+--CAT ,Category ,Char ,"Grouping
+Qualifier","Used to define a category of topic-variable values. Examples:
+HEMATOLOGY, URINALYSIS, CHEMISTRY, HAMILTON
+DEPRESSION SCALE, SF36, MICRO ARRAY, EGFR
+MUTATION ANALYSIS"
+--SCAT ,Subcategory ,Char ,"Grouping
+Qualifier","Used to define a further categorization of --CAT values.
+Example: DIFFERENTIAL."
+--POS ,"Position of Subject
+During
+Observation",Char ,"Record
+Qualifier","Position of the subject during a measurement or examination.
+Examples: SUPINE, STANDING, SITTING."
+--BODSYS ,"Body System or
+Organ Class",Char ,"Record
+Qualifier","Body System or Organ Class that is involved for a finding from
+the standard hierarchy for dictionary-coded results. Example:
+MedDRA SOC."
+--ORRES ,"Result or Finding
+in Original Units",Char ,"Result
+Qualifier","Result of the measurement or finding as originally received or
+collected. Examples: 120, <1, POS."
+--ORRESU ,Original Units ,Char ,"Variable
+Qualifier of
+--ORRES","Unit for --ORRES. Examples: IN, LB, kg/L."
+--ORNRLO ,"Normal Range
+Lower Limit
+Original Units",Char ,"Variable
+Qualifier of
+--ORRES","Lower end of normal range or reference range for results stored
+in --ORRES."
+--ORNRHI ,"Normal Range
+Upper Limit
+Original Units",Char ,"Variable
+Qualifier of
+--ORRES","Upper end of normal range or reference range for results stored
+in --ORRES."
+--STRESC ,"Result or Finding
+in Standard Format",Char ,"Result
+Qualifier","Contains the result value for all findings, copied or derived from
+--ORRES in a standard format or in standard units. --STRESC
+should store all results or findings in character format; if results
+are numeric, they should also be stored in numeric format in --
+STRESN. For example, if various tests have results “NONE”,
+“NEG”, and “NEGATIVE” in --ORRES and these results
+effectively have the same meaning, they could be represented in
+standard format in --STRESC as ""NEGATIVE""."
+--STRESN ,"Numeric
+Result/Finding in
+Standard Units",Num ,"Result
+Qualifier","Used for continuous or numeric results or findings in standard
+format; copied in numeric format from --STRESC. --STRESN
+should store all numeric test results or findings."
+--STRESU ,Standard Units ,Char ,"Variable
+Qualifier of
+--STRESC and
+--STRESN","Standardized units used for --STRESC and --STRESN.
+Example: mol/L."
+--STNRLO ,"Normal Range
+Lower Limit
+Standard Units",Num ,"Variable
+Qualifier of
+--STRESC and
+--STRESN","Lower end of normal range or reference range for standardized
+results (e.g., --STRESC, --STRESN) represented in
+standardized units (--STRESU)."
+--STNRHI ,"Normal Range
+Upper Limit
+Standard Units",Num ,"Variable
+Qualifier of
+--STRESC and
+--STRESN","Upper end of normal range or reference range for standardized
+results (e.g., --STRESC, --STRESN) represented in
+standardized units (--STRESU)."
+--STNRC ,"Normal Range for
+Character Results",Char ,"Variable
+Qualifier of
+--STRESC","Normal range or reference range for results stored in --STRESC
+that are character in ordinal or categorical scale. Example:
+Negative to Trace."
+--NRIND ,"Normal/Reference
+Range Indicator",Char ,"Variable
+Qualifier of
+--ORRES","Used to indicate the value is outside the normal range or
+reference range. May be defined by --ORNRLO and --ORNRHI
+or other objective criteria. Examples: Y, N; HIGH, LOW;
+NORMAL; ABNORMAL."
+--RESCAT ,Result Category ,Char ,"Variable
+Qualifier of
+--ORRES","Used to categorize the result of a finding. Example:
+MALIGNANT or BENIGN for tumor findings. RESISTANCE
+VARIANT for genetic variation."
+--STAT ,Completion Status ,Char ,"Record
+Qualifier","Used to indicate that a question was not asked or a test was not
+done, or a test was attempted but did not generate a result.
+Should be null or have a value of NOT DONE."
+--REASND ,Reason Not Done ,Char ,"Record
+Qualifier","Reason not done. Used in conjunction with --STAT when value
+is NOT DONE."
+--XFN ,External File Path ,Char ,"Record
+Qualifier","Filename for an external file, such as one for an ECG waveform
+or a medical image."
+--NAM ,"Laboratory/Vendor
+Name",Char ,"Record
+Qualifier","Name or identifier of the vendor (e.g., laboratory) that provided
+the test results."
+--LOINC ,LOINC Code ,Char ,"Synonym
+Qualifier of
+--TESTCD","Logical Observation Identifiers Names and Codes (LOINC)
+code for the topic variable such as a lab test."
+--SPEC ,"Specimen Material
+Type",Char ,"Record
+Qualifier","Defines the type of specimen used for a measurement.
+Examples: SERUM, PLASMA, URINE, DNA, RNA."
+--ANTREG ,Anatomical Region ,Char ,"Variable
+Qualifier of
+--SPEC","Defines the specific anatomical or biological region of a tissue,
+organ specimen or the region from which the specimen is
+obtained, as defined in the protocol, such as a section or part of
+what is described in the --SPEC variable. Examples: CORTEX,
+MEDULLA, MUCOSA"
+--SPCCND ,"Specimen
+Condition",Char ,"Record
+Qualifier",Defines the condition of the specimen. Example: CLOUDY.
+--SPCUFL ,"Specimen
+Usability for the
+Test",Char ,"Record
+Qualifier","Describes the usability of the specimen for the test. The value
+will be N if the specimen is not usable, and null if the specimen
+is usable."
+--LOC ,"Location Used for
+the Measurement",Char ,"Record
+Qualifier","Anatomical location of the subject relevant to the collection of
+the measurement. Examples: RECTAL for temperature, ARM
+for blood pressure."
+--LAT ,Laterality ,Char ,"Variable
+Qualifier of
+--LOC","Qualifier for anatomical location or specimen further detailing
+laterality. Examples: RIGHT, LEFT, BILATERAL"
+--DIR ,Directionality ,Char ,"Variable
+Qualifier of
+--LOC","Qualifier for anatomical location or specimen further detailing
+directionality. Examples: ANTERIOR, LOWER, PROXIMAL"
+--PORTOT ,Portion or Totality ,Char ,"Variable
+Qualifier of
+--LOC","Qualifier for anatomical location or specimen further detailing
+the distribution, which means arrangement of, apportioning of. .
+Examples: ENTIRE, SINGLE, SEGMENT, MANY."
+--METHOD ,"Method of Test or
+Examination",Char ,"Record
+Qualifier","Method of the test or examination. Examples: EIA (Enzyme
+Immunoassay), ELECTROPHORESIS, DIPSTICK"
+--RUNID ,Run ID ,Char ,"Record
+Qualifier","A unique identifier for a particular run of a test on a particular
+batch of samples."
+--ANMETH ,Analysis Method ,Char ,"Record
+Qualifier","Analysis method applied to obtain a summarized result.
+Analysis method describes the method of secondary processing
+applied to a complex observation result (e.g. an image or a
+genetic sequence)."
+--LEAD ,"Lead Identified to
+Collect
+Measurements",Char ,"Record
+Qualifier","Lead or leads identified to capture the measurement for a test
+from an instrument. Examples: LEAD I, LEAD V2, LEAD
+CM5."
+--CSTATE ,"Consciousness
+State",Char ,"Record
+Qualifier","The consciousness state of the subject at the time of
+measurement. Examples: CONSCIOUS, SEMI-CONSCIOUS,
+UNCONSCIOUS"
+--BLFL ,Baseline Flag ,Char ,"Record
+Qualifier",Indicator used to identify a baseline value. Should be Y or null.
+--FAST ,Fasting Status ,Char ,"Record
+Qualifier","Indicator used to identify fasting status. Valid values include Y,
+N, U or null if not relevant."
+--DRVFL ,Derived Flag ,Char ,"Record
+Qualifier","Used to indicate a derived record (e.g., a record that represents
+the average of other records such as a computed baseline).
+Should be Y or null."
+--EVAL ,Evaluator ,Char ,"Record
+Qualifier","Role of the person who provided the evaluation. Used only for
+results that are subjective (e.g., assigned by a person or a
+group). Examples: ADJUDICATION COMMITTEE,
+INDEPENDENT ASSESSOR, RADIOLOGIST."
+--EVALID ,"Evaluator
+Identifier",Char ,"Variable
+Qualifier of
+--EVAL","Used to distinguish multiple evaluators with the same role
+recorded in --EVAL. Examples: RADIOLOGIST1 or
+RADIOLOGIST2"
+--ACPTFL ,"Accepted Record
+Flag",Char ,"Record
+Qualifier","In cases where more than one assessor provides an evaluation of
+a result or response, this flag identifies the record that is
+considered, by an independent assessor, to be the accepted
+evaluation. Expected to be Y or null."
+--TOX ,Toxicity ,Char ,"Variable
+Qualifier of
+--TOXGR","Description of toxicity quantified by --TOXGR such as NCI
+CTCAE Short Name. Examples: HYPERCALCEMIA,
+HYPOCALCEMIA. Sponsor should specify which scale and
+version is used in the Sponsor Comments column of the Define
+XML document."
+--TOXGR ,Toxicity Grade ,Char ,"Record
+Qualifier","Records toxicity grade using a standard toxicity scale (such as
+the NCI CTCAE). Sponsor should specify which scale and
+version is used in the Sponsor Comments column of the Define
+data definition document. Example: 2."
+--SEV ,Severity ,Char ,"Record
+Qualifier","Describes the severity or intensity of a particular finding.
+Examples: MILD, MODERATE, SEVERE."
+--DTHREL ,"Relationship to
+Death",Char ,"Record
+Qualifier","Describes the relationship of a particular finding to the death of
+a subject. Examples: Y, N or U."
+--LLOQ ,"Lower Limit of
+Quantitation",Num ,"Variable
+Qualifier of
+--STRESC and
+--STRESN","Indicates the lower limit of quantitation for an assay. Units will
+be those used for --STRESU."
+--ULOQ ,"Upper Limit of
+Quantitation",Num ,"Variable
+Qualifier of
+--STRESC and
+--STRESN","Indicates the upper limit of quantitation for an assay. Units will
+be those used for --STRESU."
+--EXCLFL ,"Exclude from
+Statistics",Char ,"Record
+Qualifier","Indicates whether the values in the result variables for this
+record should be excluded from summary statistical calculations
+such as Mean, Standard Deviation, and Count (and others).
+Expected to be Y or null. --EXCLFL should not be used when -
+-STAT is NOT DONE. Not to be used with human clinical
+trials."
+--REASEX ,"Reason for
+Exclusion from
+Statistics",Char ,"Record
+Qualifier","Reason excluded from statistics. Used in conjunction with --
+EXCLFL when its value is Y. Not to be used with human
+clinical trials"

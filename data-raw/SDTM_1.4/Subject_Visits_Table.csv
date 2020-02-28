@@ -1,0 +1,30 @@
+"Variable
+Name ",Variable Label ,Type ,Description
+STUDYID ,Study Identifier ,Char ,Unique identifier for a study.
+DOMAIN ,"Domain
+Abbreviation",Char ,"Two-character abbreviation for the domain, which must be SV."
+USUBJID ,"Unique Subject
+Identifier",Char ,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product."
+Topic Variable,,,
+VISITNUM ,Visit Number ,Num ,"Clinical encounter number. (Decimal numbering may be useful for inserting
+unplanned visits.) Numeric version of VISIT, used for sorting."
+Timing Variables,,,
+VISIT ,Visit Name ,Char ,"Protocol-defined description of clinical encounter or description of unplanned
+visit. May be used in addition to VISITNUM and/or VISITDY as a text
+description of the clinical encounter."
+VISITDY ,"Planned Study Day
+of Visit",Num ,"Planned study day of the start of the visit based upon RFSTDTC in
+Demographics."
+SVSTDTC ,"Start Date/Time of
+Visit",Char ,"Start date/time for a subject's visit, represented in ISO 8601 character format."
+SVENDTC ,"End Date/Time of
+Visit",Char ,"End date/time of a subject's visit, represented in ISO 8601 character format."
+SVSTDY ,"Study Day of Start
+of Visit",Num ,Study day of start of visit relative to the sponsor-defined RFSTDTC.
+SVENDY ,"Study Day of End
+of Visit",Num ,Study day of end of visit relative to the sponsor-defined RFSTDTC.
+Qualifier Variables,,,
+SVUPDES ,"Description of
+Unplanned Visit",Char ,"Description of what happened to the subject during an unplanned visit. Null for
+protocol-defined visits."

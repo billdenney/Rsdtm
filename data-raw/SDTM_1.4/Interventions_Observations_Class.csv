@@ -1,0 +1,143 @@
+"Variable
+Name ",Variable Label ,Type ,Role ,Description
+Topic Variable,,,,
+--TRT ,Name of Treatment ,Char ,Topic ,"The topic for the intervention observation, usually the verbatim
+name of the treatment, drug, medicine, or therapy given during
+the dosing interval for the observation."
+Qualifier Variables,,,,
+--MODIFY ,"Modified
+Treatment Name",Char ,"Synonym
+Qualifier of
+--TRT","If the value for --TRT is modified for coding purposes, then the
+modified text is placed here."
+--DECOD ,"Standardized
+Treatment Name",Char ,"Synonym
+Qualifier of
+--TRT","Standardized or dictionary-derived name of the topic variable, --
+TRT, or the modified topic variable (--MODIFY), if applicable.
+Equivalent to the generic drug name in WHO Drug, or a term in
+SNOMED, ICD9, or other published or sponsor-defined
+dictionaries."
+--MOOD ,Mood ,Char ,"Record
+Qualifier","Mode or condition of the record (e.g., SCHEDULED,
+PERFORMED)."
+--CAT ,Category ,Char ,"Grouping
+Qualifier",Used to define a category of topic-variable values.
+--SCAT ,Subcategory ,Char ,"Grouping
+Qualifier",Used to define a further categorization of --CAT values.
+--PRESP ,Pre-specified ,Char ,"Variable
+Qualifier of
+--TRT","Used when a specific intervention is pre-specified on a CRF.
+Values should be “Y” or null."
+--OCCUR ,Occurrence ,Char ,"Record
+Qualifier","Used to record whether a pre-specified intervention occurred
+when information about the occurrence of a specific
+intervention is solicited."
+--STAT ,Completion Status ,Char ,"Record
+Qualifier","Used to indicate when a question about the occurrence of a pre
+specified intervention was not answered. Should be null or have
+a value of NOT DONE."
+--REASND ,Reason Not Done ,Char ,"Record
+Qualifier","Reason not done. Used in conjunction with --STAT when value
+is NOT DONE."
+--INDC ,Indication ,Char ,"Record
+Qualifier","Denotes the indication for the intervention (e.g., why the
+therapy was taken or administered)."
+--CLAS ,Class ,Char ,"Variable
+Qualifier of
+--TRT","Class for a medication or treatment, often obtained from a
+coding dictionary."
+--CLASCD ,Class Code ,Char ,"Variable
+Qualifier of
+--TRT",Used to represent code for --CLAS.
+--DOSE ,Dose ,Num ,"Record
+Qualifier","Amount of --TRT given. Not populated when --DOSTXT is
+populated."
+--DOSTXT ,Dose Description ,Char ,"Record
+Qualifier","Dosing information collected in text form. Examples: <1 per
+day, 200-400. Not populated when --DOSE is populated."
+--DOSU ,Dose Units ,Char ,"Variable
+Qualifier of
+--DOSE,
+--DOSTXT or
+--DOSTOT","Units for --DOSE, --DOSTOT, or --DOSTXT (Examples: ng,
+mg, mg/kg)."
+--DOSFRM ,Dose Form ,Char ,"Variable
+Qualifier of
+--DOSE,
+--DOSTXT or
+--DOSTOT","Dose form for the treatment. Examples: TABLET, CAPSULE."
+--DOSFRQ ,"Dosing Frequency
+per Interval",Char ,"Variable
+Qualifier of
+--DOSE,
+--DOSTXT or
+--DOSTOT","Usually expressed as the number of doses given per a specific
+interval. Examples: Q2H, QD, PRN."
+--DOSTOT ,Total Daily Dose ,Num ,"Record
+Qualifier","Total daily dose of --TRT using the units in --DOSU. Used
+when dosing is collected as Total Daily Dose."
+--DOSRGM ,"Intended Dose
+Regimen",Char ,"Variable
+Qualifier of
+--DOSE,
+--DOSTXT or
+--DOSTOT","Text description of the (intended) schedule or regimen for the
+Intervention. Example: TWO WEEKS ON, TWO WEEKS OFF."
+--ROUTE ,"Route of
+Administration",Char ,"Variable
+Qualifier of
+--TRT","Route of administration for the intervention. Examples: ORAL,
+INTRAVENOUS."
+--LOT ,Lot Number ,Char ,"Record
+Qualifier",Lot number for the intervention described in --TRT.
+--LOC ,"Location of Dose
+Administration",Char ,"Record
+Qualifier","Anatomical location of an intervention, such as an injection site.
+Example: ARM for an injection."
+--LAT ,Laterality ,Char ,"Variable
+Qualifier of
+--LOC","Qualifier for anatomical location further detailing laterality of
+intervention administration. Examples: RIGHT, LEFT,
+BILATERAL"
+--DIR ,Directionality ,Char ,"Variable
+Qualifier of
+--LOC","Qualifier for anatomical location further detailing directionality
+of intervention administration. Examples: ANTERIOR,
+LOWER, PROXIMAL"
+--PORTOT ,Portion or Totality ,Char ,"Variable
+Qualifier of
+--LOC","Qualifier for anatomical location further detailing the
+distribution, which means arrangement of, apportioning of the
+intervention administration. Examples: ENTIRE, SINGLE,
+SEGMENT, MANY."
+--FAST ,Fasting Status ,Char ,"Record
+Qualifier","Indicator used to identify fasting status. Valid values include Y,
+N, U or null if not relevant."
+--PSTRG ,"Pharmaceutical
+Strength",Num ,"Variable
+Qualifier","Amount of an active ingredient expressed quantitatively per
+dosage unit, per unit of volume, or per unit of weight, according
+to the pharmaceutical dose form. Example: 50 mg/TABLET, 300
+mg/L"
+--PSTRGU ,"Pharmaceutical
+Strength Units",Char ,"Variable
+Qualifier","Unit for --PSTRG. Example: mg/TABLET, mg/mL"
+--TRTV ,Treatment Vehicle ,Char ,"Record
+Qualifier","Vehicle for administration of treatment, such as a liquid in
+which the treatment drug is dissolved. Example: SALINE."
+--VAMT ,"Treatment Vehicle
+Amount",Num ,"Record
+Qualifier","Amount of the prepared product (treatment + vehicle)
+administered or given. Note: should not be diluent amount
+alone."
+--VAMTU ,"Treatment Vehicle
+Amount Units",Char ,"Variable
+Qualifier of
+--VAMT","Units for the prepared product (treatment + vehicle). Examples:
+mL, mg."
+--ADJ ,"Reason for Dose
+Adjustment",Char ,"Record
+Qualifier","Describes reason or explanation of why a dose is adjusted.
+Examples ADVERSE EVENT, INSUFFICIENT RESPONSE,
+NON-MEDICAL REASON."

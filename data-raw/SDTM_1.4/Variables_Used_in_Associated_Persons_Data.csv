@@ -1,0 +1,20 @@
+"Variable
+Name ",Variable Label ,Type ,CDISC Notes
+APID ,"Associated Persons
+Identifier",Char ,"Identifier for a single associated person, a group of associated persons, or a pool
+of associated persons. If APID identifies a pool, POOLDEF records must exist
+for each associated person."
+RSUBJID ,Related Subject ,Char ,"Identifier for a related study subject or pool of study subjects. The subject(s)
+may be human or animal. RSUBJID will be populated with the USUBJID of
+the related subject or the POOLID of the related pool.
+RSUBJID will be null for data about associated persons who are related to the
+study but not to any of the study subjects."
+RDEVID ,Related Device ,Char ,"Identifier for a related device. RDEVID will be populated with the SPDEVID
+of the related device"
+SREL ,"Subject, Device, or
+Study Relationship",Char ,"If RSUBJID is populated, describes the relationship of the associated person(s)
+identified in APID to the subject or pool identified in RSUBJID.
+If RDEVID is populated, describes the relationship of the associated person(s)
+identified in APID to the device identified in RDEVID.
+If RSUBJID and RDEVID are null, SREL describes the relationship of the
+associated person(s) identified in APID to the study identified in STUDYID."
