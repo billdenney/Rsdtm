@@ -1,0 +1,10 @@
+"Variable
+Name ",Variable Label ,Type ,Role ,Description
+--OBJ ,"Object of the
+Observation",Char ,"Record
+Qualifier","Used in domains modeled as Findings About Events or Findings
+About Interventions. Describes the event or intervention whose
+property is being measured in --TESTCD/--TEST. Example: an
+event of vomiting which has findings, where --OBJ = “VOMIT”
+and the volume of VOMIT is being measured where --TESTCD
+= ""VOLUME""."
