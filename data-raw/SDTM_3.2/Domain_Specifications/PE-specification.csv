@@ -1,0 +1,49 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,PE,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all applications
+or submissions involving the product.",Req
+PESEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a domain.
+May be any valid number.",Req
+PEGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+PESPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor’s operational database. Example: Line
+number on a CRF.",Perm
+PETESTCD,Body System Examined Short Name,Char,*,Topic,"Short name of the measurement, test, or examination described in PETEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in PETESTCD cannot be longer than 8 characters, nor can it start with a number (e.g.”1TEST”). PETESTCD cannot contain
+characters other than letters, numbers, or underscores.",Req
+PETEST,Body System Examined,Char,*,Synonym Qualifier,"Verbatim term part of the body examined. The value in PETEST cannot be longer than 40 characters. Examples: Cardiovascular and Respiratory. For subject-level
+exam, value should be “Physical Examination”.",Req
+PEMODIFY,Modified Reported Term,Char,,"Synonym
+Qualifier","If PEORRES is modified as part of a defined procedure, then PEMODIFY will
+contain the modified text.",Perm
+PECAT,Category for Examination,Char,*,"Grouping
+Qualifier","Used to define a category of examination. Examples: GENERAL,
+NEUROLOGICAL.",Perm
+PESCAT,Subcategory for Examination,Char,*,"Grouping
+Qualifier","A further categorization of the examination. Used if needed to add further detail
+to PECAT.",Perm
+PEBODSYS,Body System or Organ Class,Char,,"Result
+Qualifier","Body system or organ class ( MedDRA SOC) that is involved in a measurement
+from the standard hierarchy (e.g., MedDRA).",Perm
+PEORRES,Verbatim Examination Finding,Char,,Result Qualifier,"Text description of any abnormal findings. If the examination was completed and there were no abnormal findings, the value should be NORMAL. If the
+examination was not performed on a particular body system, or at the subject level, then the value should be null, and NOT DONE should appear in PESTAT.",Exp
+PEORRESU,Original Units,Char,(UNIT),Variable Qualifier,Original units in which the data were collected. The unit for PEORRES.,Perm
+PESTRESC,Character Result/Finding in Standard Format,Char,,Result Qualifier,"If there are findings for a body system, then either the dictionary preferred term (if findings are coded using a dictionary) or PEORRES (if findings are not coded)
+should appear here. If PEORRES is null, PESTRESC should be null",Exp
+PESTAT,Completion Status,Char,(ND),"Record
+Qualifier",Used to indicate exam not done. Should be null if a result exists in PEORRES.,Perm
+PEREASND,Reason Not Examined,Char,,Record Qualifier,"Describes why an examination was not performed or why a body system was not examined. Example: SUBJECT REFUSED. Used in conjunction with STAT
+when value is NOT DONE.",Perm
+PELOC,Location of Physical Exam Finding,Char,(LOC),Record Qualifier,Can be used to specify where a physical exam finding occurred. Example: ARM for skin rash.,Perm
+PEMETHOD,"Method of Test or
+Examination",Char,(METHOD),"Record
+Qualifier","Method of the test or examination. Examples: XRAY, MRI.",Perm
+PEEVAL,Evaluator,Char,(EVAL),Record Qualifier,"Role of the person who provided the evaluation. Used only for results that are subjective (e.g., assigned by a person or a group). Should be null for records that contain collected or derived data. Examples: INVESTIGATOR,
+ADJUDICATION COMMITTEE.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+PEDTC,Date/Time of Examination,Char,ISO 8601,Timing,,Exp
+PEDY,Study Day of Examination,Num,,Timing,"1. Study day of physical exam, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.",Perm

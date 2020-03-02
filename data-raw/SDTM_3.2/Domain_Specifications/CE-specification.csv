@@ -1,0 +1,56 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,CE,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product.",Req
+CESEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a
+domain. May be any valid number.",Req
+CEGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records for a subject within a domain.,Perm
+CEREFID,Reference ID,Char,,Identifier,Internal or external identifier.,Perm
+CESPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an
+explicit line identifier or defined in the sponsor’s operational database. Example: Line number on a CRF page.",Perm
+CETERM,"Reported Term for the
+Clinical Event",Char,,Topic,Term for the medical condition or event. Most likely pre-printed on CRF.,Req
+CEDECOD,Dictionary-Derived Term,Char,*,Synonym Qualifier,"Controlled terminology for the name of the clinical event. The sponsor is expected to provide the dictionary name and version used to map the
+terms utilizing the define.xml external codelist attributes",Perm
+CECAT,Category for Clinical Event,Char,*,Grouping Qualifier,Used to define a category of related records.,Perm
+CESCAT,"Subcategory for Clinical
+Event",Char,*,"Grouping
+Qualifier",A further categorization of the condition or event.,Perm
+CEPRESP,Clinical Event Pre-Specified,Char,(NY),"Variable
+Qualifier","Used to indicate whether the Event in CETERM was pre-specified. Value is Y
+for pre-specified events, null for spontaneously reported events.",Perm
+CEOCCUR,Clinical Event Occurrence,Char,(NY),"Record
+Qualifier","Used when the occurrence of specific events is solicited to indicate whether or
+not a clinical event occurred. Values are null for spontaneously reported events.",Perm
+CESTAT,Completion Status,Char,(ND),"Record
+Qualifier",The status indicates that a question from a pre-specified list was not answered.,Perm
+CEREASND,"Reason Clinical Event Not
+Collected",Char,,"Record
+Qualifier","Describes the reason clinical event data was not collected. Used in conjunction
+with CESTAT when value is NOT DONE.",Perm
+CEBODSYS,Body System or Organ Class,Char,*,Record Qualifier,"Dictionary-derived. Body system or organ class that is involved in an event or measurement from a standard hierarchy (e.g., MedDRA). When using a multi- axial dictionary such as MedDRA, this should contain the SOC used for the
+sponsor’s analyses and summary tables which may not necessarily be the primary SOC.",Perm
+CESEV,Severity/Intensity,Char,*,"Record
+Qualifier","The severity or intensity of the event. Examples: MILD, MODERATE,
+SEVERE",Perm
+CEDTC,"Date/Time of Event
+Collection",Char,ISO 8601,Timing,,Perm
+CESTDTC,"Start Date/Time of Clinical
+Event",Char,ISO 8601,Timing,,Perm
+CEENDTC,"End Date/Time of Clinical
+Event",Char,ISO 8601,Timing,,Perm
+CEDY,Study Day of Event Collection,Num,,Timing,"1. Study day of clinical event collection, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC
+variable in Demographics. This formula should be consistent across the submission.",Perm
+CESTRF,Start Relative to Reference Period,Char,(STENRF),Timing,"Describes the start of the clinical event relative to the sponsor-defined reference period. The sponsor-defined reference period is a continuous period of time
+defined by a discrete starting point and a discrete ending point (represented by RFSTDTC and RFENDTC in Demographics).",Perm
+CEENRF,End Relative to Reference Period,Char,(STENRF),Timing,Describes the end of the event relative to the sponsor-defined reference period. The sponsor-defined reference period is a continuous period of time defined by a discrete starting point and a discrete ending point (represented by RFSTDTC  and RFENDTC in Demographics).,Perm
+CESTRTPT,Start Relative to Reference Time Point,Char,(STENRF),Timing,Identifies the start of the observation as being before or after the reference time point defined by variable CESTTPT.,Perm
+CESTTPT,Start Reference Time Point,Char,,Timing,"Description or date/time in ISO 8601 character format of the sponsor-defined
+reference point referred to by --STRTPT. Examples: ""2003-12-15"" or ""VISIT 1"".",Perm
+CEENRTPT,"End Relative to Reference
+Time Point",Char,(STENRF),Timing,"Identifies the end of the event as being before or after the reference time point
+defined by variable CEENTPT.",Perm
+CEENTPT,End Reference Time Point,Char,,Timing,"Description or date/time in ISO 8601 character format of the reference point
+referred to by CEENRTPT. Examples: ""2003-12-25"" or ""VISIT 2"".",Perm

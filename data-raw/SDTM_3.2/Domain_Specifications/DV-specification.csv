@@ -1,0 +1,23 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,DV,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all applications or
+submissions involving the product.",Req
+DVSEQ,Sequence Number,Num,,Identifier,Sequence Number given to ensure uniqueness of subject records within a domain. May be any valid number.,Req
+DVREFID,Reference ID,Char,,Identifier,Internal or external identifier.,Perm
+DVSPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor’s operational database. Example: Line
+number on a CRF page.",Perm
+DVTERM,Protocol Deviation Term,Char,,Topic,"Verbatim name of the protocol deviation criterion. Example: IVRS PROCESS DEVIATION - NO DOSE CALL PERFORMED. The DVTERM values will map to
+the controlled terminology in DVDECOD, such as TREATMENT DEVIATION.",Req
+DVDECOD,Protocol Deviation Coded Term,Char,*,Synonym Qualifier,"Controlled terminology for the name of the protocol deviation. Examples: SUBJECT NOT WITHDRAWN AS PER PROTOCOL, SELECTION CRITERIA NOT MET, EXCLUDED CONCOMITANT MEDICATION, TREATMENT DEVIATION.",Perm
+DVCAT,"Category for Protocol
+Deviation",Char,*,"Grouping
+Qualifier",Category of the protocol deviation criterion.,Perm
+DVSCAT,"Subcategory for Protocol
+Deviation",Char,*,"Grouping
+Qualifier",A further categorization of the protocol deviation.,Perm
+EPOCH,Epoch,Char,(EPOCH),Timing,"Epoch associated with the start date/time of the deviation. Examples: TREATMENT PHASE, SCREENING, and FOLLOW-UP.",Perm
+DVSTDTC,"Start Date/Time of
+Deviation",Char,ISO 8601,Timing,Start date/time of deviation represented in ISO 8601 character format.,Perm
+DVENDTC,"End Date/Time of
+Deviation",Char,ISO 8601,Timing,End date/time of deviation represented in ISO 8601 character format.,Perm

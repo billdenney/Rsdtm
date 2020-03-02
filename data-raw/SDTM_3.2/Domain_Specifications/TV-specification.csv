@@ -1,0 +1,15 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,TV,Identifier,Two-character abbreviation for the domain,Req
+VISITNUM,Visit Number,Num,,Topic,"1. Clinical encounter number
+2. Numeric version of VISIT, used for sorting.",Req
+VISIT,Visit Name,Char,,Synonym Qualifier,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY as a text description of the clinical encounter.",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,"1. Planned study day of VISIT.
+2. Due to its sequential nature, used for sorting.",Perm
+ARMCD,Planned Arm Code,Char,*,Record Qualifier,"1.ARMCD is limited to 20 characters and does not have special character restrictions. The maximum length of ARMCD is longer than for other “short” variables to accommodate the kind of values that are likely to be needed for crossover trials. For example, if ARMCD values for a seven- period crossover were constructed using two-character abbreviations for each treatment and separating hyphens, the length of ARMCD values would be 20.
+2. If the timing of Visits for a trial does not depend on which ARM a subject is in, then ARMCD should be null.",Exp
+ARM,Description of Planned Arm,Char,*,Synonym Qualifier,"1. Name given to an Arm or Treatment Group.
+2. If the timing of Visits for a trial does not depend on which Arm a subject is in, then Arm should be left blank.",Perm
+TVSTRL,Visit Start Rule,Char,,Rule,"Rule describing when the Visit starts, in relation to the sequence of Elements.",Req
+TVENRL,Visit End Rule,Char,,Rule,"Rule describing when the Visit ends, in relation to the sequence of Elements.",Perm

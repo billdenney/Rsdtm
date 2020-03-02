@@ -1,0 +1,35 @@
+Variable Name,Variable Label,Type,"Controlled
+Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,FA,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.,Req
+FASEQ,Sequence Number,Num,,Identifier,Sequence Number given to ensure uniqueness of subject records within a domain. May be any valid number.,Req
+FAGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+FASPID,Sponsor-Defined Identifier,Char,,Identifier,Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor’s operational database. Example: Line number on a CRF.,Perm
+FATESTCD,Findings About Test Short Name,Char,(FATESTCD),Topic,"Short name of the measurement, test, or examination described in FATEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in FATESTCD cannot be longer than 8 characters, nor can it start with a number (e.g. “1TEST”). FATESTCD cannot contain characters other than letters, numbers, or underscores. Example: SEV, OCCUR.",Req
+FATEST,Findings About Test Name,Char,(FATEST),Synonym Qualifier,"Verbatim name of the test or examination used to obtain the measurement or finding. The value in FATEST cannot be longer than 40 characters. Examples: Severity/Intensity, Occurrence",Req
+FAOBJ,Object of the Observation,Char,,Record Qualifier,"Used to describe the object or focal point of the findings observation that is represented by --TEST. Examples: the term (such as Acne) describing a clinical sign or symptom that is being measured by a Severity test, or an event such as
+VOMIT where the volume of Vomit is being measured by a VOLUME test.",Req
+FACAT,Category for Findings About,Char,*,Grouping Qualifier,"Used to define a category of related records. Examples: GERD, PRE-SPECIFIED AE.",Perm
+FASCAT,Subcategory for Findings About,Char,*,Grouping Qualifier,A further categorization of FACAT.,Perm
+FAORRES,Result or Finding in Original Units,Char,,Result Qualifier,Result of the test as originally received or collected.,Exp
+FAORRESU,Original Units,Char,(UNIT),Variable Qualifier,Original units in which the data were collected. The unit for FAORRES.,Perm
+FASTRESC,Character Result/Finding in Std Format,Char,,Result Qualifier,"Contains the result value for all findings, copied or derived from FAORRES in a standard format or standard units. FASTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in FASTRESN. For example, if a test has results “NONE”, “NEG”, and “NEGATIVE” in FAORRES and these results effectively have the same meaning; they could be represented in standard format in FASTRESC as
+“NEGATIVE”.",Exp
+FASTRESN,Numeric Result/Finding in Standard Units,Num,,Result Qualifier,Used for continuous or numeric results or findings in standard format; copied in numeric format from FASTRESC. FASTRESN should store all numeric test results or findings.,Perm
+FASTRESU,Standard Units,Char,(UNIT),Variable Qualifier,Standardized unit used for FASTRESC and FASTRESN.,Perm
+FASTAT,Completion Status,Char,(ND),Record Qualifier,Used to indicate that the measurement was not done. Should be null if a result exists in FAORRES.,Perm
+FAREASND,Reason Not Performed,Char,,Record Qualifier,Describes why a question was not answered. Example: subject refused. Used in conjunction with FASTAT when value is NOT DONE.,Perm
+FALOC,Location of the Finding About,Char,(LOC),Record Qualifier,Used to specify the location of the clinical evaluation. Example: ARM,Perm
+FALAT,Laterality of Location of the Finding About,Char,(LAT),Result Qualifier,"Qualifier for anatomical location or specimen further detailing laterality. Examples: RIGHT, LEFT, BILATERAL",
+FABLFL,Baseline Flag,Char,(NY),Record Qualifier,Indicator used to identify a baseline value. The value should be “Y” or null.,Perm
+FAEVAL,Evaluator,Char,(EVAL),Record Qualifier,"Role of the person who provided the evaluation. Used only for results that are subjective (e.g., assigned by a person or a group). Should be null for records that contain collected or derived data. Examples: INVESTIGATOR, ADJUDICATION COMMITTEE, VENDOR.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+FADTC,Date/Time of Collection,Char,ISO 8601,Timing,,Perm
+FADY,Study Day of Collection,Num,,Timing,"1. Study day of collection, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC
+variable in Demographics. This formula should be consistent across the submission.",Perm

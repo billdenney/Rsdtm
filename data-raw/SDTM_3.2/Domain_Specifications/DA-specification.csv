@@ -1,0 +1,40 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist
+or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study within the submission.,Req
+DOMAIN,Domain Abbreviation,Char,DA,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Unique subject identifier within the submission.,Req
+DASEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a domain.
+May be any valid number.",Req
+DAGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+DAREFID,Reference ID,Char,,Identifier,Internal or external identifier such as label number.,Perm
+DASPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit
+line identifier or defined in the sponsor’s operational database. Examples: Line number on the Drug Accountability page, drug label code.",Perm
+DATESTCD,Short Name of Accountability Assessment,Char,*,Topic,"Short character value for DATEST used as a column name when converting a dataset from a vertical format to a horizontal format. The short value can be up to 8 characters and cannot begin with a number or contain characters other than
+letters, numbers or underscores. Example: DISPAMT, RETAMT.",Req
+DATEST,Name of Accountability Assessment,Char,*,Synonym Qualifier,"Verbatim name, corresponding to the topic variable, of the test or examination used to obtain the drug accountability assessment. The value in DATEST cannot
+be longer than 40 characters. Example: Dispensed Amount, Returned Amount.",Req
+DACAT,Category of Assessment,Char,*,"Grouping
+Qualifier","Used to define a category of related records. Examples: STUDY MEDICATION,
+RESCUE MEDICATION.",Perm
+DASCAT,Subcategory of Assessment,Char,*,Grouping Qualifier,Used to define a further categorization level for a group of related records.,Perm
+DAORRES,"Assessment Result in
+Original Units",Char,,"Result
+Qualifier",Result of the Drug Accountability assessment as originally received or collected.,Exp
+DAORRESU,Original Units,Char,(UNIT),Variable Qualifier,Unit for DAORRES.,Perm
+DASTRESC,Assessment Result in Std Format,Char,,Result Qualifier,"Contains the result value for all Drug Accountability assessments, copied or derived from DAORRES in a standard format or in standard units. DASTRESC should store
+all results or findings in character format; if results are numeric, they should also be stored in numeric format in DASTRESN.",Exp
+DASTRESN,Numeric Result/Finding in Standard Units,Num,,Result Qualifier,Used for continuous or numeric results or findings in standard format; copied in numeric format from DASTRESC. DASTRESN should store all numeric test results or findings.,Perm
+DASTRESU,Assessment Standard Units,Char,(UNIT),Variable Qualifier,Standardized units used for DASTRESC and DASTRESN.,Perm
+DASTAT,Completion Status,Char,(ND),"Record
+Qualifier","Used to indicate that a drug accountability assessment was not done. Should be
+null or have a value of NOT DONE.",Perm
+DAREASND,Reason Not Performed,Char,,"Record
+Qualifier",Reason not done. Used in conjunction with DASTAT when value is NOT DONE.,Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter
+2. May be used in addition to VISITNUM and/or VISITDY",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+DADTC,Date/Time of Accountability Assessment,Char,ISO 8601,Timing,,Exp
+DADY,Study Day of Accountability Assessment,Num,,Timing,"1. Study day of drug accountability assessment, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.",Perm

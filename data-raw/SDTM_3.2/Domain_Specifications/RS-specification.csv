@@ -1,0 +1,45 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,RS,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.,Req
+RSSEQ,Sequence Number,Num,,Identifier,"Sequence number given to ensure uniqueness within a dataset for a subject. May
+be any valid number.",Req
+RSGRPID,Group ID,Char,,Identifier,Used to link together a block of related records within a subject in a domain.,Perm
+RSREFID,Reference ID,Char,,Identifier,Internal or external identifier.,Perm
+RSSPID,Sponsor-Defined Identifier,Char,,Identifier,Sponsor-defined identifier.,Perm
+RSLNKID,Link ID,Char,,Identifier,"Used to link the response assessment to the appropriate measurement records (in
+TR) for same tumor that was used to determine the response result.",Perm
+RSLNKGRP,Link Group,Char,,Identifier,"Used to link the response assessment to the all of the measurement/assessment
+records in the TR domain which were used in the assessment of the response.",Perm
+RSTESTCD,Response Assessment Short Name,Char,(RSTESTCD),Topic,"Short name of the TEST in RSTEST. RSTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: TRGRESP, NTRGRESP, OVRRESP, BESTRESP, NRADPROG",Req
+RSTEST,Response Assessment Name,Char,(RSTEST),Synonym Qualifier,"Verbatim name of the response assessment. The value in RSTEST cannot be longer than 40 characters. Examples: Target Response, Non-target Response, Overall Response, Best Overall Response, Non-radiological progression (i.e. Symptomatic deterioration)",Req
+RSCAT,Category for Response Assessment,Char,,Grouping Qualifier,RSCAT is used to identify the criteria used in the assessment of response and a version number if appropriate,Exp
+RSORRES,"Response Assessment
+Original Result",Char,,"Result
+Qualifier","Result of the Response assessment as originally received, collected, or
+calculated.",Exp
+RSSTRESC,Response Assessment Result in Std Format,Char,,Record Qualifier,"Contains the result value for the response assessment, copied or derived from RSORRES in a standard format or standard units. RSSTRESC should store all
+results or findings in character format;",Exp
+RSSTAT,Completion Status,Char,(ND),Result Qualifier,Used to indicate the response assessment was not performed. Should be Null if a result exists in RSORRES.,Perm
+RSREASND,"Reason Response Assessment Not
+Performed",Char,,Record Qualifier,"Describes why a response assessment was not performed. Examples: All target tumors not evaluated, Subject does not have non-target tumors. Used in
+conjunction with TRSTAT when value is NOT DONE.",Perm
+RSNAM,Vendor Name,Char,,Record Qualifier,The name or identifier of the vendor that performed the response assessment. This column can be left Null when the Investigator provides the complete set of data in the domain.,Perm
+RSEVAL,Evaluator,Char,(EVAL),Record Qualifier,"Role of the person who provided the evaluation. Examples: INVESTIGATOR, INDEPENDENT ASSESSOR.
+This column can be left Null when the Investigator provides the complete set of data in the domain. However the column should contain no Null values when data from one or more independent assessors is included meaning that the rows
+attributed to the Investigator should contain a value of INVESTIGATOR.",Exp
+RSEVALID,Evaluator Identifier,Char,(MEDEVAL),Variable Qualifier,"The Evaluator Specified variable is used in conjunction with RSEVAL to provide an additional level of detail. When multiple assessors play the role identified in RSEVAL, values of RSEVALID will attribute a row of data to a particular assessor. RSEVALID should not contain the names of the assessors, or a code identifier for a specific assessor. The RSEVALID variable is subject to CDISC Controlled Terminology. Examples: RADIOLOGIST,
+RADIOLOGIST 1 or RADIOLOGIST 2. See Assumption 4",Perm
+RSACPTFL,Accepted Record Flag,Char,(NY),Record Qualifier,"In cases where more than one independent assessor (e.g. RADIOLOGIST 1,
+RADIOLOGIST 2, ADJUDICATOR) provides an evaluation of response this flag identifies the record that is considered to be the accepted evaluation.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,"Planned Study Day of
+Visit",Num,,Timing,,Perm
+EPOCH,Epoch,Char,,Timing,"Epoch associated with the Element in the planned sequence of Elements for the
+ARM to which the subject was assigned",Perm
+RSDTC,Date/Time of Response Assessment,Char,ISO 8601,Timing,"RSDTC may be derived from the dates of scans/images/physical exams which may be performed on different dates. However, if all assessments are performed
+on the same date, RSDTC may be consistent with the TUDTC and TRDTC. Note the physical exam date may correspond to the visit date.",Exp
+RSDY,Study Day of Response Assessment,Num,,Timing,"1. Study day of the response assessment, measured as integer days. 2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.",Perm

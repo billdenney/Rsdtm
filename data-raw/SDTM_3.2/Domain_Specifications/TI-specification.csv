@@ -1,0 +1,20 @@
+Variable Name,Variable Label,Type,"Controlled Terms,
+Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,"Domain
+Abbreviation",Char,TI,Identifier,"Two-character abbreviation for the
+domain.",Req
+IETESTCD,Incl/Excl Criterion Short Name e,Char,*,Topic,"Short name IETEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in IETESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., “1TEST”). IETESTCD cannot
+contain characters other than letters, numbers, or underscores. The prefix “IE”
+is used to ensure consistency with the IE domain.",Req
+IETEST,Inclusion/Exclusion Criterion,Char,*,Synonym Qualifier,Full text of the inclusion or exclusion criterion. The prefix “IE” is used to ensure consistency with the IE domain.,Req
+IECAT,"Inclusion/Exclusion
+Category",Char,(IECAT),"Grouping
+Qualifier","Used for categorization of the inclusion or
+exclusion criteria.",Req
+IESCAT,Inclusion/Exclusion Subcategory,Char,*,Grouping Qualifier,"A further categorization of the exception criterion. Can be used to distinguish criteria for a sub-study or for to categorize
+as a major or minor exceptions. Examples: MAJOR, MINOR.",Perm
+TIRL,Inclusion/Exclusion Criterion Rule,Char,,Rule,"Rule that expresses the criterion in
+computer-executable form (see assumption 4 below).",Perm
+TIVERS,Protocol Criteria Versions,Char,,Record Qualifier,"The number of this version of the Inclusion/Exclusion criteria. May be
+omitted if there is only one version.",Perm

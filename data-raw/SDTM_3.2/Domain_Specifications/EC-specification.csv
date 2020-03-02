@@ -1,0 +1,49 @@
+"Variable
+Name","Variable
+Label",Type,"Controlled
+Terms, Codelist
+or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,EC,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.,Req
+ECSEQ,Sequence Number,Num,,Identifier,Sequence Number given to ensure uniqueness of subject records within a domain. May be any valid number.,Req
+ECGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+ECREFID,Reference ID,Char,,Identifier,"Internal or external identifier (e.g., kit number, bottle label, vial identifier).",Perm
+ECSPID,Sponsor-Defined Identifier,Char,,Identifier,Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor's operational database. Example: Line number on a CRF Page.,Perm
+ECLNKID,Link ID,Char,,Identifier,Identifier used to link related records across domains.,Perm
+ECLNKGRP,Link Group ID,Char,,Identifier,"Identifier used to link related, grouped records across domains.",Perm
+ECTRT,Name of Treatment,Char,*,Topic,Name of the intervention treatment known to the subject and/or administrator.,Req
+ECMOOD,Mood,Char,*,Record Qualifier,"Mode or condition of the record specifying whether the intervention (activity) is intended to happen or has happened. Values align with BRIDG pillars (e.g., scheduled context, performed context) and HL7 activity moods (e.g., intent, event). Examples: SCHEDULED, PERFORMED. CDISC Controlled Terminology request for MOOD codelist with values of SCHEDULED and PERFORMED has been submitted.",Perm
+ECCAT,Category of Treatment,Char,*,Grouping Qualifier,Used to define a category of related ECTRT values.,Perm
+ECSCAT,Subcategory of Treatment,Char,*,Grouping Qualifier,A further categorization of ECCAT values.,Perm
+ECPRESP,Pre-Specified,Char,(NY),Record Qualifier,"Used when a specific intervention is pre-specified. Values should be ""Y"" or null.",Perm
+ECOCCUR,Occurrence,Char,(NY),Record Qualifier,"Used to indicate whether a treatment occurred when information about the occurrence is solicited. ECOCCUR = 'N' when a treatment was not taken, not given, or missed.",Perm
+ECDOSE,Dose,Num,,Record Qualifier,Amount of ECTRT when numeric. Not populated when ECDOSTXT is populated.,Exp
+ECDOSTXT,Dose Description,Char,,Record Qualifier,Amount of ECTRT when non-numeric. Dosing amounts or a range of dosing information collected in text form. Example: 200-400. Not populated when ECDOSE is populated.,Perm
+ECDOSU,Dose Units,Char,(UNIT),Variable Qualifier,"Units for ECDOSE, ECDOSTOT, or ECDOSTXT.",Exp
+ECDOSFRM,Dose Form,Char,(FRM),Variable Qualifier,"Dose form for ECTRT. Examples: TABLET, LOTION.",Exp
+ECDOSFRQ,Dosing Frequency per Interval,Char,(FREQ),Variable Qualifier,"Usually expressed as the number of repeated administrations of ECDOSE within a specific time period. Examples: Q2H, QD, BID.",Perm
+ECDOSTOT,Total Daily Dose,Char,,Record Qualifier,Total daily dose of ECTRT using the units in ECDOSU. Used when dosing is collected as Total Daily Dose.,Perm
+ECDOSRGM,Intended Dose Regimen,Char,,Variable Qualifier,"Text description of the intended schedule or regimen for the Intervention. Example: TWO WEEKS ON, TWO WEEKS OFF.",Perm
+ECROUTE,Route of Administration,Char,(ROUTE),Variable Qualifier,"Route of administration for the intervention. Examples: ORAL, INTRAVENOUS.",Perm
+ECLOT,Lot Number,Char,,Record Qualifier,Lot Number of the ECTRT product.,Perm
+ECLOC,Location of Dose Administration,Char,(LOC),Record Qualifier,"Specifies location of administration. Example: ARM, LIP.",Perm
+ECLAT,Laterality,Char,(LAT),Record Qualifier,"Qualifier for anatomical location further detailing laterality of the intervention administration. Examples: LEFT, RIGHT.",Perm
+ECDIR,Directionality,Char,(DIR),Variable Qualifier,"Qualifier for anatomical location further detailing directionality. Examples: ANTERIOR, LOWER, PROXIMAL, UPPER.",Perm
+ECPORTOT,Portion or Totality,Char,(PORTOT),Variable Qualifier,"Qualifier for anatomical location further detailing distribution, which means arrangement of, apportioning of. Examples: ENTIRE, SINGLE, SEGMENT.",Perm
+ECFAST,Fasting Status,Char,(NY),Record Qualifier,"Indicator used to identify fasting status. Examples: Y, N.",Perm
+ECPSTRG,Pharmaceutical Strength,Num,,Variable Qualifier,"Amount of an active ingredient expressed quantitatively per dosage unit, per unit of volume, or per unit of weight, according to the pharmaceutical dose form.",Perm
+ECPSTRGU,Pharmaceutical Strength Units,Char,*,Variable Qualifier,"Unit for ECPSTRG. Examples: mg/TABLET, mg/mL.",Perm
+ECADJ,Reason for Dose Adjustment,Char,*,Record Qualifier,Describes reason or explanation of why a dose is adjusted.,Perm
+EPOCH,Epoch,Char,(EPOCH),Timing,"Trial Epoch of the exposure as collected record. Examples: RUN-IN, TREATMENT.",Perm
+ECSTDTC,Start Date/Time of Treatment,Char,ISO 8601,Timing,The date/time when administration of the treatment indicated by ECTRT and ECDOSE began.,Exp
+ECENDTC,End Date/Time of Treatment,Char,ISO 8601,Timing,"The date/time when administration of the treatment indicated by ECTRT and ECDOSE ended. For administrations considered given at a point in time (e.g., oral tablet, pre-filled syringe injection), where only an administration date/time is collected, ECSTDTC should be copied to ECENDTC as the standard representation.",Exp
+ECSTDY,Study Day of Start of Treatment,Num,,Timing,Study day of ECSTDTC relative to the sponsor-defined DM.RFSTDTC.,Perm
+ECENDY,Study Day of End of Treatment,Num,,Timing,Study day of ECENDTC relative to the sponsor-defined DM.RFSTDTC.,Perm
+ECDUR,Duration of Treatment,Char,ISO 8601,Timing,Collected duration of administration represented in ISO 8601 duration format. Used only if collected on the CRF and not derived from start and end date/times.,Perm
+ECTPT,Planned Time Point Name,Char,,Timing,"Text Description of time when administration should occur.
+This may be represented as an elapsed time relative to a fixed reference point, such as time of last dose. See ECTPTNUM and ECTPTREF.",Perm
+ECTPTNUM,Planned Time Point Number,Num,,Timing,Numerical version of ECTPT to aid in sorting.,Perm
+ECELTM,Planned Elapsed Time from Time Point Ref,Char,ISO 8601,Timing,Planned elapsed time (in ISO 8601 format) relative to the planned fixed reference (ECTPTREF). This variable is useful where there are repetitive measures. Not a clock time. Represented in ISO 8601 duration format.,Perm
+ECTPTREF,Time Point Reference,Char,,Timing,"Name of the fixed reference point referred to by ECELTM, ECTPTNUM, and ECTPT. Examples: PREVIOUS DOSE, PREVIOUS MEAL.",Perm
+ECRFTDTC,Date/Time of Reference Time Point,Char,ISO 8601,Timing,Date/time for a fixed reference time point defined by ECTPTREF in ISO 8601 character format.,Perm

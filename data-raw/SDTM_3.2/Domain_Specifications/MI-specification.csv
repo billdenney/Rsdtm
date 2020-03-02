@@ -1,0 +1,69 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist, or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,"Domain
+Abbreviation",Char,MI,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,"Unique Subject
+Identifier",Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product.",Req
+MISEQ,Sequence Number,Num,,Identifier,"Sequence number given to ensure uniqueness of subject records within
+a domain. May be any valid number.",Req
+MIGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject. This is not the treatment group number.,Perm
+MIREFID,Reference ID,Char,,Identifier,"Internal or external specimen identifier. Example: Specimen barcode
+number.",Perm
+MISPID,Sponsor-Defined Identifier,Char,,Identifier,Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor's operational database. Example: Line number from the MI Findings page.,Perm
+MITESTCD,Microscopic Examination Short Name,Char,(MITESTCD),Topic,"Short name of the measurement, test, or examination described in MITEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in MITESTCD cannot be longer than 8 characters, nor can it start with a number
+(e.g., “1TEST” is not valid). MITESTCD cannot contain characters other than letters, numbers, or underscores. Examples: HER2, BRCA1,
+TTF1.",Req
+MITEST,Microscopic Examination Name,Char,(MITEST),Synonym Qualifier,"Verbatim name of the test or examination used to obtain the measurement or finding. The value in MITEST cannot be longer than 40 characters. Examples: Human Epidermal Growth Factor Receptor 2,
+Breast Cancer Susceptibility Gene 1, Thyroid Transcription Factor 1.",Req
+MITSTDTL,"Microscopic
+Examination Detail",Char,,Record Qualifier,"Further description of the test performed in producing the MI result. This
+would be used to represent specific attributes, such as intensity score or percentage of cells displaying presence of the biomarker or compound",Perm
+MICAT,"Category for
+Microscopic Finding",Char,*,Grouping Qualifier,Used to define a category of related records.,Perm
+MISCAT,"Subcategory for
+Microscopic Finding",Char,*,Grouping Qualifier,Used to define a further categorization of MICAT.,Perm
+MIORRES,"Result or Finding
+in Original Units",Char,,"Result
+Qualifier","Result of the histopathology measurement or finding as originally
+received or collected.",Exp
+MIORRESU,Original Units,Char,(UNIT),Variable Qualifier,Original unit for MIORRES.,Perm
+MISTRESC,Character Result/Finding in Standard Format,Char,,Result Qualifier,"Contains the result value for all findings, copied or derived from MIORRES in a standard format or standard units. MISTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in MISTRESN.",Exp
+MISTRESN,Numeric Result/Finding in Standard Units,Num,,Result Qualifier,Used for continuous or numeric results or findings in standard format; copied in numeric format from MISTRESC. MISTRESN should store all numeric test results or findings.,Perm
+MISTRESU,Standard Units,Char,(UNIT),Variable Qualifier,Standardized unit used for MISTRESC and MISTRESN.,Perm
+MIRESCAT,Result Category,Char,*,Result Qualifier,"Used to categorize the result of a finding.
+Examples: MALIGNANT or BENIGN for tumor findings.",Perm
+MISTAT,Completion Status,Char,(ND),Record Qualifier,"Used to indicate examination not done or result is missing. Should be
+null if a result exists in MIORRES or have a value of NOT DONE when MIORRES=NULL.",Perm
+MIREASND,Reason Not Done,Char,,"Record
+Qualifier","Reason not done. Used in conjunction with MISTAT when value is
+NOT DONE. Examples: SAMPLE AUTOLYZED, SPECIMEN LOST.",Perm
+MINAM,"Laboratory/Vendor
+Name",Char,,"Record
+Qualifier","Name or identifier of the vendor (e.g., laboratory) that provided the
+test results.",Perm
+MISPEC,Specimen Material Type,Char,(SPECTYPE),Record Qualifier,"Subject of the observation. Defines the type of specimen used for a measurement. Examples: TISSUE, BLOOD, BONE MARROW.",Req
+MISPCCND,"Specimen
+Condition",Char,(SPECCOND),"Variable
+Qualifier","Free or standardized text describing the condition of the specimen.
+Example: AUTOLYZED.",Exp
+MILOC,"Specimen Collection
+Location",Char,(LOC),Record Qualifier,"Location relevant to the collection of the specimen. Examples: LUNG, KNEE JOINT, ARM, THIGH.",Perm
+MILAT,"Specimen Laterality within
+Subject",Char,(LAT),Variable Qualifier,"Qualifier for laterality of the location of the specimen in MILOC. Examples: LEFT, RIGHT, BILATERAL.",Perm
+MIDIR,"Specimen Directionality
+within Subject",Char,(DIR),Variable Qualifier,"Qualifier for directionality of the location of the specimen in MILOC. Examples: DORSAL, PROXIMAL.",Perm
+MIMETHOD,Method of Test or Examination,Char,(METHOD),Record Qualifier,"Method of the test or examination. This could include the technique or type of staining used for the slides. Examples: IHC, Crystal Violet,
+Safranin, Trypan Blue, or Propidium Iodide.",Perm
+MIBLFL,Baseline Flag,Char,(NY),"Record
+Qualifier","Indicator used to identify a baseline value. The value should be “Y” or
+null.",Exp
+MIEVAL,Evaluator,Char,(EVAL),Record Qualifier,"Role of the person who provided the evaluation. Example: PATHOLOGIST, PEER REVIEW, SPONSOR PATHOLOGIST.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,"Planned Study Day
+of Visit",Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+MIDTC,Date/Time of Specimen Collection,Char,ISO 8601,Timing,"Date/time of specimen collection, in ISO 8601 format.",Exp
+MIDY,Study Day of Specimen Collection,Num,,Timing,"Study day of specimen collection, in integer days. The algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in the Demographics (DM) domain.",Perm

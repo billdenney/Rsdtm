@@ -1,0 +1,34 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,SS,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product.",Req
+SSSEQ,Sequence Number,Num,,Identifier,Sequence  Number  given  to  ensure  uniqueness  of  subject  records within a domain. May be any valid number.,Req
+SSGRPID,Group ID,Char,,Identifier,"Used to tie together a block of related records in a single domain for a
+subject.",Perm
+SSSPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor's operational
+database. Example: Line number from the procedure or test page.",Perm
+SSTESTCD,Status Short Name,Char,(SSTESTCD),Topic,"Short name of the status assessment described in SSTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in SSTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., “1TEST”). SSTESTCD cannot contain characters other than letters, numbers, or underscores.
+Example: SURVSTAT",Req
+SSTEST,Status Name,Char,(SSTEST),Synonym Qualifier,Verbatim name of the status assessment used to obtain the finding. The value in SSTEST cannot be longer than 40 characters. Example: Survival Status,Req
+SSCAT,Category for Assessment,Char,*,"Grouping
+Qualifier",Used to categorize observations across subjects.,Perm
+SSSCAT,Subcategory for Assessment,Char,*,Grouping Qualifier,A further categorization.,Perm
+SSORRES,Result or Finding Original Result,Char,,Result Qualifier,Result of the status assessment finding as originally received or collected.,Exp
+SSSTRESC,Character Result/Finding in Std Format,Char,(SSSTRESC),Result Qualifier,"Contains the result value for all findings, copied or derived from SSORRES in a standard format.",Exp
+SSSTAT,Completion Status,Char,(ND),"Record
+Qualifier","Used to indicate a status assessment was not done. Should be null if a
+result exists in SSORRES.",Perm
+SSREASND,Reason Assessment Not Performed,Char,,Record Qualifier,"Describes why an assessment was not performed. Example: SUBJECT REFUSED. Used in conjunction with SSSTAT when value is NOT
+DONE.",Perm
+SSEVAL,Evaluator,Char,(EVAL),Record Qualifier,"Role of the person who provided the evaluation. Used only for results that are subjective (e.g., assigned by a person or a group). Should be null for records that contain collected or derived data. Examples:
+CAREGIVER, ADJUDICATION COMMITTEE, FRIEND.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,"Planned study day of the visit based upon RFSTDTC in
+Demographics.",Perm
+SSDTC,Date/Time of Assessment,Char,ISO 8601,Timing,,Exp
+SSDY,Study Day of Assessment,Num,,Timing,"1. Study day of the test, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.",Perm
