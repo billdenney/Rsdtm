@@ -1,0 +1,45 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique Identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,IS,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Identifier used to uniquely identify a subject across a submission.,Req
+ISSEQ,Sequence Number,Char,,Identifier,"Sequence number given to ensure uniqueness of subject records within a domain.
+May be any valid number.",Req
+ISGRPID,Group ID,Num,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+ISREFID,Reference ID,Char,,Identifier,"Internal or external specimen identifier.
+Example: 458975-01.",Perm
+ISSPID,Sponsor-Defined Identifier,Char,,Identifier,Sponsor-defined identifier.,Perm
+ISTESTCD,Immunogenicity Test/Exam Short Name,Char,*,Identifier,"Short name of the measurement, test, or examination described in ISTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in ISTESTCD cannot be longer than 8 characters, nor can it start with a number. ISTESTCD cannot contain characters other than letters, numbers, or underscores.
+Sponsor should first check the lab terminology for the LBTEST/LBTESTCD values until CDISC attaches published controlled terminology.",Req
+ISTEST,Immunogenicity Test or Examination Name,Char,*,Topic,"Verbatim name of the test or examination used to obtain the measurement or finding. The value in ISTEST cannot be longer than 40 characters. (Example: Immunoglobulin E).
+Sponsor should first check the lab terminology for the LBTEST/LBTESTCD values until CDISC attaches published controlled terminology.",Req
+ISCAT,"Category for
+Immunogenicity Test",Char,*,"Synonym
+Qualifier","Used to define a category of Topic-variable values across subjects. Example:
+SEROLOGY",Perm
+ISSCAT,"Subcategory for
+Immunogenicity Test",Char,*,"Grouping
+Qualifier",A further categorization of ISCAT.,Perm
+ISORRES,"Results or Findings in
+Original Units",Char,,"Result
+Qualifier",Results of measurement or finding as originally received or collected.,Exp
+ISORRESU,Original Units,Char,(UNIT),Variable Qualifier,"Original units in which the data were collected. The unit for ISORRES. Examples: Index Value, gpELISA, unit/mL.",Exp
+ISSTRESC,Character Results/Findings in Std. Format,Char,,Result Qualifier,"Contains the result value for all findings, copied or derived from ISORRES, in a standard format or in standard units.  ISSTRESC should store all results or
+findings in character format; if results are numeric, they should also be stored in numeric format in ISSTRESN.",Exp
+ISSTRESN,Numeric Results/Findings in Std. Units,Num,,Result Qualifier,"Used for continuous or numeric results or findings in standard format; copied in
+numeric format from ISSTRESC.  ISSTRESN should store all numeric test results or findings.",Exp
+ISSTRESU,Standard Units,Char,(UNIT),"Variable
+Qualifier","Standardized units used for ISSTRESC and ISSTRESN. Examples: Index Value,
+gpELISA, unit/mL.",Exp
+ISSTAT,Completion Status,Char,(ND),"Record
+Qualifier",Used to indicate a test was not done. Should be null if a result exists in ISORRES.,Perm
+ISREASND,Reason Not Done,Char,,Record Qualifier,Describes why a measurement or test was not performed. Used in conjunction with ISSTAT when value is NOT DONE.,Perm
+ISNAM,Vendor Name,Char,,"Record
+Qualifier",Name or identifier of the laboratory or vendor who provided the test results,Perm
+ISSPEC,Specimen Type,Char,(SPECTYPE),"Record
+Qualifier",Defines the types of specimen used for a measurement. Example: SERUM.,Perm
+ISMETHOD,Method of Test or Examination,Char,,Record Qualifier,"Method of test or examination. Examples: ELISA, ELISPOT.",Perm
+ISBLFL,Baseline Flag,Char,(NY),"Record
+Qualifier",Indicator used to identify a baseline value.  Should be Y or null.,Perm
+ISLLOQ,Lower Limit of Quantitation,Num,,"Variable
+Qualifier","Indicates the lower limit of quantitation for an assay.  Units will be those used for
+ISSTRESU.",Exp

@@ -1,0 +1,45 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,PP,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Unique subject identifier within the submission.,Req
+PPSEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a domain.
+May be any valid number.",Req
+PPGRPID,Group ID,Char,,Identifier,"Used to tie together a block of related records in a single domain to support
+relationships within the domain and between domains.",Perm
+PPTESTCD,Parameter Short Name,Char,(PKPARMCD),Topic,"Short name of the pharmacokinetic parameter. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in PPTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., “1TEST”). PPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: AUCALL,
+TMAX, CMAX.",Req
+PPTEST,Parameter Name,Char,(PKPARM),"Synonym
+Qualifier","Name of the pharmacokinetic parameter. The value in PPTEST cannot be longer
+than 40 characters. Examples: AUC All, Time of CMAX, Max Conc.",Req
+PPCAT,Parameter Category,Char,*,"Grouping
+Qualifier","Used to define a category of related records. For PP, this should be the name of the
+analyte in PCTEST whose profile the parameter is associated with.",Exp
+PPSCAT,Parameter Subcategory,Char,*,"Grouping
+Qualifier","Categorization of the model type used to calculate the PK parameters. Examples
+include COMPARTMENTAL, NON-COMPARTMENTAL.",Perm
+PPORRES,"Result or Finding in Original
+Units",Char,,"Result
+Qualifier",Result of the measurement or finding as originally received or collected.,Exp
+PPORRESU,Original Units,Char,(PKUNIT),"Variable
+Qualifier","Original units in which the data were collected. The unit for PPORRES. Example:
+ng/L.",Exp
+PPSTRESC,Character Result/Finding in Standard Format,Char,,Result Qualifier,"Contains the result value for all findings, copied or derived from PPORRES in a standard format or standard units. PPSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in PPSTRESN.",Exp
+PPSTRESN,Numeric Result/Finding in Standard Units,Num,,Result Qualifier,"Used for continuous or numeric results or findings in standard format; copied in numeric format from PPSTRESC. PPSTRESN should store all numeric test results
+or findings.",Exp
+PPSTRESU,Standard Units,Char,(PKUNIT),"Variable
+Qualifier",Standardized unit used for PPSTRESC and PPSTRESN.,Exp
+PPSTAT,Completion Status,Char,(ND),"Record
+Qualifier","Used to indicate that a parameter was not calculated. Should be null if a result exists
+in PPORRES.",Perm
+PPREASND,Reason Parameter Not Calculated,Char,,Record Qualifier,"Describes why a parameter was not calculated, such as INSUFFICIENT DATA. Used in conjunction with PPSTAT when value is NOT DONE.",Perm
+PPSPEC,Specimen Material Type,Char,(SPECTYPE),Record Qualifier,"Defines the type of specimen used for a measurement. If multiple specimen types are used for a calculation (e.g., serum and urine for renal clearance), then this field should be left
+blank. Examples: SERUM, PLASMA, URINE.",Exp
+PPDTC,Date/Time of Parameter Calculations,Char,ISO 8601,Timing,Nominal date/time of parameter calculations.,Perm
+PPRFTDTC,Date/Time of Reference Point,Char,ISO 8601,Timing,"Date/time of the reference time point from the PC records used to calculate a
+parameter record. The values in PPRFTDTC should be the same as that in PCRFTDTC for related records.",Exp
+PPSTINT,"Planned Start of Assessment
+Interval",Char,ISO 8601,Timing,"The start of a planned evaluation or assessment interval relative to the Time Point
+Reference.",Perm
+PPENINT,"Planned End of Assessment
+Interval",Char,ISO 8601,Timimg,"The end of a planned evaluation or assessment interval relative to the Time Point
+Reference.",Perm

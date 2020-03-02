@@ -1,0 +1,25 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,DS,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.,Req
+DSSEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a domain.
+May be any valid number.",Req
+DSGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+DSREFID,Reference ID,Char,,Identifier,Internal or external identifier.,Perm
+DSSPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor’s operational database. Example: Line
+number on a Disposition page.",Perm
+DSTERM,Reported Term for the Disposition Event,Char,,Topic,"Verbatim name of the event or protocol milestone. Some terms in DSTERM will match DSDECOD, but others, such as “Subject moved” will map to controlled
+terminology in DSDECOD, such as “LOST TO FOLLOW-UP.”",Req
+DSDECOD,Standardized Disposition Term,Char,(NCOMPLT),Synonym Qualifier,"Controlled terminology for the name of disposition event or protocol milestone. Examples of protocol milestones: INFORMED CONSENT OBTAINED, RANDOMIZED",Req
+DSCAT,Category for Disposition Event,Char,(DSCAT),Grouping Qualifier,"Used to define a category of related records. DSCAT is now an “Expected” variable. DSCAT was permissible in SDTMIG 3.1.1 and earlier versions. The change from “permissible” to “expected” is based on the requirement to distinguish protocol milestones and/or other events from disposition events. DSCAT may be null if there are only “disposition events”; however, it is
+recommended that DSCAT always be populated.",Exp
+DSSCAT,"Subcategory for Disposition
+Event",Char,*,"Grouping
+Qualifier",A further categorization of disposition event.,Perm
+EPOCH,Epoch,Char,(EPOCH),Timing,"EPOCH may be used when DSCAT = “DISPOSITION EVENT”. Examples:
+SCREENING, TREATMENT, FOLLOW-UP",Perm
+DSDTC,Date/Time of Collection,Char,ISO 8601,Timing,,Perm
+DSSTDTC,"Start Date/Time of
+Disposition Event",Char,ISO 8601,Timing,,Exp
+DSSTDY,"Study Day of Start of
+Disposition Event",Num,,Timing,Study day of start of event relative to the sponsor-defined RFSTDTC.,Perm

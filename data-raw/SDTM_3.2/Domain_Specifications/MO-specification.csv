@@ -1,0 +1,67 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,MO,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product.",Req
+MOSEQ,Sequence Number,Num,,Identifier,"Sequence  Number  given  to  ensure  uniqueness  of  subject  records  within  a
+domain. May be any valid number.",Req
+MOGRPID,Group ID,Char,,Identifier,"Used to tie together a block of related records in a single domain for a
+subject.",Perm
+MOREFID,Reference ID,Char,,Identifier,Internal or external procedure identifier.,Perm
+MOSPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor's operational database.
+Example: Line number from the procedure or test page.",Perm
+MOLNKID,Link ID,Char,,Identifier,Identifier used to link results of a procedure to the procedure performed.,Perm
+MOTESTCD,Test or Examination Short Name,Char,(MOTESTCD),Topic,"Short name of the measurement, test, or examination described in MOTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in MOTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., “1TEST”). MOTESTCD cannot contain characters other than letters, numbers, or underscores.
+Examples: VOLUME, INTP",Req
+MOTEST,Test or Examination Name,Char,(MOTEST),Synonym Qualifier,"Verbatim name of the test or examination used to obtain the measurement or finding. The value in MOTEST cannot be longer than 40 characters.
+Examples: Volume, Interpretation",Req
+MOCAT,Category for Test,Char,*,Grouping Qualifier,Used to categorize observations across subjects.,Perm
+MOSCAT,Subcategory for Test,Char,*,Grouping Qualifier,A further categorization.,Perm
+MOPOS,Position of Subject,Char,(POSITION),Record Qualifier,"Position of the subject during a measurement or examination. Examples:
+SUPINE, STANDING, SITTING.",Perm
+MOORRES,Result or Finding in Original Units,Char,,Result Qualifier,Result of the procedure measurement or finding as originally received or collected.,Exp
+MOORRESU,Original Units,Char,(UNIT),Variable Qualifier,Original units in which the data were collected. The unit for MOORRES.,Perm
+MOSTRESC,Character Result/Finding in Std Format,Char,,Result Qualifier,"Contains the result value for all findings, copied or derived from MOORRES in a standard format or standard units. MOSTRESC should store all results or
+findings in character format; if results are numeric, they should also be stored in numeric format in MOSTRESN.",Exp
+MOSTRESN,Numeric Result/Finding in Standard Units,Num,,Result Qualifier,Used for continuous or numeric results or findings in standard format; copied in numeric format from MOSTRESC. MOSTRESN should store all numeric test results or findings.,Perm
+MOSTRESU,Standard Units,Char,(UNIT),Variable Qualifier,Standardized unit used for MOSTRESC or MOSTRESN.,Perm
+MOSTAT,Completion Status,Char,(ND),Record Qualifier,"Used to indicate a test was not done, or a measurement was not taken. Should
+be null if a result exists in MOORRES.",Perm
+MOREASND,Reason Test Not Performed,Char,,Record Qualifier,Describes why a measurement or test was not performed. Examples: BROKEN EQUIPMENT or SUBJECT REFUSED. Used in conjunction with MOSTAT when value is NOT DONE.,Perm
+MOXFN,External File Path,Char,,Record Qualifier,File path to the external file.,Perm
+MONAM,Vendor Name,Char,,Record Qualifier,Name or identifier of the laboratory or vendor who provided the test results.,Perm
+MOLOC,Location Used for Measurement,Char,(LOC),Record Qualifier,"Location relevant to the collection of the measurement. Examples: BRAIN, KIDNEY, LIVER. etc.",Perm
+MOLAT,Specimen Laterality within Subject,Char,(LAT),"Variable
+Qualifier","Qualifier for laterality of the specimen within the subject for paired specimens.  Examples: LEFT, RIGHT, BILATERAL.",Perm
+MODIR,Specimen Directionality within Subject,Char,(DIR),"Variable
+Qualifier","Qualifier for directionality of the specimen within the subject.  Examples: DORSAL, PROXIMAL.",Perm
+MOPORTOT,Portion or Totality,Char,(PORTOT),Variable Qualifier,"Qualifier for anatomical location or specimen further detailing the portion of
+totality which means arrangement of, or apportioning of. Examples: ENTIRE, PARTIAL",Perm
+MOMETHOD,Method of Procedure Test,Char,(METHOD),Record Qualifier,Method of the test or examination result.,Perm
+MOANMETH,Analysis Method,Char,*,Record Qualifier,"Analysis method applied to obtain a summarized result. Examples:
+STEREOLOGY",Perm
+MOBLFL,Baseline Flag,Char,(NY),Record Qualifier,Indicator used to identify a baseline value. The value should be “Y” or null.,Exp
+MODRVFL,Derived Flag,Char,(NY),Record Qualifier,"Used to indicate a derived record. The value should be Y or null. Records that represent the average of other records, or that do not come from the CRF, or are not as originally collected or received are examples of records that would
+be derived for the submission datasets. If MODRVFL=Y, then MOORRES could be null, and (if numeric) MOSTRESN having the derived value.",Perm
+MOEVAL,Evaluator,Char,(EVAL),Record Qualifier,"Role of the person who provided the evaluation. Used only for results that are subjective (e.g., assigned by a person or a group). Should be null for records that contain collected or derived data. Examples: INVESTIGATOR,
+ADJUDICATION COMMITTEE, VENDOR.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,"Planned Study Day of
+Visit",Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+MODTC,Date/Time of Test,Char,ISO 8601,Timing,Date of test.,Exp
+MODY,Study Day of Test,Num,,Timing,"1. Study day of the procedure or test, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.",Perm
+MOTPT,Planned Time Point Name,Char,,Timing,"1. Text Description of time when measurement should be taken.
+2. This may be represented as an elapsed time relative to a fixed reference
+point, such as time of last dose. See MOTPTNUM and MOTPTREF. Examples: Start, 5 min post.",Perm
+MOTPTNUM,"Planned Time Point
+Number",Num,,Timing,Numerical version of MOTPT to aid in sorting.,Perm
+MOELTM,Planned Elapsed Time from Time Point Ref,Char,ISO 8601,Timing,"Planned elapsed time (in ISO 8601) relative to a fixed time point reference (MOTPTREF). Not a clock time or a date time variable. Represented as an ISO 8601 duration. Examples: “-PT15M” to represent the period of 15 minutes prior to the reference point indicated by MOTPTREF, or “PT8H” to represent the
+period of 8 hours after the reference point indicated by MOTPTREF.",Perm
+MOTPTREF,Time Point Reference,Char,,Timing,"Name of the fixed reference point referred to by MOELTM, MOTPTNUM,
+and MOTPT. Examples: PREVIOUS DOSE, PREVIOUS MEAL.",Perm
+MORFTDTC,"Date/Time of Reference
+Time Point",Char,ISO 8601,Timing,"Date/time of the reference time point, MOTPTREF.",Perm

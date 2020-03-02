@@ -1,0 +1,55 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,TU,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product.",Req
+TUSEQ,Sequence Number,Num,,Identifier,Sequence number given to ensure uniqueness within a dataset for a subject. May be any valid number.,Req
+TUGRPID,Group ID,Char,,Identifier,"Used to link together a block of related records within a subject in a domain. Can be used to group split or merged tumors which have been
+identified.",Perm
+TUREFID,Reference ID,Char,,Identifier,Internal or external identifier. Example: Medical image ID number.,Perm
+TUSPID,Sponsor-Defined Identifier,Char,,Identifier,Sponsor-defined identifier.,Perm
+TULNKID,Link ID,Char,,Identifier,"Identifier used to link identified tumors to the assessment results (in TR
+domain) over the course of the study.",Exp
+TUTESTCD,Tumor Identification Short Name,Char,(TUTESTCD),Topic,"Short name of the TEST in TUTEST. TUTESTCD cannot be longer than 8 characters nor can start with a number. TUTESTCD contain characters other than letters, numbers, or underscores. Example: TUMIDENT (Tumor Identification). See Assumption 2.",Req
+TUTEST,Tumor Identification Test Name,Char,(TUTEST),Synonym Qualifier,"Verbatim name of the test for the tumor identification. The value in TUTEST cannot be longer than 40 characters. Example: Tumor
+Identification. See Assumption 2.",Req
+TUORRES,Tumor Identification Result,Char,,Result Qualifier,"Result of the Tumor identification. The result of tumor identification is a classification of identified tumor.
+Examples: When TUTESTCD=TUMIDENT (Tumor Identification), values of TUORRES might be: TARGET, NON-TARGET, or NEW. or
+BENIGN ABNORMALITY",Exp
+TUSTRESC,"Tumor Identification Result
+Std. Format",Char,(TUMIDENT),"Record
+Qualifier",Contains the result value for all findings copied from TUORRES.,Exp
+TUNAM,Vendor Name,Char,,Record Qualifier,"The name or identifier of the vendor that performed the Tumor Identification. This column can be left Null when the Investigator
+provides the complete set of data in the domain.",Perm
+TULOC,Location of the Tumor,Char,(LOC),Record Qualifier,"Used to specify the anatomical location of the identified tumor. Example: LIVER
+Note: When anatomical location is broken down and collected as distinct pieces of data that when combined provide the overall location information (e.g. laterality /directionality / distribution) then the
+additional anatomical location qualifiers should be used. See Assumption 3.",Exp
+TULAT,Laterality,Char,(LAT),"Record
+Qualifier","Qualifier for anatomical location or specimen further detailing
+laterality, for example, LEFT, RIGHT, BILATERAL.",Perm
+TUDIR,Directionality,Char,(DIR),"Record
+Qualifier","Qualifier for anatomical location or specimen further detailing
+directionality, for example, UPPER, INTERIOR.",Perm
+TUPORTOT,Portion or Totality,Char,(PORTOT),Record Qualifier,"Qualifier for anatomical location or specimen further detailing the distribution which means arrangement of, or apportioning of, for
+example, ENTIRE, SINGLE, SEGMENT, MULTIPLE.",Perm
+TUMETHOD,Method of Identification,Char,(METHOD),"Record
+Qualifier","Method used to identify the tumor. Examples: MRI, CT SCAN.",Exp
+,,,,,,
+TUEVAL,Evaluator,Char,(EVAL),Record Qualifier,"Role of the person who provided the evaluation. Examples: INVESTIGATOR, INDEPENDNT ASSESSOR
+This column can be left Null when the Investigator provides the complete set of data in the domain. However the column should contain no Null values when data from one or more independent assessors is
+included meaning that the rows attributed to the Investigator should contain a value of INVESTIGATOR.",Exp
+TUEVALID,Evaluator Identifier,Char,(MEDEVAL),Variable Qualifier,"The Evaluator Specified variable is used in conjunction with TUEVAL to provide an additional level of detail. When multiple assessors play the role identified in TUEVAL, values of TUEVALID will attribute a row of data to a particular assessor. TUEVALID should not contain the names of the assessors, or a code identifier for a specific assessor, but should contain values such as RADIOLOGIST, RADIOLOGIST 1 or RADIOLOGIST 2. The TUEVALID variable is subject to CDISC Controlled Terminology.
+See Assumption 7.",Perm
+TUACPTFL,Accepted Record Flag,Char,(NY),Record Qualifier,"In cases where more than one independent assessor (e.g. RADIOLOGIST 1, RADIOLOGIST 2, ADJUDICATOR) provide
+independent assessments at the same time point this flag identifies the record that is considered to be the accepted assessment.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,,Perm
+EPOCH,Epoch,Char,,Timing,"Epoch associated with the Element in the planned sequence of Elements
+for the ARM to which the subject was assigned.",Perm
+TUDTC,Date/Time of Tumor Identification,Char,ISO 8601,Timing,"TUDTC variable represents the date of the scan/image/physical exam
+not the date that the image was read to identify tumors. TUDTC variable does not represent the VISIT date.",Exp
+TUDY,Study Day of Tumor Identification,Num,,Timing,"1. Study day of the scan/image/physical exam, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.",Perm

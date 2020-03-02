@@ -1,0 +1,52 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,LB,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product.",Req
+LBSEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a
+domain. May be any valid number.",Req
+LBGRPID,Group ID,Char,,Identifier,"Used to tie together a block of related records in a single domain for a
+subject.",Perm
+LBREFID,Specimen ID,Char,,Identifier,Internal or external specimen identifier. Example: Specimen ID.,Perm
+LBSPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor’s operational database.
+Example: Line number on the Lab page.",Perm
+LBTESTCD,Lab Test or Examination Short Name,Char,(LBTESTCD),Topic,"Short name of the measurement, test, or examination described in LBTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in LBTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g.”1TEST”). LBTESTCD cannot contain characters other than letters, numbers, or underscores. Examples:
+ALT, LDH.",Req
+LBTEST,Lab Test or Examination Name,Char,(LBTEST),Synonym Qualifier,"Verbatim name of the test or examination used to obtain the measurement or finding. Note any test normally performed by a clinical laboratory is considered a lab test. The value in LBTEST cannot be longer than 40
+characters. Examples: Alanine Aminotransferase, Lactate Dehydrogenase.",Req
+LBCAT,Category for Lab Test,Char,*,"Grouping
+Qualifier","Used to define a category of related records across subjects. Examples: such
+as HEMATOLOGY, URINALYSIS, CHEMISTRY.",Exp
+LBSCAT,Subcategory for Lab Test,Char,*,"Grouping
+Qualifier","A further categorization of a test category such as DIFFERENTIAL,
+COAGULATON, LIVER FUNCTION, ELECTROLYTES.",Perm
+LBORRES,"Result or Finding in
+Original Units",Char,,"Result
+Qualifier",Result of the measurement or finding as originally received or collected.,Exp
+LBORRESU,Original Units,Char,(UNIT),"Variable
+Qualifier","Original units in which the data were collected. The unit for LBORRES.
+Example: g/L.",Exp
+LBORNRLO,"Reference Range Lower
+Limit in Orig Unit",Char,,"Variable
+Qualifier","Lower end of reference range for continuous measurements in original units.
+Should be populated only for continuous results.",Exp
+LBORNRHI,"Reference Range Upper
+Limit in Orig Unit",Char,,"Variable
+Qualifier","Upper end of reference range for continuous measurements in original units.
+Should be populated only for continuous results.",Exp
+LBSTRESC,Character Result/Finding in Std Format,Char,(LBSTRESC),Result Qualifier,"Contains the result value for all findings, copied or derived from LBORRES in a standard format or standard units. LBSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in LBSTRESN. For example, if a test has results “NONE”, “NEG”, and “NEGATIVE” in LBORRES and these results effectively have the same meaning, they could be represented in standard format in
+LBSTRESC as “NEGATIVE”. For other examples, see general assumptions.",Exp
+LBSTRESN,Numeric Result/Finding in Standard Units,Num,,Result Qualifier,"Used for continuous or numeric results or findings in standard format; copied in numeric format from LBSTRESC. LBSTRESN should store all numeric
+test results or findings.",Exp
+LBSTRESU,Standard Units,Char,(UNIT),"Variable
+Qualifier",Standardized unit used for LBSTRESC or LBSTRESN.,Exp
+LBSTNRLO,Reference Range Lower Limit-Std Units,Num,,Variable Qualifier,"Lower end of reference range for continuous measurements for
+LBSTRESC/LBSTRESN in standardized units. Should be populated only for continuous results.",Exp
+LBSTNRHI,"Reference Range Upper
+Limit-Std Units",Num,,"Variable
+Qualifier","Upper end of reference range for continuous measurements in standardized
+units. Should be populated only for continuous results.",Exp
+LBSTNRC,"Reference Range for Char
+Rslt-Std Units",Char,,"Variable
+Qualifier","For normal range values that are character in ordinal scale or if categorical
+ranges were supplied (e.g., “-1 to +1”, “NEGATIVE TO TRACE”).",Perm

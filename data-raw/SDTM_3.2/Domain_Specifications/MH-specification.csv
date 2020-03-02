@@ -1,0 +1,45 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,MH,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all applications or
+submissions involving the product.",Req
+MHSEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a domain.
+May be any valid number.",Req
+MHGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+MHREFID,Reference ID,Char,,Identifier,Internal or external medical history identifier.,Perm
+MHSPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor’s operational database. Example: Line
+number on a Medical History page.",Perm
+MHTERM,"Reported Term for the
+Medical History",Char,,Topic,Verbatim or preprinted CRF term for the medical condition or event.,Req
+MHMODIFY,Modified Reported Term,Char,,"Synonym
+Qualifier","If MHTERM is modified to facilitate coding, then MHMODIFY will contain the
+modified text.",Perm
+MHDECOD,Dictionary-Derived Term,Char,*,Synonym Qualifier,"Dictionary-derived text description of MHTERM or MHMODIFY. Equivalent to the Preferred Term (PT in MedDRA). The sponsor is expected to provide the dictionary name and version used to map the terms utilizing the define.xml
+external codelist attributes.",Perm
+MHCAT,"Category for Medical
+History",Char,*,"Grouping
+Qualifier",Used to define a category of related records. Examples: CARDIAC or GENERAL,Perm
+MHSCAT,Subcategory for Medical History,Char,*,Grouping Qualifier,A further categorization of the condition or event.,Perm
+MHPRESP,Medical History Event Pre- Specified,Char,(NY),"Variable Qualifier
+of --TERM","A value of “Y” indicates that this medical history event was pre-specified on the CRF. Values are null for spontaneously reported events (i.e., those collected as free-
+text verbatim terms)",Perm
+MHOCCUR,Medical History Occurrence,Char,(NY),Record Qualifier,"Used when the occurrence of specific medical history conditions is solicited to indicate whether or not (Y/N) a medical condition (MHTERM) had ever occurred.
+Values are null for spontaneously reported events.",Perm
+MHSTAT,Completion Status,Char,(ND),"Record
+Qualifier",The status indicates that the pre-specified question was not asked/answered.,Perm
+MHREASND,Reason Medical History Not Done or Not Occurred,Char,,Record Qualifier,"Reason the question was not asked/answered or an intervention did not occur. Used in conjunction with negation indicators --STAT of ‘NOT DONE’ or --OCCUR of
+‘N’",Perm
+MHBODSYS,Body System or Organ Class,Char,*,Record Qualifier,"Dictionary-derived. Body system or organ class that is involved in an event or measurement from a standard hierarchy (e.g., MedDRA). When using a multi-axial dictionary such as MedDRA, this should contain the SOC used for the sponsor’s analyses and summary tables which may not necessarily be the primary SOC.",Perm
+MHDTC,"Date/Time of History
+Collection",Char,ISO 8601,Timing,,Perm
+MHSTDTC,"Start Date/Time of Medical
+History Event",Char,ISO 8601,Timing,,Perm
+MHENDTC,"End Date/Time of Medical
+History Event",Char,ISO 8601,Timing,,Perm
+MHDY,Study Day of History Collection,Num,,Timing,"1. Study day of medical history collection, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics. This formula should be consistent across the submission.",Perm
+MHENRF,End Relative to Reference Period,Char,(STENRF),Timing,Describes the end of the event relative to the sponsor-defined reference period. The sponsor-defined reference period is a continuous period of time defined by a discrete starting point and a discrete ending point (represented by RFSTDTC and RFENDTC in Demographics),Perm
+MHENRTPT,End Relative to Reference Time Point,Char,"BEFORE, AFTER, COINCIDENT,
+ONGOING, U",Timing,Identifies the end of the event as being before or after the reference time point defined by variable MHENTPT.,Perm
+MHENTPT,End Reference Time Point,Char,,Timing,"Description or date/time in ISO 8601 character format of the reference point
+referred to by MHENRTPT. Examples: ""2003-12-25"" or ""VISIT 2"".",Perm

@@ -1,0 +1,34 @@
+"Variable
+Name ",Variable Label ,Type,"Controlled
+Terms, Codelist
+or Format",Role ,CDISC Notes,Core
+STUDYID ,Study Identifier ,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN ,Domain Abbreviation ,Char,CO ,Identifier,Two-character abbreviation for the domain.,Req
+RDOMAIN ,"Related Domain
+Abbreviation",Char,* ,"Record
+Qualifier","Two-character abbreviation for the domain of the parent record(s). Null for comments
+collected on a general comments or additional information CRF page.",Perm
+USUBJID ,"Unique Subject
+Identifier",Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all applications or
+submissions involving the product.",Req
+COSEQ ,Sequence Number ,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a domain. May
+be any valid number.",Req
+DVAR ,Identifying Variable ,Char,* ,"Record
+Qualifier","Identifying variable in the parent dataset that identifies the record(s) to which the comment
+applies. Examples AESEQ or CMGRPID. Used only when individual comments are related to
+domain records. Null for comments collected on separate CRFs.",Perm
+DVARVAL ,"Identifying Variable
+Value",Char,,"Record
+Qualifier","Value of identifying variable of the parent record(s). Used only when individual comments are
+related to domain records. Null for comments collected on separate CRFs.",Perm
+COREF ,Comment Reference ,Char,,"Record
+Qualifier","Sponsor-defined reference associated with the comment. May be the CRF page numbe
+(e.g. 650), or a module name (e.g. DEMOG), or a combination of information that
+identifies the reference (e.g. 650-VITALS-VISIT 2).",Perm
+COVAL ,Comment ,Char,,Topic,"The text of the comment. Text over 200 characters can be added to additional columns
+COVAL1-COVALn. See Assumption 3.",Req
+COEVAL ,Evaluator ,Char,* ,"Record
+Qualifier","Used to describe the originator of the comment. Examples: CENTRAL, REVIEWER,
+ADJUDICATION COMMITTEE, PRINCIPAL INVESTIGATOR.",Perm
+CODTC ,Date/Time of Comment ,Char,SO 8601 ,Timing,"Date/time of comment on dedicated comment form. Should be null if this is a child
+record of another domain or if comment date was not collected.",Perm

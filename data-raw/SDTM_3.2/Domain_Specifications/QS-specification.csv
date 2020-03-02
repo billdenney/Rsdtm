@@ -1,0 +1,64 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,QS,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.,Req
+QSSEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a domain.
+May be any valid number.",Req
+QSGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+QSSPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor’s operational database. Example: Question
+number on a questionnaire.",Perm
+QSTESTCD,Question Short Name,Char,(QSTESTCD),Topic,"Topic variable for QS. Short name for the value in QSTEST, which can be used as  a column name when converting the dataset from a vertical format to a horizontal format. The value in QSTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g.”1TEST”). QSTESTCD cannot contain characters other than letters, numbers, or underscores. See QS Terminology Spreadsheet for specific text
+for QSTESTCD. Examples: ADCCMD01, BPR0103",Req
+QSTEST,Question Name,Char,(QSTEST),Synonym Qualifier,"Verbatim name of the question or group of questions used to obtain the measurement or finding. The value in QSTEST cannot be longer than 40 characters.
+See QS Terminology Spreadsheet for specific text for QSTEST. Example: Fist, BPR01 - Emotional Withdrawal",Req
+QSCAT,Category of Question,Char,(QSCAT),Grouping Qualifier,"Used to define a category of related records that will be meaningful to the
+Reviewer. See QS Terminology Spreadsheet for specific text for QSCAT. Examples: ADAS-COG, MDS-UPDRS.",Req
+QSSCAT,Subcategory for Question,Char,*,"Grouping
+Qualifier","A further categorization of the questions within the category. Examples: MENTAL
+HEALTH DOMAIN, DEPRESSION DOMAIN, WORD RECALL.",Perm
+QSORRES,Finding in Original Units,Char,,Result Qualifier,"Finding as originally received or collected (e.g. RARELY, SOMETIMES). When sponsors apply codelist to indicate the code values are statistically meaningful standardized scores, which are defined by sponsors or by valid methodologies such as SF36 questionnaires, QSORRES will contain the decode format, and QSSTRESC and QSSTRESN may contain the standardized
+code values or scores.",Exp
+QSORRESU,Original Units,Char,(UNIT),"Variable
+Qualifier","Original units in which the data were collected. The unit for QSORRES, such as
+minutes or seconds or the units associated with a visual analog scale.",Perm
+QSSTRESC,Character Result/Finding in Standard Format,Char,,Result Qualifier,"Contains the finding for all questions or sub-scores, copied or derived from QSORRES in a standard format or standard units. QSSTRESC should store all findings in character format; if findings are numeric, they should also be stored in numeric format in QSSTRESN. If question scores are derived from the original finding, then the standard format is the score. Examples: 0, 1. When sponsors apply codelist to indicate the code values are statistically meaningful standardized scores, which are defined by sponsors or by valid methodologies such as SF36
+questionnaires, QSORRES will contain the decode format, and QSSTRESC and QSSTRESN may contain the standardized code values or scores.",Exp
+QSSTRESN,"Numeric Finding in
+Standard Units",Num,,"Result
+Qualifier","Used for continuous or numeric findings in standard format; copied in numeric
+format from QSSTRESC. QSSTRESN should store all numeric results or findings.",Perm
+QSSTRESU,Standard Units,Char,(UNIT),"Variable
+Qualifier",Standardized unit used for QSSTRESC or QSSTRESN.,Perm
+QSSTAT,Completion Status,Char,(ND),"Record
+Qualifier","Used to indicate a questionnaire or response to a questionnaire was not done.
+Should be null if a result exists in QSORRES.",Perm
+QSREASND,Reason Not Performed,Char,,"Record
+Qualifier","Describes why a question was not answered. Used in conjunction with QSSTAT
+when value is NOT DONE. Example: SUBJECT REFUSED.",Perm
+QSBLFL,Baseline Flag,Char,(NY),"Record
+Qualifier",Indicator used to identify a baseline value. The value should be “Y” or null.,Exp
+QSDRVFL,Derived Flag,Char,(NY),Record Qualifier,"Used to indicate a derived record. The value should be Y or null. Records that represent the average of other records or questionnaire sub-scores that do not come from the CRF are examples of records that would be derived for the submission datasets. If
+QSDRVFL=Y, then QSORRES may be null with QSSTRESC and (if numeric) QSSTRESN having the derived value.",Perm
+QSEVAL,Evaluator,Char,(EVAL),"Record
+Qualifier","Role of the person who provided the evaluation.  Examples:  STUDY
+SUBJECT, CAREGIVER, INVESTIGATOR.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+QSDTC,Date/Time of Finding,Char,ISO 8601,Timing,Date of questionnaire.,Exp
+QSDY,Study Day of Finding,Num,,Timing,"1. Study day of finding collection, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.",Perm
+QSTPT,Planned Time Point Name,Char,,Timing,"1. Text Description of time when questionnaire should be administered.
+2. This may be represented as an elapsed time relative to a fixed reference point, such as time of last dose. See QSTPTNUM and QSTPTREF.",Perm
+QSTPTNUM,Planned Time Point Number,Num,,Timing,Numerical version of QSTPT to aid in sorting.,Perm
+QSELTM,Planned Elapsed Time from Time Point Ref,Char,ISO 8601,Timing,"Planned Elapsed time (in ISO 8601) relative to a planned fixed reference (QSTPTREF). This variable is useful where there are repetitive measures. Not a clock time or a date time variable. Represented as an ISO 8601 duration.
+Examples: “-PT15M” to represent the period of 15 minutes prior to the reference point indicated by QSTPTREF, or “PT8H” to represent the
+period of 8 hours after the reference point indicated by QSTPTREF.",Perm
+QSTPTREF,Time Point Reference,Char,,Timing,"Name of the fixed reference point referred to by QSELTM, QSTPTNUM, and
+QSTPT. Examples: PREVIOUS DOSE, PREVIOUS MEAL.",Perm
+QSRFTDTC,"Date/Time of Reference
+Time Point",Char,ISO 8601,Timing,"Date/time of the reference time point, LBTPTREF.",Perm
+QSEVLINT,Evaluation Interval,Char,ISO 8601,Timing,"Evaluation Interval associated with a QSTEST question represented in ISO 8601
+character format. Example: ""-P2Y"" to represent an interval of 2 years in the question ""Have you experienced any episodes in the past 2 years?""",Perm

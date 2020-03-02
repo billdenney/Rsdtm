@@ -1,0 +1,68 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique Identifier for a Study.,Req
+DOMAIN,Domain Abbreviation,Char,SR,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Identifier used to uniquely identify a subject across submission.,Req
+SRSEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a domain.
+May be any valid number.",Req
+SRGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+SRREFID,Reference ID,Char,,Identifier,"Internal or external specimen identifier.
+Example: Specimen ID.",Perm
+SRSPID,Sponsor-Defined Identifier,Char,,Identifier,Sponsor defined identifier.,Perm
+SRTESTCD,Skin Response Test or Exam Short Name,Char,*,Topic,"Short name of the measurement, test, or examination described in SRTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in SRTESTCD cannot be longer than 8 characters, nor can it
+start with a number. SRTESTCD cannot contain characters other than letters, numbers, or underscores.",Req
+SRTEST,Skin Response Test or Examination Name,Char,*,Synonym Qualifier,"Verbatim name of the test or examination used to obtain the measurement or
+finding. The value in SRTEST cannot be longer than 40 characters. (E.g., Wheal Diameter).",Req
+SROBJ,Object of the Observation,Char,,Record Qualifier,"Used to describe the object or focal point of the findings observation that is represented by --TEST.
+Examples: the dose of the immunogenic material or the allergen associated with the response. (e.g., Johnson Grass IgE 0.15 BAU mL).",Req
+SRCAT,Category for Test,Char,,"Grouping
+Qualifier",Used to define a category of Topic-variable values across subjects.,Perm
+SRSCAT,Subcategory for Test,Char,,"Grouping
+Qualifier",A further categorization of SRCAT values.,Perm
+SRORRES,Results or Findings in Original Units,Char,,Result Qualifier,Results of measurement or finding as originally received or collected.,Exp
+SRORRESU,Original Units,Char,(UNIT),"Variable
+Qualifier","Original units in which the data were collected. The unit for SRORRES. Example:
+mm.",Exp
+SRSTRESC,Character Results/Findings in Std. Format,Char,,Result Qualifier,"Contains the result value for all findings, copied or derived from SRORRES in a standard format or in standard units. SRSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in
+numeric format in SRSTRESN.",Exp
+SRSTRESN,Numeric Results/Findings in Std. Units,Num,,Result Qualifier,"Used for continuous or numeric results or findings in standard format; copied in numeric format from SRSTRESC. SRSTRESN should store all numeric test
+results or findings.",Exp
+SRSTRESU,Standard Units,Char,(UNIT),"Variable
+Qualifier","Standardized units used for SRSTRESC and SRSTRESN, Example: mm.",Exp
+SRSTAT,Completion Status,Char,(ND),"Record
+Qualifier",Used to indicate exam not done. Should be null if a result exists in SRORRES.,Perm
+SRREASND,Reason Not Done,Char,,"Record
+Qualifier","Describes why a measurement or test was not performed. Used in conjunction with
+SRSTAT when value is NOT DONE.",Perm
+SRNAM,Vendor Name,Char,,"Record
+Qualifier",Name or identifier of the laboratory or vendor who provided the test results,Perm
+SRSPEC,Specimen Type,Char,(SPECTYPE),"Record
+Qualifier","Defines the types of specimen used for a measurement. E.g., SKIN.",Perm
+SRLOC,"Location used for
+Measurement",Char,(LOC),"Record
+Qualifier",Location relevant to the collection of the measurement.,Perm
+SRLAT,Laterality,Char,(LAT),"Result
+Qualifier","Qualifier for anatomical location further detailing laterality of intervention
+administration. Examples: RIGHT, LEFT, BILATERAL",Perm
+SRMETHOD,"Method of Test or
+Examination",Char,(METHOD),"Record
+Qualifier","Method of test or examination (ELISA, EIA Microneutralization, PRNT (Plaque
+Reduction Neutralization Tests)",Perm
+SREVAL,Evaluator,Char,(EVAL),Record Qualifier,"Role of person who provided evaluation. Used only for results that are subjective (e.g., assigned by a person or a group). Should be null for records that contain collected or derived data. Examples: INVESTIGATOR, ADJUDICATION
+COMMITTEE, VENDOR",Perm
+VISITNUM,Visit Number,Num,,Timing,"1.     Clinical encounter number.
+2.     Numeric version of VISIT, used for sorting",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter 2. May be used in addition to
+VISITNUM and/or VISITDY",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+SRDTC,Date/Time of Collection,Char,ISO 8601,Timing,Collection date and time of an observation represented in ISO 8601,Exp
+SRDY,Study Day of Visit/Collection/Exam,Num,,Timing,Actual study day of visit/collection/exam expressed in integer days relative to sponsor- defined RFSTDTC in Demographics,Perm
+SRTPT,Planned Time Point Name,Char,,Timing,"1. Text Description of time when measurement should be taken.
+2. This may be represented as an elapsed time relative to a fixed reference point,
+such as time of last dose. See SRTPTNUM and SRTPTREF. Examples: Start, 5 min post.",Perm
+SRTPTNUM,Planned Time Point Number,Num,,Timing,Numerical version of SRTPT to aid in sorting.,Perm
+SRELTM,Planned Elapsed Time from Time Point Ref,Char,ISO 8601,Timing,"Planned elapsed time (in ISO 8601) relative to a fixed time point reference (SRTPTREF). Not a clock time or a date time variable. Represented as an ISO 8601 duration. Examples: “-PT15M” to represent the period of 15 minutes prior to the reference point indicated by EGTPTREF, or “PT8H” to represent the period of
+8 hours after the reference point indicated by SRTPTREF.",Perm
+SRTPTREF,Time Point Reference,Char,,Timing,"Name of the fixed reference point referred to by SRELTM, SRTPTNUM, and
+SRTPT. Example: INTRADERMAL INJECTION.",Perm
+SRRFTDTC,"Date/Time of Reference
+Time Point",Char,ISO 8601,Timing,"Date/time of the reference time point, SRTPTREF.",Perm

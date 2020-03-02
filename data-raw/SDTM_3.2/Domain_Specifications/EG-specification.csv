@@ -1,0 +1,71 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,EG,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product.",Req
+EGSEQ,Sequence Number,Num,,Identifier,"Sequence  Number  given  to  ensure  uniqueness  of  subject  records
+within a domain. May be any valid number.",Req
+EGGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+EGREFID,ECG Reference ID,Char,,Identifier,Internal or external ECG identifier. Example: UUID.,Perm
+EGSPID,Sponsor-Defined Identifier,Char,,Identifier,Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor's operational database. Example: Line number from the ECG page.,Perm
+EGTESTCD,ECG Test or Examination Short Name,Char,(EGTESTCD),Topic,"Short name of the measurement, test, or examination described in EGTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in EGTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., “1TEST”). EGTESTCD cannot contain characters other than
+letters, numbers, or underscores. Examples :PRMEAN, QTMEAN",Req
+EGTEST,ECG Test or Examination Name,Char,(EGTEST),Synonym Qualifier,"Verbatim name of the test or examination used to obtain the measurement or finding. The value in EGTEST cannot be longer than 40 characters. Examples: Summary (Mean) PR Duration, Summary
+(Mean) QT Duration",Req
+EGCAT,Category for ECG,Char,*,"Grouping
+Qualifier","Used to categorize ECG observations across subjects. Examples:
+MEASUREMENT, FINDING, INTERVAL",Perm
+EGSCAT,Subcategory for ECG,Char,*,Grouping Qualifier,A further categorization of the ECG.,Perm
+EGPOS,ECG Position of Subject,Char,(POSITION),"Record
+Qualifier","Position of the subject during a measurement or examination.
+Examples: SUPINE, STANDING, SITTING.",Perm
+EGORRES,Result or Finding in Original Units,Char,,Result Qualifier,"Result of the ECG measurement or finding as originally received or collected. Examples of expected values are 62 or 0.151 when the result is an interval or measurement, or “ATRIAL FIBRILLATION” or “QT PROLONGATION” when the result is a finding.",Exp
+EGORRESU,Original Units,Char,(UNIT),"Variable
+Qualifier","Original units in which the data were collected. The unit for
+EGORRES. Examples: sec or msec.",Perm
+EGSTRESC,Character Result/Finding in Std Format,Char,(EGSTRESC),Result Qualifier,"Contains the result value for all findings, copied or derived from EGORRES in a standard format or standard units. EGSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in EGSTRESN. For example, if a test has results of “NONE”, “NEG”, and “NEGATIVE” in EGORRES and these results effectively have the same meaning, they could be represented in standard format in EGSTRESC as “NEGATIVE”. For other examples, see general
+assumptions. Additional examples of result data: SINUS BRADYCARDIA, ATRIAL FLUTTER, ATRIAL FIBRILLATION.",Exp
+EGSTRESN,Numeric Result/Finding in Standard Units,Num,,Result Qualifier,"Used for continuous or numeric results or findings in standard format; copied in numeric format from EGSTRESC. EGSTRESN should
+store all numeric test results or findings.",Perm
+EGSTRESU,Standard Units,Char,(UNIT),"Variable
+Qualifier",Standardized unit used for EGSTRESC or EGSTRESN.,Perm
+EGSTAT,Completion Status,Char,(ND),"Record
+Qualifier","Used to indicate an ECG was not done, or an ECG measurement was
+not taken. Should be null if a result exists in EGORRES.",Perm
+EGREASND,Reason ECG Not Performed,Char,,Record Qualifier,"Describes why a measurement or test was not performed. Examples: BROKEN EQUIPMENT or SUBJECT REFUSED. Used in
+conjunction with EGSTAT when value is NOT DONE.",Perm
+EGFXN,ECG External File Path,Char,,"Record
+Qualifier",File name and path for the external ECG Waveform file.,Perm
+EGNAM,Vendor Name,Char,,"Record
+Qualifier","Name or identifier of the laboratory or vendor who provided the test
+results.",Perm
+EGLEAD,"Lead Location Used for
+Measurement",Char,(LOC),"Record
+Qualifier","The lead used for the measurement, examples, V1, V6, aVR, I, II, III.",Perm
+EGMETHOD,Method of ECG Test,Char,(EGMETHOD),"Record
+Qualifier",Method of the ECG test. Examples: 12 LEAD STANDARD.,Perm
+EGBLFL,Baseline Flag,Char,(NY),Record Qualifier,Indicator used to identify a baseline value. The value should be “Y” or null.,Exp
+EGDRVFL,Derived Flag,Char,(NY),Record Qualifier,"Used to indicate a derived record. The value should be Y or null. Records which represent the average of other records, or that do not come from the CRF, or are not as originally collected or received are examples of records that would be derived for the submission datasets. If EGDRVFL=Y, then
+EGORRES could be null, with EGSTRESC, and (if numeric) EGSTRESN having the derived value.",Perm
+EGEVAL,Evaluator,Char,*,Record Qualifier,"Role of the person who provided the evaluation. Used only for results that are subjective (e.g., assigned by a person or a group). Should be null for records that contain collected or derived data. Examples: INVESTIGATOR, ADJUDICATION COMMITTEE, VENDOR.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,"Planned Study Day of
+Visit",Num,,Timing,"Planned study day of the visit based upon RFSTDTC in
+Demographics.",Perm
+EGDTC,Date/Time of ECG,Char,ISO 8601,Timing,Date of ECG.,Exp
+EGDY,Study Day of ECG,Num,,Timing,"1. Study day of the ECG, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.",Perm
+EGTPT,Planned Time Point Name,Char,,Timing,"1. Text Description of time when measurement should be taken.
+2. This may be represented as an elapsed time relative to a fixed
+reference point, such as time of last dose. See EGTPTNUM and EGTPTREF. Examples: Start, 5 min post.",Perm
+EGTPTNUM,"Planned Time Point
+Number",Num,,Timing,Numerical version of EGTPT to aid in sorting.,Perm
+EGELTM,Planned Elapsed Time from Time Point Ref,Char,ISO 8601,Timing,"Planned elapsed time (in ISO 8601) relative to a fixed time point reference (EGTPTREF). Not a clock time or a date time variable. Represented as an ISO 8601 duration. Examples: “-PT15M” to represent the period of 15 minutes prior to the reference point indicated by
+EGTPTREF, or “PT8H” to represent the period of 8 hours after the reference point indicated by EGTPTREF.",Perm
+EGTPTREF,Time Point Reference,Char,,Timing,"Name of the fixed reference point referred to by EGELTM,
+EGTPTNUM, and EGTPT. Examples: PREVIOUS DOSE, PREVIOUS MEAL.",Perm
+EGRFTDTC,"Date/Time of Reference
+Time Point",Char,ISO 8601,Timing,"Date/time of the reference time point, EGTPTREF.",Perm

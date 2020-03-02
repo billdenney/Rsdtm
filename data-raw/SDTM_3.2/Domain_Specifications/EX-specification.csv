@@ -1,0 +1,98 @@
+"Variable
+Name","Variable
+Label",Type,"Controlled
+Terms, Codelist
+or Format",Role ,CDISC Notes,Core
+STUDYID ,Study Identifier,Char,,Identifier ,Unique identifier for a study.,Req
+DOMAIN ,Domain Abbreviation,Char ,EX,Identifier ,Two-character abbreviation for the domain.,Req
+USUBJID ,Unique Subject Identifier,Char,,Identifier ,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product.",Req
+EXSEQ ,Sequence Number,Num,,Identifier ,"Sequence Number given to ensure uniqueness of subject records within
+a domain. May be any valid number.",Req
+EXGRPID ,Group ID,Char,,Identifier ,Used to tie together a block of related records in a single domain for a subject.,Perm
+EXREFID ,Reference ID,Char,,Identifier ,"Internal or external identifier (e.g., kit number, bottle label, vial
+identifier).",Perm
+EXSPID ,Sponsor-Defined Identifier,Char,,Identifier ,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as
+an explicit line identifier or defined in the sponsor’s operational
+database. Example: Line number on a CRF Page.",Perm
+EXLNKID ,Link ID,Char,,Identifier ,Identifier used to link related records across domains.,Perm
+EXLNKGRP ,Link Group ID,Char,,Identifier ,"Identifier used to link related, grouped records across domains.",Perm
+EXTRT ,Name of Treatment,Char ,*,Topic ,"Name of the protocol-specified study treatment given during the dosing
+period for the observation.",Req
+EXCAT ,Category of Treatment,Char ,*,"Grouping
+Qualifier",Used to define a category of EXTRT values.,Perm
+EXSCAT ,Subcategory of Treatment,Char ,*,"Grouping
+Qualifier",A further categorization of EXCAT values.,Perm
+EXDOSE ,Dose,Num,,"Record
+Qualifier","Amount of EXTRT when numeric. Not populated when EXDOSTXT is
+populated.",Exp
+EXDOSTXT ,Dose Description,Char,,"Record
+Qualifier","Amount of EXTRT when non-numeric. Dosing amounts or a range of
+dosing information collected in text form. Example: 200-400. Not
+populated when EXDOSE is populated.",Perm
+EXDOSU ,Dose Units,Char ,(UNIT),"Variable
+Qualifier","Units for EXDOSE, EXDOSTOT, or EXDOSTXT representing
+protocol-specified values. Examples: ng, mg, mg/kg, mg/m2.",Exp
+EXDOSFRM ,Dose Form,Char ,(FRM),"Variable
+Qualifier","Dose form for EXTRT. Examples: TABLET, LOTION.",Exp
+EXDOSFRQ ,"Dosing Frequency per
+Interval",Char ,(FREQ),"Variable
+Qualifier","Usually expressed as the number of repeated administrations of
+EXDOSE within a specific time period. Examples: Q2H, QD, BID.",Perm
+EXDOSRGM ,Intended Dose Regimen,Char,,"Variable
+Qualifier","Text description of the intended schedule or regimen for the
+Intervention. Example: TWO WEEKS ON, TWO WEEKS OFF.",Perm
+EXROUTE ,Route of Administration,Char ,(ROUTE),"Variable
+Qualifier","Route of administration for the intervention. Examples: ORAL,
+INTRAVENOUS.",Perm
+EXLOT ,Lot Number,Char,,"Record
+Qualifier",Lot Number of the intervention product.,Perm
+EXLOC ,"Location of Dose
+Administration",Char ,(LOC),"Record
+Qualifier","Specifies location of administration. Examples: ARM, LIP.",Perm
+EXLAT ,Laterality,Char ,(LAT),"Variable
+Qualifier","Qualifier for anatomical location further detailing laterality of the
+intervention administration. Examples: LEFT, RIGHT.",Perm
+EXDIR ,Directionality,Char ,(DIR),"Variable
+Qualifier","Qualifier for anatomical location further detailing directionality.
+Examples: ANTERIOR, LOWER, PROXIMAL, UPPER.",Perm
+EXFAST ,Fasting Status,Char ,(NY),"Record
+Qualifier","Indicator used to identify fasting status. Examples: Y, N.",Perm
+EXADJ ,"Reason for Dose
+Adjustment",Char ,*,"Record
+Qualifier",Describes reason or explanation of why a dose is adjusted.,Perm
+EPOCH ,Epoch,Char ,(EPOCH),Timing ,"Trial Epoch of the Exposure record. Examples: RUN-IN,
+TREATMENT.",Perm
+EXSTDTC ,"Start Date/Time of
+Treatment",Char ,ISO 8601,Timing ,"The date/time when administration of the treatment indicated by
+EXTRT and EXDOSE began.",Exp
+EXENDTC ,"End Date/Time of
+Treatment",Char ,ISO 8601,Timing ,"The date/time when administration of the treatment indicated by
+EXTRT and EXDOSE ended. For administrations considered given at a
+point in time (e.g., oral tablet, pre-filled syringe injection), where only
+an administration date/time is collected, EXSTDTC should be copied to
+EXENDTC as the standard representation.",Exp
+EXSTDY ,"Study Day of Start of
+Treatment",Num,,Timing ,Study day of EXSTDTC relative to DM.RFSTDTC.,Perm
+EXENDY ,"Study Day of End of
+Treatment",Num,,Timing ,Study day of EXENDTC relative to DM.RFSTDTC.,Perm
+EXDUR ,Duration of Treatment,Char ,ISO 8601,Timing ,"Collected duration of administration represented in ISO 8601 duration
+format. Used only if collected on the CRF and not derived from start
+and end date/times.",Perm
+EXTPT ,Planned Time Point Name,Char,,Timing ,"1.Text Description of time when administration should occur.
+2.This may be represented as an elapsed time relative to a fixed
+reference point, such as time of last dose. See EXTPTNUM and
+EXTPTREF.",Perm
+EXTPTNUM ,"Planned Time Point
+Number",Num,,Timing ,Numerical version of EXTPT to aid in sorting.,Perm
+EXELTM ,"Planned Elapsed Time from
+Time Point Ref",Char ,ISO 8601,Timing ,"Planned elapsed time (in ISO 8601 format) relative to the planned fixed
+reference (EXTPTREF). This variable is useful where there are
+repetitive measures. Not a clock time. Represented in ISO 8601
+duration format.",Perm
+EXTPTREF ,Time Point Reference,Char,,Timing ,"Name of the fixed reference point referred to by EXELTM,
+EXTPTNUM, and EXTPT. Examples: PREVIOUS DOSE, PREVIOUS
+MEAL.",Perm
+EXRFTDTC ,"Date/Time of Reference
+Time Point",Char ,ISO 8601,Timing ,"Date/time for a fixed reference time point defined by EXTPTREF in
+ISO 8601 character format.",Perm

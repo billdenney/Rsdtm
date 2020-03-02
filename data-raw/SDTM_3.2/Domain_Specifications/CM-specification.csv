@@ -1,0 +1,116 @@
+Variable Name ,Variable Label ,Type,"Controlled
+Terms, Codelist
+or Format",Role,CDISC Notes,Core
+STUDYID ,Study Identifier ,Char ,,Identifier ,Unique identifier for a study.,Req
+DOMAIN ,Domain Abbreviation ,Char ,CM,Identifier ,Two-character abbreviation for the domain.,Req
+USUBJID ,Unique Subject Identifier ,Char ,,Identifier ,"Identifier used to uniquely identify a subject across all studies for all applications
+or submissions involving the product.",Req
+CMSEQ ,Sequence Number ,Num ,,Identifier ,"Sequence Number given to ensure uniqueness of subject records within a
+domain. May be any valid number.",Req
+CMGRPID ,Group ID ,Char ,,Identifier ,Used to tie together a block of related records in a single domain for a subject.,Perm
+CMSPID ,Sponsor-Defined Identifier ,Char ,,Identifier ,"Sponsor-defined reference number. Examples: a number pre-printed on the CRF as an
+explicit line identifier or record identifier defined in the sponsor’s operational database.
+Example: line number on a concomitant medication page.",Perm
+CMTRT ,"Reported Name of Drug,
+Med, or Therapy",Char ,,Topic ,Verbatim medication name that is either pre-printed or collected on a CRF.,Req
+CMMODIFY ,Modified Reported Name ,Char ,,"Synonym
+Qualifier","If CMTRT is modified to facilitate coding, then CMMODIFY will contain the
+modified text.",Perm
+CMDECOD ,"Standardized Medication
+Name",Char ,*,"Synonym
+Qualifier","Standardized or dictionary-derived text description of CMTRT or CMMODIFY.
+Equivalent to the generic medication name in WHO Drug. The sponsor is expected
+to provide the dictionary name and version used to map the terms utilizing the
+define.xml external codelist attributes. If an intervention term does not have a
+decode value in the dictionary then CMDECOD will be left blank.",Perm
+CMCAT ,Category for Medication,Char ,*,"Grouping
+Qualifier","Used to define a category of medications/treatments. Examples: PRIOR,
+CONCOMITANT, ANTI-CANCER MEDICATION, or GENERAL CONMED",Perm
+CMSCAT ,Subcategory for Medication,Char ,*,"Grouping
+Qualifier","A further categorization of medications/ treatment. Examples: CHEMOTHERAPY,
+HORMONAL THERAPY, ALTERNATIVE THERAPY.",Perm
+CMPRESP ,CM Pre-Specified,Char ,(NY),"Variable
+Qualifier","Used to indicate whether (Y/null) information about the use of a specific
+medication was solicited on the CRF.",Perm
+CMOCCUR ,CM Occurrence,Char ,(NY),"Record
+Qualifier","When the use of specific medications is solicited, CMOCCUR is used to indicat
+whether or not (Y/N) use of the medication occurred. Values are null for
+medications not specifically solicited.",Perm
+CMSTAT ,Completion Status,Char ,(ND),"Record
+Qualifier","Used to indicate that a question about a pre-specified medication was not
+answered. Should be null or have a value of NOT DONE.",Perm
+CMREASND ,"Reason Medication Not
+Collected",Char,,"Record
+Qualifier","Describes the reason concomitant medication was not collected. Used in
+conjunction with CMSTAT when value is NOT DONE.",Perm
+CMINDC ,Indication,Char,,"Record
+Qualifier","Denotes why a medication was taken or administered. Examples: NAUSEA,
+HYPERTENSION.",Perm
+CMCLAS ,Medication Class,Char ,*,"Variable
+Qualifier","Drug class. May be obtained from coding. When coding to a single class,
+populate with class value. If using a dictionary and coding to multiple classes,
+then follow Section 4: 4.1.2.8.3, Multiple Values For A Non-Result Qualifier
+Variable or omit CMCLAS.",Perm
+CMCLASCD ,Medication Class Code,Char ,*,"Variable
+Qualifier","Class code corresponding to CMCLAS. Drug class. May be obtained from
+coding. When coding to a single class, populate with class code. If using a
+dictionary and coding to multiple classes, then follow Section 4: 4.1.2.8.3,
+Multiple Values For A Non-Result Qualifier Variable or omit CMCLASCD.",Perm
+CMDOSE ,Dose per Administration,Num,,"Record
+Qualifier",Amount of CMTRT taken. Not populated when CMDOSTXT is populated.,Perm
+CMDOSTXT ,Dose Description,Char,,"Record
+Qualifier","Dosing amounts or a range of dosing information collected in text form. Units
+may be stored in CMDOSU. Example: 200-400, 15-20. Not populated when
+CMDOSE is populated.",Perm
+CMDOSU ,Dose Units,Char ,(UNIT),"Variable
+Qualifier","Units for CMDOSE, CMDOSTOT, and CMDOSTXT. Examples: ng, mg, or
+mg/kg.",Perm
+CMDOSFRM ,Dose Form,Char ,(FRM),"Variable
+Qualifier","Dose form for CMTRT. Examples: TABLET, LOTION.",Perm
+CMDOSFRQ ,"Dosing Frequency per
+Interval",Char ,(FREQ),"Variable
+Qualifier","Usually expressed as the number of repeated administrations of CMDOSE within a
+specific time period. Examples: BID (twice daily), Q12H (every 12 hours).",Perm
+CMDOSTOT ,Total Daily Dose,Num,,"Record
+Qualifier","Total daily dose of CMTRT using the units in CMDOSU. Used when dosing is
+collected as Total Daily Dose. Total dose over a period other than day could be
+recorded in a separate Supplemental Qualifier variable.",Perm
+CMDOSRGM ,Intended Dose Regimen,Char,,"Variable
+Qualifier","Text description of the (intended) schedule or regimen for the Intervention.
+Examples: TWO WEEKS ON, TWO WEEKS OFF.",Perm
+CMROUTE ,Route of Administration,Char ,(ROUTE),"Variable
+Qualifier","Route of administration for CMTRT. Examples: ORAL, INTRAVENOUS.",Perm
+CMSTDTC ,"Start Date/Time of
+Medication",Char ,ISO 8601,Timing,,Perm
+CMENDTC ,"End Date/Time of
+Medication",Char ,ISO 8601,Timing,,Perm
+CMSTDY ,"Study Day of Start of
+Medication",Num,,Timing ,Study day of start of medication relative to the sponsor-defined RFSTDTC.,Perm
+CMENDY ,"Study Day of End of
+Medication",Num,,Timing ,Study day of end of medication relative to the sponsor-defined RFSTDTC.,Perm
+CMDUR ,Duration of Medication,Char ,ISO 8601,Timing ,"Collected duration for a treatment episode. Used only if collected on the CRF
+and not derived from start and end date/times.",Perm
+CMSTRF ,"Start Relative to Reference
+Period",Char ,(STENRF),Timing ,"Describes the start of the medication relative to sponsor-defined reference period
+The sponsor-defined reference period is a continuous period of time defined by a
+discrete starting point and a discrete ending point (represented by RFSTDTC and
+RFENDTC in Demographics). If information such as ""PRIOR"", ONGOING or
+""CONTINUING"" was collected, this information may be translated into
+CMSTRF.",Perm
+CMENRF ,"End Relative to Reference
+Period",Char ,(STENRF),Timing ,"Describes the end of the medication relative to the sponsor-defined reference
+period. The sponsor-defined reference period is a continuous period of time
+defined by a discrete starting point and a discrete ending point (represented by
+RFSTDTC and RFENDTC in Demographics). If information such as ""PRIOR"",
+""ONGOING, or ""CONTINUING"" was collected, this information may be
+translated into CMENRF.",Perm
+CMSTRTPT ,"Start Relative to Reference
+Time Point",Char ,(STENRF),Timing ,"Identifies the start of the medication as being before or after the reference time
+point defined by variable CMSTTPT.",Perm
+CMSTTPT ,Start Reference Time Point,Char,,Timing ,"Description or date/time in ISO 8601 character format of the reference point
+referred to by CMSTRTPT. Examples: ""2003-12-15"" or ""VISIT 1"".",Perm
+CMENRTPT ,"End Relative to Reference
+Time Point",Char ,(STENRF),Timing ,"Identifies the end of the medication as being before or after the reference time
+point defined by variable CMENTPT.",Perm
+CMENTPT ,End Reference Time Point,Char,,Timing ,"Description or date/time in ISO 8601 character format of the reference point
+referred to by CMENRTPT. Examples: ""2003-12-25"" or ""VISIT 2"".",Perm

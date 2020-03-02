@@ -1,0 +1,13 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,TE,Identifier,Two-character abbreviation for the domain.,Req
+ETCD,Element Code,Char,*,Topic,"ETCD (the companion to ELEMENT) is limited to 8 characters and does not have special character restrictions. These values should be short for ease of use in programming, but it is not expected that ETCD will
+need to serve as a variable name.",Req
+ELEMENT,Description of Element,Char,*,"Synonym
+Qualifier",The name of the Element.,Req
+TESTRL,"Rule for Start of
+Element",Char,,Rule,Expresses rule for beginning Element.,Req
+TEENRL,"Rule for End of
+Element",Char,,Rule,"Expresses rule for ending Element. Either TEENRL or
+TEDUR must be present for each Element.",Perm
+TEDUR,Planned Duration of Element,Char,ISO 8601,Timing,Planned Duration of Element in ISO 8601 format. Used when the rule for ending the Element is applied after a fixed duration.,Perm

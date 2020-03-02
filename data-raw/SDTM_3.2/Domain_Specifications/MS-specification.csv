@@ -1,0 +1,45 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,MS,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all applications
+or submissions involving the product.",Req
+MSSEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a domain.
+May be any valid number.",Req
+MSGRPID,Group ID,Char,,Identifier,"Used to tie together a block of related records in a single domain to support relationships within the domain and between domains. In MS, used to link to organism in MB.",Req
+MSREFID,Reference ID,Char,,Identifier,Internal or external specimen identifier. Example: Specimen ID.,Perm
+MSSPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit
+line identifier or defined in the sponsor's operational database.",Perm
+MSTESTCD,Microbiology Organism Finding Short Name,Char,*,Topic,"Short name of the measurement, test, or finding described in MSTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in MSTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g.”1TEST). MSTESTCD cannot contain characters other than letters, numbers, or underscores. Examples for GROWTH findings: EXTGROW, COLCOUNT. For SUSCEPTIBILITY findings, the test is the drug
+the organism was tested with, i.e. PENICLLN, AMOXCLLN.",Req
+MSTEST,Organism Test or Finding Name,Char,*,Synonym Qualifier,"Verbatim name of the test or examination used to obtain the measurement or finding. Examples for GROWTH findings: Extent of Growth, Colony Count.
+Examples for SUSCEPTIBILITY findings: Amoxicillin Susceptibility, Penicillin Susceptibility",Req
+MSCAT,Category for Organism Findings,Char,*,Grouping Qualifier,"Used to define a category of related records. Examples: GROWTH, SUSCEPTIBILITY.",Req
+MSSCAT,"Subcategory for Organism
+Findings",Char,*,"Grouping
+Qualifier","A further categorization of a test category. Examples: CULTURE, ISOLATE",Perm
+MSORRES,Result or Finding in Original Units,Char,,Result Qualifier,"Result of the Microbiology Organism measurement or finding as originally
+received or collected. Examples for GROWTH findings: GROWTH INTO 3RD QUADRANT. Examples for SUSCEPTIBLITY findings:.0080,.0023",Exp
+MSORRESU,Original Units,Char,(UNIT),"Variable
+Qualifier","Original units in which the data were collected. The unit for MSORRES.
+Example: mcg/mL",Exp
+MSSTRESC,Character Result/Finding in Std Format,Char,,Result Qualifier,"Contains the result value for all findings, copied or derived from MSORRES in a standard format or standard units. MSSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in MSSTRESN. For example, if a test has results “+3 MODERATE”, “MOD”, and “MODERATE”, and in MSORRES and these results effectively have the same meaning, they could be represented in standard format in
+MSSTRESC as “MODERATE”.",Exp
+MSSTRESN,Numeric Result/Finding in Standard Units,Num,,Result Qualifier,"Used for continuous or numeric results or findings in standard format; copied in numeric format from MSSTRESC. MSSTRESN should store all numeric test
+results or findings.",Exp
+MSSTRESU,Standard Units,Char,(UNIT),Variable Qualifier,Standardized unit used for MSSTRESC and MSSTRESN.,Exp
+MSRESCAT,Result Category,Char,(MSRESCAT),Variable Qualifier,"Used to categorize the result of a finding in a standard format. Example for SUSCEPTIBILITY finding: SUSCEPTIBLE, INTERMEDIATE, RESISTANT,
+or UNKNOWN.",Exp
+MSSTAT,Completion Status,Char,(ND),"Record
+Qualifier","Used to indicate a test on an organism was not done, or a test was not performed.
+Should be null if a result exists in MSORRES or have a value of NOT DONE.",Perm
+MSREASND,Reason Test Not Done,Char,,Record Qualifier,"Reason not done. Describes why a measurement or test was not performed. Used in conjunction with MSSTAT when value is NOT DONE. Example: SAMPLE
+LOST",Perm
+MSNAM,Vendor Name,Char,,Record Qualifier,Name or identifier of the laboratory or vendor that provided the test results.,Perm
+MSLOINC,LOINC Code,Char,*,Synonym Qualifier,"1. Dictionary-derived LOINC Code for MSTEST.
+2. The sponsor is expected to provide the dictionary name and version used to map the terms utilizing the define.xml external codelist attributes",Perm
+MSMETHOD,"Method of Test or
+Examination",Char,(METHOD),"Record
+Qualifier","Method of the test or examination. Example: GRAM STAIN, MACRO BROTH
+DILUTION, AGAR DILUTION",Exp
+MSBLFL,Baseline Flag,Char,(NY),"Record
+Qualifier",Indicator used to identify a baseline value. The value should be “Y” or null.,Perm
