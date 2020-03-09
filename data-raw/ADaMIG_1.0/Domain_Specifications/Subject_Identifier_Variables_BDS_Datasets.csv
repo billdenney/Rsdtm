@@ -1,0 +1,8 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+STUDYID,Study Identifier,Char,,Req,SDTM DM.STUDYID
+USUBJID,"Unique Subject
+Identifier",Char,,Req,SDTM DM.USUBJID
+SUBJID,"Subject Identifier
+for the Study",Char,,Perm,"SDTM DM.SUBJID.  SUBJID is required in ADSL, but permissible in other datasets."
+SITEID,"Study Site
+Identifier",Char,,Perm,"SDTM DM.SITEID.  SITEID is required in ADSL, but permissible in other datasets."

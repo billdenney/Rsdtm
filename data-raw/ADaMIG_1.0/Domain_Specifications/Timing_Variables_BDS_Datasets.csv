@@ -1,0 +1,113 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+ADT,Analysis Date,Num,,Perm,The date associated with AVAL and/or AVALC in numeric format.
+ATM,Analysis Time,Num,,Perm,The time associated with AVAL and/or AVALC in numeric format.
+ADTM,"Analysis
+Date/Time",Num,,Perm,The date/time associated with AVAL and/or AVALC in numeric format.
+ADY,Analysis Relative Day,Num,,Perm,"The relative day of AVAL and/or AVALC.  The number of days from a reference date (not necessarily DM.RFSTDTC) to ADT.  The reference date should be indicated in the
+variable-level metadata for ADY and the reference date should be included as a variable in the given analysis dataset or alternatively in ADSL."
+ADTF,"Analysis Date
+Imputation Flag",Char,(DATEFL),Cond,"The level of imputation of ADT based on the source SDTM DTC variable.  See General
+Timing Variable Convention #6."
+ATMF,"Analysis Time
+Imputation Flag",Char,(TIMEFL),Cond,"The level of imputation of ATM based on the source SDTM DTC variable.  See General
+Timing Variable Convention #7."
+ASTDT,Analysis Start Date,Num,,Perm,"The start date associated with AVAL and/or AVALC.  ASTDT and AENDT may be useful for traceability when AVAL summarizes data collected over an interval of time, or when
+AVAL is a duration."
+ASTTM,Analysis Start Time,Num,,Perm,"The start time associated with AVAL and/or AVALC.  ASTTM and AENTM may be useful for traceability when AVAL summarizes data collected over an interval of time, or
+when AVAL is a duration."
+ASTDTM,Analysis Start Date/Time,Num,,Perm,"The start datetime associated with AVAL and/or AVALC.  ASTDTM and AENDTM may be useful for traceability when AVAL summarizes data collected over an interval of time,
+or when AVAL is a duration."
+ASTDY,Analysis Start Relative Day,Num,,Perm,"The number of days from a reference date (not necessarily DM.RFSTDTC) to ASTDT. The reference date variable should be indicated in the variable-level metadata for
+ASTDY and the reference date variable should be included as a variable in an analysis dataset (typically, but not necessarily, ADSL)."
+ASTDTF,"Analysis Start
+Date Imputation Flag",Char,(DATEFL),Cond,The level of imputation of  ASTDT based on the source SDTM DTC variable.  See General Timing Variable Convention #6.
+ASTTMF,"Analysis Start
+Time Imputation Flag",Char,(TIMEFL),Cond,The level of imputation of ASTTM based on the source SDTM DTC variable.  See General Timing Variable Convention #7.
+AENDT,Analysis End Date,Num,,Perm,The end date associated with AVAL and/or AVALC.  See also ASTDT.
+AENTM,"Analysis End
+Time",Num,,Perm,The end time associated with AVAL and/or AVALC.  See also ASTTM.
+AENDTM,"Analysis End
+Date/Time",Num,,Perm,The end datetime associated with AVAL and/or AVALC.  See also ASTDTM.
+AENDY,"Analysis End
+Relative Day",Num,,Perm,"The number of days from a reference date (not necessarily DM.RFSTDTC) to AENDT.
+See also ASTDY."
+AENDTF,"Analysis End Date Imputation
+Flag",Char,(DATEFL),Cond,The level of imputation of AENDT based on the source SDTM DTC variable.  See General Timing Variable Convention #6.
+AENTMF,"Analysis End Time Imputation
+Flag",Char,(TIMEFL),Cond,The level of imputation of AENTM based on the source SDTM DTC variable.  See General Timing Variable Convention #7.
+AVISIT,Analysis Visit,Char,,Cond,"AVISIT may contain the visit names as observe d (i.e., from SDTM VISIT), derived visit names, time window names, conceptual descriptions (such as Average, Endpoint, etc.), or a combination of any of these.  AVISIT is a derived field and does not have to map to VISIT from the SDTM.  AVISIT represents the analysis visit of the record, but it does not mean that the record was analyzed.  There are often multiple records for the same subject and parameter that have the same value of AVISIT.  ANLzzFL and other variables may  be needed to identify the records selected for any given analysis.  See Section 3.2.6 for metadata about flag variables.  AVISIT should be unique for a given analysis visit window.  In the event that a record does not fall within any predefined analysis timepoint window, AVISIT can be populated in any way that the sponsor chooses to indicate this fact (i.e., blank or “Not Windowed”).  The way that AVISIT is calculated, including the variables used in its derivation, should be indicated in the variable metadata for AVISIT. The values and the rules for deriving AVISIT may be different for different parameters
+within the same dataset.  Values of AVISIT are sponsor-defined, and are often directly usable in Clinical Study Report displays."
+AVISITN,Analysis Visit (N),Num,,Perm,"A numeric representation of AVISIT.  This may be a protocol visit number, a week or cycle number, an analysis visit number, or any other number logically related to AVISIT or useful for sorting that is needed for analysis.  Within a parameter, there is a one-to-one mapping between AVISITN and AVISIT so that AVISITN has the same value for each distinct AVISIT.  In the event that a record does not fall within any predefined analysis
+timepoint window, AVISITN can be populated in any way that the sponsor chooses to indicate this fact (e.g., may be null).  Values of AVISITN are sponsor-defined."
+ATPT,Analysis Timepoint,Char,,Perm,"The analysis time point description which is required if analysis times are derived. Timepoints are relative to ATPTREF.
+ATPT can be within an analysis visit (e.g., blood pressure assessments at 10 min, 20 min, and 30 min post-dose at AVISIT=Week 1) or can be unrelated to AVISIT (e.g., migraine symptoms 30 min, 60 min, and 120 min post-dose for attack 1)."
+ATPTN,"Analysis
+Timepoint (N)",Num,,Perm,"ATPTN provides a numeric representation of ATPT.  Within the same parameter, there is
+a one-to-one mapping between ATPT and ATPTN."
+ATPTREF,"Analysis Timepoint
+Reference",Char,,Perm,Description of the fixed reference point referred to by ATPT/ATPTN.
+APERIOD,Period,Num,,Perm,"The numeric value characterizing the period to which the record belongs.  The value of APERIOD must be consistent with the xx value in TRTxxP, TRTxxA, and all variables
+whose names begin with TRxx and APxx."
+APERIODC,Period (C),Char,,Perm,Text characterizing to which period the record belongs.  One-to-one map to APERIOD.
+APHASE,Phase,Char,,Perm,"Generally, a higher-level categorization of APERIOD.  Does not replace APERIOD,
+because APERIOD provides the indexing for the TRxx and APxx variables."
+ARELTM,Analysis Relative Time,Num,,Perm,"The time relative to an anchor time.  When ARELTM is present, the anchor time variable
+and ARELTMU must also be included in the dataset, and the anchor time variable must be identified in the metadata for ARELTM."
+ARELTMU,"Analysis Relative
+Time Unit",Char,,Cond,"The units of ARELTM.  For example, “HOURS” or “MINUTES.”  ARELTMU is
+required if ARELTM is present."
+APERSDT,Period Start Date,Num,,Perm,The starting date for the period defined by APERIOD.
+APERSTM,Period Start Time,Num,,Perm,The starting time for the period defined by APERIOD.
+APERSDTM,"Period Start
+Date/Time",Num,,Perm,The starting datetime for the period defined by APERIOD.
+APERSDTF,"Period Start Date
+Imput. Flag",Char,(DATEFL),Cond,"The level of imputation of APERSDT based on the source SDTM DTC variable.  See
+General Timing Variable Convention #6."
+APERSTMF,"Period Start Time
+Imput. Flag",Char,(TIMEFL),Cond,"The level of imputation of APERSTM based on the source SDTM DTC variable.  See
+General Timing Variable Convention #7."
+APEREDT,Period End Date,Num,,Perm,The ending date for the period defined by APERIOD.
+APERETM,Period End Time,Num,,Perm,The ending time for the period defined by APERIOD.
+APEREDTM,"Period End
+Date/Time",Num,,Perm,The ending datetime for the period defined by APERIOD.
+APEREDTF,"Period End Date
+Imput. Flag",Char,(DATEFL),Cond,"The level of imputation of APEREDT based on the source SDTM DTC variable.  See
+General Timing Variable Convention #6."
+APERETMF,"Period End Time
+Imput. Flag",Char,(TIMEFL),Cond,"The level of imputation of APERETM based on the source SDTM DTC variable.  See
+General Timing Variable Convention #7."
+*DT,Date of …,Num,,Perm,Analysis date not directly characterizing AVAL and/or AVALC in numeric format.
+*TM,Time of …,Num,,Perm,Analysis time not directly characterizing AVAL and/or AVALC in numeric format.
+*DTM,Date/Time of …,Num,,Perm,Analysis date/time not directly characterizing AVAL and/or AVALC in numeric format.
+*ADY,"Relative Day of
+…",Num,,Perm,Analysis relative day not directly characterizing AVAL and/or AVALC.
+*DTF,"Date Imputation
+Qual of …",Char,(DATEFL),Cond,"The level of imputation of *DT based on the source SDTM DTC variable.  See General
+Timing Variable Convention #6."
+*TMF,"Time Imputation
+Flag of …",Char,(TIMEFL),Cond,"The level of imputation of *TM based on the source SDTM DTC variable.  See General
+Timing Variable Convention #7."
+*SDT,Start Date of …,Num,,Perm,"Starting analysis date not directly characterizing AVAL and/or AVALC in numeric
+format."
+*STM,Start Time of …,Num,,Perm,"Starting analysis time not directly characterizing AVAL and/or AVALC in numeric
+format."
+*SDTM,"Start Date/Time
+of …",Num,,Perm,"Starting analysis date/time not directly characterizing AVAL and/or AVALC in numeric
+format."
+*SDY,"Relative Start Day
+of …",Num,,Perm,Starting analysis relative day not directly characterizing AVAL and/or AVALC.
+*SDTF,"Start Date
+Imputation Flag of …",Char,(DATEFL),Cond,The level of imputation of *SDT based on the source SDTM DTC variable.  See General Timing Variable Convention #6.
+*STMF,"Start Time Imputation Qual
+of …",Char,(TIMEFL),Cond,The level of imputation of *STM based on the source SDTM DTC variable.  See General Timing Variable Convention #7.
+*EDT,End Date of …,Num,,Perm,Ending analysis date not directly characterizing AVAL and/or AVALC in numeric format.
+*ETM,End Time of …,Num,,Perm,Ending analysis time not directly characterizing AVAL and/or AVALC in numeric format.
+*EDTM,"End Date/Time of
+…",Num,,Perm,"Ending analysis date/time not directly characterizing AVAL and/or AVALC in numeric
+format."
+*EDY,"Relative End Day
+of …",Num,,Perm,Ending analysis relative day not directly characterizing AVAL and/or AVALC.
+*EDTF,"End Date Imputation Flag
+of …",Char,(DATEFL),Cond,The level of imputation of *EDT based on the source SDTM DTC variable.  See General Timing Variable Convention #6.
+*ETMF,"End Time Imputation Flag
+of …",Char,(TIMEFL),Cond,The level of imputation of *ETM based on the source SDTM DTC variable.  See General Timing Variable Convention #7.

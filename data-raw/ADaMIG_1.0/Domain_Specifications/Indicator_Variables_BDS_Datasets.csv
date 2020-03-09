@@ -1,0 +1,63 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+ABLFL,Baseline Record Flag,Char,Y,Cond,"Character indicator to identify the baseline record for each parameter, or if there is more than one baseline definition, for each parameter and baseline type (BASETYPE).  See BASETYPE in Table 3.2.4.1.  ABLFL is required if BASE is present in the dataset.
+A baseline record may be derived (e.g., it may be an average), in which case DTYPE must also be populated.  If BASE is populated for a parameter, and BASE is non-null for
+a subject for that parameter, then there must be a record flagged by ABLFL for that subject and parameter."
+ABLFN,Baseline Record Flag (N),Num,1,Perm,"Numeric indicator to identify the baseline record for each parameter, or if there is more than one baseline definition, for each parameter and baseline type (BASETYPE)."
+ANLzzFL,Analysis Record Flag zz,Char,Y,Cond,"ANLzzFL is a conditionally required flag to be used in addition to other selection variables when the other selection variables in combination are insufficient to identify the exact set of records used for one or more analyses.  Often one ANLzzFL will serve to support the accurate selection of records for more than one analysis.
+When one is defining the set of records used in a particular analysis or family of analyses, ANLzzFL is supplemental to, and is intended to be used in conjunction with, other selection variables, such as subject-level, parameter-level and record-level population flags, AVISIT, DTYPE, grouping variables such as SITEGRy, and others. Every record selection algorithm “zz” (i.e., every algorithm for populating an ANLzzFL) must be defined in variable metadata.  When the set of records that the algorithm “zz” operates on is pre-filtered by application of other criteria, such as a record-level population flag, then the selection algorithm definition in the metadata must so specify. Note that the ANLzzFL value of Y indicates that the record fulfilled the requirements of the algorithm, but does not necessarily imply that the record was actually used in one or more analyses, as whether or not a record is used also depends on the other selection variables applied.  The ANLzzFL flag is useful in many circumstances; an example is when there is more than one record for an analysis timepoint within a subject and parameter, as it can be used to identify the record chosen to represent the timepoint for an analysis.  “zz” is an index for a record selection algorithm, such as “record closest to target relative day for the AVISIT, with ties broken by the latest record, for each AVISIT
+within <list of AVISITS>.”"
+ANLzzFN,"Analyzed Record
+Flag zz (N)",Num,1,Perm,Numeric version of ANLzzFL.
+ONTRTFL,On Treatment Record Flag,Char,Y,Perm,Character indicator of whether the observation occurred while the subject was on treatment.
+ONTRTFN,On Treatment Record Flag (N),Num,1,Perm,Numeric indicator of whether the observation occurred while the subject was on treatment.
+LVOTFL,"Last Value On
+Treatment Record Flag",Char,Y,Perm,Character indicator of the last non-missing value on treatment for each parameter.
+LVOTFN,"Last Value On
+Treatment Record Flag (N)",Num,1,Perm,Numeric indicator of the last non-missing value on treatment for each parameter.
+ITTRFL,"Intent-To-Treat Record-Level
+Flag",Char,Y,Cond,Character indicator of whether the subject was in the intent-to-treat analysis for the specific record.
+ITTRFN,"Intent-To-Treat
+Record-Level Flag (N)",Num,1,Perm,Numeric indicator of whether the subject was in the intent-to-treat analysis for the specific record.
+ITTPFL,"Intent-To-Treat
+Parameter-Level Flag",Char,Y,Cond,Character indicator of whether the subject was in the intent-to-treat analysis for the specific parameter.
+ITTPFN,"Intent-To-Treat Param-Level Flag
+(N)",Num,1,Perm,Numeric indicator of whether the subject was in the intent-to-treat analysis for the specific parameter.
+SAFRFL,"Safety Analysis Record-Level
+Flag",Char,Y,Cond,Character indicator of whether the subject was in the safety analysis for the specific record.
+SAFRFN,"Safety Analysis Record-Level
+Flag (N)",Num,1,Perm,Numeric indicator of whether the subject was in the safety analysis for the specific record.
+SAFPFL,"Safety Analysis Parameter-Level
+Flag",Char,Y,Cond,Character indicator of whether the subject was in the safety analysis for the specific parameter.
+SAFPFN,"Safety Analysis Param-Level Flag
+(N)",Num,1,Perm,Numeric indicator of whether the subject was in the safety analysis for the specific parameter.
+FASRFL,"Full Analysis Set
+Record-Level Flag",Char,Y,Cond,Character indicator of whether the subject was in the full analysis set analysis for the specific record.
+FASRFN,"Full Analysis Set Record-Level
+Flag (N)",Num,1,Perm,Numeric indicator of whether the subject was in the full analysis set analysis for the specific record.
+FASPFL,"Full Analysis Set Parameter-Level
+Flag",Char,Y,Cond,Character indicator of whether the subject was in the full analysis set analysis for the specific parameter.
+FASPFN,"Full Analysis Set Param-Level Flag
+(N)",Num,1,Perm,Numeric indicator of whether the subject was in the full analysis set analysis for the specific parameter.
+PPROTRFL,"Per-Protocol Record-Level
+Flag",Char,Y,Cond,Character indicator of whether the subject was in the per-protocol analysis for the specific record.
+PPROTRFN,"Per-Protocol Record-Level
+Flag (N)",Num,1,Perm,Numeric indicator of whether the subject was in the per-protocol analysis for the specific record.
+PPROTPFL,"Per-Protocol
+Parameter-Level Flag",Char,Y,Cond,Character indicator of whether the subject was in the per-protocol analysis for the specific parameter.
+PPROTPFN,"Per-Protocol
+Parameter-Level Flag (N)",Num,1,Perm,Numeric indicator of whether the subject was in the per-protocol analysis for the specific parameter.
+COMPRFL,"Completers Record-Level
+Flag",Char,Y,Cond,Character indicator of whether the subject was in the completed subjects analysis for the specific record.
+COMPRFN,"Completers
+Record-Level Flag (N)",Num,1,Perm,Numeric indicator of whether the subject was in the completed subjects analysis for the specific record.
+COMPPFL,"Completers
+Parameter-Level Flag",Char,Y,Cond,Character indicator of whether the subject was in the completed subjects analysis for the specific parameter.
+COMPPFN,"Completers
+Parameter-Level Flag (N)",Num,1,Perm,Numeric indicator of whether the subject was in the completed subjects analysis for the specific parameter.
+CRITyFL,"Criterion y Evaluation Result
+Flag",Char,"Y
+or Y, N",Cond,"Character indicator of whether the criterion defined in CRITy was met.  See also CRITy in Section 3.2.4.  Required if CRITy exists.  Refer to Section 4.7 for additional
+discussion."
+CRITyFN,"Criterion y Evaluation Result
+Flag (N)",Num,"1
+or 1, 0",Perm,Numeric indicator of whether the criterion defined in CRITy was met.
