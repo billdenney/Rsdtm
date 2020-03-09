@@ -1,0 +1,47 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+PARAM,Parameter,Char,,Req,"The description of the analysis parameter.  Examples include: “Supine Systolic Blood Pressure (mm Hg)”, “Log10 (Weight (kg))”, “Time to First Hypertension Event (Days)”, “Estimated Tumor Growth Rate”, etc.  PARAM should be sufficient to describe unambiguously the contents of AVAL and/or AVALC.  PARAM must include test, units (if appropriate), specimen type, location, position, and any other applicable qualifying information needed, any additional information such as transformation function, and indeed any text that is needed.  PARAM may be longer than 40 characters in length.
+PARAM is often directly usable in Clinical Study Report displays.  Note that in the ADaMIG, “parameter” is a synonym of “analysis parameter.”"
+PARAMCD,Parameter Code,Char,,Req,"The short name of the analysis parameter in PARAM.  Values of PARAMCD should follow SAS 5 variable naming conventions (8 characters or less; starts with a letter; contains only letters and digits).  There must be a one-to-one mapping with PARAM.
+Examples: SYSBP, LWEIGHT, HYPEREVT."
+PARAMN,Parameter (N),Num,,Perm,"Useful for ordering and programmatic manipulation.  There must be a one-to-one
+mapping with PARAM.  Must be an integer."
+PARAMTYP,Parameter Type,Char,(PARAMTY P),Perm,"Indicator of whether the parameter is derived as a function of one or more other
+parameters.  This should not be confused with DTYPE which is relevant to derived AVAL and/or AVALC values."
+PARCATy,Parameter Category y,Char,,Perm,"A categorization of PARAM.  For example, value of PARCAT1 might group the parameters having to do with a particular questionnaire, lab specimen type, or area of
+investigation."
+PARCATyN,"Parameter
+Category y (N)",Num,,Perm,"A numeric representation of PARCATy.  This can be used for operations on PARCATy.
+There should be a one to one relationship between PARCATy and PARCATyN."
+AVAL,Analysis Value,Num,,"Req (at
+least one)",Numeric analysis value described by PARAM.
+AVALC,Analysis Value (C),Char,,,"Character analysis value described by PARAM.  AVALC can be a character string
+mapping to AVAL, but if so there must be a one-to-one map between AVAL and AVALC within a given PARAM.  AVALC should not be used to categorize the values of AVAL."
+AVALCATy,Analysis Category y,Char,,Perm,"A categorical representation of AVAL and/or AVALC.  Not necessarily a one-to-one mapping to AVAL and/or AVALC.  For example, if PARAM is “Headache Severity” and AVAL has values 0, 1, 2, or 3, AVALCAT1 can categorize AVAL into “None or Mild”
+(for AVAL 1 or 2) and “Moderate or Severe” (for AVAL 3 or 4)"
+BASE,Baseline Value,Num,,Cond,"Baseline analysis value.  Required if dataset supports analysis or review of baseline  value or functions of baseline value.  A baseline record may be derived (e.g., it may be an average) in which case DTYPE must also be populated.  If BASE is populated for a parameter, and BASE is non-null for a subject for that parameter, then there must be a
+record flagged by ABLFL for that subject and parameter."
+BASEC,Baseline Value (C),Char,,Perm,"Baseline value of AVALC.  May be needed when AVALC is of interest.  There must be a one-to-one map between BASE and BASEC within a given PARAM if both are
+populated.  The baseline record for AVALC must be the same as that for AVAL."
+BASECATy,Baseline Category y,Char,,Perm,"A categorical representation of BASE.  Not necessarily a one-to-one map to BASE.  For example, if PARAM is “Headache Severity” and AVAL has values 0, 1, 2, or 3, BASECAT1 can categorize BASE into “None or Mild” (for BASE 1 or 2) and
+“Moderate or Severe” (for BASE 3 or 4)"
+BASETYPE,Baseline Type,Char,,Cond,"Sponsor-defined text describing the definition of baseline relevant to the value of BASE on the current record.  Required when there are multiple ways that baseline is defined.  If
+used for a given PARAM, should be populated for all records of that PARAM.  Refer to Section 4.2.1, Rule 6, for an example."
+CHG,Change from Baseline,Num,,Perm,"Change from baseline analysis value.  Equal to AVAL-BASE.  If used for a given PARAM, should be populated for all post-baseline records of that PARAM.  The
+decision on how to populate pre-baseline and baseline values of CHG are left to sponsor choice."
+CHGCATy,Change from Baseline Category y,Char,,Perm,"A categorical representation of CHG.  Not necessarily a one-to-one mapping to CHG. The definition of CHGCATy may vary by PARAM.  For example, CHGCAT1 may be
+used to categorize CHG with respect to ranges of change in SYSBP; “-10 to -5 mm Hg”, “-5 to 0 mm Hg” categories."
+PCHG,Percent Change from Baseline,Num,,Perm,"Percent change from baseline analysis value.  Equal to ((AVAL-BASE)/BASE)*100.  If used for a given PARAM, should be populated (when calculable) for all records of that PARAM.  The decision on how to populate pre-baseline and baseline values of PCHG
+are left to sponsor choice."
+PCHGCATy,Percent Change from Baseline y,Char,,Perm,"A categorical representation of PCHG.  Not necessarily a one-to-one mapping to PCHG. The definition of PCHGCATy may vary by PARAM.  For example, PCHGCAT1 may be
+used to categorize PCHG with respect to ranges of change in SYSBP; “>5%”, “>10%” categories."
+R2BASE,Ratio to Baseline,Num,,Perm,AVAL / BASE
+R2AyLO,"Ratio to Analysis Range y Lower
+Limit",Num,,Perm,AVAL / AyLO.  AyLO must exist in the analysis dataset.
+R2AyHI,"Ratio to Analysis Range y Upper
+Limit",Num,,Perm,AVAL / AyHI.  AyHI must exist in the analysis dataset.
+SHIFTy,Shift y,Char,,Perm,"A shift in values depending on the defined pairing for group “y”.  SHIFTy can be based on the change in value of any of the following pairs (BASECATy, AVALCATy), (BNRIND, ANRIND), (BTOXGR, ATOXGR), (BASE, AVAL) or (BASEC, AVALC).
+Useful for shift tables.  For example, “NORMAL to HIGH”.  The decision on how to populate baseline and pre-baseline values of SHIFTy are left to sponsor choice."
+SHIFTyN,Shift y (N),Num,,Perm,"Numeric version of SHIFT.  SHIFTN has a one-to-one mapping relationship with SHIFT. The decision on how to populate baseline and pre-baseline values of SHIFTN are left to
+sponsor choice."
+CRITy,Analysis Criterion y,Char,,Perm,"A text string identifying a pre-specified criterion, for example SYSBP > 90.  In some cases, the presence of the text string indicates that the criterion is satisfied on this record, while a null value indicates that the criterion is not satisfied.  In other cases, the text string identifies the criterion being evaluated, but whether or not the criterion is satisfied is indicated by the value of the variable CRITyFL.  See CRITyFL and CRITyFN in
+Section 3.2.6.  Refer to Section 4.7 for additional discussion of CRITy, CRITyFL and CRITyFN."

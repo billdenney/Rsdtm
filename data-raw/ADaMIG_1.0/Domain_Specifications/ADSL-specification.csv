@@ -1,0 +1,139 @@
+Variable Name,Variable Label,Type,"Codelist /
+Controlled Terms",Core,CDISC Notes
+Study Identifiers,,,,,
+STUDYID,Study Identifier,Char,,Req,"Must be identical to the SDTM variables DM.STUDYID, DM.USUBJID, DM.SUBJID and DM.SITEID."
+USUBJID,"Unique Subject
+Identifier",Char,,Req,
+SUBJID,"Subject Identifier
+for the Study",Char,,Req,
+SITEID,"Study Site
+Identifier",Char,,Req,
+SITEGRy,Pooled Site Group y,Char,,Perm,"Character description of a grouping or pooling of clinical sites for analysis purposes.  For example, SITEGR3 is the name of a variable containing site group (pooled site) names,
+where the grouping has been done according to the third site grouping algorithm, defined in variable metadata; SITEGR3 does not mean the third group of sites."
+SITEGRyN,Pooled Site Group y (N),Num,,Perm,The numeric code for SITEGRy.  One-to-one map to SITEGRy.
+Subject Demographics,,,,,
+AGE,Age,Num,,Req,"The age of the subject is a required variable in ADSL.  If the variable is not a copy of
+DM.AGE, then an additional differently named variable must be added."
+AGEU,Age Units,Char,(AGEU),Req,"The units for the subject’s age is a required variable in ADSL.  If the variable is not a
+copy of DM.AGEU, then an additional differently named variable must be added."
+SEX,Sex,Char,(SEX),Req,"The sex of the subject is a required variable in ADSL.  If the variable is not a copy of
+DM.SEX, then an additional differently named variable must be added."
+RACE,Race,Char,(RACE),Req,"The race of the subject is a required variable in ADSL.  If the variable is not a copy of
+DM.RACE, then an additional differently named variable must be added."
+RACEGRy,"Pooled Race
+Group y",Char,,Perm,Character description of a grouping or pooling of subject race for analysis purposes.
+RACEGRyN,"Pooled Race
+Group y (N)",Num,,Perm,"The numeric code for RACEGRy.  Orders the grouping or pooling of subject race for
+analysis and reporting.  One-to-one map to RACEGRy."
+Population Indicator(s),,,,,
+FASFL,"Full Analysis Set
+Population Flag",Char,"Y, N",Cond,"A character indicator variable is required for every population that is defined in the statistical analysis plan.  A minimum of one subject-level population flag variable is required for every clinical trial.  Additional population flags may be added.  The values of subject-level population flags cannot be blank.  If a flag is used, the corresponding numeric version (*FN) can also be included."
+SAFFL,"Safety Population
+Flag",Char,"Y, N",Cond,
+ITTFL,"Intent-To-Treat
+Population Flag",Char,"Y, N",Cond,
+PPROTFL,"Per-Protocol
+Population Flag",Char,"Y, N",Cond,
+COMPLFL,"Completers
+Population Flag",Char,"Y, N",Cond,
+RANDFL,"Randomized
+Population Flag",Char,"Y, N",Cond,
+ENRLFL,"Enrolled
+Population Flag",Char,"Y, N",Cond,
+Treatment Variables,,,,,
+ARM,"Description of
+Planned Arm",Char,,Req,DM.ARM
+TRTxxP,Planned Treatment for Period xx,Char,,Req,"Subject-level identifier that represents the planned treatment for period xx.  In a one- period randomized trial, TRT01P would be the treatment to which the subject was randomized.  TRTxxP might be derived from the SDTM DM variable ARM.  At least
+TRT01P is required."
+TRTxxPN,"Planned Treatment for
+Period xx (N)",Num,,Perm,The numeric code variable for TRTxxP.  One-to-one map to TRTxxP.
+TRTxxA,Actual Treatment for Period xx,Char,,Cond,"Subject-level identifier that represents the actual treatment for the subject for period xx. Required when actual treatment does not match planned and there is an analysis of the
+data as treated."
+TRTxxAN,Actual Treatment for Period xx (N),Num,,Perm,The numeric code variable for TRTxxA.  One-to-one map to TRTxxA.
+TRTSEQP,Planned Sequence of Treatments,Char,,Cond,"Required when there is a sequence of treatments that are analyzed, for example in a crossover design.  TRTSEQP is not necessarily equal to ARM, for example if ARM contains elements that are not relevant to analysis of treatments or ARM is not fully
+descriptive (e.g., “GROUP 1,” “GROUP 2”).  Whenever applicable, TRTSEQP is required even if identical to ARM."
+TRTSEQPN,Planned Sequence of Treatments (N),Num,,Perm,Numeric version of TRTSEQP.  One-to-one map to TRTSEQP.
+TRTSEQA,"Actual Sequence
+of Treatments",Char,,Cond,"TRTSEQA is required if a situation occurred in the conduct of the trial where a subject
+received a sequence of treatments other than what was planned."
+TRTSEQAN,"Actual Sequence
+of Treatments (N)",Num,,Perm,Numeric version of TRTSEQA.  One-to-one map to TRTSEQA.
+TRxxPGy,Planned Pooled Treatment y for Period xx,Char,,Perm,"Planned pooled treatment y for period xx.  Useful when planned treatments (TRTxxP) in the specified period xx are pooled together for analysis according to pooling algorithm y. For example when in period 2 the first pooling algorithm dictates that all doses of Drug A (TR02PG1=“All doses of Drug A”) are pooled together for comparison to all doses of
+Drug B (TR02PG1=“All doses of Drug B”).  Each value of TRTxxP is pooled within at most one value of TRxxPGy."
+TRxxPGyN,"Planned Pooled Trt y for Period
+xx (N)",Char,,Perm,The numeric code for TRxxPGy.  One-to-one map to TRxxPGy.
+TRxxAGy,"Actual Pooled Treatment y for
+Period xx",Char,,Cond,Actual pooled treatment y for period xx.  Required when TRxxPGy is present and TRTxxA is present.
+TRxxAGyN,"Actual Pooled Trt y for Period xx
+(N)",Char,,Perm,The numeric code for TRxxAGy.  One-to-one map to TRxxAGy.
+Trial Dates,,,,,
+RANDDT,"Date of
+Randomization",Num,,Cond,Required in randomized trials
+TRTSDT,"Date of First Exposure to
+Treatment",Num,,Cond,Date of first exposure to treatment for a subject in a study.  TRTSDT and/or TRTSDTM are required if there is an investigational product.
+TRTSTM,"Time of First Exposure to
+Treatment",Num,,Perm,Time of first exposure to treatment for a subject in a study.
+TRTSDTM,"Datetime of First Exposure to
+Treatment",Num,,Cond,Datetime of first exposure to treatment for a subject in a study.  TRTSDT and/or TRTSDTM are required if there is an investigational product.
+TRTSDTF,"Date of First
+Exposure Imput. Flag",Char,(DATEFL),Cond,The level of imputation of date of first exposure to treatment.  See General Timing Variable Convention #6.
+TRTSTMF,"Time of First Exposure Imput.
+Flag",Char,(TIMEFL),Cond,The level of imputation of time of first exposure to treatment.  See General Timing Variable Convention #7.
+TRTEDT,"Date of Last
+Exposure to Treatment",Num,,Cond,Date of last exposure to treatment for a subject in a study.  TRTEDT and/or TRTEDTM are required if there is an investigational product.
+TRTETM,"Time of Last
+Exposure to Treatment",Num,,Perm,Time of last exposure to treatment for a subject in a study.
+TRTEDTM,"Datetime of Last
+Exposure to Treatment",Num,,Cond,Datetime of last exposure to treatment for a subject in a study.  TRTEDT and/or TRTEDTM are required if there is an investigational product.
+TRTEDTF,"Date of Last Exposure Imput.
+Flag",Char,(DATEFL),Cond,The level of imputation of date of last exposure to treatment.  See General Timing Variable Convention #6.
+TRTETMF,"Time of Last
+Exposure Imput. Flag",Char,(TIMEFL),Cond,The level of imputation of time of last exposure to treatment.  See General Timing Variable Convention #7.
+TRxxSDT,Date of First Exposure in Period xx,Num,,Cond,"Date of first exposure to treatment in period xx.  TRxxSDT and/or TRxxSDTM is required in trial designs where multiple treatments are given to the same subject, such as
+a crossover design.  Also useful in designs where multiple periods exist for the same treatment (i.e., multiple cycles of the same study treatment)."
+TRxxSTM,"Time of First Exposure in
+Period xx",Num,,Cond,"The starting time of exposure in period xx.  TRxxSTM and/or TRxxSDTM are required in trial designs where multiple treatments are given to the same subject, such as a
+crossover design, and time is important to the analysis."
+TRxxSDTM,"Datetime of First Exposure in
+Period xx",Num,,Cond,"Datetime of first exposure to treatment in period xx.  TRxxSDT and/or TRxxSDTM are required in trial designs where multiple treatments are given to the same subject, such as
+a crossover design."
+TRxxSDTF,"Date 1st Exposure Period xx Imput.
+Flag",Char,(DATEFL),Cond,The level of imputation of date of first exposure to treatment in period xx.  See General Timing Variable Convention #6.
+TRxxSTMF,"Time 1st
+Exposure Period xx Imput. Flag",Char,(TIMEFL),Cond,The level of imputation of time of first exposure in period xx.  See General Timing Variable Convention #7.
+TRxxEDT,"Date of Last Exposure in
+Period xx",Num,,Cond,"Date of last exposure in period xx.  TRxxEDT and/or TRxxEDTM are required in trial designs where multiple treatments are given to the same subject, such as a crossover
+design."
+TRxxETM,"Time of Last
+Exposure in Period xx",Num,,Cond,"The ending time of exposure in period xx.  TRxxETM and/or TRxxEDTM are required
+in trial designs where multiple treatments are given to the same subject, such as a crossover design, and ending time is important to the analysis."
+TRxxEDTM,"Datetime of Last
+Exposure in Period xx",Num,,Cond,"The datetime of last exposure to treatment in period xx.  TRxxEDT and/or TRxxEDTM
+are required in trial designs where multiple treatments are given to the same subject, such as a crossover design."
+TRxxEDTF,"Date Last
+Exposure Period xx Imput. Flag",Char,(DATEFL),Cond,The level of imputation of date of last exposure in period xx.  See General Timing Variable Convention #6.
+TRxxETMF,"Time Last Exposure Period
+xx Imput. Flag",Char,(TIMEFL),Cond,The level of imputation of time of last exposure in period xx.  See General Timing Variable Convention #7.
+APxxSDT,"Period xx Start
+Date",Num,,Perm,The starting date of period xx.
+APxxSTM,Period xx Start Time,Num,,Perm,The starting time of period xx.
+APxxSDTM,"Period xx Start
+Datetime",Num,,Perm,The starting datetime of period xx.
+APxxSDTF,"Period xx Start
+Date Imput. Flag",Char,(DATEFL),Cond,"The level of imputation of period xx start date.  See General Timing Variable Convention
+#6."
+APxxSTMF,"Period xx Start
+Time Imput. Flag",Char,(TIMEFL),Cond,"The level of imputation of period xx start time.  See General Timing Variable Convention
+#7."
+APxxEDT,"Period xx End
+Date",Num,,Perm,The ending date of period xx.
+APxxETM,"Period xx End
+Time",Num,,Perm,The ending time of period xx.
+APxxEDTM,"Period xx End
+Date/Time",Num,,Perm,The ending datetime of period xx.
+APxxEDTF,"Period xx End
+Date Imput. Flag",Char,(DATEFL),Cond,"The level of imputation of period xx end date.  See General Timing Variable Convention
+#6."
+APxxETMF,"Period End Time
+Imput. Flag",Char,(TIMEFL),Cond,"The level of imputation of period xx end time.  See General Timing Variable Convention
+#7."
