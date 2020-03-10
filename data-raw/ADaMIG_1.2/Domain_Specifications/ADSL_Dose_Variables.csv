@@ -1,0 +1,4 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+DOSExxP,Planned Treatment Dose for Period xx,Num,,Perm,Subject-level identifier that represents the planned treatment dosage for period xx.
+DOSExxA,Actual Treatment Dose for Period xx,Num,,Perm,Subject-level identifier that represents the actual treatment dosage for period xx.
+DOSExxU,Units for Dose for Period xx,Char,,Perm,"The units for DOSExxP and DOSExxA. It is permissible to use suffixes such as ""P"" and ""A"" if needed, with labels modified accordingly."

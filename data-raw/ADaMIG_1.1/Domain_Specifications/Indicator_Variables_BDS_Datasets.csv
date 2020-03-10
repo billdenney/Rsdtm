@@ -1,0 +1,21 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+ABLFL,Baseline Record Flag,Char,Y,Cond,"Character indicator to identify the baseline record for each subject, parameter, and baseline type (BASETYPE) combination. See BASETYPE in Table 3.3.4.1. ABLFL is required if BASE is present in the dataset.
+A baseline record may be derived (e.g., it may be an average), in which case DTYPE must also be populated. If BASE is populated for a parameter, and BASE is non-null for a subject for that parameter, then there must be a record flagged by ABLFL for that subject and parameter."
+ABLFN,"Baseline Record
+Flag (N)",Num,1,Perm,"A numeric representation of ABLFL. ABLFN has a one-to-one mapping with ABLFL. As
+described in Section 3.1.1 Item 8, ABLFN can be included only if ABLFL is also included."
+ANLzzFL,Analysis Flag zz,Char,Y,Cond,"ANLzzFL is a conditionally required flag to be used in addition to other selection variables when the other selection variables in combination are insufficient to identify the exact set of records used for one or more analyses. Often one ANLzzFL will serve to support the accurate selection of records for more than one analysis. Note that it is allowable to add additional descriptive text to the label (see Section 3.1.6, Item 1).
+When one is defining the set of records used in a particular analysis or family of analyses, ANLzzFL is supplemental to, and is intended to be used in conjunction with, other selection variables, such as subject-level, parameter-level and record-level population flags, AVISIT, DTYPE, grouping variables such as SITEGRy, and others. The lower-case letter “zz” in the variable name is an index for the zzth record selection algorithm where “zz” is replaced with a zero- padded two-digit integer [01-99]. Every record selection algorithm “zz” (i.e., every algorithm for populating an ANLzzFL) must be defined in variable metadata. When the set of records that the algorithm “zz” operates on is pre-filtered by application of other criteria, such as a record-level population flag, then the selection algorithm definition in the metadata must so specify.
+Note that the ANLzzFL value of Y indicates that the record fulfilled the requirements of the algorithm, but does not necessarily imply that the record was actually used in one or more analyses, as whether or not a record is used also depends on the other selection variables applied. The ANLzzFL flag is useful in many circumstances; an example is when there is more than one record for an analysis timepoint within a subject and parameter, as it can be used to identify the record chosen to represent the timepoint for an analysis. “zz” is an index for a record selection algorithm, such as “record closest to target relative day for the AVISIT, with ties broken by the latest record, for each AVISIT within <list of AVISITS>.”
+Note that it is not required that a specific ANLzzFL variable has the same definition across a project or even across datasets within a study. There is also no requirement that the ANLzzFL
+variables in a dataset or study be used in numerical order; e.g. ANL02FL might occur in a dataset or study without ANL01FL present in the same dataset or study."
+ANLzzFN,Analysis Flag zz (N),Num,1,Perm,"Numeric version of ANLzzFL. There is a one-to-one mapping between ANLzzFL and ANLzzFN within a dataset. As described in Section 3.1.1 Item 8, ANLzzFN can be included only if ANLzzFL is also included."
+ONTRTFL,On Treatment Record Flag,Char,Y,Perm,"Character indicator of whether the observation occurred while the subject was on treatment.
+ONTRTFL is producer-defined, and its definition may vary across datasets in a study based on analysis needs."
+ONTRTFN,On Treatment Record Flag (N),Num,1,Perm,"Numeric representation of ONTRTFL. There is a one-to-one mapping between ONTRTFL and
+ONTRTFN. As described in Section 3.1.1 Item 8, ONTRTFN can be included only if ONTRTFL is also included."
+LVOTFL,"Last Value On Treatment Record
+Flag",Char,Y,Perm,Character indicator of the subject’s last non-missing value on treatment for each parameter.
+LVOTFN,"Last Value On
+Treatment Record Flag (N)",Num,1,Perm,"Numeric representation of LVOTFL. There is a one-to-one mapping between LVOTFL and
+LVOTFN. As described in Section 3.1.1 Item 8, LVOTFN can be included only if LVOTFL is also included."
