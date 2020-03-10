@@ -2,31 +2,30 @@ Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
 APERSDT,Period Start Date,Num,,Perm,The starting date for the period defined by APERIOD.
 APERSTM,Period Start Time,Num,,Perm,The starting time for the period defined by APERIOD.
 APERSDTM,Period Start Datetime,Num,,Perm,The starting datetime for the period defined by APERIOD.
-APERSDTF,Period Start Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of period start date. If APERSDT (or the date part of APERSDTM) was imputed, APERSDTF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
-APERSTMF,Period Start Time Imput. Flag,Char,(TIMEFL),Cond,The level of imputation of period start time. If APERSTM (or the time part of APERSDTM) was
-,,,,,"imputed, APERSTMF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
+APERSDTF,Period Start Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of period start date. If APERSDT (or the date part of APERSDTM) was imputed, APERSDTF must be populated and is required. See Section 3.1.3, DateÂ andÂ TimeÂ ImputationÂ FlagÂ Variables."
+APERSTMF,Period Start Time Imput. Flag,Char,(TIMEFL),Cond,The level of imputation of period start time. If APERSTM (or the time part of APERSDTM) was imputed, APERSTMF must be populated and is required. See Section 3.1.3, DateÂ andÂ TimeÂ ImputationÂ Flag Variables."
 APEREDT,Period End Date,Num,,Perm,The ending date for the period defined by APERIOD.
 APERETM,Period End Time,Num,,Perm,The ending time for the period defined by APERIOD.
 APEREDTM,Period End Datetime,Num,,Perm,The ending datetime for the period defined by APERIOD.
-APEREDTF,Period End Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of period end date. If APEREDT (or the date part of APEREDTM) was imputed, APEREDTF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
-APERETMF,Period End Time Imput. Flag,Char,(TIMEFL),Cond,"The level of imputation of period end time. If APERETM (or the time part of APEREDTM) was imputed, APERETMF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
+APEREDTF,Period End Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of period end date. If APEREDT (or the date part of APEREDTM) was imputed, APEREDTF must be populated and is required. See Section 3.1.3, DateÂ andÂ TimeÂ ImputationÂ FlagÂ Variables."
+APERETMF,Period End Time Imput. Flag,Char,(TIMEFL),Cond,"The level of imputation of period end time. If APERETM (or the time part of APEREDTM) was imputed, APERETMF must be populated and is required. See Section 3.1.3, DateÂ andÂ TimeÂ ImputationÂ FlagÂ Variables."
 ASPRSDT,Subperiod Start Date,Num,,Perm,The starting date for the subperiod defined by ASPER.
 ASPRSTM,Subperiod Start Time,Num,,Perm,The starting time for the subperiod defined by ASPER.
 ASPRSDTM,Subperiod Start Datetime,Num,,Perm,The starting datetime for the subperiod defined by ASPER.
-ASPRSDTF,Subperiod Start Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of subperiod start date. If ASPRSDT (or the date part of ASPRSDTM) was imputed, ASPRSDTF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
-ASPRSTMF,Subperiod Start Time Imput. Flag,Char,(TIMEFL),Cond,"The level of imputation of subperiod start time. If ASPRSTM (or the time part of ASPRSDTM) was imputed, ASPRSTMF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
+ASPRSDTF,Subperiod Start Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of subperiod start date. If ASPRSDT (or the date part of ASPRSDTM) was imputed, ASPRSDTF must be populated and is required. See Section 3.1.3, DateÂ andÂ TimeÂ ImputationÂ Flag Variables."
+ASPRSTMF,Subperiod Start Time Imput. Flag,Char,(TIMEFL),Cond,"The level of imputation of subperiod start time. If ASPRSTM (or the time part of ASPRSDTM) was imputed, ASPRSTMF must be populated and is required. See Section 3.1.3, DateÂ andÂ TimeÂ ImputationÂ Flag Variables."
 ASPREDT,Subperiod End Date,Num,,Perm,The ending date for the subperiod defined by ASPER.
 ASPRETM,Subperiod End Time,Num,,Perm,The ending time for the subperiod defined by ASPER.
 ASPREDTM,Subperiod End Datetime,Num,,Perm,The ending datetime for the subperiod defined by ASPER.
-ASPREDTF,Subperiod End Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of subperiod end date. If ASPREDT (or the date part of ASPREDTM) was imputed, ASPREDTF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
-ASPRETMF,Subperiod End Time Imput. Flag,Char,(TIMEFL),Cond,"The level of imputation of subperiod end time. If ASPRETM (or the time part of ASPREDTM) was imputed, ASPRETMF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
+ASPREDTF,Subperiod End Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of subperiod end date. If ASPREDT (or the date part of ASPREDTM) was imputed, ASPREDTF must be populated and is required. See Section 3.1.3, DateÂ andÂ TimeÂ ImputationÂ Flag Variables."
+ASPRETMF,Subperiod End Time Imput. Flag,Char,(TIMEFL),Cond,"The level of imputation of subperiod end time. If ASPRETM (or the time part of ASPREDTM) was imputed, ASPRETMF must be populated and is required. See Section 3.1.3, DateÂ andÂ TimeÂ ImputationÂ Flag Variables."
 PHSDT,Phase Start Date,Num,,Perm,The starting date for the phase defined by APHASE.
 PHSTM,Phase Start Time,Num,,Perm,The starting time for the phase defined by APHASE.
 PHSDTM,Phase Start Datetime,Num,,Perm,The starting datetime for the phase defined by APHASE.
-PHSDTF,Phase Start Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of phase start date. If PHSDT (or the date part of PHSDTM) was imputed, PHSDTF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
-PHSTMF,Phase Start Time Imput. Flag,Char,(TIMEFL),Cond,"The level of imputation of phase start time. If PHSTM (or the time part of PHSDTM) was imputed, PHSTMF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
+PHSDTF,Phase Start Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of phase start date. If PHSDT (or the date part of PHSDTM) was imputed, PHSDTF must be populated and is required. See Section 3.1.3, DateÂ and TimeÂ ImputationÂ FlagÂ Variables."
+PHSTMF,Phase Start Time Imput. Flag,Char,(TIMEFL),Cond,"The level of imputation of phase start time. If PHSTM (or the time part of PHSDTM) was imputed, PHSTMF must be populated and is required. See Section 3.1.3, DateÂ andÂ TimeÂ ImputationÂ FlagÂ Variables."
 PHEDT,Phase End Date,Num,,Perm,The ending date for the phase defined by APHASE.
 PHETM,Phase End Time,Num,,Perm,The ending time for the phase defined by APHASE.
 PHEDTM,Phase End Datetime,Num,,Perm,The ending datetime for the phase defined by APHASE.
-PHEDTF,Phase End Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of phase end date. If PHEDT (or the date part of PHEDTM) was imputed, PHEDTF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
-PHETMF,Phase End Time Imput. Flag,Char,(TIMEFL),Cond,"The level of imputation of phase end time. If PHETM (or the time part of PHEDTM) was imputed, PHETMF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
+PHEDTF,Phase End Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of phase end date. If PHEDT (or the date part of PHEDTM) was imputed, PHEDTF must be populated and is required. See Section 3.1.3, DateÂ and TimeÂ ImputationÂ FlagÂ Variables."
+PHETMF,Phase End Time Imput. Flag,Char,(TIMEFL),Cond,"The level of imputation of phase end time. If PHETM (or the time part of PHEDTM) was imputed, PHETMF must be populated and is required. See Section 3.1.3, DateÂ and TimeÂ ImputationÂ FlagÂ Variables."
