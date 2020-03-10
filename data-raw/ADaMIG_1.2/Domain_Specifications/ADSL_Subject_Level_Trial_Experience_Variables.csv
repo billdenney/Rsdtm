@@ -18,8 +18,7 @@ RANDDT,Date of Randomization,Num,,Cond,Required in randomized trials.
 RFICyDT,Date of Informed Consent y,Num,,Perm,"This variable may be used in the case where there are multiple consent dates within a study. This date does not need to repeat the date in RFICDT. ""y"" can start with 1 but it is not required to start with 1."
 ENRLyDT,Date of Enrollment y,Num,,Perm,"This variable may be used in the case where there are multiple enrollment dates within a study. This date does not need to repeat the date in ENRLDT. ""y"" can start with 1 but it is not required to start with 1."
 RANDyDT,Date of Randomization y,Num,,Perm,"This variable may be used in the case where there are multiple randomization dates within a study. This date does not need to repeat the date in RANDDT. ""y"" can start with 1 but it is not required to start with 1."
-LSTALVDT,Date Last Known Alive,Num,,Perm,"If this variable is included in ADSL, the best practice is to populate it for everyone. If the derivation for subjects who died differs from the derivation for subjects who are"
-,,,,,"not known to have died, the differences should be noted in metadata."
+LSTALVDT,Date Last Known Alive,Num,,Perm,"If this variable is included in ADSL, the best practice is to populate it for everyone. If the derivation for subjects who died differs from the derivation for subjects who are not known to have died, the differences should be noted in metadata."
 TRCMP,Treatment Compliance (%),Num,,Perm,Overall percent compliance with treatment in the trial. TRCMP may be useful for inclusion in ADSL for reasons such as defining subgroups and/or populations.
 TRCMPGy,Treatment Compliance (%) Group y,Char,,Perm,"Grouping ""y"" of TRCMP, treatment compliance percentage."
 TRCMPGyN,Treatment Compliance (%) Group y (N),Num,,Perm,"Numeric representation of treatment compliance (%) grouping ""y"". There must be a one-to-one relationship between TRCMPGyN and TRCMPGy within a study.
@@ -31,7 +30,7 @@ TRTDURD,Total Treatment Duration (Days),Num,,Perm,"Total treatment duration, as 
 TRTDURM,Total Treatment Duration (Months),Num,,Perm,"Total treatment duration, as measured in months. More than one of TRTDURD, TRTDURM, and TRTDURY can be populated, but each represents the entire duration in its respective units."
 TRTDURY,Total Treatment Duration (Years),Num,,Perm,"Total treatment duration, as measured in years. More than one of TRTDURD, TRTDURM, and TRTDURY can be populated, but each represents the entire duration in its respective units."
 DTHDT,Date of Death,Num,,Perm,Date of subject's death. Derived from DM.DTHDTC.
-DTHDTF,Date of Death Imputation Flag,Char,(DATEFL),Cond,"Imputation flag for date of subject's death. If DTHDT was imputed, DTHDTF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
+DTHDTF,Date of Death Imputation Flag,Char,(DATEFL),Cond,"Imputation flag for date of subject's death. If DTHDT was imputed, DTHDTF must be populated and is required. See Section 3.1.3, DateÂ andÂ TimeÂ Imputation FlagÂ Variables."
 DTHCAUS,Cause of Death,Char,,Perm,Cause of Death.
 DTHCAUSN,Cause of Death (N),Num,,Perm,"Numeric representation of cause of death. There must be a one-to-one relationship between DTHCAUSN and DTHCAUS within a study. DTHCAUSN cannot be present unless DTHCAUS is also present. When DTHCAUS and DTHCAUSN are present, then on a given record, either both must be populated or both must be null."
 DTHCGRy,Cause of Death Group y,Char,,Perm,"Grouping ""y"" of DTHCAUS, the subject's cause of death."
