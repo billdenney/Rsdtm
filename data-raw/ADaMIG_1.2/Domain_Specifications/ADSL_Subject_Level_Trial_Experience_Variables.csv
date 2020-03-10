@@ -1,0 +1,39 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+EOSSTT,End of Study Status,Char,(SBJTSTAT),Perm,"The subject's status as of the end of study or data cutoff. Examples: COMPLETED, DISCONTINUED, ONGOING."
+EOSDT,End of Study Date,Num,,Perm,Date subject ended the study - either date of completion or date of discontinuation or data cutoff date for interim analyses.
+DCSREAS,Reason for Discontinuation from Study,Char,,Perm,Reason for subject's discontinuation from study. The source would most likely be the SDTM DS dataset. Null for subjects who completed the study.
+DCSREASP,Reason Spec for Discont from Study,Char,,Perm,"Additional detail regarding subject's discontinuation from study (e.g., description of ""other"")."
+EOTSTT,End of Treatment Status,Char,(SBJTSTAT),Perm,"The subject's status as of the end of treatment or data cutoff. Examples: COMPLETED, DISCONTINUED, ONGOING."
+DCTREAS,Reason for Discontinuation of Treatment,Char,,Perm,"If a subject discontinued treatment in the study, then this variable indicates the reason for discontinuation. This is for discontinuation of treatment in the overall study and not to be used for discontinuation reason within individual treatment periods."
+DCTREASP,Reason Specify for Discont of Treatment,Char,,Perm,"Additional detail regarding subject's discontinuation from treatment (e.g., description of ""other"")."
+EOTxxSTT,End of Treatment Status in Period xx,Char,(SBJTSTAT),Perm,"The subject's treatment status as of the end of period xx, or data cutoff if within period xx. Examples: COMPLETED, DISCONTINUED, ONGOING."
+DCTxxRS,Reason for Discont of Treat in Period xx,Char,,Perm,Reason for discontinuing treatment in period xx.
+DCTxxRSP,Reason Spec for Disc of Trt in Period xx,Char,,Perm,"Additional detail regarding subject's discontinuation of treatment in period xx (e.g., description of ""other"")."
+EOPxxSTT,End of Period xx Status,Char,(SBJTSTAT),Perm,"The subject's status as of the end of period xx, or data cutoff if within period xx. Examples: COMPLETED, DISCONTINUED, ONGOING."
+DCPxxRS,Reason for Discont from Period xx,Char,,Perm,Reason for discontinuing analysis period xx.
+DCPxxRSP,Reason Spec for Discont from Period xx,Char,,Perm,"Additional detail regarding subject's discontinuation from period xx (e.g., description of ""other"")."
+RFICDT,Date of Informed Consent,Num,,Perm,Date subject gave informed consent. Generally equivalent to DM.RFICDTC.
+ENRLDT,Date of Enrollment,Num,,Perm,Date of subject's enrollment into trial.
+RANDDT,Date of Randomization,Num,,Cond,Required in randomized trials.
+RFICyDT,Date of Informed Consent y,Num,,Perm,"This variable may be used in the case where there are multiple consent dates within a study. This date does not need to repeat the date in RFICDT. ""y"" can start with 1 but it is not required to start with 1."
+ENRLyDT,Date of Enrollment y,Num,,Perm,"This variable may be used in the case where there are multiple enrollment dates within a study. This date does not need to repeat the date in ENRLDT. ""y"" can start with 1 but it is not required to start with 1."
+RANDyDT,Date of Randomization y,Num,,Perm,"This variable may be used in the case where there are multiple randomization dates within a study. This date does not need to repeat the date in RANDDT. ""y"" can start with 1 but it is not required to start with 1."
+LSTALVDT,Date Last Known Alive,Num,,Perm,"If this variable is included in ADSL, the best practice is to populate it for everyone. If the derivation for subjects who died differs from the derivation for subjects who are"
+,,,,,"not known to have died, the differences should be noted in metadata."
+TRCMP,Treatment Compliance (%),Num,,Perm,Overall percent compliance with treatment in the trial. TRCMP may be useful for inclusion in ADSL for reasons such as defining subgroups and/or populations.
+TRCMPGy,Treatment Compliance (%) Group y,Char,,Perm,"Grouping ""y"" of TRCMP, treatment compliance percentage."
+TRCMPGyN,Treatment Compliance (%) Group y (N),Num,,Perm,"Numeric representation of treatment compliance (%) grouping ""y"". There must be a one-to-one relationship between TRCMPGyN and TRCMPGy within a study.
+TRCMPGyN cannot be present unless TRCMPGy is also present. When TRCMPGy and TRCMPGyN are present, then on a given record, either both must be populated or both must be null."
+TRxxDURD,Treatment Duration in Period xx (Days),Num,,Perm,"Treatment duration for period xx as measured in days. More than one of TRxxDURD, TRxxDURM, and TRxxDURY can be populated, but each represents the entire duration in its respective units."
+TRxxDURM,Treatment Duration in Period xx (Months),Num,,Perm,"Treatment duration for period xx, as measure in months. More than one of TRxxDURD, TRxxDURM, and TRxxDURY can be populated, but each represents the entire duration in its respective units."
+TRxxDURY,Treatment Duration in Period xx (Years),Num,,Perm,"Treatment duration for period xx, as measured in years. More than one of TRxxDURD, TRxxDURM, and TRxxDURY can be populated, but each represents the entire duration in its respective units."
+TRTDURD,Total Treatment Duration (Days),Num,,Perm,"Total treatment duration, as measured in days. More than one of TRTDURD, TRTDURM, and TRTDURY can be populated, but each represents the entire duration in its respective units."
+TRTDURM,Total Treatment Duration (Months),Num,,Perm,"Total treatment duration, as measured in months. More than one of TRTDURD, TRTDURM, and TRTDURY can be populated, but each represents the entire duration in its respective units."
+TRTDURY,Total Treatment Duration (Years),Num,,Perm,"Total treatment duration, as measured in years. More than one of TRTDURD, TRTDURM, and TRTDURY can be populated, but each represents the entire duration in its respective units."
+DTHDT,Date of Death,Num,,Perm,Date of subject's death. Derived from DM.DTHDTC.
+DTHDTF,Date of Death Imputation Flag,Char,(DATEFL),Cond,"Imputation flag for date of subject's death. If DTHDT was imputed, DTHDTF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
+DTHCAUS,Cause of Death,Char,,Perm,Cause of Death.
+DTHCAUSN,Cause of Death (N),Num,,Perm,"Numeric representation of cause of death. There must be a one-to-one relationship between DTHCAUSN and DTHCAUS within a study. DTHCAUSN cannot be present unless DTHCAUS is also present. When DTHCAUS and DTHCAUSN are present, then on a given record, either both must be populated or both must be null."
+DTHCGRy,Cause of Death Group y,Char,,Perm,"Grouping ""y"" of DTHCAUS, the subject's cause of death."
+DTHCGRyN,Cause of Death Group y (N),Num,,Perm,"Numeric representation of grouping ""y"" of the subject's cause of death. There must be a one-to-one relationship between DTHCGRyN and DTHCGRy within a study.
+DTHCGyN cannot be present unless DTHCGy is also present. When DTHCGy and DTHCGyN are present, then on a given record, either both must be populated or both must be null."

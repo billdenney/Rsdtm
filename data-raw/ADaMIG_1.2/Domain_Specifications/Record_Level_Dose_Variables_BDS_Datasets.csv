@@ -1,0 +1,6 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+DOSEP,Planned Treatment Dose,Num,,Perm,DOSEP represents the planned treatment dosage associated with the record.
+DOSCUMP,Cumulative Planned Treatment Dose,Num,,Perm,"Cumulative planned dosage of treatment for the subject at the point in time of the record (e.g., ADT)."
+DOSEA,Actual Treatment Dose,Num,,Perm,DOSEA represents the actual treatment dosage associated with the record.
+DOSCUMA,Cumulative Actual Treatment Dose,Num,,Perm,"Cumulative actual dosage of treatment for the subject at the point in time of the record (e.g., ADT)."
+DOSEU,Treatment Dose Units,Char,,Perm,"The units for DOSEP, DOSCUMP, DOSEA, and DOSCUMA. It is permissible to use suffixes such as ""P"" and ""A"" if needed, with labels modified accordingly."

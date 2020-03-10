@@ -1,0 +1,29 @@
+Variable Name,,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+ARM,,Description of Planned Arm,Char,,Req,DM.ARM
+ACTARM,,Description of Actual Arm,Char,,Perm,DM.ACTARM
+TRTxxP,,Planned Treatment for Period xx,Char,,Req,"Subject-level identifier that represents the planned treatment for period xx. In a one-period randomized trial, TRT01P would be the treatment to which the subject was randomized. TRTxxP might be derived from the SDTM DM variable ARM. At least TRT01P is required."
+TRTxxPN,,Planned Treatment for Period xx (N),Num,,Perm,"Numeric representation of TRTxxP. There must be a one- to-one relationship between TRTxxPN and TRTxxP within a study.
+TRTxxPN cannot be present unless TRTxxP is also present. When TRTxxP and TRTxxPN are present, then on a given record, either both must be populated or both must be null."
+TRTxxA,,Actual Treatment for Period xx,Char,,Cond,Subject-level identifier that represents the actual treatment for the subject for period xx. Required when actual treatment does not match planned and there is an analysis of the data as treated.
+TRTxxAN,,Actual Treatment for Period xx (N),Num,,Perm,"Numeric representation of TRTxxA. There must be a
+one-to-one relationship between TRTxxAN and TRTxxA within a study."
+,,,,,,"TRTxxAN cannot be present unless TRTxxA is also present. When TRTxxA and TRTxxAN are present, then on a given record, either both must be populated or both must be null."
+TRTSEQP,,Planned Sequence of Treatments,Char,,Cond,"Required when there is an analysis based on the sequence of treatments, for example in a crossover design.
+TRTSEQP is not necessarily equal to ARM, for example if ARM contains elements that are not relevant to analysis of treatments or ARM is not fully descriptive (e.g., ""GROUP 1,"" ""GROUP 2""). When analyzing based on the sequence of treatments, TRTSEQP is required even if identical to ARM."
+TRTSEQPN,,Planned Sequence of Treatments (N),Num,,Perm,"Numeric representation of TRTSEQP. There must be a one-to-one relationship between TRTSEQPN and TRTSEQP within a study.
+TRTSEQPN cannot be present unless TRTSEQP is also present. When TRTSEQP and TRTSEQPN are present, then on a given record, either both must be populated or both must be null."
+TRTSEQA,,Actual Sequence of Treatments,Char,,Cond,TRTSEQA is required if a situation occurred in the conduct of the trial where a subject received a sequence of treatments other than what was planned and there is an analysis based on the sequence of treatments.
+TRTSEQAN,,Actual Sequence of Treatments (N),Num,,Perm,"Numeric representation of TRTSEQA. There must be a one-to-one relationship between TRTSEQAN and TRTSEQA within a study.
+TRTSEQAN cannot be present unless TRTSEQA is also present. When TRTSEQA and TRTSEQAN are present, then on a given record, either both must be populated or both must be null."
+TRxxPGy,,Planned Pooled Treatment y for Period xx,Char,,Perm,"Planned pooled treatment y for period xx. Useful when planned treatments (TRTxxP) in the specified period xx are pooled together for analysis according to pooling algorithm y. For example when in period 2 the first pooling algorithm dictates that all doses of Drug A (TR02PG1=""All doses of Drug A"") are pooled together for comparison to all doses of Drug B (TR02PG1=""All doses of Drug B""). Each value of TRTxxP is pooled within at most one value of TRxxPGy."
+TRxxPGyN,,Planned Pooled Trt y for Period xx (N),Num,,Perm,"Numeric representation of TRxxPGy. There must be a one-to-one relationship between TRxxPGyN and TRxxPGy within a study.
+TRxxPGyN cannot be present unless TRxxPGy is also present. When TRxxPGy and TRxxPGyN are present, then on a given record, either both must be populated or both must be null."
+TRxxAGy,,Actual Pooled Treatment y for Period xx,Char,,Cond,Actual pooled treatment y for period xx. Required when TRxxPGy is present and TRTxxA is present.
+TRxxAGyN,,Actual Pooled Trt y for Period xx (N),Num,,Perm,Numeric representation of TRxxAGy. There must be a one-to-one relationship between TRxxAGyN and TRxxAGy within a study.
+,,,,,,"TRxxAGyN cannot be present unless TRxxAGy is also present. When TRxxAGy and TRxxAGyN are present, then on a given record, either both must be populated or both must be null."
+TSEQPGy,,Planned Pooled Treatment Sequence y,Char,,Perm,"Planned pooled treatment sequence y. Useful when planned treatment sequences (TRTSEQP) are pooled together for analysis according to pooling algorithm y. For example, this might be used in an analysis of an extension study when the analysis is based on what the subject received in the parent study as well as in the extension study."
+TSEQPGyN,,Planned Pooled Treatment Sequence y (N),Num,,Perm,"Numeric representation of TSEQPGy. There must be a one-to-one relationship between TSEQPGyN and TSEQPGy within a study.
+TSEQPGyN cannot be present unless TSEQPGy is also present. When TSEQPGy and TSEQPGyN are present, then on a given record, either both must be populated or both must be null."
+TSEQAGy,,Actual Pooled Treatment Sequence y,Char,,Cond,Actual pooled treatment sequence y. Required when TSEQPGy is present and TRTSEQA is present.
+TSEQAGyN,,Actual Pooled Treatment Sequence y (N),Num,,Perm,"Numeric representation of TSEQAGy. There must be a one-to-one relationship between TSEQAGyN and TSEQAGy within a study.
+TSEQAGyN cannot be present unless TSEQAGy is also present. When TSEQAGy and TSEQAGyN are present, then on a given record, either both must be populated or both must be null."

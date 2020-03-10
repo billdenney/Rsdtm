@@ -1,0 +1,15 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+ITTRFL,Intent-To-Treat Record-Level Flag,Char,Y,Perm,"These indicators identify whether or not the subject was in the specified analysis for the specific record. Useful when the subject is included in the subject-level population, but there are records for the subject that do not satisfy requirements for the population.
+The valid values of these record-level population indicators are Y or null. If a flag is used, the corresponding numeric version (*FN, where 1=Yes) of the flag can also be included. As described in Section 3.1.1 Item 8, the *FN version of the variable can be included only if the corresponding *FL is also included.
+Additional indicators may also be used; refer to Section 3.1.4, Flag Variable Conventions."
+SAFRFL,Safety Analysis Record-Level Flag,Char,Y,Perm,
+FASRFL,Full Analysis Set Record-Level Flag,Char,Y,Perm,
+PPROTRFL,Per-Protocol Record-Level Flag,Char,Y,Perm,
+COMPLRFL,Completers Record-Level Flag,Char,Y,Perm,
+ITTPFL,Intent-To-Treat Parameter-Level Flag,Char,Y,Perm,"These indicators identify whether or not the subject was in the specified analysis for the specific parameter. Useful when the subject is included in the subject-level population, but there are parameters for which the subject does not satisfy requirements for the population.
+The valid values of these parameter-level population indicators are Y or null. If a flag is used, the corresponding numeric version (*FN, where 1=Yes) of the flag can also be included. As described in Section 3.1.1, Item 8, the *FN version of the variable can be included only if the corresponding *FL is also included.
+Additional indicators may also be used; refer to Section 3.1.4, Flag Variable Conventions."
+SAFPFL,Safety Analysis Parameter-Level Flag,Char,Y,Perm,
+FASPFL,Full Analysis Set Parameter-Level Flag,Char,Y,Perm,
+PPROTPFL,Per-Protocol Parameter-Level Flag,Char,Y,Perm,
+COMPLPFL,Completers Parameter-Level Flag,Char,Y,Perm,

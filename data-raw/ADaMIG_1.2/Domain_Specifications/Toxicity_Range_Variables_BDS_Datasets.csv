@@ -1,0 +1,46 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+ATOXGR,Analysis Toxicity Grade,Char,,Perm,Toxicity grade of AVAL or AVALC for analysis; may be based on SDTM --TOXGR or an imputed or assigned value.
+ATOXGRN,Analysis Toxicity Grade (N),Num,,Perm,"Numeric representation of ATOXGR. There must be a one-to-one relationship between ATOXGRN and ATOXGR within a parameter.
+ATOXGRN cannot be present unless ATOXGR is also present. When ATOXGR and ATOXGRN are present, then on a given record, either both must be populated or both must be null."
+BTOXGR,Baseline Toxicity Grade,Char,,Perm,ATOXGR of the baseline record identified by ABLFL.
+BTOXGRN,Baseline Toxicity Grade (N),Num,,Perm,"Numeric representation of BTOXGR. There must be a one-to-one relationship between BTOXGRN and BTOXGR within a parameter.
+BTOXGRN cannot be present unless BTOXGR is also present. When BTOXGR and BTOXGRN are present, then on a given record, either both must be populated or both must be null."
+ANRIND,Analysis Reference Range Indicator,Char,,Perm,Indicates where AVAL or AVALC falls with respect to the normal reference range for analysis; may be based on SDTM --NRIND or an imputed or assigned value.
+BNRIND,Baseline Reference Range Indicator,Char,,Perm,ANRIND of the baseline record identified by ABLFL.
+ANRLO,Analysis Normal Range Lower Limit,Num,,Perm,Normal range lower limit for analysis; may be based on SDTM --NRLO or an imputed or assigned value.
+ANRLOC,Analysis Normal Range Lower Limit (C),Char,,Perm,"Character analysis normal range lower limit. ANRLOC can be a character string mapping to ANRLO, but if so there must be a one-to-one
+relationship between ANRLO and ANRLOC
+within a given PARAM. ANRLOC should not be used to categorize the values of ANRLO.
+Within a given parameter, if there exists a row on which both ANRLOC and ANRLO are populated, then there must be a one-to-one relationship between ANRLOC and ANRLO on all rows on which both variables are populated. (In other words, there is no requirement that records with a null value in either ANRLO or ANRLOC be included when determining whether the one-to-one relationship requirement is satisfied.) On a given record, it is permissible for ANRLO, ANRLOC, or both to be null."
+ANRHI,Analysis Normal Range Upper Limit,Num,,Perm,Normal range upper limit for analysis; may be based on SDTM --NRHI or an imputed or assigned value.
+ANRHIC,Analysis Normal Range Upper Limit (C),Char,,Perm,"Character analysis normal range upper limit. ANRHIC can be a character string mapping to ANRHI, but if so there must be a one-to-one
+relationship between ANRHI and ANRHIC within
+a given PARAM. ANRHIC should not be used to categorize the values of ANRHI. Within a given parameter, if there exists a row on which both ANRHIC and ANRHI are populated, then there must be a one-to-one relationship between ANRHIC and ANRHI on all rows on which both variables are populated. (In other words, there is no requirement that records with a null value in either ANRHI or ANRHIC be included when determining whether the one-to-one relationship requirement is satisfied.) On a given record, it is permissible for ANRHI, ANRHIC, or both to be null."
+AyLO,Analysis Range y Lower Limit,Num,,Cond,"AyLO and/or AyHI are used for analysis ranges other than the normal range. AyLO and/or AyHI are created to capture the different levels of cutoff values used to determine whether an analysis is within a clinically acceptable value range or outside that value range. AyLO and/or AyHI are usually  but not necessarily constants, parameter-specific constants, or subject-specific constants. AyLO must be included if R2AyLO is included in the dataset."
+AyLOC,Analysis Range y Lower Limit (C),Char,,Perm,"Character analysis range y lower limit. AyLOC can be a character string mapping to AyLO, but if so there must be a one-to-one
+relationship between AyLO and AyLOC within a
+given PARAM. AyLOC should not be used to categorize the values of AyLO.
+Within a given parameter, if there exists a row on which both AyLOC and AyLO are populated, then there must be a one-to-one relationship between AyLOC and AyLO on all rows on which both variables are populated. (In other words, there is no requirement that records with a null value in either AyLO or AyLOC be included when determining whether the one-to-one relationship requirement is satisfied.) On a given record, it is permissible for AyLO, AyLOC, or both to be null."
+AyHI,Analysis Range y Upper Limit,Num,,Cond,"See AyLO.
+For example, if ECG QTc values are summarized based on values >450, values >480, and values
+>500, there is a need for 3 ""hi value"" range variables against which to compare values: A1HI=450, A2HI=480, A3HI=500.
+AyHI must be included if R2AyHI is included in the dataset."
+AyHIC,Analysis Range y Upper Limit (C),Char,,Perm,"Character analysis range y upper limit.
+AyHIC can be a character string mapping to AyHI, but if so there must be a one-to-one relationship between AyHI and AyHIC within a given PARAM. AyHIC should not be used to categorize the values of AyHI.
+Within a given parameter, if there exists a row on which both AyHIC and AyHI are populated, then there must be a one-to-one relationship between AyHIC and AyHI on all rows on which both variables are populated. (In other words, there is no requirement that records with a null value in either AyHI or AyHIC be included when determining whether the one-to-one relationship requirement is satisfied.) On a given record, it is permissible for AyHI, AyHIC, or both to be null."
+AyIND,Analysis Range y Indicator,Char,,Perm,"Indicates relationship of AVAL to the analysis range variables AyLO and/or AyHI, or the relationship of AVALC to the analysis range variables AyLOC and/or AyHIC."
+ByIND,Baseline Analysis Range y Indicator,Char,,Perm,AyIND of the baseline record identified by ABLFL.
+ATOXGRL,Analysis Toxicity Grade Low,Char,,Perm,Low toxicity grade of AVAL or AVALC for analysis; may be based on SDTM --TOXGR or an imputed or assigned value. Used to assess when a subject's lab value falls within the low toxicity range.
+ATOXGRLN,Analysis Toxicity Grade Low (N),Num,,Perm,"Numeric representation of ATOXGRL. There must be a one-to-one relationship between ATOXGRLN and ATOXGRL within a parameter.
+ATOXGRLN cannot be present unless ATOXGRL is also present. When ATOXGRL and ATOXGRLN are present, then on a given record, either both must be populated or both must be null."
+ATOXGRH,Analysis Toxicity Grade High,Char,,Perm,"High toxicity grade of AVAL or AVALC for analysis; may be based on SDTM --TOXGR or
+an imputed or assigned value. Used to assess when a subject's lab value falls within the high toxicity range."
+ATOXGRHN,Analysis Toxicity Grade High (N),Num,,Perm,"Numeric representation of ATOXGRH. There must be a one-to-one relationship between ATOXGRHN and ATOXGRH within a parameter.
+ATOXGRHN cannot be present unless ATOXGRH is also present. When ATOXGRH and ATOXGRHN are present, then on a given record, either both must be populated or both must be null."
+BTOXGRL,Baseline Toxicity Grade Low,Char,,Perm,ATOXGRL of the baseline record identified by ABLFL.
+BTOXGRLN,Baseline Toxicity Grade Low (N),Num,,Perm,"Numeric representation of BTOXGRL. There must be a one-to-one relationship between BTOXGRLN and BTOXGRL within a parameter.
+BTOXGRLN cannot be present unless BTOXGRL is also present. When BTOXGRL and BTOXGRLN are present, then on a given record, either both must be populated or both must be null."
+BTOXGRH,Baseline Toxicity Grade High,Char,,Perm,ATOXGRH of the baseline record identified by ABLFL.
+BTOXGRHN,Baseline Toxicity Grade High (N),Num,,Perm,"Numeric representation of BTOXGRH. There must be a one-to-one relationship between BTOXGRHN and BTOXGRH within a parameter. BTOXGRHN cannot be present unless BTOXGRH is also present. When BTOXGRH and BTOXGRHN are present, then on a given record, either both must be populated or both must be null."
+ATOXDSCL,Analysis Toxicity Description Low,Char,,Perm,The analysis toxicity term used to describe toxicity in the low direction. ATOXDCSL is only populated if AVAL is populated and the PARAM is evaluated for toxicity in the low direction. There is a one-to- one relationship between ATOXDCSL and PARAM within a subject. The intent of this  variable is to describe the type of toxicity being evaluated and not the level of toxicity on the specific record.
+ATOXDSCH,Analysis Toxicity Description High,Char,,Perm,The analysis toxicity term used to describe toxicity in the high direction. ATOXDSCH is only populated if AVAL is populated and the PARAM is evaluated for toxicity in the high direction. There is a one-to-one relationship between ATOXDCSH and PARAM within a subject. The intent of this variable is to describe the type of toxicity being evaluated and not the level of toxicity on the specific record.
