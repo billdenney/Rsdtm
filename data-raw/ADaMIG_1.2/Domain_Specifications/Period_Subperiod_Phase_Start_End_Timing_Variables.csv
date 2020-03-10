@@ -2,7 +2,7 @@ Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
 APERSDT,Period Start Date,Num,,Perm,The starting date for the period defined by APERIOD.
 APERSTM,Period Start Time,Num,,Perm,The starting time for the period defined by APERIOD.
 APERSDTM,Period Start Datetime,Num,,Perm,The starting datetime for the period defined by APERIOD.
-APERSDTF,Period Start Date Imput. Flag,Char,(DATEFL),Cond,"The level of imputation of period start date. If APERSDT (or the date part of APERSDTM) was imputed, APERSDTF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
+APERSDTF,Period Start Date Imput. Flag,Char,(DATEFL),Cond,The level of imputation of period start date. If APERSDT (or the date part of APERSDTM) was imputed, APERSDTF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
 APERSTMF,Period Start Time Imput. Flag,Char,(TIMEFL),Cond,The level of imputation of period start time. If APERSTM (or the time part of APERSDTM) was imputed, APERSTMF must be populated and is required. See Section 3.1.3, Date and Time Imputation Flag Variables."
 APEREDT,Period End Date,Num,,Perm,The ending date for the period defined by APERIOD.
 APERETM,Period End Time,Num,,Perm,The ending time for the period defined by APERIOD.
