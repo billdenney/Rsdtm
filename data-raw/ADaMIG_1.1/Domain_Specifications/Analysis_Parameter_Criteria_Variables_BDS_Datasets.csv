@@ -1,0 +1,17 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+CRITy,Analysis Criterion y,Char,,Perm,"A text string identifying a pre-specified criterion within a parameter, for example SYSBP > 90. Required if CRITyFL exists. In some cases, the presence of the text string indicates that the criterion is satisfied on this record and CRITyFL is set to Y, while a null value indicates that the criterion is not satisfied or is not evaluable and is accompanied by a null value in CRITyFL. In other cases, the text string identifies the criterion being evaluated and is populated on every row for the parameter, but whether or not the criterion is satisfied is indicated by the value of the variable
+CRITyFL. See CRITyFL and CRITyFN. Refer to Section 4.7 for additional discussion of CRITy, CRITyFL and CRITyFN."
+CRITyFL,Criterion y Evaluation Result Flag,Char,"Y
+or
+Y, N",Cond,Character flag variable indicating whether the criterion defined in CRITy was met by the data on the record. See CRITy for more information regarding how to use CRITy and CRITyFL to indicate whether a criterion is met. Required if CRITy exists. Refer to Section 4.7 for additional discussion.
+CRITyFN,"Criterion y
+Evaluation Result Flag (N)",Num,"1
+or
+1, 0",Perm,Numeric representation of CRITyFL. There is a one-to-one mapping between CRITyFL and CRITyFN. CRITyFN can be included only if CRITyFL is also included.
+MCRITy,Analysis Multi- Response Criterion y,Char,,Perm,"A text string identifying a pre-specified criterion within a parameter, where the criterion can have multiple responses (as opposed to CRITy which has binary responses). Required if MCRITyML exists. For example, the grade of a lab analyte is compared to the baseline grade, with the possible conditions being 0 to 1, 0 to 2, etc. The text string identifies the criterion being evaluated (for example, “Grade increase”) and is populated on every row for the parameter; which level of the criterion is satisfied is indicated by the value of the variable MCRITyML (for example “0 to 1”, “0
+to 2”, etc.) See MCRITyML and MCRITyMN below, and refer to Section 4.7 for additional discussion of MCRITy, MCRITyML, and MCRITyMN."
+MCRITyML,"Multi-Response
+Criterion y Evaluation",Char,,Cond,"Character variable indicating which level of the criterion defined in MCRITy was met by the data
+on the record. See MCRITy for more information regarding how to use MCRITy and MCRITyML to indicate whether a criterion was met. Content is sponsor-defined. Required if MCRITy exists."
+MCRITyMN,Multi-Response Criterion y Eval (N),Num,,Perm,"Numeric representation of MCRITyML. There is a one-to-one mapping between MCRITyML and
+MCRITyMN. Content is sponsor-defined. MCRITyMN can be included only if MCRITyML is also included."
