@@ -1,0 +1,7 @@
+Variable Name,Variable Label,Type,Code List / Controlled Terms,Core,CDISC Notes
+STUDYID,Study Identifier,Char,,Req,XX.STUDYID
+USUBJID,Unique Subject Identifier,Char,,Req,XX.USUBJID
+SUBJID,Subject Identifier for the Study,Char,,Perm,ADSL.SUBJID
+SITEID,Study Site Identifier,Char,,Perm,ADSL.SITEID
+--SEQ,Sequence Number,Num,,Req*,"XX.--SEQ
+This would be copied from the SDTM domain XX. This may be missing for derived rows. Required for traceability back to SDTM."

@@ -1,0 +1,3 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+ANLzzFL,Analysis Flag zz,Char,Y,Cond,"The ANLzzFL flag is useful in many circumstances; an example is when there is more than one coding path included for analysis, in which case separate analysis flags could be used to denote primary coding path or the records used for analysis from each coding path.
+See the ADaM Implementation Guide version 1.1 [2] for more information on this flag variable. This variable is conditional on whether analysis records flags are needed for analysis."
