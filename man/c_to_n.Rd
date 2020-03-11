@@ -12,13 +12,9 @@
 \usage{
 c_to_n(x, ...)
 
-\method{c_to_n}{character}(
-  x,
-  ...,
- 
-    pattern_numeric = "^[+-]?(?:[0-9]+|[0-9]+\\\\.|\\\\.[0-9]+|[0-9]+\\\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$",
-  verbose = TRUE
-)
+\method{c_to_n}{character}(x, ...,
+  pattern_numeric = "^[+-]?(?:[0-9]+|[0-9]+\\\\.|\\\\.[0-9]+|[0-9]+\\\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$",
+  verbose = TRUE)
 
 \method{c_to_n}{factor}(x, ...)
 

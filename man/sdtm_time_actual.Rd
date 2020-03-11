@@ -10,14 +10,8 @@ sdtm_time_actual(x, ...)
 
 \method{sdtm_time_actual}{list}(x, ...)
 
-\method{sdtm_time_actual}{data.frame}(
-  x,
-  ref_col = "DTC_first_dose",
-  dtc_col_pattern = "DTC$",
-  units = "hours",
-  tz = NULL,
-  ...
-)
+\method{sdtm_time_actual}{data.frame}(x, ref_col = "DTC_first_dose",
+  dtc_col_pattern = "DTC$", units = "hours", tz = NULL, ...)
 }
 \arguments{
 \item{x}{An SDTM data set}

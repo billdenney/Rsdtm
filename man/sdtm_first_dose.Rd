@@ -10,13 +10,9 @@ sdtm_first_dose(x, ...)
 
 \method{sdtm_first_dose}{list}(x, ...)
 
-\method{sdtm_first_dose}{data.frame}(
-  x,
-  trt_value = NULL,
-  trt_col = c("EXTRT", "TRT"),
-  dtc_col = c("EXSTDTC", "EXDTC", "STDTC", "DTC"),
-  ...
-)
+\method{sdtm_first_dose}{data.frame}(x, trt_value = NULL,
+  trt_col = c("EXTRT", "TRT"), dtc_col = c("EXSTDTC", "EXDTC", "STDTC",
+  "DTC"), ...)
 }
 \arguments{
 \item{x}{The EX domain from SDTM or a list with the EX domain in an element
