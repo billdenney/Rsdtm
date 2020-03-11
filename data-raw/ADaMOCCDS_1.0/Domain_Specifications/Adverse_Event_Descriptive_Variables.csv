@@ -1,0 +1,39 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+AESER,Serious Event,Char,(NY),Req,AE.AESER
+AESEV,Severity/Intensity,Char,(AESEV),Perm,AE.AESEV
+AESEVN,Severity/Intensity (N),Num,"1, 2, 3",Perm,"Code AE.AESEV to numeric
+Low intensity should correspond to low value"
+ASEV,"Analysis
+Severity/Intensity",Char,*,Perm,"Apply imputation rules for missing severity of adverse events as specified in the SAP or metadata.
+May change case of text, such as from all uppercase in AESEV to mixed case in ASEV."
+ASEVN,"Analysis
+Severity/Intensity (N)",Num,"1, 2, 3",Perm,"Code ASEV to numeric
+Low intensity should correspond to low value"
+SEVGRy,Pooled Severity Group y,Char,*,Perm,Pooled grouping of AE Severity for analysis (e.g. mild/moderate or severe).
+SEVGRyN,"Pooled Severity Group y
+(N)",Num,*,Perm,"Code SEVGRy to numeric
+Low intensity should correspond to low value"
+AEREL,Causality,Char,*,Perm,AE.AEREL
+AERELN,Causality (N),Num,*,Perm,"Code AE.AEREL to numeric
+Low relation should correspond to low value"
+AREL,Analysis Causality,Char,*,Perm,"Apply imputation rules for missing causality of study drug as specified in the SAP or metadata.
+May change case of text, such as from all uppercase in AEREL to mixed case in AREL."
+ARELN,Analysis Causality (N),Num,*,Perm,Code AREL to numeric
+RELGRy,Pooled Causality Group y,Char,*,Perm,"Pooled grouping of causality of study drug for analysis (e.g. related, Not related)."
+RELGRyN,"Pooled Causality Group y
+(N)",Num,*,Perm,"Code of RELGRy to numeric
+Low relation should correspond to low value"
+AETOXGR,Standard Toxicity Grade,Char,*,Perm,AE.AETOXGR
+AETOXGRN,"Standard Toxicity Grade
+(N)",Num,*,Perm,"Code AETOXGR to numeric
+Low toxicity should correspond to low value"
+ATOXGR,Analysis Toxicity Grade,Char,*,Perm,"Toxicity grade for analysis. May be based on AETOXGR or an imputed or assigned value. May
+change case of text, such as from all uppercase in AETOXGR to mixed case in ATOXGR."
+ATOXGRN,Analysis Toxicity Grade (N),Num,*,Perm,"Code ATOXGR to numeric
+Low toxicity should correspond to low value"
+TOXGGRy,"Pooled Toxicity Grade
+Group y",Char,*,Perm,Pooled grouping of toxicity grade for analysis.
+TOXGGRyN,"Pooled Toxicity Grade y
+(N)",Num,*,Perm,"Code of TOXGGRy to numeric
+Low toxicity should correspond to low value"
+AEACN,Action Taken with Study Treatment,Char,(ACN),Perm,AE.AEACN

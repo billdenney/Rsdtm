@@ -1,3 +1,5 @@
+### Test
+
 #' Extract numeric values from character values
 #'
 #' @param x An object to convert from character to numeric using SDTM or ADaM

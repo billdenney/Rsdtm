@@ -1,0 +1,5 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+AOCCSFL,1st Occurrence of SOC Flag,Char,Y,Perm,"Character indicator for the first occurrence of the system organ class within the subject.
+Example derivation: Sort the data in the required order and flag the first treatment emergent record for each body system for each subject."
+AOCCSIFL,1st Max Sev./Int. Occur Within SOC Flag,Char,Y,Perm,"Character indicator for the first occurrence of the maximum severity/intensity within the subject and system organ class.
+Example derivation: Sort the data in the required order and flag the first treatment emergent record for maximum severity within body system for each subject."
