@@ -8,7 +8,8 @@
 \usage{
 strip_attributes(x, specific = NULL, ...)
 
-\method{strip_attributes}{data.frame}(x, specific = NULL, columns_only = TRUE, ...)
+\method{strip_attributes}{data.frame}(x, specific = NULL,
+  columns_only = TRUE, ...)
 
 \method{strip_attributes}{default}(x, specific = NULL, ...)
 }

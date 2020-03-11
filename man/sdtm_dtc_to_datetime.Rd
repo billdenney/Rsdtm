@@ -11,7 +11,8 @@ sdtm_dtc_to_datetime(x, ...)
 
 \method{sdtm_dtc_to_datetime}{list}(x, ...)
 
-\method{sdtm_dtc_to_datetime}{data.frame}(x, date_col_pattern = "DTC$", truncated = 5, ...)
+\method{sdtm_dtc_to_datetime}{data.frame}(x, date_col_pattern = "DTC$",
+  truncated = 5, ...)
 }
 \arguments{
 \item{x}{The data to convert}
