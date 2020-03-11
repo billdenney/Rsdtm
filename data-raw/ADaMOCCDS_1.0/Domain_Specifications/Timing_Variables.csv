@@ -1,0 +1,50 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+--STDTC,Start Date/Time of Observation*,Char,ISO 8601,Perm,"Copied from XX.--STDTC
+This would be copied from the SDTM domain XX."
+ASTDT,Analysis Start Date,Num,,Cond,"Created from converting XX.--STDTC from character ISO8601 format to numeric date format, applying imputation rules as specified in the SAP or metadata.
+Conditional on whether start date is pertinent for study and is populated in SDTM."
+ASTTM,Analysis Start Time,Num,,Cond,"Created from converting XX.--STDTC from character ISO8601 format to numeric time format, applying imputation rules as specified in the SAP or metadata.
+Conditional on whether start time is pertinent for study and is populated in SDTM."
+ASTDTM,Analysis Start Date/Time,Num,,Cond,"Created from converting XX.--STDTC from character ISO8601 format to numeric date-time format, applying imputation rules as specified in the SAP or metadata.
+Conditional on whether start date-time is pertinent for study and is populated in SDTM."
+ASTDTF,Analysis Start Date Imputation Flag,Char,(DATEFL),Cond,"Created during conversion of XX.--STDTC from character to numeric. Imputation flags are described in the ADaM Analysis Data Model Implementation Guide (ADaMIG) V1.1 [2] General Timing Variable Conventions.
+Conditional on whether any imputation is done for the start date."
+ASTTMF,Analysis Start Time Imputation Flag,Char,(TIMEFL),Cond,"Created during conversion of XX.--STDTC from character to numeric. Imputation flags are described in the ADaM Analysis Data Model Implementation Guide (ADaMIG) V1.1 [2] General Timing Variable Conventions.
+Conditional on whether any imputation is done for the start time."
+--ENDTC,End Date/Time of Observation*,Char,ISO 8601,Cond,"Copied from XX.--ENDTC
+This would be copied from the SDTM domain XX.
+Conditional on whether end date is pertinent for study and is populated in SDTM."
+AENDT,Analysis End Date,Num,,Cond,"Created from converting XX.--ENDTC from character ISO8601 format to numeric date format, applying imputation rules as specified in the SAP or metadata.
+Conditional on whether end date is pertinent for study and is populated in SDTM."
+AENTM,Analysis End Time,Num,,Cond,"Created from converting XX.--ENDTC from character ISO8601 format to numeric time format, applying imputation rules as specified in the SAP or metadata.
+Conditional on whether end time is pertinent for study and is populated in SDTM."
+AENDTM,Analysis End Date/Time,Num,,Cond,"Created from converting XX.--ENDTC from character ISO8601 format to numeric date-time format, applying imputation rules as specified in the SAP or metadata.
+Conditional on whether end date-time is pertinent for study and is populated in SDTM."
+AENDTF,Analysis End Date Imputation Flag,Char,(DATEFL),Cond,"Created during conversion of XX.--ENDTC from character to numeric. Imputation flags are described in the ADaM Analysis Data Model Implementation Guide (ADaMIG) V1.1 [2] General Timing Variable Conventions.
+Conditional on whether any imputation is done for the end date."
+AENTMF,Analysis End Time Imputation Flag,Char,(TIMEFL),Cond,"Created during conversion of XX.--ENDTC from character to numeric. Imputation flags are described in the ADaM Analysis Data Model Implementation Guide (ADaMIG) V1.1 [2] General Timing Variable Conventions.
+Conditional on whether any imputation is done for the end time."
+ASTDY,Analysis Start Relative Day,Num,,Cond,"Example derivation:
+ASTDT – ADSL.TRTSDT + 1 if ASTDT ? TRTSDT, else ASTDT – ADSL.TRTSDT if ASTDT< TRTSDT
+This variable may instead be copied from --STDY.
+Conditional on whether analysis start relative day is pertinent to the study."
+--STDY,Study Day of Start of Observation*,Num,,Perm,"XX.--STDY
+This would be copied from the SDTM domain XX.
+ASTDY may differ from --STDY due to date imputation and the option in ADaM to use a reference date other than SDTM’s RFSTDTC. Including XX.--STDY in addition to ASTDY adds traceability."
+AENDY,Analysis End Relative Day,Num,,Perm,"Example derivation:
+AENDT – ADSL.TRTSDT + 1 if AENDT ? TRTSDT, else AENDT – ADSL.TRTSDT if AENDT < TRTSDT
+This variable may instead be copied from --ENDY."
+--ENDY,Study Day of End of Observation*,Num,,Perm,"XX.--ENDY
+This would be copied from the SDTM domain XX.
+AENDY may differ from --ENDY due to date imputation and the option in ADaM to use a reference date other than SDTM’s RFSTDTC. Including XX.--ENDY in addition to AENDY adds traceability."
+ADURN,"Analysis Duration
+(N)",Num,,Perm,Derive from ASTDT (or ASTDTM) and AENDT (or AENDTM).
+ADURU,"Analysis Duration
+Units",Char,(UNIT),Cond,Conditional on whether ADURN is included and units are not included in the label of ADURN.
+--DUR,Duration of XX,Char,ISO 8601,Perm,"XX.--DUR This would be copied from the SDTM domain XX.
+Because --DUR is a collected field and ADURN is derived, the values will often differ. Including XX.-- DUR in addition to ADURN adds traceability."
+APERIOD,Period,Num,,Perm,"APERIOD is a record-level timing variable that represents the analysis period within the study associated with the record for analysis purposes. The value of APERIOD (if populated) must be one of the xx values
+found in the ADSL TRTxxP variables. See the ADaM Implementation Guide version 1.1 [2] for more information on this variable."
+APERIODC,Period (C),Char,,Perm,Text characterizing to which period the record belongs. One-to-one map to APERIOD.
+APHASE,Phase,Char,,Perm,"APHASE is a categorization of timing within a study, for example a higher-level categorization of APERIOD or an analysis epoch. For example, APHASE could describe spans of time for SCREENING,
+ON TREATMENT, and FOLLOW-UP. See the ADaM Implementation Guide version 1.1 [2] for more information on this variable."

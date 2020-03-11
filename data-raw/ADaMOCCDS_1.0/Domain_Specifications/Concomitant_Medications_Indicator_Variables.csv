@@ -1,0 +1,4 @@
+Variable Name,Variable Label,Type,Code List / Controlled Terms,Core,CDISC Notes
+ONTRTFL,On Treatment Record Flag,Char,Y,Cond,"Character indicator of whether the observation occurred while the subject was on treatment. Example derivation:
+If ADSL.TRTSDT <= ASTDT <= ADSL.TRTEDT then ONTRTFL = ‘Y’
+This variable is conditional on whether the concept of on-treatment is a feature of the study and used in analysis."

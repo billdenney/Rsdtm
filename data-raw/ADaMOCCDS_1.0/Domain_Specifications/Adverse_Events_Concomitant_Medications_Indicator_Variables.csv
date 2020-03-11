@@ -1,0 +1,7 @@
+Variable Name,Variable Label,Type,Code List / Controlled Terms,Core,CDISC Notes
+PREFL,Pre-treatment Flag,Char,Y,Cond,"Character indicator of whether the observation occurred before the subject started treatment. Example derivation:
+If ASTDT < ADSL.TRTSDT then PREFL=’Y’
+This variable is conditional on whether the concept of pre-treatment is a feature of the study and used in analysis."
+FUPFL,Follow-up Flag,Char,Y,Cond,"Character indicator of whether the observation occurred while the subject was on follow-up. Example derivation:
+If ASTDT > ADSL.TRTEDT then FUPFL=’Y’
+This variable is conditional on whether the concept of follow-up is a feature of the study and used in analysis."
