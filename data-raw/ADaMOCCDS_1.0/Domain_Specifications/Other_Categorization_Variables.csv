@@ -1,7 +1,7 @@
 Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
-#NAME?,Category*,Char,,Perm,"XX.--CAT
+--CAT,Category*,Char,,Perm,"XX.--CAT
 This would be copied from the SDTM domain XX."
-#NAME?,Subcategory*,Char,,Perm,"XX.--SCAT
+--SCAT,Subcategory*,Char,,Perm,"XX.--SCAT
 This would be copied from the SDTM domain XX."
 ACATy,Analysis Category y,Char,,Perm,"Category used in analysis. May be derived from --CAT and/or --SCAT. Examples include records of special interest like prohibited medications, concomitant medications taken during an infusion reaction, growth factors,
 antimicrobial medications, and other such categories not defined elsewhere or present in SDTM domains."
