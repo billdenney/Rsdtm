@@ -14,11 +14,13 @@ Depends: R (>= 3.4),
  lubridate,
  readr,
  rio,
- tidyr
+ tidyr,
+ DescTools,
+ xts
 License: AGPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Suggests: 
     covr,
     testthat (>= 2.1.0)

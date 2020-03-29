@@ -6,11 +6,20 @@
 \alias{import_sdtm_file}
 \title{Import an SDTM or ADaM file or directory of files}
 \usage{
-import_sdtm(path, extension_choice = c(".sas7bdat", ".xpt"),
-  ignore_case = TRUE, ...)
+import_sdtm(
+  path,
+  extension_choice = c(".sas7bdat", ".xpt"),
+  ignore_case = TRUE,
+  ...
+)
 
-import_sdtm_dir(path, extension_choice = c(".sas7bdat", ".xpt"),
-  ignore_case = TRUE, ignore_filename = c(), ...)
+import_sdtm_dir(
+  path,
+  extension_choice = c(".sas7bdat", ".xpt"),
+  ignore_case = TRUE,
+  ignore_filename = c(),
+  ...
+)
 
 import_sdtm_file(path, return_type = c("data.frame", "list"), ...)
 }
