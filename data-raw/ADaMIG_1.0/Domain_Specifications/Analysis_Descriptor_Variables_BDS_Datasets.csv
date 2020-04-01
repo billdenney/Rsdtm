@@ -1,0 +1,42 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+DTYPE,Derivation Type,Char,(DTYPE),Cond,"Analysis value derivation method.  DTYPE is used to denote, and is required to be populated, when the value of AVAL or AVALC (and thus the entire record) has been imputed, derived, or copied from other record(s).  DTYPE is required to be populated even if AVAL and AVALC are null on the derived record.  DTYPE is not used to denote that an analysis parameter is derived.  PARAMTYP may be used to indicate that an entire parameter is derived.  For each value of DTYPE, the precise derivation algorithm must be defined in analysis variable metadata, even for DTYPE values in the controlled terminology.  See Section 4 for examples of the use of DTYPE.
+Examples of DTYPE values
+LOCF = last observation carried forward. WOCF = worst observation carried forward.
+AVERAGE = average of values."
+AWRANGE,"Analysis Window Valid Relative
+Range",Char,,Perm,"The range of values that are valid for a given analysis timepoint (a given value of AVISIT).  For example, “5-9 DAYS”."
+AWTARGET,Analysis Window Target,Num,,Perm,The target or most desired analysis relative day (ADY) value or analysis relative time (ARELTM) value for a given value of AVISIT.
+AWTDIFF,Analysis Window Diff from Target,Num,,Perm,"Absolute difference between ADY or ARELTM and AWTARGET.  It will be necessary to adjust for the fact that there is no day 0 in the event that ADY and AWTARGET are not of the same sign.
+If the sign of the difference is important, then AWTDIFF might have to be used in
+conjunction with ADY or ARELTM and possibly AWTARGET when choosing among records."
+AWLO,"Analysis Window Beginning
+Timepoint",Num,,Perm,"The value of the beginning timepoint (inclusive) needs to be used in conjunction to AWRANGE.  For example, if AWRANGE is“5-9 DAYS”, then AWLO is “5”."
+AWHI,"Analysis Window
+Ending Timepoint",Num,,Perm,"The value of the ending timepoint (inclusive) needs to be used in conjunction to
+AWRANGE.  For example, if AWRANGE is“5-9 DAYS”, then AWHI is “9”."
+AWU,"Analysis Window
+Unit",Char,,Perm,"Unit used for AWLO and AWHI.  Examples: DAYS, HOURS."
+STARTDT,Time to Event Origin Date for Subject,Num,,Perm,"The original date of risk for the time-to-event analysis.  This is generally the time at which a subject is first at risk of the event of interest (as defined in the protocol or
+Statistical Analysis Plan).  For example, this may be the randomization date or the date of first study therapy exposure."
+CNSR,Censor,Num,,Cond,"Defines whether the event was censored (period of observation truncated prior to event being observed).  It is strongly recommended to use 0 as an event indicator and positive integers as censoring indicators.  It is also recommended that unique positive integers be
+used to indicate coded descriptions of censoring reasons.  CNSR is required for time-to- event parameters."
+EVNTDESC,"Event or Censoring
+Description",Char,,Perm,Description of the event of interest or censoring reason.
+ATOXGR,"Analysis Toxicity
+Grade",Char,,Perm,"Toxicity grade for analysis; may be based on SDTM --TOXGR or an imputed or
+assigned value."
+BTOXGR,"Baseline Toxicity
+Grade",Char,,Perm,ATOXGR of the baseline record identified by ABLFL.
+ANRIND,"Analysis Reference Range
+Indicator",Char,,Perm,Normal range indicator for analysis; may be based on SDTM --NRIND or an imputed or assigned value.
+BNRIND,"Baseline Reference Range
+Indicator",Char,,Perm,ANRIND of the baseline record identified by ABLFL.
+ANRLO,"Analysis Normal
+Range Lower Limit",Char,,Perm,Normal range lower limit for analysis; may be based on SDTM --NRLO or an imputed or assigned value.
+ANRHI,"Analysis Normal Range Upper
+Limit",Char,,Perm,Normal range upper limit for analysis; may be based on SDTM --NRHI or an imputed or assigned value.
+AyLO,Analysis Range y Lower Limit,Char,,Cond,"AyLO and/or AyHI are used where there are multiple ranges used for analysis.  AyLO and/or AyHI are created to capture the different levels of cutoff values used to determine whether an analysis is within a clinically acceptable value range or outside that value range.  AyLO and/or AyHI are usually but not necessarily constants, parameter-specific
+constants, or subject-specific constants.  AyLO must be included if R2AyLO is included in the dataset."
+AyHI,Analysis Range y Upper Limit,Char,,Cond,"See AyLO.
+For example, if ECG QTc values are summarized based on values 450, values >480, and values >500, there is a need for 3 “hi value” range variables to calculate values against: A1HI=450, A2HI=480, A3HI=500.
+AyHI must be included if R2AyHI is included in the dataset."

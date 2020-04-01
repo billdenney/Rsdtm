@@ -1,0 +1,7 @@
+Variable Name,Variable Label,Type,Code List / Controlled Terms,Core,CDISC Notes
+CMSTAT,Completion Status,Char,,Perm,CM.CMSTAT
+CMINDC,Indication,Char,,Perm,CM.CMINDC
+CMDOSE,Dose per Administration,Num,,Perm,CM.CMDOSE
+CMDOSFRM,Dose Form,Char,,Perm,CM.CMDOSFRM
+CMDOSRGM,Intended Dose Regimen,Char,,Perm,CM.CMDOSRGM
+CMROUTE,Route of Administration,Char,,Perm,CM.CMROUTE

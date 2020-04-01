@@ -1,0 +1,18 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+STRATAR,Strata Used for Randomization,Char,,Perm,"STRATAR contains the combination of values of the individual stratification factors used for randomization. The exact format should be determined by the sponsor. This variable is intended for studies that use stratified randomization.
+For example, "">=50, Treatment experienced, N"""
+STRATARN,Strata Used for Randomization (N),Num,,Perm,"Numeric representation of STRATAR. For example, STRATARN=3 when STRATAR="">=50, Treatment experienced, N"". There must be a one-to-one relationship between STRATARN and STRATAR within a study.
+STRATARN cannot be present unless STRATAR is also present. When STRATAR and STRATARN are present, then on a given record, either both must be populated or both must be null."
+STRATwD,Description of Stratification Factor w,Char,,Perm,"STRATwD is a full text description of the stratification factor ""w"". This text description will remain constant for all subjects. These descriptive variables are included to quickly and clearly communicate critical study design information as well as to facilitate integration.
+For example, STRAT3D=""Hypertension"""
+STRATwR,Strat Factor w Value Used for Rand,Char,,Perm,"STRATwR is the subject-level value of the ""w'th"" stratification factor used for randomization.
+For example, STRAT3R=""N"""
+STRATwRN,Strat Factor w Value Used for Rand (N),Num,,Perm,"Numeric representation of STRATwR. For example, STRAT3RN=0 when STRAT3R=""N"". There must be a one-to-one relationship between STRATwRN and STRATwR within a study.
+STRATwRN cannot be present unless STRATwR is also present. When STRATwR and STRATwRN are present, then on a given record, either both must be populated or both must be null."
+STRATAV,Strata from Verification Source,Char,,Perm,"STRATAV contains the entire string value represents the combination of values of the individual stratification factors that should have been used and represents the ""as verified"" value. The STRATAV variables are based on the source documentation and are determined after randomization. If the values used for the randomization of a given subject were all correct, then STRATAV will equal STRATAR. Otherwise, one or more components of the text string for STRATAR and STRATAV will be different.
+The exact format should be determined by the sponsor. For example, "">=50, Treatment experienced, Y"""
+STRATAVN,Strata from Verification Source (N),Num,,Perm,"Numeric representation of STRATAV. For example, STRATAVN=4 when STRATVR="">=50, Treatment experienced, Y"". There must be a one-to-one relationship between STRATAVN and STRATAV within a study.
+STRATAVN cannot be present unless STRATAV is also present. When STRATAV and STRATAVN are present, then on a given record, either both must be populated or both must be null."
+STRATwV,Strat Factor w Value from Verif Source,Char,,Perm,"STRATwV is the ""as verified"" subject-level value of the ""w'th"" stratification factor. If the value based on randomization was correct, then STRATwV will equal STRATwR. For example, STRAT3V=""Y"""
+STRATwVN,Strat Fact w Val from Verif  Source (N),Num,,Perm,"Numeric representation of STRATwV. For example, STRAT3VN=1 when STRAT3V=""Y"". There must be a one-to-one relationship between STRATwVN and STRATwV within a study.
+STRATwVN cannot be present unless STRATwV is also present. When STRATwV and STRATwVN are present, then on a given record, either both must be populated or both must be null."

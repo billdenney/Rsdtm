@@ -1,0 +1,8 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+DECDORGw,PT in Original Dictionary w,Char,MedDRAw*,Perm,Original preferred term coding of XX.--TERM using MedDRA or other dictionary version X.X.
+BDSYORGw,SOC in Original Dictionary w,Char,MedDRAw*,Perm,"Original body system coding of XX.--TERM using MedDRA or other dictionary version
+X.X."
+HLGTORGw,HLGT in Original Dictionary w,Char,MedDRAw*,Perm,Original HLGT coding of XX.--TERM using MedDRA or other dictionary version X.X
+HLTORGw,HLT in Original Dictionary w,Char,MedDRAw*,Perm,Original HLT coding of XX.--TERM using MedDRA or other dictionary version X.X.
+LLTORGw,LLT in Original Dictionary w,Char,MedDRAw*,Perm,Original LLT coding of XX.--TERM using MedDRA or other dictionary version X.X.
+LLTNORGw,LLT Code in Original Dictionary w,Char,MedDRAw*,Perm,Original LLT code of XX.--TERM using MedDRA or other dictionary version X.X.

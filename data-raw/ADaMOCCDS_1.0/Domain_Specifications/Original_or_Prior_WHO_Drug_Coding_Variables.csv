@@ -1,0 +1,6 @@
+Variable Name,Variable Label,Type,Code List / Controlled Terms,Core,CDISC Notes
+DECDORGw,Standardized Med Name in Orig Dict w,Char,WHODRUGy*,Perm,Original standardized medication name of CM.CMTRT using WHO Drug version X.X
+CLASORGw,Medication Class in Orig Dictionary w,Char,WHODRUGy*,Perm,Original medication class of CM.CMTRT using WHO Drug version X.X
+CLCDORGw,Medication Class Code in Orig Dict w,Char,WHODRUGy*,Perm,Original medication class code of CM.CMTRT using WHO Drug version X.X
+ATyCORGw,ATC Level y Code in Orig Dictionary w,Char,WHODRUGw*,Perm,Original ATC Level y code of CM.CMTRT using WHO Drug version X.X
+ATyTORGw,ATC Level y Text in Orig Dictionary w,Char,WHODRUGw*,Perm,Original ATC Level y text of CM.CMTRT using WHO Drug version X.X

@@ -1,0 +1,34 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+ARM,"Description of
+Planned Arm",Char,,Req,DM.ARM
+ACTARM,"Description of
+Actual Arm",Char,,Perm,DM.ACTARM
+TRTxxP,Planned Treatment for Period xx,Char,,Req,"Subject-level identifier that represents the planned treatment for period xx. In a one-period randomized trial, TRT01P would be the treatment to which the subject was randomized. TRTxxP
+might be derived from the SDTM DM variable ARM. At least TRT01P is required."
+TRTxxPN,"Planned Treatment
+for Period xx (N)",Num,,Perm,The numeric code variable for TRTxxP. One-to-one mapping to TRTxxP within a study.
+TRTxxA,Actual Treatment for Period xx,Char,,Cond,Subject-level identifier that represents the actual treatment for the subject for period xx. Required when actual treatment does not match planned and there is an analysis of the data as treated.
+TRTxxAN,"Actual Treatment
+for Period xx (N)",Num,,Perm,The numeric code variable for TRTxxA. One-to-one mapping to TRTxxA within a study.
+TRTSEQP,Planned Sequence of Treatments,Char,,Cond,"Required when there is an analysis based on the sequence of treatments, for example in a crossover design. TRTSEQP is not necessarily equal to ARM, for example if ARM contains elements that are not relevant to analysis of treatments or ARM is not fully descriptive (e.g., “GROUP 1,” “GROUP
+2”). When analyzing based on the sequence of treatments, TRTSEQP is required even if identical to ARM."
+TRTSEQPN,"Planned Sequence
+of Treatments (N)",Num,,Perm,Numeric version of TRTSEQP. One-to-one mapping to TRTSEQP within a study.
+TRTSEQA,Actual Sequence of Treatments,Char,,Cond,"TRTSEQA is required if a situation occurred in the conduct of the trial where a subject received a
+sequence of treatments other than what was planned and there is an analysis based on the sequence of treatments."
+TRTSEQAN,"Actual Sequence of
+Treatments (N)",Num,,Perm,Numeric version of TRTSEQA. One-to-one mapping to TRTSEQA within a study.
+TRxxPGy,Planned Pooled Treatment y for Period xx,Char,,Perm,"Planned pooled treatment y for period xx. Useful when planned treatments (TRTxxP) in the specified period xx are pooled together for analysis according to pooling algorithm y. For example when in period 2 the first pooling algorithm dictates that all doses of Drug A (TR02PG1=“All
+doses of Drug A”) are pooled together for comparison to all doses of Drug B (TR02PG1=“All doses of Drug B”). Each value of TRTxxP is pooled within at most one value of TRxxPGy."
+TRxxPGyN,"Planned Pooled Trt
+y for Period xx (N)",Num *,,Perm,The numeric code for TRxxPGy. One-to-one mapping to TRxxPGy within a study.
+TRxxAGy,"Actual Pooled Treatment y for
+Period xx",Char,,Cond,Actual pooled treatment y for period xx. Required when TRxxPGy is present and TRTxxA is present.
+TRxxAGyN,"Actual Pooled Trt y
+for Period xx (N)",Num *,,Perm,The numeric code for TRxxAGy. One-to-one mapping to TRxxAGy within a study.
+TSEQPGy,Planned Pooled Treatment Sequence y,Char,,Perm,"Planned pooled treatment sequence y. Useful when planned treatment sequences (TRTSEQP) are pooled together for analysis according to pooling algorithm y. For example, this might be used in
+an analysis of an extension study when the analysis is based on what the subject received in the parent study as well as in the extension study."
+TSEQPGyN,Planned Pooled Treatment Sequence y (N),Num,,Perm,Numeric version of TSEQPGy. One-to-one mapping to TSEQPGy within a study.
+TSEQAGy,Actual Pooled Treatment Sequence y,Char,,Cond,Actual pooled treatment sequence y. Required when TSEQPGy is present and TRTSEQA is present.
+TSEQAGyN,"Actual Pooled
+Treatment Sequence y (N)",Num,,Perm,Numeric version of TSEQAGy. One-to-one mapping to TSEQAGy within a study.

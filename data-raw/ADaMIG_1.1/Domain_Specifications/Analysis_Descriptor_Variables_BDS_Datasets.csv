@@ -1,0 +1,10 @@
+Variable Name,Variable Label,Type,"Codelist/
+Controlled Terms",Core,CDISC Notes
+DTYPE,Derivation Type,Char,(DTYPE),Cond,"Analysis value derivation method. DTYPE is used to denote, and is required to be populated, when the value of AVAL or AVALC has been imputed or derived differently than the other analysis values within the parameter. DTYPE is required to be populated even if AVAL and AVALC are null on the derived record.
+Three common situations when DTYPE should be populated:
+(1) a new row is added within a parameter with the analysis value populated based on other rows within the parameter,
+(2) a new row is added within a parameter with the analysis value populated based on a constant value or data from other subjects,
+(3) an analysis value (AVAL or AVALC) on an existing record is being replaced with a value based on a pre-specified algorithm.
+DTYPE is used to denote analysis values that are “special cases” within a parameter. For each value of DTYPE, the precise derivation algorithm must be defined in analysis variable metadata, even for DTYPE values in the controlled terminology. The controlled terminology for DTYPE is extensible. See Section 4 for examples of the use of DTYPE.
+Examples of DTYPE values:
+LOCF = last observation carried forward. WOCF = worst observation carried forward. AVERAGE = average of values."

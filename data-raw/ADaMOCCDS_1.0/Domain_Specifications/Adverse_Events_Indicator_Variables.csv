@@ -1,0 +1,8 @@
+Variable Name,Variable Label,Type,Code List / Controlled Terms,Core,CDISC Notes
+TRTEMFL,Treatment Emergent Analysis Flag,Char,Y,Cond,"Treatment emergent flag as defined for analysis. Variable TRTEMFL is to be used for any analysis of treatment-emergent AEs. This variable is conditional on whether the concept of treatment emergent is a key feature of the AE analyses.
+Example derivation:
+If ADSL.TRTSDT?ASTDT?ADSL.TRTEDT + x days then TRTEMFL=’Y’
+The number x is defined by the producer and often incorporates the known half-life of the drug. It should be consistent with variable APHASE (described above) if APHASE is also used."
+AETRTEM,Treatment Emergent Flag,Char,(NY),Perm,"Treatment emergent flag from SDTM, if available. See the SDTMIG version 3.2 [3] for more information. Derivation:
+SUPPAE.QVAL where QNAM=’AETRTEM’.
+TRTEMFL may differ from AETRTEM due to different definitions, date imputation and other analysis rules. Including AETRTEM in addition to TRTEMFL will add traceability."

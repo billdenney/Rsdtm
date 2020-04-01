@@ -1,0 +1,11 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+AOCCFL,1st Occurrence within Subject Flag,Char,Y,Perm,"Character indicator for the first occurrence of any event/intervention/finding within the subject. Example derivation: Sort the data in the required order and flag the first treatment emergent
+record for each subject."
+AOCCPFL,1st Occurrence of Preferred Term Flag,Char,Y,Perm,"Character indicator for the first occurrence of the preferred term within the subject. Example derivation: Sort the data in the required order and flag the first treatment emergent
+record for each --DECOD for each subject."
+AOCCIFL,1st Max Sev./Int. Occurrence Flag,Char,Y,Perm,"Character indicator for the first occurrence of the event/intervention/finding with the maximum severity/intensity within the subject.
+Example derivation: Sort the data in the required order and flag the first treatment emergent record for maximum severity for each subject."
+AOCCPIFL,1st Max Sev./Int. Occur Within PT Flag,Char,Y,Perm,"Character indicator for the first occurrence of the maximum severity/intensity within the subject and preferred term.
+Example derivation: Sort the data in the required order and flag the first treatment emergent record for maximum severity within preferred term for each subject."
+AOCCzzFL,1st Occurrence of ….,Char,Y,Perm,"Additional flag variables as needed for analysis. Derivation rules for these flags need to be
+described in the metadata."

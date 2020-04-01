@@ -1,0 +1,17 @@
+Variable Name,Variable Label,Type,"Codelist / Controlled
+Terms",Core,CDISC Notes
+TRTP,Planned Treatment,Char,,Req,"TRTP is a record-level identifier that represents the planned treatment attributed to a record for analysis purposes.  TRTP indicates how treatment varies by record within a subject and enables analysis of crossover and other designs.  TRTxxP  (copied from ADSL) may also be needed for some analysis purposes, and may be useful for
+traceability and to provide context."
+TRTPN,Planned Treatment (N),Num,,Perm,The numeric code for TRTP.  One-to-one map to TRTP.
+TRTA,Actual Treatment,Char,,Cond,"TRTA is a record-level identifier that represents the actual treatment attributed to a record for analysis purposes.  TRTA indicates how treatment varies by record within a subject and enables analysis of crossover and other multi-period designs.  TRTxxA (copied from ADSL) may also be needed for some analysis purposes, and may be useful for traceability and to provide context.  TRTA is required when there is an analysis of data as treated and at least one subject has any data associated with a treatment other
+than the planned treatment."
+TRTAN,"Actual Treatment
+(N)",Num,,Perm,The numeric code for TRTA.  One-to-one map to TRTA.
+TRTPGy,Planned Pooled Treatment y,Char,,Perm,"Planned pooled treatment y.  “y” represents an integer [1-9] corresponding to a particular pooling scheme.  Useful when planned treatments (TRTP) are pooled together for analysis, for example when all doses of Drug A (TRTPG1=All doses of Drug A) are
+compared to all doses of Drug B (TRTPG1=All doses of Drug B).  Each value of TRTP is pooled within at most one value of TRTPGy.  May vary by record within a subject."
+TRTPGyN,"Planned Pooled
+Treatment y (N)",Num,,Perm,The numeric code for TRTPGy.  One-to-one map to TRTPGy.
+TRTAGy,Actual Pooled Treatment y,Char,,Cond,"Actual pooled treatment y.  “y” represents an integer [1-9] corresponding to a particular
+pooling scheme.  Required when TRTPGy is present and TRTA is present.  May vary by record within a subject."
+TRTAGyN,"Actual Pooled
+Treatment y (N)",Num,,Perm,The numeric code for TRTAGy.  One-to-one map to TRTAGy.

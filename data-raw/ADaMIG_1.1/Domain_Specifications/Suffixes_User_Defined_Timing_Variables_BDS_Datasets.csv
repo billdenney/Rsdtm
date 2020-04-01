@@ -1,0 +1,29 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+*DT,{Date},Num,,Perm,Analysis date not directly characterizing AVAL and/or AVALC in numeric format.
+*TM,{Time},Num,,Perm,Analysis time not directly characterizing AVAL and/or AVALC in numeric format.
+*DTM,{Datetime},Num,,Perm,Analysis datetime not directly characterizing AVAL and/or AVALC in numeric format.
+*ADY,{Relative Day},Num,,Perm,Analysis relative day not directly characterizing AVAL and/or AVALC.
+*DTF,"{Date Imputation
+Flag}",Char,(DATEFL),Cond,"The level of imputation of *DT. If *DT (or the date part of *DTM) was imputed, *DTF must be
+populated and is required. See Section 3.1.3."
+*TMF,"{Time Imputation
+Flag}",Char,(TIMEFL),Cond,"The level of imputation of *TM. If *TM (or the time part of *DTM) was imputed, *TMF must be
+populated and is required. See Section 3.1.3."
+*SDT,{Start Date},Num,,Perm,Starting analysis date not directly characterizing AVAL and/or AVALC in numeric format.
+*STM,{Start Time},Num,,Perm,Starting analysis time not directly characterizing AVAL and/or AVALC in numeric format.
+*SDTM,{Start Datetime},Num,,Perm,Starting analysis datetime not directly characterizing AVAL and/or AVALC in numeric format.
+*SDY,{Relative Start Day},Num,,Perm,Starting analysis relative day not directly characterizing AVAL and/or AVALC.
+*SDTF,"{Start Date
+Imputation Flag}",Char,(DATEFL),Cond,"The level of imputation of *SDT. If *SDT (or the date part of *SDTM) was imputed, *SDTF must
+be populated and is required. See Section 3.1.3."
+*STMF,"{Start Time
+Imputation Flag}",Char,(TIMEFL),Cond,"The level of imputation of *STM. If *STM (or the time part of *SDTM) was imputed, *STMF
+must be populated and is required. See Section 3.1.3."
+*EDT,{End Date},Num,,Perm,Ending analysis date not directly characterizing AVAL and/or AVALC in numeric format.
+*ETM,{End Time},Num,,Perm,Ending analysis time not directly characterizing AVAL and/or AVALC in numeric format.
+*EDTM,{End Datetime},Num,,Perm,Ending analysis datetime not directly characterizing AVAL and/or AVALC in numeric format.
+*EDY,{Relative End Day},Num,,Perm,Ending analysis relative day not directly characterizing AVAL and/or AVALC.
+*EDTF,{End Date Imputation Flag},Char,(DATEFL),Cond,"The level of imputation of *EDT. If *EDT (or the date part of *EDTM) was imputed, *EDTF must be populated and is required. See Section 3.1.3."
+*ETMF,"{End Time
+Imputation Flag}",Char,(TIMEFL),Cond,"The level of imputation of *ETM. If *ETM (or the time part of *EDTM) was imputed, *ETMF
+must be populated and is required. See Section 3.1.3."

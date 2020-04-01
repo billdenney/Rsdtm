@@ -1,0 +1,11 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+STUDYID,Study Identifier,Char,,Req,DM.STUDYID
+USUBJID,Unique Subject Identifier,Char,,Req,DM.USUBJID
+SUBJID,Subject Identifier for the Study,Char,,Req,"DM.SUBJID. SUBJID is required in ADSL, but permissible in other datasets."
+SITEID,Study Site Identifier,Char,,Req,"DM.SITEID. SITEID is required in ADSL, but permissible in other datasets."
+SITEGRy,Pooled Site Group y,Char,,Perm,"Character description of a grouping or pooling of clinical sites for analysis purposes. For example, SITEGR3 is the name of a variable containing site group (pooled site) names, where the grouping has been done according to the third site grouping algorithm, defined in variable metadata; SITEGR3 does not mean the third group of sites."
+SITEGRyN,Pooled Site Group y (N),Num,,Perm,"Numeric representation of SITEGRy. There must be a one-to-one relationship between SITEGRyN and SITEGRy within a study.
+SITEGRyN cannot be present unless SITEGRy is also present. When SITEGRy and SITEGRyN are present, then on a given record, either both must be populated or both must be null."
+REGIONy,Geographic Region y,Char,,Perm,"Character description of geographical region. For example, REGION1 might have values of ""Asia"", ""Europe"", ""North America"", ""Rest of World""; REGION2 might have values of ""United States"", ""Rest of World""."
+REGIONyN,Geographic Region y (N),Num,,Perm,"Numeric representation of REGIONy. Orders REGIONy for analysis and reporting.There must be a one-to-one relationship between REGIONyN and REGIONy within a study.
+REGIONyN cannot be present unless REGIONy is also present. When REGIONy and REGIONyN are present, then on a given record, either both must be populated or both must be null."

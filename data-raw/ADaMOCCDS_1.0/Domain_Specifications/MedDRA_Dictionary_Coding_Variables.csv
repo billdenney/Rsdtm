@@ -1,0 +1,36 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+--TERM,Reported Term*,Char,,Req,"XX.--TERM
+This would be copied from the SDTM domain XX."
+--DECOD,Dictionary- Derived Term,Char,MedDRA,Cond,"XX.--DECOD
+This would be copied from the SDTM domain XX. It is typically one of the primary variables used in an analysis and would be brought in from the SDTM domain. Equivalent to the Preferred Term (PT in MedDRA). As mentioned above, all other SDTM domain variables and supplemental qualifiers needed for analysis or traceability should also be included. Include the dictionary version in the metadata.
+Conditional on whether coded and used for analysis. Required for Adverse Event data."
+--BODSYS,Body System or Organ Class,Char,MedDRA,Cond,"XX.--BODSYS
+This would be copied from the SDTM domain XX. It is typically one of the primary variables used in an analysis and would be brought in from the SDTM domain. As mentioned above, all other SDTM domain variables and supplemental qualifiers needed for analysis or traceability should also be included. Include the dictionary version in the metadata.
+Conditional on whether coded and used for analysis. Required for Adverse Event data."
+--BDSYCD,"Body System or Organ Class
+Code",Num,MedDRA,Perm,"XX.--BDSYCD
+This would be copied from the SDTM domain XX or supplemental qualifier dataset. Include the dictionary version in the metadata."
+--LLT,Lowest Level Term,Char,MedDRA,Cond,"XX.-- LLT
+This would be copied from the SDTM domain XX or supplemental qualifier dataset. Include the dictionary version in the metadata.
+Conditional on whether coded and used for analysis."
+--LLTCD,Lowest Level Term Code,Num,MedDRA,Perm,"XX.--LLTCD
+This would be copied from the SDTM domain XX or supplemental qualifier dataset. Include the dictionary version in the metadata."
+--PTCD,Preferred Term Code,Num,MedDRA,Perm,"XX.--PTCD
+This would be copied from the SDTM domain XX or supplemental qualifier dataset. Include the dictionary version in the metadata."
+--HLT,High Level Term,Char,MedDRA,Cond,"XX.--HLT
+This would be copied from the SDTM domain XX or supplemental qualifier dataset. Include the dictionary version in the metadata.
+Conditional on whether used for analysis."
+--HLTCD,High Level Term Code,Num,MedDRA,Perm,"XX.--HLTCD
+This would be copied from the SDTM domain XX or supplemental qualifier dataset. Include the dictionary version in the metadata."
+--HLGT,High Level Group Term,Char,MedDRA,Cond,"XX.--HLGT
+This would be copied from the SDTM domain XX or supplemental qualifier dataset. Include the dictionary version in the metadata.
+Conditional on whether used for analysis."
+--HLGTCD,"High Level
+Group Term Code",Num,MedDRA,Perm,"XX.--HLGTCD
+This would be copied from the SDTM domain XX or supplemental qualifier dataset. Include the dictionary version in the metadata."
+--SOC,Primary System Organ Class,Char,MedDRA,Cond,"XX.--SOC
+This would be copied from the SDTM domain XX or supplemental qualifier dataset. Include the dictionary version in the metadata.
+Conditional on whether a secondary SOC was used for analysis."
+--SOCCD,"Primary System
+Organ Class Code",Num,MedDRA,Perm,"XX.--SOCCD
+This would be copied from the SDTM domain XX or supplemental qualifier dataset. Include the dictionary version in the metadata."
