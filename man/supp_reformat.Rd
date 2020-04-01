@@ -5,12 +5,13 @@
 \title{Reformat a --SUPP SDTM domain into a list of data.frames ready for merging
 into the primary domain.}
 \usage{
-supp_reformat(x, auto_convert = TRUE)
+supp_reformat(x, auto_convert = FALSE)
 }
 \arguments{
 \item{x}{a --SUPP SDTM domain object}
 
-\item{auto_convert}{should the data be automatically converted?}
+\item{auto_convert}{should the data be automatically converted using
+`type_convert()`?}
 }
 \value{
 A list with length the same as \code{unique(x$IDVAR)} with

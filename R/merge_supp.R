@@ -6,12 +6,13 @@
 #'   columns (this will break many classes); if \code{FALSE}, remove no
 #'   attributes from any columns; if a character, remove those attributes from
 #'   the columns.
+#' @inheritParams supp_reformat
 #' @return \code{primary} merged with \code{supplementary} where new column
 #'   names come from the \code{QNAM} column in \code{supplementary}
 #' @seealso \code{\link{supp_reformat}}
 #' @export
 #' @importFrom dplyr anti_join
-merge_supp <- function(primary, supplementary, remove_attributes = c("label")) {
+merge_supp <- function(primary, supplementary, remove_attributes = c("label"), auto_convert=FALSE) {
   if (length(unique(supplementary$RDOMAIN)) != 1) {
     stop("Only direct relationships with supplementary domains are currently supported.")
   }
@@ -23,7 +24,7 @@ merge_supp <- function(primary, supplementary, remove_attributes = c("label")) {
     supplementary <- strip_attributes(supplementary, specific = remove_attributes)
   }
   ret <- primary
-  supp_prep <- supp_reformat(supplementary)
+  supp_prep <- supp_reformat(supplementary, auto_convert=auto_convert)
   for (current_supp_idx in seq_along(supp_prep)) {
     current_supp <- supp_prep[[current_supp_idx]]
     current_idvar <- names(supp_prep)[current_supp_idx]
@@ -48,17 +49,24 @@ merge_supp <- function(primary, supplementary, remove_attributes = c("label")) {
 #' into the primary domain.
 #'
 #' @param x a --SUPP SDTM domain object
-#' @param auto_convert should the data be automatically converted?
+#' @param auto_convert should the data be automatically converted using
+#'   `type_convert()`?
 #' @return A list with length the same as \code{unique(x$IDVAR)} with
 #'   data.frames ready for merging into the primary dataset.
 #' @seealso \code{\link{merge_supp}}
 #' @export
-supp_reformat <- function(x, auto_convert=TRUE) {
+supp_reformat <- function(x, auto_convert=FALSE) {
   ret <- list()
   for (current_idvar in unique(x$IDVAR)) {
     ret <- append(
       ret,
-      list(supp_reformat_single(x[x$IDVAR %in% current_idvar, ])))
+      list(
+        supp_reformat_single(
+          x[x$IDVAR %in% current_idvar, ],
+          auto_convert=auto_convert
+        )
+      )
+    )
   }
   names(ret) <- unique(x$IDVAR)
   ret
@@ -67,7 +75,7 @@ supp_reformat <- function(x, auto_convert=TRUE) {
 #' @importFrom dplyr rename_at recode
 #' @importFrom tidyr spread
 #' @importFrom readr type_convert
-supp_reformat_single <- function(x, auto_convert=TRUE) {
+supp_reformat_single <- function(x, auto_convert=FALSE) {
   idvar <- unique(x$IDVAR)
   if (length(unique(x$RDOMAIN)) != 1) {
     stop("RDOMAIN column in x must have a single value.")

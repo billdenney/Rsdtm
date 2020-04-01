@@ -4,7 +4,12 @@
 \alias{merge_supp}
 \title{Merge a supplementary dataset into a primary dataset}
 \usage{
-merge_supp(primary, supplementary, remove_attributes = c("label"))
+merge_supp(
+  primary,
+  supplementary,
+  remove_attributes = c("label"),
+  auto_convert = FALSE
+)
 }
 \arguments{
 \item{primary}{the data.frame of the primary dataset}
@@ -15,6 +20,9 @@ merge_supp(primary, supplementary, remove_attributes = c("label"))
 columns (this will break many classes); if \code{FALSE}, remove no
 attributes from any columns; if a character, remove those attributes from
 the columns.}
+
+\item{auto_convert}{should the data be automatically converted using
+`type_convert()`?}
 }
 \value{
 \code{primary} merged with \code{supplementary} where new column
