@@ -1,0 +1,32 @@
+Variable Name ,Variable Label ,Type ,Description
+STUDYID ,Study Identifier ,Char ,Unique identifier for a study.
+DOMAIN ,"Domain
+Abbreviation",Char ,"Two-character abbreviation for the domain most relevant to the observation.
+The Domain abbreviation is also used as a prefix for variables to ensure
+uniqueness when datasets are merged."
+USUBJID ,"Unique Subject
+Identifier",Char ,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product."
+POOLID ,Pool Identifier ,Char ,"An identifier used to identify a result from a group of subjects that is not
+assignable to a specific subject."
+SPDEVID ,"Sponsor Device
+Identifier",Char ,Sponsor-defined identifier for a device
+--SEQ ,Sequence Number ,Num ,"Sequence number to ensure uniqueness of records within a dataset for a
+subject (or within a parameter, in the case of the Trial Summary domain).
+May be any valid number (including decimals) and does not have to start at
+1."
+--GRPID ,Group ID ,Char ,"Optional group identifier, used to link together a block of related records
+within a subject in a domain. Also used to link together a block of related
+records in the Trial Summary dataset (Section 3.4)."
+--REFID ,Reference ID ,Char ,"Optional internal or external identifier such as lab specimen ID, or UUID for
+an ECG waveform or a medical image."
+--SPID ,"Sponsor-Defined
+Identifier",Char ,"Sponsor-defined identifier. Example: pre-printed line identifier on a
+Concomitant Medications page."
+--LNKID ,Link ID ,Char ,"Identifier used to link related records across domains. This may be a one-to
+one or a one-to-many relationship. For Example: A single tumor may have
+multiple measurements/assessments performed at each study visit."
+--LNKGRP ,Link Group ID ,Char ,"Identifier used to link related records across domains. This will usually be a
+many-to-one relationship. For example: Multiple tumor
+measurements/assessments will contribute to a single response to therapy
+determination record."

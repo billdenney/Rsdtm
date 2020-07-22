@@ -1,0 +1,12 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+AGE,Age,Num,,Req,"DM.AGE. If analysis needs require a derived age that does not match DM.AGE, then AAGE must be added"
+AGEU,Age Units,Char,(AGEU),Req,DM.AGEU
+AGEGRy,Pooled Age Group y,Char,,Perm,"Character description of a grouping or pooling of the subject's age for analysis purposes. For example, AGEGR1 might have values of ""<18"", ""18-65"", and "">65""; AGEGR2 might have values of ""Less than 35 y old"" and ""At least 35 y old""."
+AGEGRyN,Pooled Age Group y (N),Num,,Perm,"Numeric representation of AGEGRy. Orders the grouping or pooling of subject age for analysis and reporting. There must be a one-to-one relationship between AGEGRyN and AGEGRy within a study.
+AGEGRyN cannot be present unless AGEGRy is also present. When AGEGRy and AGEGRyN are present, then on a given record, either both must be populated or both must be null."
+AAGE,Analysis Age,Num,,Cond,Age used for analysis that may be derived differently than DM.AGE. AAGE is required if age is calculated differently than DM.AGE.
+SEX,Sex,Char,(SEX),Req,DM.SEX.
+RACE,Race,Char,(RACE),Req,DM.RACE.
+RACEGRy,Pooled Race Group y,Char,,Perm,Character description of a grouping or pooling of the subject's race for analysis purposes.
+RACEGRyN,Pooled Race Group y (N),Num,,Perm,"Numeric representation of RACEGRy. Orders the grouping or pooling of subject race for analysis and reporting. There must be a one-to-one relationship between RACEGRyN and RACEGRy within a study.
+RACEGRyN cannot be present unless RACEGRy is also present. When RACEGRy and RACEGRyN are present, then on a given record, either both must be populated or both must be null."

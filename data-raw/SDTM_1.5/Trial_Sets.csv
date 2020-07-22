@@ -1,0 +1,18 @@
+"Variable
+Name ",Variable Label ,Type ,Description
+STUDYID ,Study Identifier ,Char ,Unique identifier for a study.
+DOMAIN ,"Domain
+Abbreviation",Char ,"Two-character abbreviation for the domain, which must be TX."
+SETCD ,Set Code ,Char ,"Short name of a specific Trial Set, as defined by the sponsor. Maximum 8
+characters. This represents the Trial Set for which parameters are being
+submitted."
+SET ,Set Description ,Char ,"Long description of a specific Trial Set, as defined by the sponsor."
+TXSEQ ,Sequence Number ,Num ,Unique number for this record within this dataset.
+TXPARMCD ,"Trial Set Parameter
+Short Name",Char ,"Short character value for the Trial Set parameter described in TXPARM.
+Maximum 8 characters."
+TXPARM ,Trial Set Parameter ,Char ,Term for the Trial Set parameter. Maximum 40 characters.
+TXVAL ,"Trial Set Parameter
+Value",Char ,"Value of the Trial Set parameter (e.g., Fed ad libitum or Restricted Feeding when
+TXPARM is FEEDREG). Some parameters may be subject to controlled
+terminology."

@@ -1,0 +1,104 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,AE,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all applications
+or submissions involving the product.",Req
+AESEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a
+domain. May be any valid number.",Req
+AEGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+AEREFID,Reference ID,Char,,Identifier,Internal or external identifier such as a serial number on an SAE reporting form.,Perm
+AESPID,Sponsor-Defined Identifier,Char,,Identifier,Sponsor-defined identifier. It may be pre-printed on the CRF as an explicit line identifier or defined in the sponsor’s operational database. Example: Line number on an Adverse Events page.,Perm
+AETERM,"Reported Term for the
+Adverse Event",Char,,Topic,Verbatim name of the event.,Req
+AEMODIFY,Modified Reported Term,Char,,"Synonym
+Qualifier","If AETERM is modified to facilitate coding, then AEMODIFY will contain the
+modified text.",Perm
+AELLT,Lowest Level Term,Char,MedDRA,"Variable
+Qualifier",Dictionary-derived text description of the Lowest Level Term.,Exp
+AELLTCD,Lowest Level Term Code,Num,MedDRA,"Variable
+Qualifier",Dictionary-derived code for the Lowest Level Term.,Exp
+AEDECOD,Dictionary-Derived Term,Char,MedDRA,Synonym Qualifier,"Dictionary-derived text description of AETERM or AEMODIFY. Equivalent to the Preferred Term (PT in MedDRA). The sponsor is expected to provide the dictionary name and version used to map the terms utilizing the define.xml
+external codelist attributes.",Req
+AEPTCD,Preferred Term Code,Num,MedDRA,"Variable
+Qualifier",Dictionary-derived code for the Preferred Term.,Exp
+AEHLT,High Level Term,Char,MedDRA,Variable Qualifier,Dictionary-derived text description of the High Level Term for the primary System Organ Class.,Exp
+AEHLTCD,High Level Term Code,Num,MedDRA,"Variable
+Qualifier","Dictionary-derived code for the High Level Term for the primary System Organ
+Class.",Exp
+AEHLGT,High Level Group Term,Char,MedDRA,"Variable
+Qualifier","Dictionary-derived text description of the High Level Group Term for the
+primary System Organ Class.",Exp
+AEHLGTCD,High Level Group Term Code,Num,MedDRA,Variable Qualifier,Dictionary-derived code for the High Level Group Term for the primary System Organ Class.,Exp
+AECAT,Category for Adverse Event,Char,*,"Grouping
+Qualifier","Used to define a category of related records. Example: BLEEDING,
+NEUROPSYCHIATRIC.",Perm
+AESCAT,"Subcategory for Adverse
+Event",Char,*,"Grouping
+Qualifier",A further categorization of adverse event. Example: NEUROLOGIC.,Perm
+AEPRESP,Pre-Specified Adverse Event,Char,(NY),Variable Qualifier,"A value of “Y” indicates that this adverse event was pre-specified on the CRF. Values are null for spontaneously reported events (i.e., those collected as free- text verbatim terms)",Perm
+AEBODSYS,Body System or Organ Class,Char,*,Record Qualifier,"Dictionary derived. Body system or organ class used by the sponsor from the coding dictionary (e.g., MedDRA). When using a multi-axial dictionary such as
+MedDRA, this should contain the SOC used for the sponsor’s analyses and summary tables which may not necessarily be the primary SOC.",Exp
+AEBDSYCD,Body System or Organ Class Code,Num,MedDRA,Variable Qualifier,"Dictionary derived. Code for the body system or organ class used by the sponsor. When using a multi-axial dictionary such as MedDRA, this should contain the SOC used for the sponsor’s analyses and summary tables, which may not necessarily be the primary SOC.",Exp
+AESOC,"Primary System Organ
+Class",Char,MedDRA,"Variable
+Qualifier","Dictionary-derived text description of the primary System Organ Class. Will be
+the same as AEBODSYS if the primary SOC was used for analysis.",Exp
+AESOCCD,"Primary System Organ
+Class Code",Num,MedDRA,"Variable
+Qualifier","Dictionary-derived code for the primary System Organ Class. Will be the same
+as AEBDSYCD if the primary SOC was used for analysis.",Exp
+AELOC,Location of Event,Char,(LOC),"Record
+Qualifier","Describes anatomical location relevant for the event (e.g., ARM for skin rash).",Perm
+AESEV,Severity/Intensity,Char,(AESEV),Record Qualifier,"The severity or intensity of the event. Examples: MILD, MODERATE, SEVERE.",Perm
+AESER,Serious Event,Char,(NY),"Record
+Qualifier",Is this a serious event?,Exp
+AEACN,Action Taken with Study Treatment,Char,(ACN),Record Qualifier,"Describes changes to the study treatment as a result of the event. AEACN is specifically for the relationship to study treatment. AEACNOTH is for actions unrelated to dose adjustments of study treatment. Examples of AEACN values include ICH E2B values: DRUG WITHDRAWN, DOSE REDUCED, DOSE
+INCREASED, DOSE NOT CHANGED, UNKNOWN or NOT APPLICABLE.",Exp
+AEACNOTH,Other Action Taken,Char,,Record Qualifier,"Describes other actions taken as a result of the event that are unrelated to dose adjustments of study treatment. Usually reported as free text. Example:
+“TREATMENT UNBLINDED. PRIMARY CARE PHYSICIAN NOTIFIED.”",Perm
+AEREL,Causality,Char,*,Record Qualifier,"Records the investigator's opinion as to the causality of the event to the treatment. ICH E2A and E2B examples include NOT RELATED, UNLIKELY RELATED, POSSIBLY RELATED, RELATED. Controlled Terminology may be defined in the future. Check with regulatory authority for population of this
+variable.",Exp
+AERELNST,Relationship to Non-Study Treatment,Char,,Record Qualifier,"Records the investigator's opinion as to whether the event may have been due to
+a treatment other than study drug. May be reported as free text. Example: ""MORE LIKELY RELATED TO ASPIRIN USE.”.",Perm
+AEPATT,Pattern of Adverse Event,Char,*,"Record
+Qualifier","Used to indicate the pattern of the event over time. Examples: INTERMITTENT,
+CONTINUOUS, SINGLE EVENT.",Perm
+AEOUT,Outcome of Adverse Event,Char,(OUT),"Record
+Qualifier",Description of the outcome of an event.,Perm
+AESCAN,Involves Cancer,Char,(NY),"Record
+Qualifier",Was the serious event associated with the development of cancer?,Perm
+AESCONG,"Congenital Anomaly or
+Birth Defect",Char,(NY),"Record
+Qualifier",Was the serious event associated with congenital anomaly or birth defect?,Perm
+AESDISAB,"Persist or Signif
+Disability/Incapacity",Char,(NY),"Record
+Qualifier",Did the serious event result in persistent or significant disability/incapacity?,Perm
+AESDTH,Results in Death,Char,(NY),Record Qualifier,Did the serious event result in death?,Perm
+AESHOSP,"Requires or Prolongs
+Hospitalization",Char,(NY),"Record
+Qualifier",Did the serious event require or prolong hospitalization?,Perm
+AESLIFE,Is Life Threatening,Char,(NY),"Record
+Qualifier",Was the serious event life threatening?,Perm
+AESOD,Occurred with Overdose,Char,(NY),Record Qualifier,Did the serious event occur with an overdose?,Perm
+AESMIE,"Other Medically Important
+Serious Event",Char,(NY),"Record
+Qualifier",Do additional categories for seriousness apply?,Perm
+AECONTRT,"Concomitant or Additional
+Trtmnt Given",Char,(NY),"Record
+Qualifier",Was another treatment given because of the occurrence of the event?,Perm
+AETOXGR,Standard Toxicity Grade,Char,*,Record Qualifier,"Toxicity grade according to a standard toxicity scale such as Common Terminology Criteria for Adverse Events v3.0 (CTCAE). Sponsor should specify name of the scale and version used in the metadata (see Assumption 6d). If value is from a numeric scale, represent only the number (e.g., “2” and not “Grade 2”).",Perm
+AESTDTC,"Start Date/Time of Adverse
+Event",Char,ISO 8601,Timing,,Exp
+AEENDTC,"End Date/Time of Adverse
+Event",Char,ISO 8601,Timing,,Exp
+AESTDY,"Study Day of Start of
+Adverse Event",Num,,Timing,Study day of start of adverse event relative to the sponsor-defined RFSTDTC.,Perm
+AEENDY,"Study Day of End of
+Adverse Event",Num,,Timing,Study day of end of event relative to the sponsor-defined RFSTDTC.,Perm
+AEDUR,Duration of Adverse Event,Char,ISO 8601,Timing,"Collected duration and unit of an adverse event. Used only if collected on the
+CRF and not derived from start and end date/times. Example: P1DT2H (for 1 day, 2 hours).",Perm
+AEENRF,End Relative to Reference Period,Char,(STENRF),Timing,"Describes the end of the event relative to the sponsor-defined reference period. The sponsor-defined reference period is a continuous period of time defined by a
+discrete starting point (RFSTDTC) and a discrete ending point (RFENDTC) of the trial.",Perm
+AEENRTPT,End Relative to Reference Time Point,Char,(STENRF),Timing,Identifies the end of the event as being before or after the reference time point defined by variable AEENTPT.,Perm
+AEENTPT,End Reference Time Point,Char,,Timing,"Description of date/time in ISO 8601 character format of the reference point
+referred to by AEENRTPT. Examples: ""2003-12-25"" or ""VISIT 2"".",Perm

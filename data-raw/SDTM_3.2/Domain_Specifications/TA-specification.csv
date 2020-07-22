@@ -1,0 +1,23 @@
+Variable Name,Variable Label,Type,"Controlled Terms,
+Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,"Domain
+Abbreviation",Char,TA,Identifier,Two-character abbreviation for the domain.,Req
+ARMCD,Planned Arm Code,Char,*,Topic,"ARMCD is limited to 20 characters and does not have special character restrictions. The maximum length of ARMCD is longer than that for other “short” variables to accommodate the kind of values that are likely to be needed for crossover trials. For example, if ARMCD values for a seven-period crossover were constructed using two-character abbreviations for each treatment and separating hyphens, the length of ARMCD
+values would be 20.",Req
+ARM,Description of Planned Arm,Char,*,Synonym Qualifier,Name given to an Arm or treatment group.,Req
+TAETORD,"Planned Order
+of Element within Arm",Num,,Timing,Number that gives the order of the Element within the Arm.,Req
+ETCD,Element Code,Char,*,Record Qualifier,"ETCD (the companion to ELEMENT) is limited to 8 characters and does not have special
+character restrictions. These values should be short for ease of use in programming, but it is not 
+expected that ETCD will need to serve as a variable name.",Req
+ELEMENT,"Description of
+Element",Char,*,"Synonym
+Qualifier","The name of the Element. The same Element
+may occur more than once within an Arm.",Perm
+TABRANCH,Branch,Char,,Rule,"Condition subject met, at a “branch” in the trial design at the end of this Element, to be included
+in this Arm; (e.g., randomization to DRUG X).",Exp
+TATRANS,Transition Rule,Char,,Rule,"If the trial design allows a subject to transition to an Element other than the next Element in sequence, then the conditions for transitioning to those other Elements, and the alternative Element
+sequences, are specified in this rule (e.g., Responders go to washout).",Exp
+EPOCH,Epoch,Char,(EPOCH),Timing,"Name of the Trial Epoch with which this
+Element of the Arm is associated.",Req

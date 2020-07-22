@@ -1,0 +1,23 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist, or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,DD,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,"Unique Subject
+Identifier",Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all applications or
+submissions involving the product.",Req
+DDSEQ,Sequence Number,Num,,Identifier,"Sequence number given to ensure uniqueness of subject records within a domain. May
+be any valid number.",Req
+DDTESTCD,Death Detail Assessment Short Name,Char,*,Topic,"Short name of the measurement, test, or examination described in DDTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in DDTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., “1TEST” is not valid). DDTESTCD cannot contain characters
+other than letters, numbers, or underscores. Examples: DIAGPRIM, DIAGSEC, DTHWIT",Req
+DDTEST,Death Detail Assessment Name,Char,*,Synonym Qualifier,"Long name for DDTESTCD. The value in DDTEST cannot be longer than 40
+characters. Examples: Primary Diagnosis, Secondary Diagnosis, Was Death Witnessed?",Req
+DDORRES,"Result or Finding as
+Collected",Char,,"Result
+Qualifier","Result of the test defined in DDTEST, as originally received or collected.",Exp
+DDSTRESC,Character Result/Finding in Std Format,Char,,Result Qualifier,Contains the result or finding copied or derived from DDORRES in a standard format.,Exp
+DDRESCAT,Result Category,Char,*,Variable Qualifier,"Used to categorize the result of a finding. Examples: TREATMENT RELATED, NONTREATMENT RELATED, UNDETERMINED, ACCIDENTAL",Perm
+DDEVAL,Evaluator,Char,EVAL,"Record
+Qualifier",Role of the person who provided the evaluation.,Perm
+DDDTC,Date/Time of Collection,Char,ISO 8601,Timing,Date/time of collection of the diagnosis or other death assessment data in ISO 8601 format. This is not necessarily the date of death.,Exp
+DDDY,"Study Day of
+Collection",Num,,Timing,"Study day of the collection, in integer days.  The algorithm for calculations must be
+relative to the sponsor-defined RFSTDTC variable in the Demographics (DM) domain.",Perm

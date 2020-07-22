@@ -1,0 +1,193 @@
+"Variable
+Name ",Variable Label ,Type ,Role ,Description
+Topic Variable,,,,
+--TERM ,Reported Term ,Char ,Topic ,"Topic variable for an event observation, which is the verbatim
+or pre-specified name of the event."
+Qualifier Variables,,,,
+--MODIFY ,"Modified Reported
+Term",Char ,"Synonym
+Qualifier of
+--TERM","If the value for --TERM is modified for coding purposes, then
+the modified text is placed here."
+--LLT ,Lowest Level Term ,Char ,"Variable
+Qualifier of
+--TERM",MedDRA Lowest Level Term.
+--LLTCD ,"Lowest Level Term
+Code",Num ,"Variable
+Qualifier of
+--LLT",MedDRA Lowest Level Term code.
+--DECOD ,"Dictionary-Derived
+Term",Char ,"Synonym
+Qualifier of
+--TERM","Dictionary or sponsor-defined derived text description of the
+topic variable, --TERM, or the modified topic variable (--
+MODIFY), if applicable. Equivalent to the Preferred Term (PT
+in MedDRA)."
+--PTCD ,"Preferred Term
+Code",Num ,"Variable
+Qualifier of
+--DECOD",MedDRA Preferred Term code.
+--HLT ,High Level Term ,Char ,"Variable
+Qualifier of
+--TERM",MedDRA High Level Term from the primary path.
+--HLTCD ,"High Level Term
+Code",Num ,"Variable
+Qualifier of
+--HLT",MedDRA High Level Term code from the primary path.
+--HLGT ,"High Level Group
+Term",Char ,"Variable
+Qualifier of
+--TERM",MedDRA High Level Group Term from the primary path.
+--HLGTCD ,"High Level Group
+Term Code",Num ,"Variable
+Qualifier of
+--HLGT",MedDRA High Level Group Term code from the primary path.
+--CAT ,Category ,Char ,"Grouping
+Qualifier",Used to define a category of topic-variable values.
+--SCAT ,Subcategory ,Char ,"Grouping
+Qualifier",Used to define a further categorization of --CAT values.
+--PRESP ,Pre-specified ,Char ,"Variable
+Qualifier of
+--TERM","Used to indicate whether the event described by --TERM was
+pre-specified on a CRF. Value is Y for pre-specified events, null
+for spontaneously reported events."
+--OCCUR ,Occurrence ,Char ,"Record
+Qualifier","Used to record whether a pre-specified event occurred when
+information about the occurrence of a specific event is solicited."
+--STAT ,Completion Status ,Char ,"Record
+Qualifier","Used to indicate when a question about the occurrence of a pre
+specified event was not answered. Should be null or have a
+value of NOT DONE."
+--REASND ,Reason Not Done ,Char ,"Record
+Qualifier","Reason not done. Used in conjunction with --STAT when its
+value is NOT DONE."
+--BODSYS ,"Body System or
+Organ Class",Char ,"Record
+Qualifier","Body system or system organ class assigned for analysis from a
+standard hierarchy (e.g. MedDRA) associated with an event.
+Example: GASTROINTESTINAL DISORDERS."
+--BDSYCD ,"Body System or
+Organ Class Code",Num ,"Variable
+Qualifier of
+--BODSYS","MedDRA System Organ Class code corresponding to --
+BODSYS assigned for analysis."
+--SOC ,"Primary System
+Organ Class",Char ,"Variable
+Qualifier of
+--TERM","MedDRA primary System Organ Class associated with the
+event."
+--SOCCD ,"Primary System
+Organ Class Code",Num ,"Variable
+Qualifier of
+--SOC",MedDRA primary System Organ Class code.
+--LOC ,Location of Event ,Char ,"Record
+Qualifier","Describes anatomical location relevant for the event. Example:
+ARM for skin rash."
+--LAT ,Laterality ,Char ,"Variable
+Qualifier of
+--LOC","Qualifier for anatomical location further detailing laterality.
+Examples: RIGHT, LEFT, BILATERAL"
+--DIR ,Directionality ,Char ,"Variable
+Qualifier of
+--LOC","Qualifier for anatomical location further detailing directionality.
+Examples: ANTERIOR, LOWER, PROXIMAL"
+--PORTOT ,Portion or Totality ,Char ,"Variable
+Qualifier of
+--LOC","Qualifier for anatomical location further detailing the
+distribution, which means arrangement of, apportioning of.
+Examples: ENTIRE, SINGLE, SEGMENT, MANY."
+--PARTY ,Accountable Party ,Char ,"Record
+Qualifier","Party accountable for the transferable object (e.g. device,
+specimen) as a result of the activity performed in the associated
+--TERM variable. The party could be an individual (e.g.,
+subject), an organization (e.g., sponsor), or a location that is a
+proxy for an individual or organization (e.g., site). It is usually
+a somewhat general term that is further identified in the --
+PRTYID variable."
+--PRTYID ,"Identification of
+Accountable Party",Char ,"Record
+Qualifier","Identification of the specific party accountable for the
+transferable object (e.g. device, specimen) after the action in --
+TERM is taken. Used in conjunction with --PARTY."
+--SEV ,Severity/Intensity ,Char ,"Record
+Qualifier","The severity or intensity of the event. Examples: MILD,
+MODERATE, SEVERE."
+--SER ,Serious Event ,Char ,"Record
+Qualifier",Is this is a serious event? Valid values are “Y” and “N”.
+--ACN ,"Action Taken with
+Study Treatment",Char ,"Record
+Qualifier","Describes changes made to the study treatment as a result of the
+event. Examples: DOSE INCREASED, DOSE NOT
+CHANGED."
+--ACNOTH ,Other Action Taken ,Char ,"Record
+Qualifier","Describes other actions taken as a result of the event that are
+unrelated to dose adjustments of study treatment."
+--ACNDEV ,"Action Taken with
+Device",Char ,"Record
+Qualifier","Action taken with respect to a device in a study, which may or
+may not be the device under study"
+--REL ,Causality ,Char ,"Record
+Qualifier","Records the investigator's opinion as to the causality of the
+event to the treatment. ICH E2A and E2B examples include
+NOT RELATED, UNLIKELY RELATED, POSSIBLY
+RELATED, RELATED."
+--RELNST ,"Relationship to
+Non-Study
+Treatment",Char ,"Record
+Qualifier","An opinion as to whether the event may have been due to a
+treatment other than study drug. Example: ""MORE LIKELY
+RELATED TO ASPIRIN USE."""
+--PATT ,Pattern of Event ,Char ,"Record
+Qualifier","Used to indicate the pattern of the event over time. Examples:
+INTERMITTENT, CONTINUOUS, SINGLE EVENT."
+--OUT ,Outcome of Event ,Char ,"Record
+Qualifier","Description of the outcome of an event. Examples:
+RECOVERED/RESOLVED, FATAL."
+--SCAN ,Involves Cancer ,Char ,"Record
+Qualifier","Was the event associated with the development of cancer? Valid
+values are “Y” and “N”."
+--SCONG ,"Congenital
+Anomaly or Birth
+Defect",Char ,"Record
+Qualifier","Was the event associated with congenital anomaly or birth
+defect? Valid values are “Y” and “N”."
+--SDISAB ,"Persist or Signif
+Disability/Incapacit
+y",Char ,"Record
+Qualifier","Did the event result in persistent or significant
+disability/incapacity? Valid values are “Y” and “N”."
+--SDTH ,Results in Death ,Char ,"Record
+Qualifier",Did the event result in death? Valid values are “Y” and “N”.
+--SHOSP ,"Requires or
+Prolongs
+Hospitalization",Char ,"Record
+Qualifier","Did the event require or prolong hospitalization? Valid values
+are “Y” and “N”."
+--SLIFE ,Is Life Threatening ,Char ,"Record
+Qualifier",Was the event life threatening? Valid values are “Y” and “N”.
+--SOD ,"Occurred with
+Overdose",Char ,"Record
+Qualifier","Did the event occur with an overdose? Valid values are “Y” and
+“N”."
+--SMIE ,"Other Medically
+Important Serious
+Event",Char ,"Record
+Qualifier","Do additional categories for seriousness apply? Valid values are
+“Y” and “N”."
+--CONTRT ,"Concomitant or
+Additional Trtmnt
+Given",Char ,"Record
+Qualifier","Was another treatment given because of the occurrence of the
+event? Valid values are “Y” and “N”."
+--TOX ,Toxicity ,Char ,"Variable
+Qualifier of
+--TOXGR","Description of toxicity quantified by --TOXGR such as NCI
+CTCAE Short Name. Examples: HYPERCALCEMIA,
+HYPOCALCEMIA. Sponsor should specify which scale and
+version is used in the Sponsor Comments column of the Define
+XML document."
+--TOXGR ,Toxicity Grade ,Char ,"Record
+Qualifier","Records toxicity grade using a standard toxicity scale (such as
+the NCI CTCAE). Sponsor should specify which scale and
+version is used in the Sponsor Comments column of the Define
+XML document."

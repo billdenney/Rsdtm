@@ -1,0 +1,21 @@
+Domain ,"Variable
+Name ",Variable Label ,Type ,Role ,Description ,Position
+EG ,EGBEATNO ,"ECG Beat
+Number",Num ,"Variable
+Qualifier of
+EGORRES","A sequence number that identifies the beat
+within an ECG.","After
+EGPOS"
+EX ,EXMETHOD ,"Method of
+Administration",Char ,"Record
+Qualifier","Method of administration of the treatment.
+Not to be used with human clinical trials.","After
+EXLOC"
+IC ,ICIMPLBL ,"Implantation
+Site Label",Char ,"Record
+Qualifier","Label or identifier that describes the location
+or position of a fetal implantation site in the
+uterus (or uterine horn) when classifying
+implantations during a uterine examination in
+a reproductive toxicology study.","After
+ICSTRESC"

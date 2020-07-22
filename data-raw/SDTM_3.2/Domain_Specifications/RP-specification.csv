@@ -1,0 +1,50 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,"Domain
+Abbreviation",Char,RP,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,"Unique Subject
+Identifier",Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all applications or
+submissions involving the product.",Req
+RPSEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a domain. May be any
+valid number.",Req
+RPGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+RPREFID,Reference ID,Char,,Identifier,Internal or external Reproductive System Findings record identifier.,Perm
+RPSPID,"Sponsor-Defined
+Identifier",Char,,Identifier,"Sponsor-defined identifier. Perhaps pre-printed on the CRF as an explicit line identifier or
+defined in the sponsor’s operational database.",Perm
+RPTESTCD,Repro System Findings Test Short Name,Char,(RPTESTCD),Topic,"Short name of the measurement, test, or examination described in RPTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in RPTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g.”1TEST”). RPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples:
+NUMLIV, NUMPREG, BCMETHOD, etc.",Req
+RPTEST,"Reproductive System Findings
+Test Name",Char,(RPTEST),Synonym Qualifier,"Verbatim name of the test or examination used to obtain the measurement or finding. The value in RPTEST cannot be longer than 40 characters. Examples: Number of Live Births,
+Number of Pregnancies, Birth Control Method, etc.",Req
+RPCAT,"Category for Repro
+System Findings",Char,*,"Grouping
+Qualifier",Used to define a category of related records.,Perm
+RPSCAT,Subcategory for Repro System Findings,Char,*,Grouping Qualifier,A further categorization of RP records.,Perm
+RPORRES,Result or Finding in Original Units,Char,,Result Qualifier,Result of the Reproductive System Findings test as originally received or collected.,Exp
+RPORRESU,Original Units,Char,(UNIT),"Variable
+Qualifier",Original units in which the data were collected. The unit for RPORRES. Examples: YEARS.,Exp
+RPSTRESC,Character Result/Finding in Std. Format,Char,,Result Qualifier,"Contains the result value for all findings, copied or derived from RPORRES in a standard format or standard units. RPSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in RPSTRESN. For example, if a test has results “NONE”, “NEG”, and “NEGATIVE” in RPORRES and these results effectively have the same meaning; they could be represented in standard format in
+RPSTRESC as “NEGATIVE”.",Exp
+RPSTRESN,"Numeric
+Result/Finding in Standard Units",Num,,Result Qualifier,Used for continuous or numeric results or findings in standard format; copied in numeric format from RPSTRESC. RPSTRESN should store all numeric test results or findings.,Exp
+RPSTRESU,Standard Units,Char,(UNIT),"Variable
+Qualifier",Standardized unit used for RPSTRESC and RPSTRESN.,Exp
+RPSTAT,Completion Status,Char,(ND),"Record
+Qualifier","Used to indicate that a Reproductive System Findings test was not done. Should be null if a
+result exists in RPORRES.",Perm
+RPREASND,Reason Not Performed,Char,,Record Qualifier,Describes why a measurement or test was not performed. Examples: BROKEN EQUIPMENT or SUBJECT REFUSED. Used in conjunction with RPSTAT when value is NOT DONE.,Perm
+RPBLFL,Baseline Flag,Char,(NY),"Record
+Qualifier",Indicator used to identify a baseline value. The value should be “Y” or null.,Perm
+RPDRVFL,Derived Flag,Char,(NY),Record Qualifier,"Used to indicate a derived record. The value should be Y or null. Records which represent the average of other records or which do not come from the CRF are examples of records that would be derived for the submission datasets. If RPDRVFL=Y, then RPORRES may be null,
+with RPSTRESC and (if numeric) RPSTRESN having the derived value.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Perm
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,"Planned Study Day
+of Visit",Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+RPDTC,"Date/Time of
+Measurements",Char,ISO 8601,Timing,Date of Reproductive System Finding.,Exp
+RPDY,Study Day of Repro System Findings,Num,,Timing,"1. Study day of Reproductive System Findings observation, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.",Perm

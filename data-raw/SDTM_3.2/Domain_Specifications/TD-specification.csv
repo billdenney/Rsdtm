@@ -1,0 +1,19 @@
+Variable Name,Variable Label,Type,"Controlled
+Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,TD,Identifier,Two-character abbreviation for the domain.,Req
+TDORDER,"Sequence of Planned
+Assessment Schedule",Num,,Timing,"A number given to ensure ordinal sequencing of the planned
+assessment schedules within a trial.",Req
+TDANCVAR,Anchor Variable Name,Char,,Timing,"A reference to the date variable name that provides the start point from which the planned disease assessment schedule is measured. This must be a referenced from the ADaM ADSL dataset e.g.
+ANCH1DT. Note: TDANCVAR will contain the name of a
+reference date variable.",Req
+TDSTOFF,Offset from the Anchor,Char,ISO 8601,Timing,"A fixed offset from the date provided by the variable referenced in TDANCVAR. This is used when the timing of planned cycles does not start on the exact day referenced in the variable indicated in TDANCVAR. The value of this variable will be either zero or a positive value and will be represented in ISO 8601 character
+format.",Req
+TDTGTPAI,Planned Assessment Interval,Char,ISO 8601,Timing,The planned interval between disease assessments represented in ISO 8601 character format.,Req
+TDMINPAI,Planned Assessment Interval Minimum,Char,ISO 8601,Timing,"The lower limit of the allowed range for the planned interval
+between disease assessments represented in ISO 8601 character format.",Req
+TDMAXPAI,Planned Assessment Interval Maximum,Char,ISO 8601,Timing,"The upper limit of the allowed range for the planned interval between disease assessments represented in ISO 8601 character
+format.",Req
+TDNUMRPT,Maximum Number of Actual Assessments,Num,,Record Qualifier,"This variable must represent the maximum number of actual assessments for the analysis that this disease assessment schedule describes. In a trial where the maximum number of assessments is not defined explicitly in the protocol (e.g. assessments occur until death) TDNUMRPT should represent the maximum number of
+disease assessments that support the efficacy analysis, encountered by any subject across the trial at that point in time.",Req

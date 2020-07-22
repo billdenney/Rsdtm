@@ -1,0 +1,8 @@
+Variable Name,Variable Label,Type,"Codelist/
+Controlled Terms",Core,CDISC Notes
+SRCDOM,Source Data,Char,,Perm,"The SDTM domain name or ADaM dataset name that relates to the analysis value (e.g., AVAL or AVALC in a BDS dataset). If the source data is a supplemental qualifier in SDTM, this variable
+will contain the value of RDOMAIN in SUPP-- or SUPPQUAL."
+SRCVAR,Source Variable,Char,,Perm,"The name of the column (in the domain or dataset identified by SRCDOM) that relates to the analysis value (e.g., AVAL or AVALC in a BDS dataset). In the event that SRCDOM is a
+SUPPQUAL, then SRCVAR will be populated with the value of the related QNAM."
+SRCSEQ,Source Sequence Number,Num,,Perm,"The sequence number --SEQ or ASEQ of the row (in the domain or dataset identified by SRCDOM) that relates to the analysis value (e.g., AVAL or AVALC in a BDS dataset). In the event that SRCDOM is a SUPPQUAL, then this variable will contain the sequence number of the
+relevant related domain record."

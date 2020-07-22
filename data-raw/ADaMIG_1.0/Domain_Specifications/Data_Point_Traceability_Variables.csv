@@ -1,0 +1,7 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+SRCDOM,Source Domain,Char,,Perm,The 2-character identifier of the SDTM domain that relates to AVAL or AVALC.
+SRCVAR,Source Variable,Char,,Perm,"The name of the column (in the SDTM domain identified by SRCDOM) that relates to
+AVAL or AVALC."
+SRCSEQ,"Source Sequence
+Number",Num,,Perm,"The sequence number SEQ of the row (in the SDTM domain identified by SRCDOM)
+that relates to AVAL or AVALC."

@@ -1,0 +1,6 @@
+Variable Name,Variable Label,Type,Role,Description
+STUDYID,Study Identifier,Char,Identifier,Unique identifier for a study.
+DOMAIN,Domain,Char,Identifier,"2-character abbreviation for the domain, which must be ""TM""."
+MIDSTYPE,Disease Milestone Type,Char,Topic,"The type of Disease Milestone. Example: ""HYPOGLYCEMIC EVENT""."
+TMDEF,Disease Milestone Definition,Char,Rule,Definition of the Disease Milestone.
+TMRPT,Disease Milestone Repetition Indicator,Char,Record Qualifier,"Indicates whether this is a Disease Milestone that can occur only once (""N"") or a type of Disease Milestone that can occur multiple times (""Y"")."

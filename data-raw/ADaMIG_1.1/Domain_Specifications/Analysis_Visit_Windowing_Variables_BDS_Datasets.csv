@@ -1,0 +1,11 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+AWRANGE,"Analysis Window Valid Relative
+Range",Char,,Perm,"The range of values that are valid for a given analysis timepoint (a given value of AVISIT). For example, “5-9 DAYS”."
+AWTARGET,Analysis Window Target,Num,,Perm,The target or most desired analysis relative day (ADY) value or analysis relative time (ARELTM) value for a given value of AVISIT.
+AWTDIFF,Analysis Window Diff from Target,Num,,Perm,"Absolute difference between ADY or ARELTM and AWTARGET. It will be necessary to adjust for the fact that there is no day 0 in the event that ADY and AWTARGET are not of the same sign.
+If the sign of the difference is important, then AWTDIFF might have to be used in conjunction with ADY or ARELTM and possibly AWTARGET when choosing among records."
+AWLO,"Analysis Window
+Beginning Timepoint",Num,,Perm,"The value of the beginning timepoint (inclusive) needs to be used in conjunction to AWRANGE. For example, if AWRANGE is “5-9 DAYS”, then AWLO is “5”."
+AWHI,Analysis Window Ending Timepoint,Num,,Perm,"The value of the ending timepoint (inclusive) needs to be used in conjunction to AWRANGE. For example, if AWRANGE is “5-9 DAYS”, then AWHI is “9”."
+AWU,"Analysis Window
+Unit",Char,,Perm,"Unit used for AWLO and AWHI. Examples: DAYS, HOURS."

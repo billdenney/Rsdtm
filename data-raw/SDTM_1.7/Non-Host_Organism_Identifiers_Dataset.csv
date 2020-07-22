@@ -1,0 +1,8 @@
+Variable Name,Variable Label,Type,Role,Description
+STUDYID,Study Identifier,Char,Identifier,Unique identifier for a study.
+DOMAIN,Domain Abbreviation,Char,Identifier,"2-character abbreviation for the domain, which must be ""OI""."
+NHOID,Non-Host Organism Identifier,Char,Identifier,Sponsor-defined identifier for a non-host organism.
+OISEQ,Sequence Number,Num,Identifier,Sequence number given to ensure uniqueness within a parameter within an organism (NHOID).
+OIPARMCD,Non-Host Organism ID Element Short Name,Char,Topic,Short name of the taxon being described.
+OIPARM,Non-Host Organism ID Element Name,Char,Synonym Qualifier of OIPARMCD,Name of the taxon being described.
+OIVAL,Non-Host Organism ID Element Value,Char,Result Qualifier,Value for the taxon in OIPARMCD/OIPARM for the organism identified by NHOID.

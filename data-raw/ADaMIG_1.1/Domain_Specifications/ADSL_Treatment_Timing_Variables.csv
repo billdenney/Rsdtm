@@ -1,0 +1,46 @@
+Variable Name,Variable Label,Type,"Codelist/
+Controlled Terms",Core,CDISC Notes
+TRTSDT,Date of First Exposure to Treatment,Num,,Cond,"Date of first exposure to treatment for a subject in a study. TRTSDT and/or TRTSDTM are required if there is an investigational product. Note that TRTSDT is not required to have the same value as the SDTM DM variable RFXSTDTC. While both of these dates reflect the concept of first
+exposure, the ADaM date may be derived to support the analysis which may not necessarily be the very first date in the SDTM EX domain."
+TRTSTM,"Time of First Exposure to
+Treatment",Num,,Perm,Time of first exposure to treatment for a subject in a study.
+TRTSDTM,Datetime of First Exposure to Treatment,Num,,Cond,Datetime of first exposure to treatment for a subject in a study. TRTSDT and/or TRTSDTM are required if there is an investigational product.
+TRTSDTF,"Date of First
+Exposure Imput. Flag",Char,(DATEFL),Cond,"The level of imputation of date of first exposure to treatment. If TRTSDT (or the date part of TRTSDTM) was imputed, TRTSDTF must be populated and is required. See Section 3.1.3."
+TRTSTMF,"Time of First
+Exposure Imput. Flag",Char,(TIMEFL),Cond,"The level of imputation of time of first exposure to treatment. If TRTSTM (or the time part of TRTSDTM) was imputed, TRTSTMF must be populated and is required. See Section 3.1.3."
+TRTEDT,Date of Last Exposure to Treatment,Num,,Cond,"Date of last exposure to treatment for a subject in a study. TRTEDT and/or TRTEDTM are required if there is an investigational product. Note that TRTEDT is not required to have the same value as the SDTM DM variable RFXENDTC. While both of these dates reflect the concept of last
+exposure, the ADaM date may be derived to support the analysis which may not necessarily be the very last date in the SDTM EX domain."
+TRTETM,Time of Last Exposure to Treatment,Num,,Perm,Time of last exposure to treatment for a subject in a study.
+TRTEDTM,"Datetime of Last
+Exposure to Treatment",Num,,Cond,Datetime of last exposure to treatment for a subject in a study. TRTEDT and/or TRTEDTM are required if there is an investigational product.
+TRTEDTF,"Date of Last Exposure Imput.
+Flag",Char,(DATEFL),Cond,"The level of imputation of date of last exposure to treatment. If TRTEDT (or the date part of TRTEDTM) was imputed, TRTEDTF must be populated and is required. See Section 3.1.3."
+TRTETMF,"Time of Last Exposure Imput.
+Flag",Char,(TIMEFL),Cond,"The level of imputation of time of last exposure to treatment. If TRTETM (or the time part of TRTEDTM) was imputed, TRTETMF must be populated and is required. See Section 3.1.3."
+TRxxSDT,Date of First Exposure in Period xx,Num,,Cond,"Date of first exposure to treatment in period xx. TRxxSDT and/or TRxxSDTM are only required in trial designs where multiple treatments are given to the same subject, such as a crossover design, but are permissible for other trial designs. Also useful in designs where multiple periods exist for
+the same treatment (i.e., multiple cycles of the same study treatment)."
+TRxxSTM,"Time of First Exposure in Period
+xx",Num,,Cond,"The starting time of exposure to treatment in period xx. TRxxSTM and/or TRxxSDTM are only required in trial designs where multiple treatments are given to the same subject, such as a
+crossover design (but are permissible for other trial designs), and time is important to the analysis."
+TRxxSDTM,"Datetime of First Exposure in Period
+xx",Num,,Cond,"Datetime of first exposure to treatment in period xx. TRxxSDT and/or TRxxSDTM are only required in trial designs where multiple treatments are given to the same subject, such as a
+crossover design, but are permissible for other trial designs."
+TRxxSDTF,"Date 1st Exposure Period xx Imput.
+Flag",Char,(DATEFL),Cond,"The level of imputation of date of first exposure to treatment in period xx. If TRxxSDT (or the date part of TRxxSDTM) was imputed, TRxxSDTF must be populated and is required. See Section
+3.1.3."
+TRxxSTMF,"Time 1st Exposure Period xx Imput.
+Flag",Char,(TIMEFL),Cond,"The level of imputation of time of first exposure to treatment in period xx. If TRxxSTM (or the time part of TRxxSDTM) was imputed, TRxxSTMF must be populated and is required. See
+Section 3.1.3."
+TRxxEDT,"Date of Last Exposure in Period
+xx",Num,,Cond,"Date of last exposure to treatment in period xx. TRxxEDT and/or TRxxEDTM are only required in trial designs where multiple treatments are given to the same subject, such as a crossover design,
+but are permissible for other trial designs."
+TRxxETM,Time of Last Exposure in Period xx,Num,,Cond,"The ending time of exposure to treatment in period xx. TRxxETM and/or TRxxEDTM are only required in trial designs where multiple treatments are given to the same subject, such as a crossover design, and ending time is important to the analysis, but are permissible for other trial designs."
+TRxxEDTM,"Datetime of Last Exposure in Period
+xx",Num,,Cond,"The datetime of last exposure to treatment in period xx. TRxxEDT and/or TRxxEDTM are only required in trial designs where multiple treatments are given to the same subject, such as a
+crossover design, but are permissible for other trial designs."
+TRxxEDTF,"Date Last Exposure Period xx Imput.
+Flag",Char,(DATEFL),Cond,"The level of imputation of date of last exposure to treatment in period xx. If TRxxEDT (or the date part of TRxxEDTM) was imputed, TRxxEDTF must be populated and is required. See Section 3.1.3."
+TRxxETMF,"Time Last Exposure Period xx Imput.
+Flag",Char,(TIMEFL),Cond,"The level of imputation of time of last exposure to treatment in period xx. If TRxxETM (or the time
+part of TRxxEDTM) was imputed, TRxxETMF must be populated and is required. See Section 3.1.3."

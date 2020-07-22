@@ -1,0 +1,13 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,SE,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.,Req
+SESEQ,Sequence Number,Num,,Identifier,Sequence number given to ensure uniqueness of subject records within a domain. Should be assigned to be consistent chronological order.,Req
+ETCD,Element Code,Char,*,Topic,"1. ETCD (the companion to ELEMENT) is limited to 8 characters and does not have special character restrictions. These values should be short for ease of use in programming, but it is not expected that ETCD will need to serve as a variable name. 
+2. If an encountered Element differs from the planned Element to the point that it is considered a new Element, then use ""UNPLAN"" as the value for ETCD to represent this Element.",Req
+ELEMENT,Description of Element,Char,*,Synonym Qualifier,"The name of the Element. If ETCD has a value of ""UNPLAN"" then ELEMENT should be null.",Perm
+TAETORD,Planned Order of Element within Arm,Num,,Timing,Number that gives the planned order of the Element within the subject's assigned Arm.,Perm
+EPOCH,Epoch,Char,(EPOCH),Timing,Epoch associated with the Element in the planned sequence of Elements for the Arm to which the subject was assigned.,Perm
+SESTDTC,Start Date/Time of Element,Char,ISO 8601,Timing,Start date/time for an Element for each subject.,Req
+SEENDTC,End Date/Time of Element,Char,ISO 8601,Timing,End date/time for an Element for each subject.,Exp
+SEUPDES,Description of Unplanned Element,Char,,Synonym Qualifier,"Description of what happened to the subject during an unplanned Element. Used only if ETCD has the value of ""UNPLAN"".",Perm

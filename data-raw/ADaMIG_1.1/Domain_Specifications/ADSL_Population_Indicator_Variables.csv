@@ -1,0 +1,25 @@
+Variable Name ,Variable Label ,Type,"Codelist/
+Controlled
+Terms",Core ,CDISC Notes
+FASFL ,"Full Analysis Set
+Population Flag",Char ,"Y, N ",Cond ,"These flags identify whether or not the subject is included in the specified population. A minimum
+of one subject-level population flag variable is required in ADSL.
+Not all of the indicators listed here need to be included in ADSL. As stated in Section 3.1.4, Item 2,
+only those indicators corresponding to populations defined in the statistical analysis plan or
+populations used as a basis for analysis need be included in ADSL.
+This list of flags is not meant to be all-inclusive. Additional population flags may be added.
+The values of subject-level population flags cannot be blank. If a flag is used, the corresponding
+numeric version (*FN, where 0=no and 1=yes) of the population flag can also be included. Please
+also refer to Section 3.1.4."
+SAFFL ,"Safety Population
+Flag",Char ,"Y, N ",Cond,
+ITTFL ,"Intent-To-Treat
+Population Flag",Char ,"Y, N ",Cond,
+PPROTFL ,"Per-Protocol
+Population Flag",Char ,"Y, N ",Cond,
+COMPLFL ,"Completers
+Population Flag",Char ,"Y, N ",Cond,
+RANDFL ,"Randomized
+Population Flag",Char ,"Y, N ",Cond,
+ENRLFL ,"Enrolled Population
+Flag",Char ,"Y, N ",Cond,

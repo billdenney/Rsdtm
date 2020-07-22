@@ -1,0 +1,57 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,TR,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product.",Req
+TRSEQ,Sequence Number,Num,,Identifier,"Sequence number given to ensure uniqueness within a dataset for a subject.
+May be any valid number.",Req
+TRGRPID,Group ID,Char,,Identifier,Used to link together a block of related records within a subject in a domain.,Perm
+TRREFID,Reference ID,Char,,Identifier,Internal or external identifier.,Perm
+TRSPID,Sponsor-Defined Identifier,Char,,Identifier,Sponsor-defined identifier.,Perm
+TRLNKID,Link ID,Char,,Identifier,"Identifier used to link the assessment result records to the individual tumor
+identification record in TU domain.",Exp
+TRLNKGRP,Link Group,Char,,Identifier,Used to group and link all of the measurement/assessment records used in the assessment of the response record in the RS domain.,Perm
+TRTESTCD,Tumor Assessment Short Name,Char,(TRTESTCD),Topic,"Short name of the TEST in TRTEST. TRTESTCD cannot contain characters
+other than letters, numbers, or underscores. Examples: TUMSTATE, DIAMETER. See Assumption 2.",Req
+TRTEST,Tumor Assessment Test Name,Char,(TRTEST),Synonym Qualifier,"Verbatim name of the test or examination used to obtain the measurement or finding. The value in TRTEST cannot be longer than 40 characters.
+Examples: Tumor State, Diameter, Longest Perpendicular diameter, Volume, Area. See Assumption 2.",Req
+TRORRES,"Result or Finding in
+Original Units",Char,,"Result
+Qualifier","Result of the Tumor measurement/assessment as originally received or
+collected.",Exp
+TRORRESU,Original Units,Char,(UNIT),"Variable
+Qualifier","Original units in which the data were collected. The unit for TRORRES.
+Example: mm",Exp
+TRSTRESC,Character Result/Finding in Std Format,Char,,Record Qualifier,"Contains the result value for all findings, copied or derived from TRORRES in a standard format or standard units. TRSTRESC should store all results or findings in character format; if results are numeric, they should also be
+stored in numeric format in TRSTRESN",Exp
+TRSTRESN,Numeric Result/Finding in Standard Units,Num,,Result Qualifier,"Used for continuous or numeric results or findings in standard format; copied in numeric format from TRSTRESC. TRSTRESN should store all
+numeric test results or findings.",Exp
+TRSTRESU,Standard Units,Char,(UNIT),"Variable
+Qualifier",Standardized unit used for TRSTRESN.,Exp
+TRSTAT,Completion Status,Char,(ND),Result Qualifier,Used to indicate a scan/image/physical exam was not performed or a tumor measurement was not taken. Should be Null if a result exists in TRORRES.,Perm
+TRREASND,Reason Tumor Measurement Not Performed,Char,,Record Qualifier,"Describes why a scan/image/physical exam was not performed or a tumor measurement was not taken. Examples: SCAN NOT PERFORMED, NOT ASSESSABLE: Image obscured, TUMOR. Used in conjunction with
+TRSTAT when value is NOT DONE.",Perm
+TRNAM,Vendor Name,Char,,Record Qualifier,"The name or identifier of the vendor that performed the Tumor measurement
+or assessment. This column can be left Null when the Investigator provides the complete set of data in the domain.",Perm
+TRMETHOD,"Method used to Identify the
+Tumor",,(METHOD),"Record
+Qualifier","Method used to measure the tumor. Examples: MRI, CT SCAN.",Exp
+TREVAL,Evaluator,Char,(EVAL),Record Qualifier,"Role of the person who provided the evaluation. Examples: INVESTIGATOR, INDEPENDENT ASSESSOR.
+This column can be left Null when the Investigator provides the complete set of data in the domain. However the column should contain no Null values when data from one or more independent assessors is included meaning that the rows attributed to the Investigator should contain a value of
+INVESTIGATOR.",Exp
+TREVALID,Evaluator Identifier,Char,(MEDEVAL),Variable Qualifier,"The Evaluator Specified variable is used in conjunction with TREVAL to provide an additional level of detail. When multiple assessors play the role identified in TREVAL, values of TREVALID will attribute a row of data to a particular assessor. TREVALID should not contain the names of the assessors, or a code identifier for a specific assessor, but should contain values such as RADIOLOGIST, RADIOLOGIST 1 or RADIOLOGIST 2.
+The TREVALID variable is subject to CDISC Controlled Terminology. Note TREVAL must also be populated when TREVALID is populated. See Assumption 7.",Perm
+TRACPTFL,Accepted Record Flag,Char,(NY),"Record
+Qualifier","In cases where more than one independent assessor (e.g. RADIOLOGIST 1,
+RADIOLOGIST 2, ADJUDICATOR) provide independent assessments at the same timepoint this flag identifies the record that is considered to be the
+accepted assessment.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,,Perm
+EPOCH,Epoch,Char,,Timing,Epoch associated with the Element in the planned sequence of Elements for the ARM to which the subject was assigned,Perm
+TRDTC,Date/Time of Tumor Measurement,Char,ISO 8601,Timing,"TRDTC variable represents the date of the scan/image/physical exam not the
+date that the image was read to identify tumors. TRDTC variable does not represent the VISIT date.",Exp
+TRDY,Study Day of Tumor Measurement,Num,,Timing,"1. Study day of the scan/image/physical exam, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.",Perm

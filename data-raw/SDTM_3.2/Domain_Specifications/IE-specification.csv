@@ -1,0 +1,26 @@
+Variable Name,Variable Label,Type,"Controlled Terms,
+Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,IE,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,Identifier used to uniquely identify a subject across all studies for all applications or submissions involving the product.,Req
+IESEQ,Sequence Number,Num,,Identifier,Sequence Number given to ensure uniqueness of subject records within a domain. May be any valid number.,Req
+IESPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit line identifier or defined in the sponsor’s operational
+database. Example: Inclusion or Exclusion criteria number from CRF.",Perm
+IETESTCD,Inclusion/Exclusion Criterion Short Name,Char,*,Topic,"Short name of the criterion described in IETEST. The value in IETESTCD cannot be longer than 8 characters, nor can it start with a number (e.g.”1TEST”). IETESTCD cannot contain characters other
+than letters, numbers, or underscores. Examples: IN01, EX01.",Req
+IETEST,Inclusion/Exclusion Criterion,Char,,Synonym Qualifier,"Verbatim description of the inclusion or exclusion criterion that was
+the exception for the subject within the study. IETEST cannot be longer than 200 characters.",Req
+IECAT,Inclusion/Exclusion Category,Char,(IECAT),Grouping Qualifier,Used to define a category of related records across subjects.,Req
+IESCAT,Inclusion/Exclusion Subcategory,Char,*,Grouping Qualifier,"A further categorization of the exception criterion. Can be used to
+distinguish criteria for a sub-study or for to categorize as a major or minor exceptions. Examples: MAJOR, MINOR.",Perm
+IEORRES,I/E Criterion Original Result,Char,(NY),Result Qualifier,Original response to Inclusion/Exclusion Criterion question. Inclusion or Exclusion criterion met?,Req
+IESTRESC,I/E Criterion Result in Std Format,Char,(NY),Result Qualifier,Response to Inclusion/Exclusion criterion result in standard format.,Req
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Perm
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+IEDTC,Date/Time of Collection,Char,ISO 8601,Timing,,Perm
+IEDY,Study Day of Collection,Num,,Timing,"1. Study day of collection of the inclusion/exclusion exceptions, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics. This formula should be
+consistent across the submission.",Perm

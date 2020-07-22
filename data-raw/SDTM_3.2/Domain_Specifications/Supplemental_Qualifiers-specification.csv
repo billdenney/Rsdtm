@@ -1,0 +1,18 @@
+Variable,Variable Label,Type,"Controlled Terms, Codelist
+or Format",CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Study Identifier of the Parent record(s).,Req
+RDOMAIN,Related Domain Abbreviation,Char,DOMAIN,Two-character abbreviation for the domain of the parent record(s).,Req
+USUBJID,"Unique
+Subject Identifier",Char,,Unique Subject Identifier of the Parent record(s).,Req
+IDVAR,Identifying Variable,Char,*,"Identifying variable in the dataset that identifies the related record(s). Examples: --SEQ, --GRPID.",Exp
+IDVARVAL,Identifying Variable Value,Char,,Value of identifying variable of the parent record(s).,Exp
+QNAM,Qualifier Variable Name,Char,*,"The short name of the Qualifier variable, which is used as a column name in a domain view with data from the parent domain. The value in QNAM cannot be longer than 8 characters, nor can it start with a number (e.g., “1TEST”). QNAM cannot contain characters other than letters, numbers, or underscores. This will often be the column
+name in the sponsor’s operational dataset.",Req
+QLABEL,Qualifier Variable Label,Char,,"This is the long name or label associated with QNAM. The value in QLABEL cannot be longer than 40 characters.
+This will often be the column label in the sponsor’s original dataset.",Req
+QVAL,Data Value,Char,,"Result of, response to, or value associated with QNAM. A
+value for this column is required; no records can be in SUPP-- with a null value for QVAL.",Req
+QORIG,Origin,Char,,"Since QVAL can represent a mixture of collected (on a CRF), derived, or assigned items, QORIG is used to indicate the origin of this data. Examples include CRF, ASSIGNED, or DERIVED. See Section 4: 4.1.1.8,
+Origin Metadata.",Req
+QEVAL,Evaluator,Char,*,"Used only for results that are subjective (e.g., assigned by a person or a group). Should be null for records that contain objectively collected or derived data. Some examples include ADJUDICATION COMMITTEE,
+STATISTICIAN, DATABASE ADMINISTRATOR, CLINICAL COORDINATOR, etc.",Exp

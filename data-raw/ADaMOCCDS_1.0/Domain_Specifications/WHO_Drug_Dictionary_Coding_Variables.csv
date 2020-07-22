@@ -1,0 +1,13 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+CMTRT,"Reported Name of Drug,
+Med, or Therapy",Char,,Req,CM.CMTRT
+CMDECOD,Standardized Medication Name,Char,WHO Drug,Cond,"CM.CMDECOD
+This is typically one of the primary variables used in CM analysis and would be copied from the SDTM CM domain. Include the dictionary version in the variable metadata.
+Conditional on whether coded and used for analysis."
+CMCLAS,Medication Class,Char,,Perm,"CM.CMCLAS
+Include the dictionary version in the metadata."
+CMCLASCD,Medication Class Code,Char,,Perm,"CM.CMCLASCD
+Include the dictionary version in the metadata."
+ATCy,ATC Level y Text,Char,WHO Drug,Cond,"Corresponds to the ATC Level Text for WHO Drug Conditional, based on analysis at multiple levels (y)"
+ATCyCD,ATC Level y Code,Char,WHO Drug,Cond,"Corresponds to the ATC Level Code for WHO Drug
+Conditional, based on analysis at multiple levels (y)"

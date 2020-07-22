@@ -1,0 +1,6 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+DOSEON,Treatment Dose at Record Start,Num,,Perm,"Dose received at the point in time of the record start date. Example derivation:
+Obtained from EX.EXDOSE where --STDTC falls between the values of EX.EXSTDTC and EX.EXENDTC"
+DOSCUMA,"Cumulative Actual
+Treatment Dose",Num,,Perm,Cumulative actual study drug dosage at the point in time of the record start date.
+DOSEU,Treatment Dose Units,Char,(UNIT),Cond,Conditional on whether DOSEON and/or DOSCUMA are included.

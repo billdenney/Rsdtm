@@ -1,0 +1,10 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+SMQzzNAM,SMQ zz Name,Char,,Cond,"The standardized MedDRA queries name. Would be blank for terms that are not in the SMQ. Therefore this variable could be blank for all records if no terms within the study were included in the SMQ.
+Conditional on whether SMQ analysis is done."
+SMQzzCD,SMQ zz Code,Num,,Perm,The standardized MedDRA queries number code.
+SMQzzSC,SMQ zz Scope,Char,"BROAD, NARROW",Cond,"The search strategy for SMQs can be narrow or broad. The preferred terms that are narrow in scope have high specificity for identifying events of interest while the broad terms have high sensitivity. By definition, all narrow terms are also considered within the broad scope. Therefore, to summarize all broad terms, terms with either narrow OR broad would be considered. Will be null for terms that do not meet the criteria.
+Conditional on whether SMQ analysis is done."
+SMQzzSCN,SMQ zz Scope (N),Num,"1, 2",Perm,Will be null for terms that do not meet the criteria.
+CQzzNAM,Customized Query zz Name,Char,,Cond,"The customized query (CQ) name or name of the AE of special interest category based on a grouping of terms. Would be blank for terms that are not in the CQ.
+Conditional on whether CQ analysis is done.
+Examples: “DERMATOLOGICAL EVENTS” “CARDIAC EVENTS”, “IARS (INFUSION ASSOCIATED REACTIONS)”"

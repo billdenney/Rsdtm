@@ -1,0 +1,55 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+APxxSDT,Period xx Start Date,Num,,Perm,The starting date of period xx.
+APxxSTM,"Period xx Start
+Time",Num,,Perm,The starting time of period xx.
+APxxSDTM,"Period xx Start
+Datetime",Num,,Perm,The starting datetime of period xx.
+APxxSDTF,"Period xx Start Date
+Imput. Flag",Char,(DATEFL),Cond,The level of imputation of period xx start date. See Section 3.1.3.
+APxxSTMF,"Period xx Start
+Time Imput. Flag",Char,(TIMEFL),Cond,The level of imputation of period xx start time. See Section 3.1.3.
+APxxEDT,Period xx End Date,Num,,Perm,The ending date of period xx.
+APxxETM,Period xx End Time,Num,,Perm,The ending time of period xx.
+APxxEDTM,"Period xx End
+Datetime",Num,,Perm,The ending datetime of period xx.
+APxxEDTF,"Period xx End Date
+Imput. Flag",Char,(DATEFL),Cond,The level of imputation of period xx end date. See Section 3.1.3.
+APxxETMF,"Period xx End Time
+Imput. Flag",Char,(TIMEFL),Cond,The level of imputation of period xx end time. See Section 3.1.3.
+PxxSw,"Description of Period xx Subperiod
+w",Char,,Perm,Description of analysis subperiod w within period xx.
+PxxSwSDT,"Period xx Subperiod
+w Start Date",Num,,Perm,The starting date of subperiod w within period xx.
+PxxSwSTM,Period xx Subperiod w Start Time,Num,,Perm,The starting time of subperiod w within period xx.
+PxxSwSDM,"Period xx Subperiod
+w Start Datetime",Num,,Perm,The starting datetime of subperiod w within period xx.
+PxxSwSDF,"Period xx Subper w Start Date Imput
+Flag",Char,(DATEFL),Cond,The level of imputation of the start date for subperiod w within period xx. See Section 3.1.3.
+PxxSwSTF,"Period xx Subper w Start Time Imput
+Flag",Char,(TIMEFL),Cond,The level of imputation of the start time for subperiod w within period xx. See Section 3.1.3.
+PxxSwEDT,Period xx Subperiod w End Date,Num,,Perm,The ending date of subperiod w within period xx.
+PxxSwETM,"Period xx Subperiod
+w End Time",Num,,Perm,The ending time of subperiod w within period xx.
+PxxSwEDM,"Period xx Subperiod
+w End Datetime",Num,,Perm,The ending datetime of subperiod w within period xx.
+PxxSwEDF,Period xx Subper w End Date Imput Flag,Char,(DATEFL),Cond,The level of imputation of the end date for subperiod w within period xx. See Section 3.1.3.
+PxxSwETF,"Period xx Subper w
+End Time Imput Flag",Char,(TIMEFL),Cond,The level of imputation of the end time for subperiod w within period xx. See Section 3.1.3.
+APHASEw,"Description of Phase
+w",Char,,Perm,Description of analysis phase w.
+PHwSDT,Phase w Start Date,Num,,Perm,The starting date of phase w.
+PHwSTM,Phase w Start Time,Num,,Perm,The starting time of phase w.
+PHwSDTM,"Phase w Start
+Datetime",Num,,Perm,The starting datetime of phase w.
+PHwSDTF,"Phase w Start Date
+Imputation Flag",Char,(DATEFL),Cond,The level of imputation of the start date for phase w. See Section 3.1.3.
+PHwSTMF,"Phase w Start Time
+Imputation Flag",Char,(TIMEFL),Cond,The level of imputation of the start time for phase w. See Section 3.1.3.
+PHwEDT,Phase w End Date,Num,,Perm,The ending date of phase w.
+PHwETM,Phase w End Time,Num,,Perm,The ending time of phase w.
+PHwEDTM,"Phase w End
+Datetime",Num,,Perm,The ending datetime of phase w.
+PHwEDTF,"Phase w End Date
+Imputation Flag",Char,(DATEFL),Cond,The level of imputation of the end date for phase w. See Section 3.1.3.
+PHwETMF,"Phase w End Time
+Imputation Flag",Char,(TIMEFL),Cond,The level of imputation of the end time for phase w. See Section 3.1.3.

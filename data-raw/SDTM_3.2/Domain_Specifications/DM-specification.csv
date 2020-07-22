@@ -1,0 +1,110 @@
+Variable Name ,Variable Label ,Type,"Controlled
+Terms, Codelist
+or Format",Role,CDISC Notes,Core
+STUDYID ,Study Identifier ,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN ,"Domain
+Abbreviation",Char,DM ,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID ,"Unique Subject
+Identifier",Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all applications or
+submissions involving the product. This must be a unique number, and could be a
+compound identifier formed by concatenating STUDYID-SITEID-SUBJID.",Req
+SUBJID ,"Subject Identifier
+for the Study",Char,,Topic,"Subject identifier, which must be unique within the study. Often the ID of the subject as
+recorded on a CRF.",Req
+RFSTDTC ,"Subject Reference
+Start Date/Time",Char,ISO 8601 ,"Record
+Qualifier","Reference Start Date/time for the subject in ISO 8601 character format. Usually
+equivalent to date/time when subject was first exposed to study treatment. Required for
+all randomized subjects; will be null for all subjects who did not meet the milestone the
+date requires, such as screen failures or unassigned subjects.",Exp
+RFENDTC ,"Subject Reference
+End Date/Time",Char,ISO 8601 ,"Record
+Qualifier","Reference End Date/time for the subject in ISO 8601 character format. Usually
+equivalent to the date/time when subject was determined to have ended the trial, and
+often equivalent to date/time of last exposure to study treatment. Required for all
+randomized subjects; null for screen failures or unassigned subjects.",Exp
+RFXSTDTC ,"Date/Time of First
+Study Treatment",Char,ISO 8601 ,"Record
+Qualifier","First date of exposure to any protocol-specified treatment or therapy, equal to the
+earliest value of EXSTDTC.",Exp
+RFXENDTC ,"Date/Time of Last
+Study Treatment",Char,ISO 8601 ,"Record
+Qualifier","Last date of exposure to any protocol-specified treatment or therapy, equal to the latest
+value of EXENDTC (or the latest value of EXSTDTC if EXENDTC was not collected
+or is missing)",Exp
+RFICDTC ,"Date/Time of
+Informed Consent",Char,ISO 8601 ,"Record
+Qualifier","Date/time of informed consent in ISO 8601 character format. This will be the same as
+the date of informed consent in the Disposition domain, if that protocol milestone is
+documented. Would be null only in studies not collecting the date of informed consent.",Exp
+RFPENDTC ,"Date/Time of End
+of Participation",Char,ISO 8601 ,"Record
+Qualifier","Date/time when subject ended participation or follow-up in a trial, as defined in the
+protocol, in ISO 8601 character format. Should correspond to the last known date of
+contact. Examples include completion date, withdrawal date, last follow-up, date
+recorded for lost to follow up, or death date.",Exp
+DTHDTC ,Date/Time of Death ,Char,ISO 8601 ,"Record
+Qualifier","Date/time of death for any subject who died, in ISO 8601 format. Should represent the
+date/time that is captured in the clinical-trial database.",Exp
+DTHFL ,Subject Death Flag ,Char,(NY) ,"Record
+Qualifier","Indicates the subject died. Should be Y or null. Should be populated even when the
+death date is unknown.",Exp
+SITEID ,Study Site Identifier ,Char,,"Record
+Qualifier",Unique identifier for a site within a study.,Req
+INVID ,"Investigator
+Identifier",Char,,"Record
+Qualifier","An identifier to describe the Investigator for the study. May be used in addition to
+SITEID. Not needed if SITEID is equivalent to INVID.",Perm
+INVNAM ,Investigator Name ,Char,,"Synonym
+Qualifier",Name of the investigator for a site.,Perm
+BRTHDTC ,Date/Time of Birth ,Char,ISO 8601 ,"Record
+Qualifier",Date/time of birth of the subject.,Perm
+AGE ,Age ,Num,,"Record
+Qualifier","Age expressed in AGEU. May be derived from RFSTDTC and BRTHDTC, but
+BRTHDTC may not be available in all cases (due to subject privacy concerns).",Exp
+AGEU ,Age Units ,Char,(AGEU) ,"Variable
+Qualifier",Units associated with AGE.,Exp
+SEX ,Sex ,Char,(SEX) ,"Record
+Qualifier",Sex of the subject.,Req
+RACE ,Race ,Char,(RACE) ,"Record
+Qualifier","Race of the subject. Sponsors should refer to “Collection of Race and Ethnicity Data in
+Clinical Trials” (FDA, September 2005) for guidance regarding the collection of race
+(http://www.fda.gov/RegulatoryInformation/Guidances/ucm126340.htm) See
+Assumption below regarding RACE.",Exp
+ETHNIC ,Ethnicity ,Char,ETHNIC) ,"Record
+Qualifier","The ethnicity of the subject. Sponsors should refer to “Collection of Race and Ethnicity
+Data in Clinical Trials” (FDA, September 2005) for guidance regarding the collection
+of ethnicity (http://www.fda.gov/RegulatoryInformation/Guidances/ucm126340.htm).",Perm
+ARMCD ,Planned Arm Code ,Char,* ,"Record
+Qualifier","ARMCD is limited to 20 characters and does not have special character restrictions.
+The maximum length of ARMCD is longer than for other “short” variables to
+accommodate the kind of values that are likely to be needed for crossover trials. For
+example, if ARMCD values for a seven-period crossover were constructed using two
+character abbreviations for each treatment and separating hyphens, the length of
+ARMCD values would be 20.",Req
+ARM ,"Description of
+Planned Arm",Char,* ,"Synonym
+Qualifier",Name of the Arm to which the subject was assigned.,Req
+ACTARMCD ,Actual Arm Code ,Char,* ,"Record
+Qualifier","Code of actual Arm. When an Arm is not planned (not in Trial Arms), ACTARMCD
+will be UNPLAN. Randomized subjects who were not treated will be given a value of
+NOTTRT. Values should be “SCRNFAIL” for screen failures and “NOTASSGN” for
+subjects not assigned to treatment. Restricted to values in Trial Arms in all other cases.
+ACTARMCD is limited to 20 characters and does not have special character
+restrictions. The maximum length of ACTARMCD is longer than for other short
+variables to accommodate the kind of values that are likely to be needed for crossover
+trials.",Req
+ACTARM ,Description of Actual Arm, Char,* ,"Synonym
+Qualifier","Description of actual Arm. When an Arm is not planned (not in Trial Arms), ACTARM
+will be “Unplanned Treatment”. Randomized subjects who were not treated will be
+given a value of “Not Treated”. Values should be “Screen Failure” for screen failures
+and “Not Assigned” for subjects not assigned to treatment. Restricted to values in Trial
+Arms in all other cases.",Req
+COUNTRY ,Country ,Char,"
+(COUNTRY)
+ISO 3166","Record
+Qualifier",Country of the investigational site in which the subject participated in the trial.,Req
+DMDTC ,"Date/Time of
+Collection",Char,ISO 8601 ,Timing,Date/time of demographic data collection.,Perm
+DMDY ,"Study Day of
+Collection",Num,,Timing,Study day of collection measured as integer days.,Perm

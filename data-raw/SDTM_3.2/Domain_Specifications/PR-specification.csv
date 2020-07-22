@@ -1,0 +1,74 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or
+Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,PR,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product.",Req
+PRSEQ,Sequence Number,Num,,Identifier,"Sequence number to ensure uniqueness of records within a dataset for a
+subject. Should be assigned to be in a consistent chronological order.",Req
+PRGRPID,Group ID,Char,,Identifier,Used to link together a block of related records within a subject in a domain.,Perm
+PRSPID,"Sponsor-Defined
+Identifier",Char,,Identifier,"Sponsor-defined identifier. Example: pre-printed line identifier on a
+CRF or record identifier defined in the sponsor’s operational database.",Perm
+PRLNKID,Link ID,Char,,Identifier,Used to facilitate identification of relationships between records.,Perm
+PRLNKGRP,Link Group ID,Char,,Identifier,Used to facilitate identification of relationships between records.,
+PRTRT,"Reported Name of
+Procedure",Char,,Topic,"Name of procedure performed, either pre-printed or collected on a CRF.",Req
+PRDECOD,Standardized Procedure Name,Char,*,Synonym Qualifier,"Standardized or dictionary-derived name of PRTRT. The sponsor is expected to provide the dictionary name and version used to map the terms in the define.xml external codelist attributes. If an intervention term
+does not have a decode value in the dictionary then PRDECOD will be null.",Perm
+PRCAT,Category,Char,*,Grouping Qualifier,Used to define a category of procedure values.,Perm
+PRSCAT,Subcategory,Char,*,Grouping Qualifier,Used to define a further categorization of PRCAT values.,Perm
+PRPRESP,Pre-specified,Char,(NY),Record Qualifier,"Used when a specific procedure is pre-specified on a CRF. Values
+should be “Y” or null.",Perm
+PROCCUR,Occurrence,Char,(NY),Record Qualifier,"Used to record whether a pre-specified procedure occurred when
+information about the occurrence of a specific procedure is solicited.",Perm
+PRINDC,Indication,Char,,Record Qualifier,"Denotes the indication for the procedure (e.g., why the procedure was
+performed).",Perm
+PRDOSE,Dose,Num,,Record Qualifier,Amount of PRTRT administered. Not populated when PRDOSTXT is populated.,Perm
+PRDOSTXT,Dose Description,Char,,Record Qualifier,"Dosing information collected in text form. Examples: <1, 200-400. Not
+populated when PRDOSE is populated.",Perm
+PRDOSU,Dose Units,Char,(UNIT),Variable Qualifier,"Units for PRDOSE, PRDOSTOT, or PRDOSTXT.",Perm
+PRDOSFRM,Dose Form,Char,(FRM),Variable Qualifier,Dose form for PRTRT.,Perm
+PRDOSFRQ,"Dosing Frequency per
+Interval",Char,(FRQ),Variable Qualifier,Usually expressed as the number of doses given per a specific interval.,Perm
+PRDOSRGM,Intended Dose Regimen,Char,,Variable Qualifier,Text description of the intended schedule or regimen for the procedure.,Perm
+PRROUTE,Route of Administration,Char,(ROUTE),Variable Qualifier,Route of administration for PRTRT.,Perm
+PRLOC,Location of Procedure,Char,(LOC),Record Qualifier,Anatomical location of a procedure.,Perm
+PRLAT,Laterality,Char,(LAT),Variable Qualifier,Qualifier for anatomical location or specimen further detailing laterality.,Perm
+PRDIR,Directionality,Char,(DIR),Variable Qualifier,Qualifier for anatomical location or specimen further detailing directionality.,Perm
+PRPORTOT,Portion or Totality,Char,(PORTOT),Variable Qualifier,"Qualifier for anatomical location or specimen further detailing the
+distribution, which means arrangement of, apportioning of.",Perm
+VISITNUM,Visit Number,Num,,Timing,"Clinical encounter number. Numeric version of VISIT, used for sorting.",Perm
+VISIT,Visit Name,Char,,Timing,Protocol-defined description of a clinical encounter.,Perm
+VISITDY,"Planned Study Day of
+Visit",Num,,Timing,Planned study day of VISIT. Should be an integer.,Perm
+PRSTDTC,"Start Date/Time of
+Procedure",Char,ISO 8601,Timing,"Start date/time of the procedure represented in ISO 8601 character
+format.",Exp
+PRENDTC,End Date/Time of Procedure,Char,ISO 8601,Timing,End date/time of the procedure represented in ISO 8601 character format.,Perm
+PRSTDY,"Study Day of Start of
+Procedure",Num,,Timing,"Study day of start of procedure expressed in integer days relative to the
+sponsor-defined RFSTDTC in Demographics.",Perm
+PRENDY,"Study Day of End of
+Procedure",Num,,Timing,"Study day of end of procedure expressed in integer days relative to the
+sponsor-defined RFSTDTC in Demographics.",Perm
+PRDUR,Duration of Procedure,Char,ISO 8601,Timing,"Collected duration of a procedure represented in ISO 8601 character format. Used only if collected on the CRF and not derived from start and
+end date/times.",Perm
+PRTPT,Planned Time Point Name,Char,,Timing,"Text description of time when a procedure should be performed. This
+may be represented as an elapsed time relative to a fixed reference point, such as time of last dose. See PRTPTNUM and PRTPTREF.",Perm
+PRTPTNUM,"Planned Time Point
+Number",Num,,Timing,Numerical version of planned time point used in sorting.,Perm
+PRELTM,Planned Elapsed Time from Time Point Ref,Char,ISO 8601,Timing,"Planned elapsed time in ISO 8601 format relative to a planned fixed reference (PRTPTREF). This variable is useful where there are repetitive measures. Not a clock time or a date/time variable, but an
+interval, represented as ISO duration.",Perm
+PRTPTREF,Time Point Reference,Char,,Timing,"Description of the fixed reference point referred to by PRELTM,
+PRTPTNUM, and PRTPT.",Perm
+PRRFTDTC,"Date/Time of Reference
+Time Point",Char,ISO 8601,Timing,"Date/time for a fixed reference time point defined by PRTRTREF in
+ISO 8601 character format.",Perm
+PRSTRTPT,Start Relative to Reference Time Point,Char,"BEFORE, COINCIDENT,
+AFTER, U",Timing,Identifies the start of the observation as being before or after the sponsor-defined reference time point defined by variable PRSTTPT.,Perm
+PRSTTPT,Start Reference Time Point,Char,,Timing,"Description or date/time in ISO 8601 character format of the sponsor- defined reference point referred to by PRSTRTPT. Examples: “2003-12-
+15” or “VISIT 1”.",Perm
+PRENRTPT,End Relative to Reference Time Point,Char,"BEFORE, COINCIDENT, AFTER, ONGOING, U",Timing,Identifies the end of the observation as being before or after the sponsor- defined reference time point defined by variable PRENTPT.,Perm
+PRENTPT,End Reference Time Point,Char,,Timing,"Description or date/time in ISO 8601 character format of the sponsor- defined reference point referred to by PRENRTPT. Examples: “2003-
+12-25” or “VISIT 2”.",Perm

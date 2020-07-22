@@ -1,0 +1,11 @@
+Variable Name,Variable Label,Type,"Codelist/
+Controlled Terms",Core,CDISC Notes
+STUDYID,Study Identifier,Char,,Req,DM.STUDYID
+USUBJID,"Unique Subject
+Identifier",Char,,Req,DM.USUBJID
+SUBJID,"Subject Identifier
+for the Study",Char,,Perm,"DM.SUBJID. SUBJID is required in ADSL, but permissible in other datasets."
+SITEID,Study Site Identifier,Char,,Perm,"DM.SITEID. SITEID is required in ADSL, but permissible in other datasets."
+ASEQ,Analysis Sequence Number,Num,,Perm,"Sequence number given to ensure uniqueness of subject records within an ADaM dataset. As long as values are unique within a subject within the dataset, any valid number can be used for ASEQ. ASEQ uniquely indexes records within a subject within an ADaM dataset.
+ASEQ is useful for traceability when the dataset is used as input to another ADaM dataset. To refer
+to a record in a predecessor ADaM dataset, set SRCDOM to the name of the predecessor dataset, and set SRCSEQ to the value of ASEQ in the predecessor dataset."

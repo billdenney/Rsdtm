@@ -1,0 +1,51 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,HO,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all
+applications or submissions involving the product.",Req
+HOSEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records
+within a domain. May be any valid number.",Req
+HOGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+HOREFID,Reference ID,Char,,Identifier,Internal or external healthcare encounter identifier.,Perm
+HOSPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined identifier. It may be pre-printed on the CRF as an explicit line identifier or defined in the sponsor’s operational database.
+Example: Line number on a Healthcare encounters page.",Perm
+HOTERM,"Reported Term for the
+Healthcare Encounter",Char,,Topic,Verbatim or preprinted CRF term for the healthcare encounter.,Req
+HODECOD,Dictionary-Derived Term for the Healthcare Encounter,Char,*,Synonym Qualifier,Dictionary or sponsor-defined derived text description of HOTERM or the modified topic variable (HOMODIFY).,Perm
+HOCAT,"Category for Healthcare
+Encounter",Char,*,"Grouping
+Qualifier",Used to define a category of topic-related values.,Perm
+HOSCAT,"Subcategory for Healthcare
+Encounter",Char,*,"Grouping
+Qualifier",A further categorization of HOCAT values.,Perm
+HOPRESP,Pre-Specified Healthcare Encounter,Char,(NY),Record Qualifier,"A value of “Y” indicates that this healthcare encounter event was pre- specified on the CRF. Values are null for spontaneously reported
+events (i.e., those collected as free-text verbatim terms)",Perm
+HOOCCUR,Healthcare Encounter Occurrence,Char,(NY),Record Qualifier,"Used when the occurrence of specific healthcare encounters is solicited to indicate whether or not an encounter occurred. Values are
+null for spontaneously reported events.",Perm
+HOSTAT,Completion Status,Char,(ND),"Record
+Qualifier",The status indicates that the pre-specified question was not answered.,Perm
+HOREASND,Reason Healthcare Encounter Not Done,Char,,Record Qualifier,Describes the reason data for a pre-specified event was not collected. Used in conjunction with HOSTAT when value is NOT DONE.,Perm
+HODTC,"Date/Time of Event
+Collection",Char,ISO 8601,Timing,Collection date and time of the healthcare encounter.,Perm
+HOSTDTC,"Start Date/Time of
+Healthcare Encounter",Char,ISO 8601,Timing,"Start date/time of the healthcare encounter (e.g., date of admission).",Exp
+HOENDTC,End Date/Time of Healthcare Encounter,Char,ISO 8601,Timing,End date/time of the healthcare encounter (date of discharge).,Perm
+HODY,"Study Day of Event
+Collection",Num,,Timing,"Study day of event collection relative to the sponsor-defined
+RFSTDTC.",Perm
+HOSTDY,"Study Day of Start of
+Healthcare Encounter",Num,,Timing,"Study day of the start of the healthcare encounter relative to the
+sponsor-defined RFSTDTC.",Perm
+HOENDY,Study Day of End of Healthcare Encounter,Num,,Timing,Study day of the end of the healthcare encounter relative to the sponsor-defined RFSTDTC.,Perm
+HODUR,Duration of Healthcare Encounter,Char,ISO 8601,Timing,"Collected duration of the healthcare encounter. Used only if collected on the CRF and not derived from the start and end date/times.
+Example: P1DT2H (for 1 day, 2 hours).",Perm
+HOSTRTPT,"Start Relative to Reference
+Time Point",Char,(STENRF),Timing,"Identifies the start of the observation as being before or after the
+sponsor-defined reference time point defined by variable --STTPT.",Perm
+HOSTTPT,Start Reference Time Point,Char,,Timing,"Description or date/time in ISO 8601 character format of the sponsor- defined reference point referred to by STRTPT. Examples: “2003-12-
+15” or “VISIT 1”.",Perm
+HOENRTPT,"End Relative to Reference
+Time Point",Char,(STENRF),Timing,"Identifies the end of the event as being before or after the reference
+time point defined by variable HOENTPT.",Perm
+HOENTPT,End Reference Time Point,Char,,Timing,"Description or date/time in ISO 8601 character format of the reference point referred to by HOENRTPT. Examples: ""2003-12-25"" or ""VISIT
+2"".",Perm

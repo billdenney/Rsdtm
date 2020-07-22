@@ -1,0 +1,13 @@
+Variable Name,Variable Label,Type,Codelist/ Controlled Terms,Core,CDISC Notes
+AGE,Age,Num,,Req,"DM.AGE. If analysis needs require a derived age that does not match DM.AGE, then AAGE must be added"
+AGEU,Age Units,Char,(AGEU),Req,DM.AGEU
+AGEGRy,Pooled Age Group y,Char,,Perm,"Character description of a grouping or pooling of the subject’s age for analysis purposes. For example, AGEGR1 might have values of “<18”, “18-65”, and “>65”; AGEGR2 might have values of “Less than 35 y old” and “At least 35 y old”."
+AGEGRyN,Pooled Age Group y (N),Num,,Perm,The numeric code for AGEGRy. Orders the grouping or pooling of subject age for analysis and reporting. One-to-one mapping to AGEGRy within a study.
+AAGE,Analysis Age,Num,,Cond,"Age used for analysis that is derived differently from DM.AGE. AAGE is required if age is
+calculated differently than in SDTM."
+SEX,Sex,Char,(SEX),Req,The sex of the subject is a required variable in ADSL; must be identical to DM.SEX.
+RACE,Race,Char,(RACE),Req,The race of the subject is a required variable in ADSL; must be identical to DM.RACE.
+RACEGRy,Pooled Race Group y,Char,,Perm,Character description of a grouping or pooling of the subject’s race for analysis purposes.
+RACEGRyN,"Pooled Race Group
+y (N)",Num,,Perm,"The numeric code for RACEGRy. Orders the grouping or pooling of subject race for analysis and
+reporting. One-to-one mapping to RACEGRy within a study."

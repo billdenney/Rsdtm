@@ -1,0 +1,41 @@
+Variable Name,Variable Label,Type,Format,Description
+VISITNUM,Visit Number,Num,,"Clinical encounter number. Numeric version of VISIT, used for sorting."
+VISIT,Visit Name,Char,,Protocol-defined description of a clinical encounter.
+VISITDY,Planned Study Day of Visit,Num,,Planned study day of VISIT. Should be an integer.
+TAETORD,Planned Order of Element within Arm,Num,,"Number that gives the planned order of the Element within the Arm (see Section 3.1.2, Trial Arms)."
+EPOCH,Epoch,Char,,"Epoch associated with the start date/time of the observation, or the date/time of collection if start date/time is not collected (see Section 3.1.2, Trial Arms)."
+RPHASE,Repro Phase,Char,,Reproductive Phase with which the Reproductive Stage of the Reproductive Path is associated. Defined in Trial Paths domain. The RPHASE variable is Required when any Reproductive Phase Day variable is used. Not to be used with human clinical trials.
+RPPLDY,Planned Repro Phase Day of Observation,Num,,The planned day within the Reproductive Phase on which the observation was scheduled to occur. Expressed as an integer. Not to be used with human clinical trials.
+RPPLSTDY,Planned Repro Phase Day of Obs Start,Num,,The planned day within the Reproductive Phase of the start of the observation. Expressed as an integer. Not to be used with human clinical trials.
+RPPLENDY,Planned Repro Phase Day of Obs End,Num,,The planned day within the Reproductive Phase of the end of the observation. Expressed as an integer. Not to be used with human clinical trials.
+--DTC,Date/Time of Collection,Char,ISO 8601,Collection date and time of an observation.
+--STDTC,Start Date/Time of Observation,Char,ISO 8601,Start date/time of an observation.
+--ENDTC,End Date/Time of Observation,Char,ISO 8601,End date/time of the observation.
+--DY,Study Day of Visit/Collection/Exam,Num,,Actual study day of visit/collection/exam expressed in integer days relative to the sponsor-defined RFSTDTC in Demographics.
+--STDY,Study Day of Start of Observation,Num,,Actual study day of start of observation expressed in integer days relative to the sponsor-defined RFSTDTC in Demographics.
+--ENDY,Study Day of End of Observation,Num,,Actual study day of end of observation expressed in integer days relative to the sponsor-defined RFSTDTC in Demographics.
+--NOMDY,Nominal Study Day for Tabulations,Num,,The nominal study day used by data-collection and reporting systems for grouping records for observations that may be scheduled to occur on different days into a single study day (such as for output on a tabulation report). Not to be used with human clinical trials.
+--NOMLBL,Label for Nominal Study Day,Char,,"A label for a given value of --NOMDY, within a domain, as presented in the study report. Not to be used with human clinical trials."
+--RPDY,Actual Repro Phase Day of Observation,Num,,The actual day within the Reproductive Phase on which the observation occurred. Expressed as an integer. Not to be used with human clinical trials.
+--RPSTDY,Actual Repro Phase Day of Obs Start,Num,,The actual day within the Reproductive Phase of the start of the observation. Expressed as an integer. Not to be used with human clinical trials.
+--RPENDY,Actual Repro Phase Day of Obs End,Num,,The actual day within the Reproductive Phase of the end of the observation. Expressed as an integer. Not to be used with human clinical trials.
+--DUR,Duration,Char,ISO 8601,"Collected duration of an event, intervention, or finding. Used only if collected on the CRF and not derived."
+--TPT,Planned Time Point Name,Char,,"Text description of time when a measurement or observation should be taken as defined in the protocol. This may be represented as an elapsed time relative to a fixed reference point, such as time of last dose. See --TPTNUM and --TPTREF."
+--TPTNUM,Planned Time Point Number,Num,,Numeric version of planned time point used in sorting.
+--ELTM,Planned Elapsed Time from Time Point Ref,Char,ISO 8601,"Planned Elapsed time relative to a planned fixed reference (--TPTREF) such as ""Previous Dose"" or ""Previous Meal"". This variable is useful where there are repetitive measures. Not a clock time or a date/time variable, but an interval."
+--TPTREF,Time Point Reference,Char,,"Description of the fixed reference point referred to by --ELTM, --TPTNUM, and --TPT. Examples: PREVIOUS DOSE, PREVIOUS MEAL."
+--RFTDTC,Date/Time of Reference Time Point,Char,ISO 8601,Date/time for a fixed reference time point defined by --TPTREF.
+--STRF,Start Relative to Reference Period,Char,,"Identifies the start of the observation as being before, during, or after the sponsor-defined reference period. The sponsor-defined reference period is a continuous period of time defined by a discrete starting point and a discrete ending point represented by RFSTDTC and RFENDTC in Demographics."
+--ENRF,End Relative to Reference Period,Char,,"Identifies the end of the observation as being before, during or after the sponsor-defined reference period. The sponsor-defined reference period is a continuous period of time defined by a discrete starting point and a discrete ending point represented by RFSTDTC and RFENDTC in Demographics."
+--EVLINT,Evaluation Interval,Char,ISO 8601,Duration of interval associated with an observation such as a finding --TESTCD. Example: -P2M to represent a period of the past 2 months as the evaluation interval for a question from a questionnaire.
+--EVINTX,Evaluation Interval Text,Char,,"Evaluation interval associated with an observation, where the interval is not able to be represented in ISO 8601 format. Examples: LIFETIME, LAST NIGHT, RECENTLY, OVER THE LAST FEW WEEKS."
+--STRTPT,Start Relative to Reference Time Point,Char,,Identifies the start of the observation as being before or after the sponsor-defined reference time point defined by variable --STTPT.
+--STTPT,Start Reference Time Point,Char,,"Description or date/time in ISO 8601 or other character format of the sponsor-defined reference point referred to by --STRTPT. Examples: ""2003-12-15"" or ""VISIT 1""."
+--ENRTPT,End Relative to Reference Time Point,Char,,Identifies the end of the observation as being before or after the sponsor-defined reference time point defined by variable --ENTPT.
+--ENTPT,End Reference Time Point,Char,,"Description or date/time in ISO 8601 or other character format of the sponsor-defined reference point referred to by --ENRTPT. Examples: ""2003-12-25"" or ""VISIT 2""."
+MIDS,Disease Milestone Instance Name,Char,,"The name of a specific instance of a Disease Milestone Type (MIDSTYPE) described in the Trial Disease Milestones dataset (see Section 3.5, Trial Disease Milestones). This should be unique within a subject. Used only in conjunction with RELMIDS and MIDSDTC."
+RELMIDS,Temporal Relation to Milestone Instance,Char,,"The temporal relationship of the observation to the Disease Milestone Instance Name in MIDS. Examples: IMMEDIATELY BEFORE, AT TIME OF, AFTER."
+MIDSDTC,Disease Milestone Instance Date/Time,Char,ISO 8601,The start date/time of the Disease Milestone Instance Name in MIDS.
+--STINT,Planned Start of Assessment Interval,Char,ISO 8601,The start of a planned evaluation or assessment interval relative to the Time Point Reference (--TPTREF).
+--ENINT,Planned End of Assessment Interval,Char,ISO 8601,The end of a planned evaluation or assessment interval relative to the Time Point Reference (--TPTREF).
+--DETECT,Time in Days to Detection,Num,,The number of days from the start of dosing to the earliest detection of a condition or pathogen. Not to be used with human clinical trials.

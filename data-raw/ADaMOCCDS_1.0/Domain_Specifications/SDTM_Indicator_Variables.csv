@@ -1,0 +1,7 @@
+Variable Name,Variable Label,Type,Codelist / Controlled Terms,Core,CDISC Notes
+--OCCUR,XX Occurrence,Char,(NY),Cond,"Copied from XX.--OCCUR
+This would be copied from the SDTM domain XX.
+Conditional on whether this content is pertinent for analysis and is populated in SDTM."
+--PRESP,XX Pre-Specified,Char,(NY),Cond,"Copied from XX.--PRESP
+This would be copied from the SDTM domain XX.
+Conditional on whether this content is pertinent for analysis and is populated in SDTM."

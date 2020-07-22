@@ -1,0 +1,23 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,"Domain
+Abbreviation",Char,TS,Identifier,Two-character abbreviation for the domain.,Req
+TSSEQ,Sequence Number,Num,,Identifier,"Sequence number given to ensure uniqueness within a dataset. Allows inclusion of multiple records for the same TSPARMCD, and can be used to join
+related records.",Req
+TSGRPID,Group ID,Char,,Identifier,Used to tie together a group of related records,Perm
+TSPARMCD,Trial Summary Parameter Short Name,Char,TSPARMCD,Topic,"TSPARMCD (the companion to TSPARM) is limited to 8 characters and does not have special character restrictions. These values should be short for ease of use in programming, but it is not expected that TSPARMCD will need to serve as variable names.
+Examples: AGEMIN, AGEMAX",Req
+TSPARM,Trial Summary Parameter,Char,TSPARM,Synonym Qualifier,"Term for the Trial Summary Parameter. The value in TSPARM cannot be longer than 40 characters.
+Examples Planned Minimum Age of Subjects, Planned Maximum Age of Subjects",Req
+TSVAL,Parameter Value,Char,*,Result Qualifier,Value of TSPARM. Example: “ASTHMA” when TSPARM value is “Trial Indication”. TSVAL can only be null when TSVALNF is populated.  Text over 200 characters can be added to additional columns TSVAL1-TSVALn.,Exp
+TSVALNF,"Parameter Null
+Flavor",Char,NULLFLAVOR,"Result
+Qualifier","Null flavor for the value of TSPARM, to be populated
+if and only if TSVAL is null.",Perm
+TSVALCD,Parameter Value Code,Char,*,Result Qualifier,"This is the code of the term in TSVAL. For example; 6CW7F3G59X is the code for Gabapentin, C49488 is the code for Y. The length of this variable can be longer than 8 to accommodate the length of the
+external terminology.",Exp
+TSVCDREF,"Name of the Reference
+Terminology",Char,,Result Qualifier,"The name of the Reference Terminology from which TSVALCD is taken. For example; CDISC,
+SNOMED, ISO 8601.",Exp
+TSVCDVER,"Version of the Reference
+Terminology",Char,,Result Qualifier,"The version number of the Reference Terminology, if applicable.",Exp

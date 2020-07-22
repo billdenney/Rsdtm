@@ -1,0 +1,63 @@
+Variable Name,Variable Label,Type,"Controlled Terms, Codelist or Format",Role,CDISC Notes,Core
+STUDYID,Study Identifier,Char,,Identifier,Unique identifier for a study.,Req
+DOMAIN,Domain Abbreviation,Char,VS,Identifier,Two-character abbreviation for the domain.,Req
+USUBJID,Unique Subject Identifier,Char,,Identifier,"Identifier used to uniquely identify a subject across all studies for all applications
+or submissions involving the product.",Req
+VSSEQ,Sequence Number,Num,,Identifier,"Sequence Number given to ensure uniqueness of subject records within a domain.
+May be any valid number.",Req
+VSGRPID,Group ID,Char,,Identifier,Used to tie together a block of related records in a single domain for a subject.,Perm
+VSSPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit
+line identifier or defined in the sponsor’s operational database.",Perm
+VSTESTCD,Vital Signs Test Short Name,Char,(VSTESTCD),Topic,"Short name of the measurement, test, or examination described in VSTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in VSTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g.”1TEST”). VSTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: SYSBP,
+DIABP, BMI.",Req
+VSTEST,Vital Signs Test Name,Char,(VSTEST),Synonym Qualifier,"Verbatim name of the test or examination used to obtain the measurement or finding. The value in VSTEST cannot be longer than 40 characters. Examples:
+Systolic Blood Pressure, Diastolic Blood Pressure, Body Mass Index.",Req
+VSCAT,Category for Vital Signs,Char,*,"Grouping
+Qualifier",Used to define a category of related records.,Perm
+VSSCAT,Subcategory for Vital Signs,Char,*,Grouping Qualifier,A further categorization of a measurement or examination.,Perm
+VSPOS,Vital Signs Position of Subject,Char,(POSITION),"Record
+Qualifier","Position of the subject during a measurement or examination. Examples:
+SUPINE, STANDING, SITTING.",Perm
+VSORRES,"Result or Finding in Original
+Units",Char,,"Result
+Qualifier",Result of the vital signs measurement as originally received or collected.,Exp
+VSORRESU,Original Units,Char,(VSRESU),Variable Qualifier,"Original units in which the data were collected. The unit for VSORRES. Examples: IN, LB, BEATS/MIN.",Exp
+VSSTRESC,Character Result/Finding in Std Format,Char,,Result Qualifier,"Contains the result value for all findings, copied or derived from VSORRES in a standard format or standard units. VSSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in VSSTRESN. For example, if a test has results “NONE”, “NEG”, and “NEGATIVE” in VSORRES and these results effectively have the same meaning,
+they could be represented in standard format in VSSTRESC as “NEGATIVE”.",Exp
+VSSTRESN,Numeric Result/Finding in Standard Units,Num,,Result Qualifier,"Used for continuous or numeric results or findings in standard format; copied in numeric format from VSSTRESC. VSSTRESN should store all numeric test
+results or findings.",Exp
+VSSTRESU,Standard Units,Char,(VSRESU),"Variable
+Qualifier",Standardized unit used for VSSTRESC and VSSTRESN.,Exp
+VSSTAT,Completion Status,Char,(ND),"Record
+Qualifier","Used to indicate that a vital sign measurement was not done. Should be null if a
+result exists in VSORRES.",Perm
+VSREASND,Reason Not Performed,Char,,Record Qualifier,"Describes why a measurement or test was not performed. Examples: BROKEN EQUIPMENT or SUBJECT REFUSED. Used in conjunction with VSSTAT
+when value is NOT DONE.",Perm
+VSLOC,"Location of Vital Signs
+Measurement",Char,(LOC),"Record
+Qualifier","Location relevant to the collection of Vital Signs measurement. Example: ARM
+for blood pressure.",Perm
+VSLAT,Laterality,Char,(LAT),Result Qualifier,"Qualifier for anatomical location or specimen further detailing laterality. Examples: RIGHT, LEFT, BILATERAL",Perm
+VSBLFL,Baseline Flag,Char,(NY),"Record
+Qualifier",Indicator used to identify a baseline value. The value should be “Y” or null.,Exp
+VSDRVFL,Derived Flag,Char,(NY),Record Qualifier,"Used to indicate a derived record. The value should be Y or null. Records which represent the average of other records or which do not come from the CRF are examples of records that would be derived for the submission datasets. If VSDRVFL=Y, then VSORRES may be null, with VSSTRESC and (if numeric)
+VSSTRESN having the derived value.",Perm
+VISITNUM,Visit Number,Num,,Timing,"1. Clinical encounter number.
+2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,"1. Protocol-defined description of clinical encounter.
+2. May be used in addition to VISITNUM and/or VISITDY.",Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+VSDTC,Date/Time of Measurements,Char,ISO 8601,Timing,,Exp
+VSDY,Study Day of Vital Signs,Num,,Timing,"1. Study day of vital signs measurements, measured as integer days.
+2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics.",Perm
+VSTPT,Planned Time Point Name,Char,,Timing,"1. Text Description of time when measurement should be taken.
+2. This may be represented as an elapsed time relative to a fixed reference point,
+such as time of last dose. See VSTPTNUM and VSTPTREF. Examples: Start, 5 min post.",Perm
+VSTPTNUM,Planned Time Point Number,Num,,Timing,Numerical version of VSTPT to aid in sorting.,Perm
+VSELTM,Planned Elapsed Time from Time Point Ref,Char,ISO 8601,Timing,"Planned Elapsed time (in ISO 8601) relative to a planned fixed reference (VSTPTREF). This variable is useful where there are repetitive measures. Not a clock time or a date time variable. Represented as an ISO 8601 Duration.
+Examples: “-PT15M” to represent the period of 15 minutes prior to the reference
+point indicated by VSTPTREF, or “PT8H” to represent the period of 8 hours after the reference point indicated by VSTPTREF.",Perm
+VSTPTREF,Time Point Reference,Char,,Timing,"Name of the fixed reference point referred to by VSELTM, VSTPTNUM, and
+VSTPT. Examples: PREVIOUS DOSE, PREVIOUS MEAL.",Perm
+VSRFTDTC,"Date/Time of Reference Time
+Point",Char,ISO 8601,Timing,"Date/time of the reference time point, LBTPTREF.",Perm
