@@ -33,3 +33,109 @@ sdtm_dtc_to_datetime.data.frame <- function(x, date_col_pattern="DTC$", truncate
   }
   x
 }
+
+#' Convert dates and times to SDTM-formatted ISO8601 datetime values
+#' 
+#' @details When times are not zero-padded (for example, "5:12" instead of
+#'   "05:12"), the probability that they are from a 12-hour clock instead of a
+#'   24-hour clock is increased.  To minimize the impact of this, when the
+#'   length of any time character string is 4 or 7 characters, times are less
+#'   than the `early_hour` will trigger an error under the assumption that
+#'   generally activities are not happening in the middle of the night.  If the
+#'   times are known to be accurate, setting `assume_24_hr_time=TRUE` will
+#'   prevent the error and simply pad the strings with zeros.
+#'   
+#'   If a non-NA value is given for `datetime`, then values in `date` and `time`
+#'   will be ignored.
+#' 
+#' @param datetime A combined date/time representation (either an
+#'   ISO8601-formatted character string or a POSIXt object).
+#' @param date The date (either an ISO8601-formatted character string, a Date
+#'   object, or a POSIXt object).
+#' @param time The time (an ISO8601-formatted character string)
+#' @param early_hour An hour of the day that would suggest times that are not
+#'   zero padded are from a 12-hour clock instead of a 24-hour clock.  (See
+#'   Details)
+#' @param assume_24_hr_time Assume that times of day are from a 24-hour clock
+#'   even if the hour is an `early_hour`.  (See Details)
+#' @return An SDTM-formatted ISO8601 date-time with "UN:UN:UN" if the time is
+#'   `NA`.  If all inputs are `NA`, then the output is also `NA`.
+#' @export
+#' @importFrom dplyr case_when
+#' @importFrom lubridate format_ISO8601
+generate_dtc <- function(datetime=NULL, date=NULL, time=NULL, early_hour="05", assume_24_hr_time=FALSE) {
+  # Check that valid input arguments are given.
+  if (is.null(datetime) & is.null(date)) {
+    stop("At least one of `datetime` or `date` must be given.")
+  } else if (is.null(datetime)) {
+    datetime <- rep(NA_character_, length(date))
+  } else if (is.null(date)) {
+    date <- rep(NA_character_, length(datetime))
+  }
+  if (is.null(time)) {
+    time <- rep(NA_character_, length(date))
+  }
+  if (length(datetime) != length(date)) {
+    stop("`datetime` and `date` must be the same length.")
+  } else if (length(time) != length(date)) {
+    stop("`date` and `time` must be the same length")
+  }
+  # Convert non-character objects to character
+  if (!is.character(datetime)) {
+    datetime <- lubridate::format_ISO8601(datetime, precision="ymdhms")
+  }
+  if (!is.character(date)) {
+    date <- lubridate::format_ISO8601(date, precision="ymd")
+  }
+  # Convert times that are not zero-padded to be zero-padded
+  if (any(nchar(time) %in% c(4, 7))) {
+    time <-
+      case_when(
+        nchar(time) %in% c(4, 7)~paste0("0", time),
+        TRUE~time
+      )
+    if (!assume_24_hr_time) {
+      # Check that times are not too early in the morning which may indicate that
+      # times are not from a 24-hour clock.
+      hour <- substr(time, 1, 2)
+      if (any(!is.na(hour) & hour < early_hour)) {
+        stop(
+          "Some times appear to be very early in the morning (before ", early_hour,
+          " hours), please confirm that these times come from a 24-hour clock.  ",
+          "If they do, set `assume_24_hr_time=TRUE`."
+        )
+      }
+    }
+  }
+  ret <-
+    dplyr::case_when(
+      !is.na(datetime)~datetime,
+      !is.na(date) & !is.na(time)~paste0(date, "T", time),
+      !is.na(date) & is.na(time)~paste0(date, "TUN:UN:UN"),
+      TRUE~NA_character_
+    )
+  # Check that the output looks like an SDTM-formatted ISO8601 date
+  pattern_sdtm_iso8601 <-
+    paste0(
+      "^",
+      "(19[0-9][0-9]|20[0-9][0-9])", # yyyy requiring it to be 19xx or 20xx
+      "-",
+      "(0[1-9]|1[0-2])", # mm part requiring it to be 01 to 12
+      "-",
+      "(0[1-9]|[12][0-9]|3[0-1])", # dd part requiring it to be 01 to 31
+      "T",
+      "(UN|[01][0-9]|2[0-3])", # hh part requiring it to be "UN" or 00 to 23
+      ":",
+      "(UN|[0-5][0-9])", # mm part requiring it to be "UN" or 00 to 59
+      "(:(UN|[0-5][0-9]))?", # optional ss part requiring it to be "UN" or 00 to 59
+      "$"
+    )
+  matches <- is.na(ret) | grepl(x=ret, pattern=pattern_sdtm_iso8601)
+  if (!all(matches)) {
+    stop(
+      "Some output does not appear to be an ISO8601 datetime formatted with SDTM unknowns: ",
+      paste(ret[!matches], collapse=", ")
+    )
+  }
+  ret
+}
