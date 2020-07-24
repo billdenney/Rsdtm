@@ -43,3 +43,8 @@ Qualifier",Indicator used to identify a baseline value.  Should be Y or null.,Pe
 ISLLOQ,Lower Limit of Quantitation,Num,,"Variable
 Qualifier","Indicates the lower limit of quantitation for an assay.  Units will be those used for
 ISSTRESU.",Exp
+VISITNUM,Visit Number ,Num,,Timing,"1. Clinical encounter number.  2. Numeric version of VISIT, used for sorting.",Exp
+VISIT,Visit Name,Char,,Timing,1. Protocol-defined description of clinical encounter. 2. May be used in addition to VISITNUM and/or VISITDY. ,Perm
+VISITDY,Planned Study Day of Visit,Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+ISDTC,Date/Time of Collection,Char,ISO 8601,Timing,Collection date and time of an observation represented in ISO 8601.,Exp
+ISDY,Study Day of Visit/Collection/Exam ,Num,,Timing,Actual study day of visit/collection/exam expressed in integer days relative to sponsor- defined RFSTDTC in Demographics.,Perm
