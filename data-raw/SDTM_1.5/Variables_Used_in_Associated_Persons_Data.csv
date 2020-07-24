@@ -1,17 +1,22 @@
 "Variable
 Name ",Variable Label ,Type ,CDISC Notes
-STUDYID ,Study Identifier ,Char ,Unique identifier for a study.
-USUBJID ,"Unique Subject
-Identifier",Char ,"Identifier used to uniquely identify a subject across all studies for all applications or
-submissions involving the product. Either USUBJID or POOLID must be
-populated."
-POOLID ,Pool Identifier ,Char ,"Identifier used to identify a pool of subjects. If POOLID is entered, POOLDEF
-records must exist for each subject in the pool and USUBJID must be null. Either
-USUBJID or POOLID must be populated."
+APID ,"Associated Persons
+Identifier",Char ,"Identifier for a single associated person, a group of associated persons, or a pool of
+associated persons. If APID identifies a pool, POOLDEF records must exist for each
+associated person. (See Section 4.1.3 for POOLDEF and Section 5 for Associated
+Persons data)."
 RSUBJID ,"Related Subject or
-Pool Identifier",Char ,"Identifier used to identify a related subject or pool of subjects. RSUBJID will be
-populated with either the USUBJID of the related subject or the POOLID of the
-related pool."
-SREL ,"Subject
-Relationship",Char ,"Describes the relationship of the subject identified in USUBJID or the pool
-identified in POOLID to the subject or pool identified in RSUBJID."
+Pool Identifier",Char ,"Identifier for a related subject or pool of subjects. RSUBJID may be populated with
+the USUBJID of the related subject or the POOLID of the related pool.
+RSUBJID will be null for data about associated persons who are related to the study
+but not to any study subjects."
+RDEVID ,"Related Device
+Identifier",Char ,"Identifier for a related device. RDEVID will be populated with the SPDEVID of the
+related device."
+SREL ,"Subject, Device, or
+Study Relationship",Char ,"If RSUBJID is populated, describes the relationship of the associated person(s)
+identified in APID to the subject or pool identified in RSUBJID.
+If RDEVID is populated, describes the relationship of the associated person(s)
+identified in APID to the subject or pool identified in RDEVID.
+If RSUBJID and RDEVID are null, SREL describes the relationship of the associated
+person(s) identified in APID to the study identified in STUDYID."
