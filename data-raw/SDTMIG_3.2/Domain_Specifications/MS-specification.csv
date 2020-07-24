@@ -52,4 +52,5 @@ MSDY,Study Day of Test,Num,,Timing,"1. Study day of the test, measured as intege
 MSTPT,Planned Time Point Name,Char ,,Timing ,"1. Text Description of time when test should be done.  2. This may be represented as an elapsed time relative to a fixed reference point, such as time of last dose. See MSTPTNUM and MSTPTREF. Examples: Start, 5 min post.",Perm
 MSTPTNUM,Planned Time Point Number,Num,,Timing ,Numerical version of MSTPT to aid in sorting.,Perm
 MSELTM ,Planned Elapsed Time from Time Point Ref,Char,ISO 8601 ,Timing ,"Timing Elapsed time (in ISO 8601) relative to a planned fixed reference (MSTPTREF). This variable is useful where there are repetitive measures. Not a clock time or a date time variable. Examples: “-PT15M” to represent the period of 15 minutes prior to the reference point indicated by MSTPTREF, or “P8H” to represent the period of 8 hours after the reference point indicated by MSTPTREF. ",Perm
+MSTPTREF,Time Point Reference,Char,,Timing,Name of the fixed reference point referred to by MSELTM, MSTPTNUM, and MSTPT. Example: PREVIOUS DOSE. ",Perm
 
