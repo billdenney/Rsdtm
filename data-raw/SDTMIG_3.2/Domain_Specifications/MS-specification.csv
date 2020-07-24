@@ -9,7 +9,7 @@ MSGRPID,Group ID,Char,,Identifier,"Used to tie together a block of related recor
 MSREFID,Reference ID,Char,,Identifier,Internal or external specimen identifier. Example: Specimen ID.,Perm
 MSSPID,Sponsor-Defined Identifier,Char,,Identifier,"Sponsor-defined reference number. Perhaps pre-printed on the CRF as an explicit
 line identifier or defined in the sponsor's operational database.",Perm
-MSTESTCD,Microbiology Organism Finding Short Name,Char,*,Topic,"Short name of the measurement, test, or finding described in MSTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in MSTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g.î1TEST). MSTESTCD cannot contain characters other than letters, numbers, or underscores. Examples for GROWTH findings: EXTGROW, COLCOUNT. For SUSCEPTIBILITY findings, the test is the drug
+MSTESTCD,Microbiology Organism Finding Short Name,Char,*,Topic,"Short name of the measurement, test, or finding described in MSTEST. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in MSTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g.‚Äù1TEST). MSTESTCD cannot contain characters other than letters, numbers, or underscores. Examples for GROWTH findings: EXTGROW, COLCOUNT. For SUSCEPTIBILITY findings, the test is the drug
 the organism was tested with, i.e. PENICLLN, AMOXCLLN.",Req
 MSTEST,Organism Test or Finding Name,Char,*,Synonym Qualifier,"Verbatim name of the test or examination used to obtain the measurement or finding. Examples for GROWTH findings: Extent of Growth, Colony Count.
 Examples for SUSCEPTIBILITY findings: Amoxicillin Susceptibility, Penicillin Susceptibility",Req
@@ -22,8 +22,8 @@ received or collected. Examples for GROWTH findings: GROWTH INTO 3RD QUADRANT. E
 MSORRESU,Original Units,Char,(UNIT),"Variable
 Qualifier","Original units in which the data were collected. The unit for MSORRES.
 Example: mcg/mL",Exp
-MSSTRESC,Character Result/Finding in Std Format,Char,,Result Qualifier,"Contains the result value for all findings, copied or derived from MSORRES in a standard format or standard units. MSSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in MSSTRESN. For example, if a test has results ì+3 MODERATEî, ìMODî, and ìMODERATEî, and in MSORRES and these results effectively have the same meaning, they could be represented in standard format in
-MSSTRESC as ìMODERATEî.",Exp
+MSSTRESC,Character Result/Finding in Std Format,Char,,Result Qualifier,"Contains the result value for all findings, copied or derived from MSORRES in a standard format or standard units. MSSTRESC should store all results or findings in character format; if results are numeric, they should also be stored in numeric format in MSSTRESN. For example, if a test has results ‚Äú+3 MODERATE‚Äù, ‚ÄúMOD‚Äù, and ‚ÄúMODERATE‚Äù, and in MSORRES and these results effectively have the same meaning, they could be represented in standard format in
+MSSTRESC as ‚ÄúMODERATE‚Äù.",Exp
 MSSTRESN,Numeric Result/Finding in Standard Units,Num,,Result Qualifier,"Used for continuous or numeric results or findings in standard format; copied in numeric format from MSSTRESC. MSSTRESN should store all numeric test
 results or findings.",Exp
 MSSTRESU,Standard Units,Char,(UNIT),Variable Qualifier,Standardized unit used for MSSTRESC and MSSTRESN.,Exp
@@ -42,7 +42,7 @@ Examination",Char,(METHOD),"Record
 Qualifier","Method of the test or examination. Example: GRAM STAIN, MACRO BROTH
 DILUTION, AGAR DILUTION",Exp
 MSBLFL,Baseline Flag,Char,(NY),"Record
-Qualifier",Indicator used to identify a baseline value. The value should be ìYî or null.,Perm
+Qualifier",Indicator used to identify a baseline value. The value should be ‚ÄúY‚Äù or null.,Perm
 MSDRVFL,Derived Flag ,Char,(NY),Record Qualifier ,"Used to indicate a derived record. The value should be Y or null. Records that represent the average of other records or some other derivation, and those that do not come from the CRF, are examples of records that would be derived for the submission datasets. If MSDRVFL=Y, then MSORRES may be null, with MSSTRESC and (if numeric) MSSTRESN having the derived value. ",Perm
 VISITNUM ,Visit Number,Num,,Timing,"1. Clinical encounter number. 2. Numeric version of VISIT, used for sorting. ",Exp
 VISIT,Visit Name ,Char ,,Timing ,1. Protocol-defined description of clinical encounter.  2. May be used in addition to VISITNUM and/or VISITDY.  ,Perm
@@ -51,5 +51,5 @@ MSDTC,Date/Time of Test,Char,ISO 8601 ,Timing,,Perm
 MSDY,Study Day of Test,Num,,Timing,"1. Study day of the test, measured as integer days.  2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics. This formula should be consistent across the submission. ",Perm
 MSTPT,Planned Time Point Name,Char ,,Timing ,"1. Text Description of time when test should be done.  2. This may be represented as an elapsed time relative to a fixed reference point, such as time of last dose. See MSTPTNUM and MSTPTREF. Examples: Start, 5 min post.",Perm
 MSTPTNUM,Planned Time Point Number,Num,,Timing ,Numerical version of MSTPT to aid in sorting.,Perm
-MSELTM ,Planned Elapsed Time from Time Point Ref,Char,ISO 8601 ,Timing ,"Timing Elapsed time (in ISO 8601) relative to a planned fixed reference (MSTPTREF). This variable is useful where there are repetitive measures. Not a clock time or a date time variable. Examples: ì-PT15Mî to represent the period of 15 minutes prior to the reference point indicated by MSTPTREF, or ìP8Hî to represent the period of 8 hours after the reference point indicated by MSTPTREF. ",Perm
-MSELTM ,Planned Elapsed Time from Time Point Ref,Char,,Timing ,"Timing Elapsed time (in ISO 8601) relative to a planned fixed reference (MSTPTREF). This variable is useful where there are repetitive measures. Not a clock time or a date time variable. Examples: ì-PT15Mî to represent the period of 15 minutes prior to the reference point indicated by MSTPTREF, or ìP8Hî to represent the period of 8 hours after the reference point indicated by MSTPTREF. ",Perm
+MSELTM ,Planned Elapsed Time from Time Point Ref,Char,ISO 8601 ,Timing ,"Timing Elapsed time (in ISO 8601) relative to a planned fixed reference (MSTPTREF). This variable is useful where there are repetitive measures. Not a clock time or a date time variable. Examples: ‚Äú-PT15M‚Äù to represent the period of 15 minutes prior to the reference point indicated by MSTPTREF, or ‚ÄúP8H‚Äù to represent the period of 8 hours after the reference point indicated by MSTPTREF. ",Perm
+
