@@ -43,3 +43,13 @@ Qualifier","Method of the test or examination. Example: GRAM STAIN, MACRO BROTH
 DILUTION, AGAR DILUTION",Exp
 MSBLFL,Baseline Flag,Char,(NY),"Record
 Qualifier",Indicator used to identify a baseline value. The value should be “Y” or null.,Perm
+MSDRVFL,Derived Flag ,Char,(NY),Record Qualifier ,"Used to indicate a derived record. The value should be Y or null. Records that represent the average of other records or some other derivation, and those that do not come from the CRF, are examples of records that would be derived for the submission datasets. If MSDRVFL=Y, then MSORRES may be null, with MSSTRESC and (if numeric) MSSTRESN having the derived value. ",Perm
+VISITNUM ,Visit Number,Num,,Timing,"1. Clinical encounter number. 2. Numeric version of VISIT, used for sorting. ",Exp
+VISIT,Visit Name ,Char ,,Timing ,1. Protocol-defined description of clinical encounter.  2. May be used in addition to VISITNUM and/or VISITDY.  ,Perm
+VISITDY,Planned Study Day of Visit ,Num,,Timing,Planned study day of the visit based upon RFSTDTC in Demographics.,Perm
+MSDTC,Date/Time of Test,Char,ISO 8601 ,Timing,,Perm
+MSDY,Study Day of Test,Num,,Timing,"1. Study day of the test, measured as integer days.  2. Algorithm for calculations must be relative to the sponsor-defined RFSTDTC variable in Demographics. This formula should be consistent across the submission. ",Perm
+MSTPT,Planned Time Point Name,Char ,,Timing ,"1. Text Description of time when test should be done.  2. This may be represented as an elapsed time relative to a fixed reference point, such as time of last dose. See MSTPTNUM and MSTPTREF. Examples: Start, 5 min post.",Perm
+MSTPTNUM,Planned Time Point Number,Num,,Timing ,Numerical version of MSTPT to aid in sorting.,Perm
+MSELTM ,Planned Elapsed Time from Time Point Ref,Char,ISO 8601 ,Timing ,"Timing Elapsed time (in ISO 8601) relative to a planned fixed reference (MSTPTREF). This variable is useful where there are repetitive measures. Not a clock time or a date time variable. Examples: “-PT15M” to represent the period of 15 minutes prior to the reference point indicated by MSTPTREF, or “P8H” to represent the period of 8 hours after the reference point indicated by MSTPTREF. ",Perm
+MSELTM ,Planned Elapsed Time from Time Point Ref,Char,,Timing ,"Timing Elapsed time (in ISO 8601) relative to a planned fixed reference (MSTPTREF). This variable is useful where there are repetitive measures. Not a clock time or a date time variable. Examples: “-PT15M” to represent the period of 15 minutes prior to the reference point indicated by MSTPTREF, or “P8H” to represent the period of 8 hours after the reference point indicated by MSTPTREF. ",Perm
