@@ -30,7 +30,12 @@ c_to_n <- function(x, ...)
 #' 
 #' @export
 c_to_n.character <- function(x, ...,
-                             pattern_numeric="^[+-]?(?:[0-9]+|[0-9]+\\.|\\.[0-9]+|[0-9]+\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$",
+                             pattern_numeric=
+                               paste0(
+                                 "^[+-]?",
+                                 "(?:[0-9]+|[0-9]+\\.|\\.[0-9]+|[0-9]+\\.[0-9]+)",
+                                 "(?:[eE][+-]?[0-9]+)?$"
+                               ),
                              verbose=TRUE) {
   stopifnot(is.character(x))
   ret <- trimws(x)
