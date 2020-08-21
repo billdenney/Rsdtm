@@ -40,3 +40,13 @@ sdtm_example_dataverse_vs <-
   read.csv(file="Harvard directory/vs.csv", stringsAsFactors=FALSE)
 use_data(sdtm_example_dataverse_vs)
 
+#EX Domain
+sdtm_example_dataverse_ex <-
+  read.csv(file="Harvard directory/ex.csv", stringsAsFactors=FALSE)
+use_data(sdtm_example_dataverse_ex)
+
+#PC Domain
+sdtm_example_dataverse_pc <-
+  read.csv(file="Harvard directory/pc.csv", stringsAsFactors=FALSE)
+use_data(sdtm_example_dataverse_pc)
+
