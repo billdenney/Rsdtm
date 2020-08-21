@@ -1,0 +1,40 @@
+#' Example SDTM Exposure Data
+#'
+#' @format A data frame with 9 variables and 12 observations:
+#' \describe{
+#'  \item{STUDYID}{Study Identifier, character}
+#'  \item{DOMAIN}{Domain Abbreviation, character}
+#'  \item{SUBJID}{Subject Identifier for the Study, character}
+#'  \item{USUBJID}{Unique Subject Identifier, character}
+#'  \item{EXSEQ}{Sequence Number, numeric}
+#'  \item{EXTRT}{Name of Treatment, character}
+#'  \item{EXDOSE}{Dose, Numeric}
+#'  \item{EXDOSU}{Dose Units, character}
+#'  \item{EXROUTE}{Route of Administration, character}
+#'  \item{EXSTDTC}{Start Date/Time of Treatment, character, ISO 8601}
+#' }
+#' @family SDTM example data
+"sdtm_example_theoph_ex"
+
+#' Example SDTM Pharmacokinetics Concentration Data
+#'
+#' @format A data frame with 15 variables and 132 observations:
+#' \describe{
+#'  \item{STUDYID}{Study Identifier, character}
+#'  \item{DOMAIN}{Domain Abbreviation, character}
+#'  \item{SUBJID}{Subject Identifier for the Study, character}
+#'  \item{USUBJID}{Unique Subject Identifier, character}
+#'  \item{PCSEQ}{Sequence Number, numeric}
+#'  \item{PCTESTCD}{Pharmacokinetic Test Short Name, character}
+#'  \item{PCTEST}{Pharmacokinetic Test Name, character}
+#'  \item{PCORRES}{Result or Finding in Original Units, character}
+#'  \item{PCORRESU}{Original Units, character}
+#'  \item{PCSTRESC}{Character Result/Finding in Standard Format, character}
+#'  \item{PCSTRESN}{Numeric Result/Finding in Standard Units, numeric}
+#'  \item{PCSTRESU}{Standard Units, character}
+#'  \item{PCDTC}{Date/Time of Specimen Collection, character, ISO 8601}
+#'  \item{PCTPT}{Planned Time Point Name, character}
+#'  \item{PCTPTNUM}{Planned Time Point Number, numeric}
+#'  }
+#' @family SDTM example data
+"sdtm_example_theoph_pc"
