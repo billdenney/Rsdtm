@@ -76,18 +76,18 @@ test_that("data.frame (including tibble) outputs work", {
   )
   expect_equal(
     expect_message(
-      c_to_n(tibble(OOSTRESC="1")),
+      c_to_n(tibble::tibble(OOSTRESC="1")),
       regexp="Converting column OOSTRESC to OOSTRESN"
     ),
-    tibble(OOSTRESC="1", OOSTRESN=1),
+    tibble::tibble(OOSTRESC="1", OOSTRESN=1),
     info="tibbles are modified correctly, character input"
   )
   expect_equal(
     expect_message(
-      c_to_n(tibble(OOSTRESC="1", OOSTRESN=2)),
+      c_to_n(tibble::tibble(OOSTRESC="1", OOSTRESN=2)),
       regexp="The following numeric columns already exist, not generating from the character equivalent: OOSTRESN"
     ),
-    tibble(OOSTRESC="1", OOSTRESN=2),
+    tibble::tibble(OOSTRESC="1", OOSTRESN=2),
     info="columns are not replaced"
   )
 })

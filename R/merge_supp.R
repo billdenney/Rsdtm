@@ -12,6 +12,7 @@
 #' @seealso \code{\link{supp_reformat}}
 #' @export
 #' @importFrom dplyr anti_join
+#' @importFrom rlang abort inform
 merge_supp <- function(primary, supplementary, remove_attributes = c("label"), auto_convert=FALSE) {
   if (length(unique(supplementary$RDOMAIN)) != 1) {
     stop("Only direct relationships with supplementary domains are currently supported.")
@@ -28,6 +29,31 @@ merge_supp <- function(primary, supplementary, remove_attributes = c("label"), a
   for (current_supp_idx in seq_along(supp_prep)) {
     current_supp <- supp_prep[[current_supp_idx]]
     current_idvar <- names(supp_prep)[current_supp_idx]
+    if (current_idvar != "") {
+      # Check for a class mismatch between the original and the supp domain idvar
+      if (any(class(current_supp[[current_idvar]]) != class(ret[[current_idvar]]))) {
+        orig <- current_supp[[current_idvar]]
+        current_supp[[current_idvar]] <-
+          methods::as(current_supp[[current_idvar]], Class=class(ret[[current_idvar]]))
+        if (!all(is.na(orig) == is.na(current_supp[[current_idvar]]))) {
+          # Introduction of an NA is a problem
+          rlang::abort(
+            message=sprintf("NA introduced by coercion for supplemental merge in column %s", current_idvar),
+            class="Rsdtm_merge_supp_na_idvar"
+          )
+        } else {
+          rlang::inform(
+            message=
+              sprintf(
+                "Supplemental merge column %s type converted to class: %s",
+                current_idvar,
+                class(ret[[current_idvar]])[1]
+              ),
+            class="Rsdtm_merge_supp_convert_idvar"
+          )
+        }
+      }
+    }
     current_join_vars <- setdiff(c("STUDYID", "DOMAIN", "USUBJID", current_idvar), "")
     missed_rows <- dplyr::anti_join(current_supp, ret, by = current_join_vars)
     if (nrow(missed_rows)) {
