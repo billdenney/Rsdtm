@@ -59,6 +59,7 @@ test_that("standardize_sdtm_id alternate paths", {
     standardize_sdtm_id(data=data.frame(STUDYID="A", SUBJID="B", USUBJID=NA_character_), allow_missing_id=TRUE),
     data.frame(STUDYID="A", USUBJID=NA_character_, SUBJID=c("B"))
   )
+  # Do not create "[STUDYID]-NA" values for USUBJID
   expect_equal(
     standardize_sdtm_id(data=data.frame(STUDYID="A", SUBJID=c("B", NA_character_)), allow_missing_id=TRUE),
     data.frame(STUDYID="A", USUBJID=c("A-B", NA_character_), SUBJID=c("B", NA_character_))
