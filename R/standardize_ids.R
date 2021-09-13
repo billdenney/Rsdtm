@@ -49,7 +49,12 @@ standardize_sdtm_id <- function(data, id, studyid, sep_usubjid="-", allow_missin
   }
   if ("SUBJID" %in% names(ret) & !("USUBJID" %in% names(ret))) {
     # Put USUBJID in
-    ret$USUBJID <- paste(ret$STUDYID, ret$SUBJID, sep=sep_usubjid)
+    ret$USUBJID <-
+      ifelse(
+        is.na(ret$SUBJID),
+        NA_character_,
+        paste(ret$STUDYID, ret$SUBJID, sep=sep_usubjid)
+      )
   }
   if ("USUBJID" %in% names(ret) & !("SUBJID" %in% names(ret))) {
     ret$SUBJID <-

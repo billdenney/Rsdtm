@@ -55,6 +55,14 @@ test_that("standardize_sdtm_id alternate paths", {
     standardize_sdtm_id(data=data.frame(STUDYID="A", SUBJID="B", USUBJID=NA_character_), allow_missing_id=TRUE),
     data.frame(STUDYID="A", USUBJID=NA_character_, SUBJID="B")
   )
+  expect_equal(
+    standardize_sdtm_id(data=data.frame(STUDYID="A", SUBJID="B", USUBJID=NA_character_), allow_missing_id=TRUE),
+    data.frame(STUDYID="A", USUBJID=NA_character_, SUBJID=c("B"))
+  )
+  expect_equal(
+    standardize_sdtm_id(data=data.frame(STUDYID="A", SUBJID=c("B", NA_character_)), allow_missing_id=TRUE),
+    data.frame(STUDYID="A", USUBJID=c("A-B", NA_character_), SUBJID=c("B", NA_character_))
+  )
 })
 
 test_that("standardize_sdtm_id errors", {
