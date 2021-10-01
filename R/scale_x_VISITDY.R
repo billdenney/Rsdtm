@@ -61,12 +61,11 @@ VISITDY_trans <-
 #' breaks every day.
 #' 
 #' @param ... Passed to \code{ggplot2::scale_x_continuous()}
-#' @param trans Do not modify
 #' @examples
 #' \dontrun{
-#' ggplot(data.frame(x=-7:14, y=-7:14), aes(x=x, y=y)) +
+#' ggplot(data.frame(x=-7:14, y=-7:14), aes(x=x, y=y, label=x)) +
 #'   scale_x_VISITDY() +
-#'   geom_point()
+#'   geom_text()
 #' }
 #' @export
 scale_x_VISITDY <- function(...) {
