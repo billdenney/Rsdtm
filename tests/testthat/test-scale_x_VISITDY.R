@@ -1,11 +1,11 @@
 test_that("VISITDY_transform and VISITDY_inverse", {
   expect_equal(
-    VISITDY_transform(-1:1),
-    c(-1, -1, 0)
+    VISITDY_transform(c(-1:1, -Inf, Inf, NA)),
+    c(-1L, -1L, 0L, -.Machine$integer.max, .Machine$integer.max, NA_integer_)
   )
   expect_equal(
-    VISITDY_inverse(-1:1),
-    c(-1, 1, 2)
+    VISITDY_inverse(c(-1:1, -Inf, Inf, NA)),
+    c(-1L, 1L, 2L, -Inf, Inf, NA_integer_)
   )
 })
 

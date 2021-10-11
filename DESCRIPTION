@@ -1,6 +1,6 @@
 Package: Rsdtm
 Title: Study Data Tabulation Model (SDTM) import, export, and management assistance
-Version: 0.0.0.9014
+Version: 0.0.0.9015
 Authors@R:
   c(
     person("William", "Denney", email = "wdenney@humanpredictions.com", role = c("aut", "cre")),

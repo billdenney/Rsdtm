@@ -1,10 +1,22 @@
 # Shift positive values down
 VISITDY_transform <- function(x) {
-  x_i <- as.integer(x)
+  x_i <-
+    as.integer(
+      # Set infinite to NA to prevent warnings
+      ifelse(
+        is.infinite(x),
+        NA_integer_,
+        x
+      )
+    )
   ifelse(
-    x_i < 0,
-    x_i,
-    x_i - 1L
+    is.infinite(x),
+    as.integer(sign(x))*.Machine$integer.max,
+    ifelse(
+      x_i < 0,
+      x_i,
+      x_i - 1L
+    )
   )
 }
 
