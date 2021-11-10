@@ -26,6 +26,9 @@ https://en.wikipedia.org/wiki/UTC_offset
 Other ISO8601 patterns: 
 \code{\link{pattern_ISO8601_calendar_datetime}()},
 \code{\link{pattern_ISO8601_calendar_date}()},
-\code{\link{pattern_ISO8601_time}()}
+\code{\link{pattern_ISO8601_calendar_year}()},
+\code{\link{pattern_ISO8601_ordinal_date}()},
+\code{\link{pattern_ISO8601_time}()},
+\code{\link{pattern_ISO8601_week_date}()}
 }
 \concept{ISO8601 patterns}

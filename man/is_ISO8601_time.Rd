@@ -24,10 +24,12 @@ indicates any number are allowed)}
     \item{\code{pattern_decimal_mark}}{What regular expression patterns should be
 allowed for the decimal mark?  Comma and period are both allowed in the
 standard and by default.}
-    \item{\code{allow_leap_second}}{Should leap seconds (61 seconds in a minute) be
-allowed?}
     \item{\code{timezone}}{Should the timezone be optional (NA, default), required
 (TRUE), or omitted (FALSE)?}
+    \item{\code{allow_leap_second}}{Should leap seconds (61 seconds in a minute) be
+allowed?}
+    \item{\code{require_T}}{Require the "T" at the beginning of the time?  TRUE, FALSE,
+or NA (optional)}
   }}
 }
 \description{

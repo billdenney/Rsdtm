@@ -21,7 +21,10 @@ Generate a regular expression matching an ISO8601 calendar date with time
 \seealso{
 Other ISO8601 patterns: 
 \code{\link{pattern_ISO8601_calendar_date}()},
+\code{\link{pattern_ISO8601_calendar_year}()},
+\code{\link{pattern_ISO8601_ordinal_date}()},
 \code{\link{pattern_ISO8601_timezone}()},
-\code{\link{pattern_ISO8601_time}()}
+\code{\link{pattern_ISO8601_time}()},
+\code{\link{pattern_ISO8601_week_date}()}
 }
 \concept{ISO8601 patterns}

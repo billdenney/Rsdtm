@@ -2,9 +2,15 @@
 % Please edit documentation in R/iso8601_regexp.R
 \name{is_ISO8601_calendar_date}
 \alias{is_ISO8601_calendar_date}
-\title{Determine if a string is an ISO 8601 date}
+\alias{is_ISO8601_week_date}
+\alias{is_ISO8601_ordinal_date}
+\title{Determine if a string is an ISO 8601 calendar date}
 \usage{
 is_ISO8601_calendar_date(x, ...)
+
+is_ISO8601_week_date(x, ...)
+
+is_ISO8601_ordinal_date(x, ...)
 }
 \arguments{
 \item{x}{A vector of character strings to test}
@@ -17,13 +23,22 @@ indicating the highest required precision (0=day is required, 1=month, and
 2=year).  A value of 3 will allow an empty string to match.}
     \item{\code{allow_before_year_1583}}{Should years between 0 and 1582 be allowed
 (they are only allowed in ISO 8601 with mutual agreement)}
-    \item{\code{time_pattern}}{A string to add to the day for including time with date
+    \item{\code{pattern_time}}{A string to add to the day for including time with date
 (see \code{pattern_ISO8601_time()})}
   }}
 }
 \description{
-Determine if a string is an ISO 8601 date
+Determine if a string is an ISO 8601 calendar date
 }
+\section{Functions}{
+\itemize{
+\item \code{is_ISO8601_week_date}: Determine if a string is an ISO 8601
+week date
+
+\item \code{is_ISO8601_ordinal_date}: Determine if a string is an ISO 8601
+ordinal date
+}}
+
 \seealso{
 Other ISO8601 String checking: 
 \code{\link{is_ISO8601_calendar_datetime}()},

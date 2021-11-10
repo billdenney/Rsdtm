@@ -13,6 +13,7 @@ pattern_ISO8601_time(
   pattern_decimal_mark = c("\\\\.", ","),
   timezone = NA,
   allow_leap_second = FALSE,
+  require_T = NA,
   ...
 )
 }
@@ -39,6 +40,9 @@ standard and by default.}
 \item{allow_leap_second}{Should leap seconds (61 seconds in a minute) be
 allowed?}
 
+\item{require_T}{Require the "T" at the beginning of the time?  TRUE, FALSE,
+or NA (optional)}
+
 \item{...}{Passed to \code{pattern_ISO8601_timezone()}}
 }
 \description{
@@ -55,6 +59,9 @@ differences which could occur on different hours and at the end of any
 Other ISO8601 patterns: 
 \code{\link{pattern_ISO8601_calendar_datetime}()},
 \code{\link{pattern_ISO8601_calendar_date}()},
-\code{\link{pattern_ISO8601_timezone}()}
+\code{\link{pattern_ISO8601_calendar_year}()},
+\code{\link{pattern_ISO8601_ordinal_date}()},
+\code{\link{pattern_ISO8601_timezone}()},
+\code{\link{pattern_ISO8601_week_date}()}
 }
 \concept{ISO8601 patterns}

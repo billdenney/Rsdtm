@@ -353,9 +353,169 @@ test_that("pattern_ISO8601_calendar_date expected errors", {
   expect_error(pattern_ISO8601_calendar_date(allow_before_year_1583="A"))
   expect_error(pattern_ISO8601_calendar_date(allow_before_year_1583=NA))
   
-  expect_error(pattern_ISO8601_calendar_date(time_pattern=factor("A")))
-  expect_error(pattern_ISO8601_calendar_date(time_pattern=c("A", "B")))
-  expect_error(pattern_ISO8601_calendar_date(time_pattern=NA_character_))
+  expect_error(pattern_ISO8601_calendar_date(pattern_time=factor("A")))
+  expect_error(pattern_ISO8601_calendar_date(pattern_time=c("A", "B")))
+  expect_error(pattern_ISO8601_calendar_date(pattern_time=NA_character_))
+})
+
+# pattern_ISO8601_week_date ####
+
+test_that("pattern_ISO8601_week_date", {
+  valid_week_date_ywd <- c("2020-W01-7", "2020-W53-1")
+  valid_week_date_yw <- c("2020-W01", "2020-W53")
+  valid_week_date_y <- "2020"
+  valid_week_date_none <- ""
+  invalid_week_date_ywd <- c("2020-W00-1", "2020-w01-1", "2020-W53-0", "2020-W53-8", "2020-W01-01")
+  invalid_week_date_yw <- c("2020-W00", "2020-w01", "2020-W54", "2020-W60", "2020-W001")
+  invalid_week_date_y <- "100"
+  expect_true(
+    all(is_ISO8601_week_date(
+      valid_week_date_ywd
+    ))
+  )
+  expect_false(
+    any(is_ISO8601_week_date(
+      c(
+        invalid_week_date_ywd, invalid_week_date_yw, invalid_week_date_y,
+        valid_week_date_yw, valid_week_date_y, valid_week_date_none
+      )
+    ))
+  )
+  expect_true(
+    all(
+      is_ISO8601_week_date(
+        c(
+          valid_week_date_ywd, valid_week_date_yw
+        ),
+        truncated=1
+      )
+    )
+  )
+  expect_false(
+    any(is_ISO8601_week_date(
+      c(
+        invalid_week_date_ywd, invalid_week_date_yw, invalid_week_date_y,
+        valid_week_date_y, valid_week_date_none
+      ),
+      truncated=1
+    ))
+  )
+  expect_true(
+    all(
+      is_ISO8601_week_date(
+        c(
+          valid_week_date_ywd, valid_week_date_yw, valid_week_date_y
+        ),
+        truncated=2
+      )
+    )
+  )
+  expect_false(
+    any(is_ISO8601_week_date(
+      c(
+        invalid_week_date_ywd, invalid_week_date_yw, invalid_week_date_y,
+        valid_week_date_none
+      ),
+      truncated=2
+    ))
+  )
+  expect_true(
+    all(
+      is_ISO8601_week_date(
+        c(
+          valid_week_date_ywd, valid_week_date_yw, valid_week_date_y, valid_week_date_none
+        ),
+        truncated=3
+      )
+    )
+  )
+  expect_false(
+    any(is_ISO8601_week_date(
+      c(
+        invalid_week_date_ywd, invalid_week_date_yw, invalid_week_date_y
+      ),
+      truncated=3
+    ))
+  )
+})
+
+# pattern_ISO8601_ordinal_date ####
+
+test_that("pattern_ISO8601_ordinal_date", {
+  valid_ordinal_date_yd <- c("2020-001", "2020-366")
+  valid_ordinal_date_y <- "2020"
+  valid_ordinal_date_none <- ""
+  invalid_ordinal_date_yd <- c("2020-000", "2020-367", "2020-400")
+  invalid_ordinal_date_y <- "100"
+  expect_true(
+    all(is_ISO8601_ordinal_date(
+      valid_ordinal_date_yd
+    ))
+  )
+  expect_false(
+    any(is_ISO8601_ordinal_date(
+      c(
+        invalid_ordinal_date_yd, invalid_ordinal_date_y,
+        valid_ordinal_date_y, valid_ordinal_date_none
+      )
+    ))
+  )
+  expect_true(
+    all(
+      is_ISO8601_ordinal_date(
+        c(
+          valid_ordinal_date_yd, valid_ordinal_date_y
+        ),
+        truncated=1
+      )
+    )
+  )
+  expect_false(
+    any(is_ISO8601_ordinal_date(
+      c(
+        invalid_ordinal_date_yd, invalid_ordinal_date_y,
+        valid_ordinal_date_none
+      ),
+      truncated=1
+    ))
+  )
+  expect_true(
+    all(
+      is_ISO8601_ordinal_date(
+        c(
+          valid_ordinal_date_yd, valid_ordinal_date_y
+        ),
+        truncated=2
+      )
+    )
+  )
+  expect_false(
+    any(is_ISO8601_ordinal_date(
+      c(
+        invalid_ordinal_date_yd, invalid_ordinal_date_y,
+        valid_ordinal_date_none
+      ),
+      truncated=2
+    ))
+  )
+  expect_true(
+    all(
+      is_ISO8601_ordinal_date(
+        c(
+          valid_ordinal_date_yd, valid_ordinal_date_y, valid_ordinal_date_none
+        ),
+        truncated=3
+      )
+    )
+  )
+  expect_false(
+    any(is_ISO8601_ordinal_date(
+      c(
+        invalid_ordinal_date_yd, invalid_ordinal_date_y
+      ),
+      truncated=3
+    ))
+  )
 })
 
 # pattern_ISO8601_time ####
