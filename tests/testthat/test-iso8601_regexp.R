@@ -247,48 +247,95 @@ test_that("pattern_ISO8601_calendar_datetime expected errors", {
 # pattern_ISO8601_calendar_date ####
 
 test_that("pattern_ISO8601_calendar_date", {
+  valid_date_ymd <- "2020-11-01"
+  valid_date_ym <- "2020-11"
+  valid_date_y <- "2020"
+  valid_date_none <- ""
+  invalid_date_ymd <- c("2020-11-00", "2020-11-32", "2020-11-40")
+  invalid_date_ym <- c("2020-00", "2020-13", "2020-20")
+  invalid_date_y <- "100"
+  invalid_date_general <- "A"
   expect_true(
-    is_ISO8601_calendar_date("2020-11-01")
+    all(is_ISO8601_calendar_date(c(
+      valid_date_ymd
+    )))
   )
-  expect_equal(
-    is_ISO8601_calendar_date(
-      x=c("2020-11-01", "2020-11", "2020", "", "100"),
+  expect_false(
+    any(is_ISO8601_calendar_date(c(
+      invalid_date_ymd, invalid_date_ym, invalid_date_y, invalid_date_general,
+      valid_date_ym, valid_date_y, valid_date_none
+    )))
+  )
+  expect_true(
+    all(is_ISO8601_calendar_date(
+      c(
+        valid_date_ymd
+      ),
       truncated=0
-    ),
-    c(TRUE, FALSE, FALSE, FALSE, FALSE)
+    ))
   )
-  expect_equal(
-    is_ISO8601_calendar_date(
-      x=c("2020-11-01", "2020-11", "2020", "", "100"),
+  expect_false(
+    any(is_ISO8601_calendar_date(
+      c(
+        invalid_date_ymd, invalid_date_ym, invalid_date_y, invalid_date_general,
+        valid_date_ym, valid_date_y, valid_date_none
+      ),
+      truncated=0
+    ))
+  )
+  expect_true(
+    all(is_ISO8601_calendar_date(
+      c(
+        valid_date_ymd, valid_date_ym
+      ),
       truncated=1
-    ),
-    c(TRUE, TRUE, FALSE, FALSE, FALSE)
+    ))
   )
-  expect_equal(
-    is_ISO8601_calendar_date(
-      x=c("2020-11-01", "2020-11", "2020", "", "100"),
+  expect_false(
+    any(is_ISO8601_calendar_date(
+      c(
+        invalid_date_ymd, invalid_date_ym, invalid_date_y, invalid_date_general,
+        valid_date_y, valid_date_none
+      ),
+      truncated=1
+    ))
+  )
+  expect_true(
+    all(is_ISO8601_calendar_date(
+      c(
+        valid_date_ymd, valid_date_ym, valid_date_y
+      ),
       truncated=2
-    ),
-    c(TRUE, TRUE, TRUE, FALSE, FALSE)
+    ))
   )
-  expect_equal(
-    is_ISO8601_calendar_date(
-      x=c("2020-11-01", "2020-11", "2020", "", "100"),
+  expect_false(
+    any(is_ISO8601_calendar_date(
+      c(
+        invalid_date_ymd, invalid_date_ym, invalid_date_y, invalid_date_general,
+        valid_date_none
+      ),
+      truncated=2
+    ))
+  )
+  expect_true(
+    all(is_ISO8601_calendar_date(
+      c(
+        valid_date_ymd, valid_date_ym, valid_date_y, valid_date_none
+      ),
       truncated=3
-    ),
-    c(TRUE, TRUE, TRUE, TRUE, FALSE)
+    ))
   )
-
-  ## allow_before_year_1583
-  expect_equal(
-    is_ISO8601_calendar_date(
-      x=c("2020-11-01", "1582-01-01")
-    ),
-    c(TRUE, FALSE)
+  expect_false(
+    any(is_ISO8601_calendar_date(
+      c(
+        invalid_date_ymd, invalid_date_ym, invalid_date_y, invalid_date_general
+      ),
+      truncated=3
+    ))
   )
-  expect_equal(
+    expect_equal(
     is_ISO8601_calendar_date(
-      x=c("2020-11-01", "1582-01-01"),
+      x=c(valid_date_ymd, "1582-01-01"),
       allow_before_year_1583=TRUE
     ),
     c(TRUE, TRUE)
@@ -314,125 +361,189 @@ test_that("pattern_ISO8601_calendar_date expected errors", {
 # pattern_ISO8601_time ####
 
 test_that("pattern_ISO8601_time", {
-  expect_match(
+  valid_time_timezone <-
     c(
       "00:00:00+00",
       "00:00:00Z",
       "00:00:00+14:00",
       "00:00:00-14:00"
-    ),
-    make_full_pattern(pattern_ISO8601_time())
-  )
-  expect_no_match(
+    )
+  invalid_time_timezone <-
     c(
       "00:00:00+15:00",
-      "00:00:00-15:00"
-    ),
-    make_full_pattern(pattern_ISO8601_time())
+      "00:00:00-15:00",
+      "00:00:00A"
+    )
+  expect_true(
+    all(is_ISO8601_time(valid_time_timezone))
+  )
+  expect_true(
+    !any(is_ISO8601_time(invalid_time_timezone))
   )
   
   # truncated
-  expect_equal(
-    is_ISO8601_time(
-      x=c("00:00:00", "00:00", "00", "", "0"),
+  valid_time_hms <-
+    c(
+      "T00:00:00",
+      "00:00:00"
+    )
+  valid_time_hm <-
+    c(
+      "T00:00",
+      "00:00"
+    )
+  # T is required when no minute or second is given
+  valid_time_h <- "T00"
+  valid_time_none <- ""
+  invalid_time_hms <-
+    c(
+      "T00:00:61",
+      "00:00:61",
+      "T00:60:00",
+      "00:60:00",
+      "T24:00:00",
+      "24:00:00",
+      "T30:00:00",
+      "30:00:00"
+    )
+  invalid_time_hm <-
+    c(
+      "T00:60",
+      "00:60",
+      "T24:00",
+      "24:00",
+      "T30:00",
+      "30:00"
+    )
+  invalid_time_h <-
+    c(
+      "T24",
+      "24",
+      "T30",
+      "30",
+      # hour by itself must have a "T"
+      "00",
+      "0"
+    )
+  
+  expect_true(
+    all(is_ISO8601_time(x=valid_time_hms, truncated=0))
+  )
+  expect_true(
+    !any(is_ISO8601_time(
+      x=c(
+        invalid_time_hms, invalid_time_hm, invalid_time_h,
+        valid_time_hm, valid_time_h, valid_time_none
+      ),
       truncated=0
-    ),
-    c(TRUE, FALSE, FALSE, FALSE, FALSE)
+    ))
   )
-  expect_equal(
-    is_ISO8601_time(
-      x=c("00:00:00", "00:00", "00", "", "0"),
+  expect_true(
+    all(is_ISO8601_time(
+      x=c(valid_time_hms, valid_time_hm),
       truncated=1
-    ),
-    c(TRUE, TRUE, FALSE, FALSE, FALSE)
+    ))
   )
-  expect_equal(
-    is_ISO8601_time(
-      x=c("00:00:00", "00:00", "00", "", "0"),
+  expect_true(
+    !any(is_ISO8601_time(
+      x=c(
+        invalid_time_hms, invalid_time_hm, invalid_time_h,
+        valid_time_h, valid_time_none
+      ),
+      truncated=1
+    ))
+  )
+  expect_true(
+    all(is_ISO8601_time(
+      x=c(valid_time_hms, valid_time_hm, valid_time_h),
       truncated=2
-    ),
-    c(TRUE, TRUE, TRUE, FALSE, FALSE)
+    ))
   )
-  expect_equal(
-    is_ISO8601_time(
-      x=c("00:00:00", "00:00", "00", "", "0"),
+  expect_true(
+    !any(is_ISO8601_time(
+      x=c(
+        invalid_time_hms, invalid_time_hm, invalid_time_h,
+        valid_time_none
+      ),
+      truncated=2
+    ))
+  )
+  expect_true(
+    all(is_ISO8601_time(
+      x=c(valid_time_hms, valid_time_hm, valid_time_h, valid_time_none),
       truncated=3
-    ),
-    c(TRUE, TRUE, TRUE, TRUE, FALSE)
+    ))
+  )
+  expect_true(
+    !any(is_ISO8601_time(
+      x=c(
+        invalid_time_hms, invalid_time_hm, invalid_time_h
+      ),
+      truncated=3
+    ))
   )
 
   # Timezone requirement
-  expect_match(
-    c(
-      "00:00:00",
-      "00:00:00Z"
-    ),
+  valid_hms_notz <- "00:00:00"
+  valid_hms_tz <- "00:00:00Z"
+  expect_true(
     ## Default is optional timezone
-    make_full_pattern(pattern_ISO8601_time())
+    all(is_ISO8601_time(c(valid_hms_notz, valid_hms_tz)))
   )
   ## No timezone
-  expect_match(
-    "00:00:00",
-    make_full_pattern(pattern_ISO8601_time(timezone=FALSE))
+  expect_true(
+    is_ISO8601_time(valid_hms_notz, timezone=FALSE)
   )
-  expect_no_match(
-    "00:00:00Z",
-    make_full_pattern(pattern_ISO8601_time(timezone=FALSE))
+  expect_false(
+    is_ISO8601_time(valid_hms_tz, timezone=FALSE)
   )
   ## timezone required
-  expect_no_match(
-    "00:00:00",
-    make_full_pattern(pattern_ISO8601_time(timezone=TRUE))
+  expect_false(
+    is_ISO8601_time(valid_hms_notz, timezone=TRUE)
   )
-  expect_match(
-    "00:00:00Z",
-    make_full_pattern(pattern_ISO8601_time(timezone=TRUE))
+  expect_true(
+    is_ISO8601_time(valid_hms_tz, timezone=TRUE)
   )
   
   # Fractional seconds
-  ## Allowed by default
-  expect_match(
-    "00:00:00.123456789",
-    make_full_pattern(pattern_ISO8601_time())
-  )
-  ## Alternate separator
-  expect_match(
-    "00:00:00,123456789",
-    make_full_pattern(pattern_ISO8601_time())
+  valid_hmsf_period <- "00:00:00.123456789"
+  valid_hmsf_comma <- "00:00:00,123456789"
+  valid_hmsf_either <- c(valid_hmsf_period, valid_hmsf_comma)
+  ## Allowed by default with either separator
+  expect_true(
+    all(is_ISO8601_time(valid_hmsf_either))
   )
   ## Allowed
-  expect_match(
-    "00:00:00.123456789",
-    make_full_pattern(pattern_ISO8601_time(allow_fractional_seconds=TRUE))
+  expect_true(
+    all(is_ISO8601_time(valid_hmsf_either, allow_fractional_seconds=TRUE))
   )
   ## Not allowed
-  expect_no_match(
-    "00:00:00.123456789",
-    make_full_pattern(pattern_ISO8601_time(allow_fractional_seconds=FALSE))
+  expect_false(
+    any(is_ISO8601_time(valid_hmsf_either, allow_fractional_seconds=FALSE))
   )
   
   # pattern_decimal_mark
-  expect_match(
-    "00:00:00.123456789",
-    make_full_pattern(pattern_ISO8601_time(pattern_decimal_mark="\\."))
+  expect_true(
+    is_ISO8601_time(valid_hmsf_period, pattern_decimal_mark="\\.")
   )
-  expect_no_match(
-    "00:00:00,123456789",
-    make_full_pattern(pattern_ISO8601_time(pattern_decimal_mark="\\."))
+  expect_false(
+    is_ISO8601_time(valid_hmsf_comma, pattern_decimal_mark="\\.")
   )
   # allow_leap_second
-  expect_no_match(
+  valid_leap_second <- "00:00:60"
+  invalid_leap_second <- "00:00:61"
+  expect_false(
     # Default is no match
-    "00:00:60",
-    make_full_pattern(pattern_ISO8601_time())
+    any(is_ISO8601_time(c(valid_leap_second, invalid_leap_second)))
   )
-  expect_match(
-    "00:00:60",
-    make_full_pattern(pattern_ISO8601_time(allow_leap_second=TRUE))
+  expect_true(
+    is_ISO8601_time(valid_leap_second, allow_leap_second=TRUE)
   )
-  expect_no_match(
-    "00:00:60",
-    make_full_pattern(pattern_ISO8601_time(allow_leap_second=FALSE))
+  expect_false(
+    is_ISO8601_time(invalid_leap_second, allow_leap_second=TRUE)
+  )
+  expect_false(
+    is_ISO8601_time(valid_leap_second, allow_leap_second=FALSE)
   )
 })
 
@@ -467,6 +578,9 @@ test_that("pattern_ISO8601_time required/expected errors", {
   expect_error(pattern_ISO8601_time(allow_leap_second="A"))
   expect_error(pattern_ISO8601_time(allow_leap_second=NA))
   expect_error(pattern_ISO8601_time(allow_leap_second=rep(FALSE, 2)))
+  
+  expect_error(pattern_ISO8601_time(require_T="A"))
+  expect_error(pattern_ISO8601_time(require_T=rep(FALSE, 2)))
 })
 
 # pattern_ISO8601_timezone ####
