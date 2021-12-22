@@ -27,9 +27,7 @@ be a vector)?}
 \code{unit} parameters allowed to be NA?}
 }
 \value{
-A character vector that is equivalent to \code{sprintf("%s %s (%s)",
-  spec, param, unit)}, but accounting for the fact that spec and unit may be
-  missing.
+A character vector.
 }
 \description{
 Generate a parameter label combining specimen type, parameter name, and units
