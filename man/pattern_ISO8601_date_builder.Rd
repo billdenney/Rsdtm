@@ -16,7 +16,8 @@ pattern_ISO8601_date_builder(
 }
 \arguments{
 \item{pattern_year}{The pattern for the ISO8601 year (ignored if
-\code{allow_before_year_1583} is given)}
+\code{allow_before_year_1583} is given); if null, only the middle and day
+part will be returned without a year part.}
 
 \item{pattern_middle}{The pattern for the ISO8601 month or week (or NULL for ordinal dates)}
 

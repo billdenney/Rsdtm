@@ -42,7 +42,9 @@ ordinal date
 \seealso{
 Other ISO8601 String checking: 
 \code{\link{is_ISO8601_calendar_datetime}()},
+\code{\link{is_ISO8601_ordinal_datetime}()},
 \code{\link{is_ISO8601_timezone}()},
-\code{\link{is_ISO8601_time}()}
+\code{\link{is_ISO8601_time}()},
+\code{\link{is_ISO8601_week_datetime}()}
 }
 \concept{ISO8601 String checking}

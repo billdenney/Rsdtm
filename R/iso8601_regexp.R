@@ -1,7 +1,7 @@
 # Boolean functions ####
 
-#' Determine if a string matches an ISO 8601 date/time using standard calendar
-#' date notation
+#' Determine if a string matches an ISO 8601 date/time using calendar date
+#' notation
 #' 
 #' @param x A vector of character strings to test
 #' @inheritDotParams pattern_ISO8601_calendar_datetime
@@ -11,6 +11,32 @@ is_ISO8601_calendar_datetime <- function(x, ...) {
   grepl(
     x=as.character(x),
     pattern=make_full_pattern(pattern_ISO8601_calendar_datetime(...))
+  )
+}
+
+#' Determine if a string matches an ISO 8601 date/time using week date notation
+#' 
+#' @param x A vector of character strings to test
+#' @inheritDotParams pattern_ISO8601_week_datetime
+#' @family ISO8601 String checking
+#' @export
+is_ISO8601_week_datetime <- function(x, ...) {
+  grepl(
+    x=as.character(x),
+    pattern=make_full_pattern(pattern_ISO8601_week_datetime(...))
+  )
+}
+
+#' Determine if a string matches an ISO 8601 date/time using ordinal date notation
+#' 
+#' @param x A vector of character strings to test
+#' @inheritDotParams pattern_ISO8601_ordinal_datetime
+#' @family ISO8601 String checking
+#' @export
+is_ISO8601_ordinal_datetime <- function(x, ...) {
+  grepl(
+    x=as.character(x),
+    pattern=make_full_pattern(pattern_ISO8601_ordinal_datetime(...))
   )
 }
 
@@ -74,6 +100,24 @@ is_ISO8601_timezone <- function(x) {
 
 # Date/time functions ####
 
+#' Generate a regular expression matching any ISO8601 date format with time
+#'
+#' @param truncated Should the date/time be allowed to be truncated?  An integer
+#'   indicating the highest required precision (0=second is required, 1=minute,
+#'   2=hour, 3=day, 4=month or week, 5=year, 6=none).  A value of 6 will allow an empty
+#'   string to match.
+#' @param ... Passed to \code{pattern_ISO8601_any_date()} and
+#'   \code{pattern_ISO8601_time()}
+#' @family ISO8601 patterns
+#' @export
+pattern_ISO8601_any_datetime <- function(truncated=0, ...) {
+  pattern_ISO8601_datetime_builder(
+    truncated=truncated,
+    ...,
+    pattern_date_fun=pattern_ISO8601_any_date
+  )
+}
+
 #' Generate a regular expression matching an ISO8601 calendar date with time
 #'
 #' @param truncated Should the date/time be allowed to be truncated?  An integer
@@ -85,6 +129,50 @@ is_ISO8601_timezone <- function(x) {
 #' @family ISO8601 patterns
 #' @export
 pattern_ISO8601_calendar_datetime <- function(truncated=0, ...) {
+  pattern_ISO8601_datetime_builder(
+    truncated=truncated,
+    ...,
+    pattern_date_fun=pattern_ISO8601_calendar_date
+  )
+}
+
+#' Generate a regular expression matching an ISO8601 week date with time
+#'
+#' @param truncated Should the date/time be allowed to be truncated?  An integer
+#'   indicating the highest required precision (0=second is required, 1=minute,
+#'   2=hour, 3=day, 4=week, 5=year, 6=none).  A value of 6 will allow an empty
+#'   string to match.
+#' @param ... Passed to \code{pattern_ISO8601_week_date()} and
+#'   \code{pattern_ISO8601_time()}
+#' @family ISO8601 patterns
+#' @export
+pattern_ISO8601_week_datetime <- function(truncated=0, ...) {
+  pattern_ISO8601_datetime_builder(
+    truncated=truncated,
+    ...,
+    pattern_date_fun=pattern_ISO8601_week_date
+  )
+}
+
+#' Generate a regular expression matching an ISO8601 ordinal date with time
+#'
+#' @param truncated Should the date/time be allowed to be truncated?  An integer
+#'   indicating the highest required precision (0=second is required, 1=minute,
+#'   2=hour, 3 or 4=day, 5=year, 6=none).  A value of 6 will allow an empty
+#'   string to match.
+#' @param ... Passed to \code{pattern_ISO8601_week_date()} and
+#'   \code{pattern_ISO8601_time()}
+#' @family ISO8601 patterns
+#' @export
+pattern_ISO8601_ordinal_datetime <- function(truncated=0, ...) {
+  pattern_ISO8601_datetime_builder(
+    truncated=truncated,
+    ...,
+    pattern_date_fun=pattern_ISO8601_ordinal_date
+  )
+}
+
+pattern_ISO8601_datetime_builder <- function(truncated, ..., pattern_date_fun) {
   stopifnot(is.numeric(truncated))
   stopifnot(length(truncated) == 1)
   stopifnot(truncated >= 0 & truncated <= 6)
@@ -96,34 +184,65 @@ pattern_ISO8601_calendar_datetime <- function(truncated=0, ...) {
       pattern_time,
       allow_truncation=truncated >= 3
     )
-  pattern_ISO8601_calendar_date(
+  pattern_date_fun(
     truncated=max(truncated - 3, 0),
-    pattern_time=pattern_time,
+    pattern_time=pattern_time_aug,
     ...
   )
 }
 
 # Date functions ####
 
-#' Generate a regular expression matching an ISO8601 calendar year
+#' Generate a regular expression matching any ISO8601 date format
 #' 
-#' @details   Sign on the year (+ or -) is not supported (therefore years before
-#'   0000 are not supported). Years after 9999 are not supported.
+#' @details This matches YYYY-MM-DD (year-month-day), YYYY-Www-d, or YYYY-DDD
+#'   formats. Basic format (without dashes) is not supported.
 #' 
-#' @param allow_before_year_1583 Should years between 0 and 1582 be allowed
-#'   (they are only allowed in ISO 8601 with mutual agreement)
+#' @param truncated Should the date be allowed to be truncated?  An integer
+#'   indicating the highest required precision (0=day is required, 1=month or week, and
+#'   2=year).  A value of 3 will allow an empty string to match.
+#' @inheritParams pattern_ISO8601_calendar_year
+#' @inheritParams pattern_ISO8601_date_builder
+#' @param ... Ignored
 #' @references https://en.wikipedia.org/wiki/ISO_8601
 #' @family ISO8601 patterns
 #' @export
-pattern_ISO8601_calendar_year <- function(allow_before_year_1583=FALSE) {
-  stopifnot(is.logical(allow_before_year_1583))
-  stopifnot(!is.na(allow_before_year_1583))
-  
-  if (allow_before_year_1583) {
-    "([0-9]{4})"
-  } else {
-    "(158[3-9]|159[0-9]|1[6-9][0-9]{2}|[2-9][0-9]{3})"
-  }
+pattern_ISO8601_any_date <- function(truncated=0, allow_before_year_1583=FALSE, pattern_time="", ...) {
+  pattern_calendar <-
+    pattern_ISO8601_date_builder(
+      truncated=pmin(truncated, 1),
+      pattern_year=NULL,
+      pattern_middle=pattern_ISO8601_calendar_month(),
+      # Not confirming that the date is valid for the month
+      pattern_day=pattern_ISO8601_calendar_day(),
+      pattern_time=pattern_time
+    )
+  pattern_week <-
+    pattern_ISO8601_date_builder(
+      truncated=pmin(truncated, 1),
+      pattern_year=NULL,
+      pattern_middle=pattern_ISO8601_week_week(),
+      # Not confirming that the date is valid for the month
+      pattern_day=pattern_ISO8601_week_day(),
+      pattern_time=pattern_time
+    )
+  pattern_ordinal <-
+    pattern_ISO8601_date_builder(
+      truncated=pmin(truncated, 1),
+      pattern_year=NULL,
+      pattern_day=pattern_ISO8601_ordinal_day(),
+      pattern_time=pattern_time
+    )
+  pattern_less_than_year <-
+    pattern_ISO8601_truncated_helper(
+      sprintf("(?:%s|%s|%s)", pattern_calendar, pattern_week, pattern_ordinal),
+      allow_truncation=truncated >= 2
+    )
+  pattern_year_prep <- pattern_ISO8601_calendar_year(allow_before_year_1583=allow_before_year_1583)
+  pattern_ISO8601_truncated_helper(
+    paste0(pattern_year_prep, pattern_less_than_year),
+    allow_truncation=truncated >= 3
+  )
 }
 
 #' Generate a regular expression matching an ISO8601 calendar date
@@ -143,9 +262,9 @@ pattern_ISO8601_calendar_year <- function(allow_before_year_1583=FALSE) {
 pattern_ISO8601_calendar_date <- function(truncated=0, allow_before_year_1583=FALSE, pattern_time="", ...) {
   pattern_ISO8601_date_builder(
     truncated=truncated,
-    pattern_middle="(0[1-9]|1[0-2])",
+    pattern_middle=pattern_ISO8601_calendar_month(),
     # Not confirming that the date is valid for the month
-    pattern_day="(0[1-9]|[12][0-9]|3[01])",
+    pattern_day=pattern_ISO8601_calendar_day(),
     pattern_time=pattern_time,
     allow_before_year_1583=allow_before_year_1583
   )
@@ -156,6 +275,9 @@ pattern_ISO8601_calendar_date <- function(truncated=0, allow_before_year_1583=FA
 #' @details This matches the general pattern of yyyy-Www-d (year-week of
 #'   year-day of week). Basic format (without dashes) is not supported.
 #' 
+#' @param truncated Should the date be allowed to be truncated?  An integer
+#'   indicating the highest required precision (0=day is required, 1=week, and
+#'   2=year).  A value of 3 will allow an empty string to match.
 #' @inheritParams pattern_ISO8601_calendar_date
 #' @references https://en.wikipedia.org/wiki/ISO_8601
 #' @family ISO8601 patterns
@@ -163,8 +285,8 @@ pattern_ISO8601_calendar_date <- function(truncated=0, allow_before_year_1583=FA
 pattern_ISO8601_week_date <- function(truncated=0, allow_before_year_1583=FALSE, pattern_time="", ...) {
   pattern_ISO8601_date_builder(
     truncated=truncated,
-    pattern_middle="W(0[1-9]|[1-4][0-9]|5[0-3])",
-    pattern_day="([1-7])",
+    pattern_middle=pattern_ISO8601_week_week(),
+    pattern_day=pattern_ISO8601_week_day(),
     pattern_time=pattern_time,
     allow_before_year_1583=allow_before_year_1583
   )
@@ -172,6 +294,9 @@ pattern_ISO8601_week_date <- function(truncated=0, allow_before_year_1583=FALSE,
 
 #' Generate a regular expression matching an ISO8601 ordinal date
 #' 
+#' @param truncated Should the date be allowed to be truncated?  An integer
+#'   indicating the highest required precision (0 or 1=day is required and
+#'   2=year).  A value of 3 will allow an empty string to match.
 #' @details This matches the general pattern of yyyy-ddd (year-day of year).
 #'   Leap days are allowed, but the year is not confirmed to be a leap year.
 #'   Basic format (without dashes) is not supported.
@@ -181,9 +306,15 @@ pattern_ISO8601_week_date <- function(truncated=0, allow_before_year_1583=FALSE,
 #' @family ISO8601 patterns
 #' @export
 pattern_ISO8601_ordinal_date <- function(truncated=0, allow_before_year_1583=FALSE, pattern_time="", ...) {
+  truncated_prep <-
+    ifelse(
+      truncated == 1,
+      0,
+      truncated
+    )
   pattern_ISO8601_date_builder(
-    truncated=truncated,
-    pattern_day="(00[1-9]|0[1-9][0-9]|[12][0-9]{2}|3[0-5][0-9]|36[0-6])",
+    truncated=truncated_prep,
+    pattern_day=pattern_ISO8601_ordinal_day(),
     pattern_time=pattern_time,
     allow_before_year_1583=allow_before_year_1583
   )
@@ -193,7 +324,8 @@ pattern_ISO8601_ordinal_date <- function(truncated=0, allow_before_year_1583=FAL
 #' time patterns.
 #' 
 #' @param pattern_year The pattern for the ISO8601 year (ignored if
-#'   \code{allow_before_year_1583} is given)
+#'   \code{allow_before_year_1583} is given); if null, only the middle and day
+#'   part will be returned without a year part.
 #' @param pattern_middle The pattern for the ISO8601 month or week (or NULL for ordinal dates)
 #' @param pattern_day The pattern for the ISO8601 day
 #' @param pattern_time A string to add to the day for including time with date
@@ -234,13 +366,59 @@ pattern_ISO8601_date_builder <- function(truncated, pattern_year, pattern_middle
   } else {
     pattern_year_prep <- pattern_ISO8601_calendar_year(allow_before_year_1583=allow_before_year_1583)
   }
-  pattern_year_aug <-
-    pattern_ISO8601_truncated_helper(
-      paste0(pattern_year_prep, pattern_middle_aug),
-      allow_truncation=truncated >= 3
-    )
-  pattern_year_aug
+  if (is.null(pattern_year_prep)) {
+    ret <- pattern_middle_aug
+  } else {
+    ret <-
+      pattern_ISO8601_truncated_helper(
+        paste0(pattern_year_prep, pattern_middle_aug),
+        allow_truncation=truncated >= 3
+      )
+  }
+  ret
+}
+
+## Individual date pattern parts ####
+
+#' Generate a regular expression matching an ISO8601 calendar year
+#' 
+#' @details   Sign on the year (+ or -) is not supported (therefore years before
+#'   0000 are not supported). Years after 9999 are not supported.
+#' 
+#' @param allow_before_year_1583 Should years between 0 and 1582 be allowed
+#'   (they are only allowed in ISO 8601 with mutual agreement)
+#' @references https://en.wikipedia.org/wiki/ISO_8601
+#' @family ISO8601 patterns
+#' @export
+pattern_ISO8601_calendar_year <- function(allow_before_year_1583=FALSE) {
+  stopifnot(is.logical(allow_before_year_1583))
+  stopifnot(!is.na(allow_before_year_1583))
   
+  if (allow_before_year_1583) {
+    "([0-9]{4})"
+  } else {
+    "(158[3-9]|159[0-9]|1[6-9][0-9]{2}|[2-9][0-9]{3})"
+  }
+}
+
+pattern_ISO8601_calendar_month <- function() {
+  "(0[1-9]|1[0-2])"
+}
+
+pattern_ISO8601_calendar_day <- function() {
+  "(0[1-9]|[12][0-9]|3[01])"
+}
+
+pattern_ISO8601_week_week <- function() {
+  "W(0[1-9]|[1-4][0-9]|5[0-3])"
+}
+
+pattern_ISO8601_week_day <- function() {
+  "([1-7])"
+}
+
+pattern_ISO8601_ordinal_day <- function() {
+  "(00[1-9]|0[1-9][0-9]|[12][0-9]{2}|3[0-5][0-9]|36[0-6])"
 }
 
 # Time functions ####

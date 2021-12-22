@@ -1,7 +1,5 @@
 # pattern_ISO8601_calendar_datetime ####
 
-## pattern_ISO8601_calendar_datetime expected errors ####
-
 test_that("pattern_ISO8601_calendar_datetime", {
   datetimes_to_test <-
     c(
@@ -237,12 +235,20 @@ test_that("pattern_ISO8601_calendar_datetime", {
   )
 })
 
+## pattern_ISO8601_calendar_datetime expected errors ####
+
 test_that("pattern_ISO8601_calendar_datetime expected errors", {
   expect_error(pattern_ISO8601_calendar_datetime(truncated="A"))
   expect_error(pattern_ISO8601_calendar_datetime(truncated=1:2))
   expect_error(pattern_ISO8601_calendar_datetime(truncated=-1))
   expect_error(pattern_ISO8601_calendar_datetime(truncated=7))
 })
+
+# pattern_ISO8601_any_date ####
+
+# test_that("pattern_ISO8601_any_date", {
+#   
+# })
 
 # pattern_ISO8601_calendar_date ####
 
@@ -464,7 +470,7 @@ test_that("pattern_ISO8601_ordinal_date", {
     all(
       is_ISO8601_ordinal_date(
         c(
-          valid_ordinal_date_yd, valid_ordinal_date_y
+          valid_ordinal_date_yd
         ),
         truncated=1
       )
@@ -474,7 +480,7 @@ test_that("pattern_ISO8601_ordinal_date", {
     any(is_ISO8601_ordinal_date(
       c(
         invalid_ordinal_date_yd, invalid_ordinal_date_y,
-        valid_ordinal_date_none
+        valid_ordinal_date_y, valid_ordinal_date_none
       ),
       truncated=1
     ))

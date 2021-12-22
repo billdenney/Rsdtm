@@ -13,7 +13,7 @@ pattern_ISO8601_week_date(
 }
 \arguments{
 \item{truncated}{Should the date be allowed to be truncated?  An integer
-indicating the highest required precision (0=day is required, 1=month, and
+indicating the highest required precision (0=day is required, 1=week, and
 2=year).  A value of 3 will allow an empty string to match.}
 
 \item{allow_before_year_1583}{Should years between 0 and 1582 be allowed
@@ -36,11 +36,15 @@ https://en.wikipedia.org/wiki/ISO_8601
 }
 \seealso{
 Other ISO8601 patterns: 
+\code{\link{pattern_ISO8601_any_datetime}()},
+\code{\link{pattern_ISO8601_any_date}()},
 \code{\link{pattern_ISO8601_calendar_datetime}()},
 \code{\link{pattern_ISO8601_calendar_date}()},
 \code{\link{pattern_ISO8601_calendar_year}()},
+\code{\link{pattern_ISO8601_ordinal_datetime}()},
 \code{\link{pattern_ISO8601_ordinal_date}()},
 \code{\link{pattern_ISO8601_timezone}()},
-\code{\link{pattern_ISO8601_time}()}
+\code{\link{pattern_ISO8601_time}()},
+\code{\link{pattern_ISO8601_week_datetime}()}
 }
 \concept{ISO8601 patterns}

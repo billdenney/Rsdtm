@@ -36,11 +36,15 @@ https://en.wikipedia.org/wiki/ISO_8601
 }
 \seealso{
 Other ISO8601 patterns: 
+\code{\link{pattern_ISO8601_any_datetime}()},
+\code{\link{pattern_ISO8601_any_date}()},
 \code{\link{pattern_ISO8601_calendar_datetime}()},
 \code{\link{pattern_ISO8601_calendar_year}()},
+\code{\link{pattern_ISO8601_ordinal_datetime}()},
 \code{\link{pattern_ISO8601_ordinal_date}()},
 \code{\link{pattern_ISO8601_timezone}()},
 \code{\link{pattern_ISO8601_time}()},
+\code{\link{pattern_ISO8601_week_datetime}()},
 \code{\link{pattern_ISO8601_week_date}()}
 }
 \concept{ISO8601 patterns}

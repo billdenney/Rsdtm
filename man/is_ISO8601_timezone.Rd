@@ -16,6 +16,8 @@ Determine if a string is an ISO 8601 timezone
 Other ISO8601 String checking: 
 \code{\link{is_ISO8601_calendar_datetime}()},
 \code{\link{is_ISO8601_calendar_date}()},
-\code{\link{is_ISO8601_time}()}
+\code{\link{is_ISO8601_ordinal_datetime}()},
+\code{\link{is_ISO8601_time}()},
+\code{\link{is_ISO8601_week_datetime}()}
 }
 \concept{ISO8601 String checking}
