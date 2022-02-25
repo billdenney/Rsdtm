@@ -6,7 +6,7 @@
 \title{A data.frame with 4 columns and one row per valid SDTM version/IG/IG version
 combination}
 \format{
-\itemize{
+\describe{
   \item{SDTM}{The SDTM version}
   \item{IG_NAME}{The implementation guide (IG) name being used}
   \item{IG_VERSION}{The implemetation guide (IG) version}
