@@ -25,3 +25,29 @@ dateany_to_date("2022-01-02T03:04") # the time part is automatically dropped
 dateany_to_date(as.Date("2022-01-02"))
 dateany_to_date(as.POSIXct("2022-01-02T03:04")) # the time part is still gone
 }
+\seealso{
+Other Date management and conversion: 
+\code{\link{generate_dtc}()},
+\code{\link{is_ISO8601_calendar_datetime}()},
+\code{\link{is_ISO8601_calendar_date}()},
+\code{\link{is_ISO8601_ordinal_datetime}()},
+\code{\link{is_ISO8601_timezone}()},
+\code{\link{is_ISO8601_time}()},
+\code{\link{is_ISO8601_week_datetime}()},
+\code{\link{make_dy}()},
+\code{\link{pattern_ISO8601_any_datetime}()},
+\code{\link{pattern_ISO8601_any_date}()},
+\code{\link{pattern_ISO8601_calendar_datetime}()},
+\code{\link{pattern_ISO8601_calendar_date}()},
+\code{\link{pattern_ISO8601_calendar_year}()},
+\code{\link{pattern_ISO8601_ordinal_datetime}()},
+\code{\link{pattern_ISO8601_ordinal_date}()},
+\code{\link{pattern_ISO8601_timezone}()},
+\code{\link{pattern_ISO8601_time}()},
+\code{\link{pattern_ISO8601_week_datetime}()},
+\code{\link{pattern_ISO8601_week_date}()},
+\code{\link{sdtm_dtc_to_datetime}()},
+\code{\link{sdtm_first_dose}()},
+\code{\link{sdtm_time_actual}()}
+}
+\concept{Date management and conversion}

@@ -12,6 +12,7 @@
 #'   \code{gsub(pattern=dtc_col_pattern, replacement=paste0("actual_", units),
 #'   names(x))} The new columns will have the actual time in numerical values
 #'   matching the \code{units}.
+#' @family Date management and conversion
 #' @export
 sdtm_time_actual <- function(x, ...) {
   UseMethod("sdtm_time_actual")

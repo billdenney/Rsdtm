@@ -48,3 +48,29 @@ When times are not zero-padded (for example, "5:12" instead of
   If a non-NA value is given for `datetime`, then values in `date` and `time`
   will be ignored.
 }
+\seealso{
+Other Date management and conversion: 
+\code{\link{dateany_to_date}()},
+\code{\link{is_ISO8601_calendar_datetime}()},
+\code{\link{is_ISO8601_calendar_date}()},
+\code{\link{is_ISO8601_ordinal_datetime}()},
+\code{\link{is_ISO8601_timezone}()},
+\code{\link{is_ISO8601_time}()},
+\code{\link{is_ISO8601_week_datetime}()},
+\code{\link{make_dy}()},
+\code{\link{pattern_ISO8601_any_datetime}()},
+\code{\link{pattern_ISO8601_any_date}()},
+\code{\link{pattern_ISO8601_calendar_datetime}()},
+\code{\link{pattern_ISO8601_calendar_date}()},
+\code{\link{pattern_ISO8601_calendar_year}()},
+\code{\link{pattern_ISO8601_ordinal_datetime}()},
+\code{\link{pattern_ISO8601_ordinal_date}()},
+\code{\link{pattern_ISO8601_timezone}()},
+\code{\link{pattern_ISO8601_time}()},
+\code{\link{pattern_ISO8601_week_datetime}()},
+\code{\link{pattern_ISO8601_week_date}()},
+\code{\link{sdtm_dtc_to_datetime}()},
+\code{\link{sdtm_first_dose}()},
+\code{\link{sdtm_time_actual}()}
+}
+\concept{Date management and conversion}

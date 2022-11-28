@@ -15,7 +15,7 @@ Offsets are always multiples of 15 minutes, so if the minute part is
   is a bit wider than the current range as of the writing of this function.
   The allowed range is -14:45 to +14:45 while the actual widest range is
   currently -12:00 to +14:00.
-  
+
   According to the ISO standard, zero must always be preceded by a + and
   never a negative.  And, "Z" is allowed.
 }
@@ -34,5 +34,30 @@ Other ISO8601 patterns:
 \code{\link{pattern_ISO8601_time}()},
 \code{\link{pattern_ISO8601_week_datetime}()},
 \code{\link{pattern_ISO8601_week_date}()}
+
+Other Date management and conversion: 
+\code{\link{dateany_to_date}()},
+\code{\link{generate_dtc}()},
+\code{\link{is_ISO8601_calendar_datetime}()},
+\code{\link{is_ISO8601_calendar_date}()},
+\code{\link{is_ISO8601_ordinal_datetime}()},
+\code{\link{is_ISO8601_timezone}()},
+\code{\link{is_ISO8601_time}()},
+\code{\link{is_ISO8601_week_datetime}()},
+\code{\link{make_dy}()},
+\code{\link{pattern_ISO8601_any_datetime}()},
+\code{\link{pattern_ISO8601_any_date}()},
+\code{\link{pattern_ISO8601_calendar_datetime}()},
+\code{\link{pattern_ISO8601_calendar_date}()},
+\code{\link{pattern_ISO8601_calendar_year}()},
+\code{\link{pattern_ISO8601_ordinal_datetime}()},
+\code{\link{pattern_ISO8601_ordinal_date}()},
+\code{\link{pattern_ISO8601_time}()},
+\code{\link{pattern_ISO8601_week_datetime}()},
+\code{\link{pattern_ISO8601_week_date}()},
+\code{\link{sdtm_dtc_to_datetime}()},
+\code{\link{sdtm_first_dose}()},
+\code{\link{sdtm_time_actual}()}
 }
+\concept{Date management and conversion}
 \concept{ISO8601 patterns}

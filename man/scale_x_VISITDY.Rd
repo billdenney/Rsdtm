@@ -21,3 +21,8 @@ ggplot(data.frame(x=-7:14, y=-7:14), aes(x=x, y=y, label=x)) +
   geom_text()
 }
 }
+\seealso{
+Other Output support: 
+\code{\link{make_param_label}()}
+}
+\concept{Output support}

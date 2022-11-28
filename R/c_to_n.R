@@ -7,16 +7,17 @@
 #'   values.  For data.frames and similar, the same class of object with numeric
 #'   versions of columns added.
 #' @export
+#' @family Number management and conversion
 c_to_n <- function(x, ...)
   UseMethod("c_to_n")
 
 #' @describeIn c_to_n The main workhorse function of c_to_n
-#' 
+#'
 #' @param pattern_numeric A regular expression to detect numeric values.
 #' @param verbose Report detailed status of .
 #' @details The main workhorse function is c_to_n.character, and it will
 #'   recognize the following numeric types:
-#' 
+#'
 #' \itemize{
 #'   \item{positive or negative (with optional sign) for all classes}
 #'   \item{integers with an optional decimal point after the number}
@@ -25,10 +26,11 @@ c_to_n <- function(x, ...)
 #'   \item{scientific notation with any of the prior numeric types as the
 #'     coefficient and an optional sign before the exponent}
 #' }
-#' 
+#'
 #' Spaces at the beginning and end are removed with `trimws()`
-#' 
+#'
 #' @export
+#' @family Number management and conversion
 c_to_n.character <- function(x, ...,
                              pattern_numeric=
                                paste0(

@@ -8,6 +8,7 @@
 #' @param allow_missing_spec,allow_missing_unit Are the \code{spec} or
 #'   \code{unit} parameters allowed to be NA?
 #' @return A character vector.
+#' @family Output support
 #' @export
 make_param_label <- function(spec, param, unit, expect_single=TRUE,
                              allow_missing_spec=TRUE, allow_missing_unit=TRUE) {

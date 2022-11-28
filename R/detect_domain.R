@@ -1,10 +1,11 @@
 #' Detect the SDTM or ADaM domain of a dataset (possibly via filename)
-#' 
+#'
 #' @param x The data
 #' @param filename The filename associated with \code{x}
 #' @param verbose Report domain detected and detection method?
 #' @return A character scalar with the name of the domain
 #' @export
+#' @family Domain detection
 detect_domain <- function(x, filename, verbose=TRUE) {
   if ("RELID" %in% names(x)) {
     return("RELREC")

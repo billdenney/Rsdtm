@@ -18,6 +18,7 @@
 #'   one file with the same name from different directories or multiple versions
 #'   of the same file.
 #' @export
+#' @family Data import
 import_sdtm <- function(path,
                         extension_choice = c(".sas7bdat", ".xpt"),
                         ignore_case = TRUE,

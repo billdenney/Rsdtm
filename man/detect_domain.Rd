@@ -19,3 +19,4 @@ A character scalar with the name of the domain
 \description{
 Detect the SDTM or ADaM domain of a dataset (possibly via filename)
 }
+\concept{Domain detection}

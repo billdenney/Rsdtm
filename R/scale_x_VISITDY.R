@@ -67,11 +67,11 @@ VISITDY_trans <-
   )
 
 #' A scale for ggplots with SDTM day (DY) numbering
-#' 
+#'
 #' The scale will skip over 0, always show 1 (if it is in the range of the
 #' data), provide breaks with preference toward week scales, and provide minor
 #' breaks every day.
-#' 
+#'
 #' @param ... Passed to \code{ggplot2::scale_x_continuous()}
 #' @examples
 #' \dontrun{
@@ -79,6 +79,7 @@ VISITDY_trans <-
 #'   scale_x_VISITDY() +
 #'   geom_text()
 #' }
+#' @family Output support
 #' @export
 scale_x_VISITDY <- function(...) {
   if ("trans" %in% ...names()) {

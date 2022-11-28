@@ -63,3 +63,4 @@ It is an error to import the same filename base (filename without
 \item \code{import_sdtm_file()}: Load a single SDTM file.
 
 }}
+\concept{Data import}

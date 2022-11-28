@@ -16,6 +16,7 @@
 #' @importFrom dplyr is_grouped_df group_by_at rename_at summarize_at
 #' @importFrom lubridate is.POSIXt ymd_hms
 #' @export
+#' @family Date management and conversion
 sdtm_first_dose <- function(x, ...)
   UseMethod("sdtm_first_dose")
 

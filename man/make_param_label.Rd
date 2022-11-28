@@ -32,3 +32,8 @@ A character vector.
 \description{
 Generate a parameter label combining specimen type, parameter name, and units
 }
+\seealso{
+Other Output support: 
+\code{\link{scale_x_VISITDY}()}
+}
+\concept{Output support}

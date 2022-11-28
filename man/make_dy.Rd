@@ -26,3 +26,29 @@ Calculate an SDTM --DY value from a date and a reference date
 \examples{
 make_dy(c("2022-01-02", "2022-01-03", "2022-01-04"), "2022-01-03")
 }
+\seealso{
+Other Date management and conversion: 
+\code{\link{dateany_to_date}()},
+\code{\link{generate_dtc}()},
+\code{\link{is_ISO8601_calendar_datetime}()},
+\code{\link{is_ISO8601_calendar_date}()},
+\code{\link{is_ISO8601_ordinal_datetime}()},
+\code{\link{is_ISO8601_timezone}()},
+\code{\link{is_ISO8601_time}()},
+\code{\link{is_ISO8601_week_datetime}()},
+\code{\link{pattern_ISO8601_any_datetime}()},
+\code{\link{pattern_ISO8601_any_date}()},
+\code{\link{pattern_ISO8601_calendar_datetime}()},
+\code{\link{pattern_ISO8601_calendar_date}()},
+\code{\link{pattern_ISO8601_calendar_year}()},
+\code{\link{pattern_ISO8601_ordinal_datetime}()},
+\code{\link{pattern_ISO8601_ordinal_date}()},
+\code{\link{pattern_ISO8601_timezone}()},
+\code{\link{pattern_ISO8601_time}()},
+\code{\link{pattern_ISO8601_week_datetime}()},
+\code{\link{pattern_ISO8601_week_date}()},
+\code{\link{sdtm_dtc_to_datetime}()},
+\code{\link{sdtm_first_dose}()},
+\code{\link{sdtm_time_actual}()}
+}
+\concept{Date management and conversion}

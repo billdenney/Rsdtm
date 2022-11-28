@@ -7,6 +7,7 @@
 #' @param ... Additional arguments passed to \code{lubridate::ymd_hms}
 #' @return The data with the date converted.  Note that all dates will be
 #'   returned as POSIXct objects, so partial dates will appear as the
+#' @family Date management and conversion
 #' @export
 sdtm_dtc_to_datetime <- function(x, ...) {
   UseMethod("sdtm_dtc_to_datetime")
@@ -61,6 +62,7 @@ sdtm_dtc_to_datetime.data.frame <- function(x, date_col_pattern="DTC$", truncate
 #' @return An SDTM-formatted ISO8601 date-time with "UN:UN:UN" if the time is
 #'   `NA`.  If all inputs are `NA`, then the output is also `NA`.
 #' @export
+#' @family Date management and conversion
 #' @importFrom dplyr case_when
 #' @importFrom lubridate format_ISO8601
 generate_dtc <- function(datetime=NULL, date=NULL, time=NULL, early_hour="05", assume_24_hr_time=FALSE) {
@@ -156,6 +158,7 @@ generate_dtc <- function(datetime=NULL, date=NULL, time=NULL, early_hour="05", a
 #' dateany_to_date(as.Date("2022-01-02"))
 #' dateany_to_date(as.POSIXct("2022-01-02T03:04")) # the time part is still gone
 #' @export
+#' @family Date management and conversion
 dateany_to_date <- function(x) {
   if (is.character(x)) {
     pattern_date <- "^(158[3-9]|159[0-9]|1[6-9][0-9]{2}|[2-9][0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(?:T.*)?$"
@@ -193,6 +196,7 @@ dateany_to_date <- function(x) {
 #' @examples
 #' make_dy(c("2022-01-02", "2022-01-03", "2022-01-04"), "2022-01-03")
 #' @export
+#' @family Date management and conversion
 make_dy <- function(dates, refdt) {
   stopifnot(length(refdt) %in% c(1, length(dates)))
   dates <- dateany_to_date(dates)

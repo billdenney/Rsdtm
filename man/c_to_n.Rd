@@ -80,3 +80,4 @@ regular expression pattern `"^..(ST|OR).*C$"`.  data.frame method does not
 replace numeric columns that already exist.
 
 }}
+\concept{Number management and conversion}
