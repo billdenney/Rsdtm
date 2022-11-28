@@ -15,8 +15,7 @@ is_ISO8601_time(x, ...)
     \item{\code{truncated}}{Should the date be allowed to be truncated?  An integer
 indicating the highest required precision (0=second is required, 1=minute, and
 2=hour).  A value of 3 will allow an empty string to match.}
-    \item{\code{allow_fractional_hours}}{Not yet supported}
-    \item{\code{allow_fractional_minutes}}{Not yet supported}
+    \item{\code{allow_fractional_hours,allow_fractional_minutes}}{Not yet supported}
     \item{\code{allow_fractional_seconds}}{Should fractional seconds be allowed?}
     \item{\code{fractional_digits}}{How many digits are allowed in fractional time
 units?  \code{0} indicates that they are not allowed, and \code{Inf}

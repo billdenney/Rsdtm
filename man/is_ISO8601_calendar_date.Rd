@@ -32,13 +32,13 @@ Determine if a string is an ISO 8601 calendar date
 }
 \section{Functions}{
 \itemize{
-\item \code{is_ISO8601_week_date}: Determine if a string is an ISO 8601
+\item \code{is_ISO8601_week_date()}: Determine if a string is an ISO 8601
 week date
 
-\item \code{is_ISO8601_ordinal_date}: Determine if a string is an ISO 8601
+\item \code{is_ISO8601_ordinal_date()}: Determine if a string is an ISO 8601
 ordinal date
-}}
 
+}}
 \seealso{
 Other ISO8601 String checking: 
 \code{\link{is_ISO8601_calendar_datetime}()},

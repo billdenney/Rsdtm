@@ -58,8 +58,8 @@ It is an error to import the same filename base (filename without
 }
 \section{Functions}{
 \itemize{
-\item \code{import_sdtm_dir}: Load a directory of SDTM files.
+\item \code{import_sdtm_dir()}: Load a directory of SDTM files.
 
-\item \code{import_sdtm_file}: Load a single SDTM file.
+\item \code{import_sdtm_file()}: Load a single SDTM file.
+
 }}
-

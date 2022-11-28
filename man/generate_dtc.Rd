@@ -44,7 +44,7 @@ When times are not zero-padded (for example, "5:12" instead of
   generally activities are not happening in the middle of the night.  If the
   times are known to be accurate, setting `assume_24_hr_time=TRUE` will
   prevent the error and simply pad the strings with zeros.
-  
+
   If a non-NA value is given for `datetime`, then values in `date` and `time`
   will be ignored.
 }

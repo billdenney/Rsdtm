@@ -65,18 +65,18 @@ Spaces at the beginning and end are removed with `trimws()`
 }
 \section{Methods (by class)}{
 \itemize{
-\item \code{character}: The main workhorse function of c_to_n
+\item \code{c_to_n(character)}: The main workhorse function of c_to_n
 
-\item \code{factor}: For factors.
+\item \code{c_to_n(factor)}: For factors.
 
-\item \code{numeric}: For numeric vectors.
+\item \code{c_to_n(numeric)}: For numeric vectors.
 
-\item \code{integer}: For integer vectors.
+\item \code{c_to_n(integer)}: For integer vectors.
 
-\item \code{logical}: For logical vectors (only handles all-NA case).
+\item \code{c_to_n(logical)}: For logical vectors (only handles all-NA case).
 
-\item \code{data.frame}: For data.frames and similar, finds columns matching the
+\item \code{c_to_n(data.frame)}: For data.frames and similar, finds columns matching the
 regular expression pattern `"^..(ST|OR).*C$"`.  data.frame method does not
 replace numeric columns that already exist.
-}}
 
+}}
