@@ -345,6 +345,7 @@ pattern_ISO8601_ordinal_date <- function(truncated=0, allow_before_year_1583=FAL
 #' @param pattern_time A string to add to the day for including time with date
 #'   (see \code{pattern_ISO8601_time()})
 #' @inheritParams pattern_ISO8601_calendar_year
+#' @inheritParams pattern_ISO8601_any_datetime
 #' @keywords Internal
 pattern_ISO8601_date_builder <- function(truncated, pattern_year, pattern_middle, pattern_day, pattern_time, allow_before_year_1583) {
   stopifnot(is.numeric(truncated))

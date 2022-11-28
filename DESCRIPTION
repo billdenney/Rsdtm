@@ -1,6 +1,6 @@
 Package: Rsdtm
 Title: Study Data Tabulation Model (SDTM) import, export, and management assistance
-Version: 0.0.9016
+Version: 0.0.9017
 Authors@R:
   c(
     person("William", "Denney", email = "wdenney@humanpredictions.com", role = c("aut", "cre")),
@@ -19,13 +19,12 @@ Imports:
  readr,
  rio,
  rlang,
- scales,
- tibble,
  tidyr
+Suggests:
+ scales,
+ testthat (>= 2.1.0),
+ tibble
 License: AGPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.1
-Suggests: 
-    covr,
-    testthat (>= 2.1.0)

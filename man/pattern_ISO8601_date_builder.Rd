@@ -15,6 +15,11 @@ pattern_ISO8601_date_builder(
 )
 }
 \arguments{
+\item{truncated}{Should the date/time be allowed to be truncated?  An integer
+indicating the highest required precision (0=second is required, 1=minute,
+2=hour, 3=day, 4=month or week, 5=year, 6=none).  A value of 6 will allow an empty
+string to match.}
+
 \item{pattern_year}{The pattern for the ISO8601 year (ignored if
 \code{allow_before_year_1583} is given); if null, only the middle and day
 part will be returned without a year part.}
