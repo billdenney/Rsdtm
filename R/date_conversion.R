@@ -35,7 +35,7 @@ sdtm_dtc_to_datetime.data.frame <- function(x, date_col_pattern="DTC$", truncate
 }
 
 #' Convert dates and times to SDTM-formatted ISO8601 datetime values
-#' 
+#'
 #' @details When times are not zero-padded (for example, "5:12" instead of
 #'   "05:12"), the probability that they are from a 12-hour clock instead of a
 #'   24-hour clock is increased.  To minimize the impact of this, when the
@@ -44,10 +44,10 @@ sdtm_dtc_to_datetime.data.frame <- function(x, date_col_pattern="DTC$", truncate
 #'   generally activities are not happening in the middle of the night.  If the
 #'   times are known to be accurate, setting `assume_24_hr_time=TRUE` will
 #'   prevent the error and simply pad the strings with zeros.
-#'   
+#'
 #'   If a non-NA value is given for `datetime`, then values in `date` and `time`
 #'   will be ignored.
-#' 
+#'
 #' @param datetime A combined date/time representation (either an
 #'   ISO8601-formatted character string or a POSIXt object).
 #' @param date The date (either an ISO8601-formatted character string, a Date
@@ -138,4 +138,71 @@ generate_dtc <- function(datetime=NULL, date=NULL, time=NULL, early_hour="05", a
     )
   }
   ret
+}
+
+#' Reformat any date format (ISO8601 character string, POSIXt, or Date) to be a
+#' Date object
+#'
+#' All values must be converted (without additional NA values created).  For
+#' character strings, the year-month-day part is required to be in ISO 8601
+#' format, but the (ignored) time format only requires separation by a
+#' \code{"T"}.
+#'
+#' @param x An ISO8601 formatted character string, POSIXt object, or Date object
+#' @return A Date object
+#' @examples
+#' dateany_to_date("2022-01-02")
+#' dateany_to_date("2022-01-02T03:04") # the time part is automatically dropped
+#' dateany_to_date(as.Date("2022-01-02"))
+#' dateany_to_date(as.POSIXct("2022-01-02T03:04")) # the time part is still gone
+#' @export
+dateany_to_date <- function(x) {
+  if (is.character(x)) {
+    pattern_date <- "^(158[3-9]|159[0-9]|1[6-9][0-9]{2}|[2-9][0-9]{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(?:T.*)?$"
+    pattern_date_match <- grepl(x = x, pattern = pattern_date) | is.na(x)
+    if (!all(pattern_date_match)) {
+      date_mismatch <- unique(x[!pattern_date_match])
+      stop("Not all input strings match date formats: ", paste("'", date_mismatch, "'", collapse = ", ", sep = ""))
+    }
+    ret <- base::as.Date(x = substr(x, 1, 10), tryFormats = "%Y-%m-%d")
+  } else if (is.POSIXt(x)) {
+    ret <- as.Date(x)
+  } else if (inherits(x, "Date")) {
+    ret <- x
+  } else {
+    stop("Invalid input class: ", paste(class(x), collapse = ", "))
+  }
+  na_match <- is.na(ret) == is.na(x)
+  if (!all(na_match)) {
+    new_na <- unique(x[!na_match])
+    stop("NAs introduced in date conversion: ", paste("'", new_na, "'", collapse = ", ", sep = ""))
+  }
+  ret
+}
+
+#' Calculate an SDTM --DY value from a date and a reference date
+#'
+#' @details \code{dates} and \code{refdt} is passed through
+#'   \code{dateany_to_date()} to ensure that they are R Date class objects.
+#'
+#' @param dates The dates for calculation
+#' @param refdt The dates for reference
+#' @return An integer vector with days since the reference date according to
+#'   SDTM calculation rules:  If \code{dates < refdt}, the difference in days;
+#'   if \code{dates >= refdt}, the difference in days plus one.
+#' @examples
+#' make_dy(c("2022-01-02", "2022-01-03", "2022-01-04"), "2022-01-03")
+#' @export
+make_dy <- function(dates, refdt) {
+  stopifnot(length(refdt) %in% c(1, length(dates)))
+  dates <- dateany_to_date(dates)
+  refdt <- dateany_to_date(refdt)
+  ady_raw <- as.integer(dates) - as.integer(refdt)
+  ady <-
+    ifelse(
+      ady_raw < 0,
+      ady_raw,
+      ady_raw + 1L
+    )
+  ady
 }

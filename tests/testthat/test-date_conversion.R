@@ -1,5 +1,3 @@
-context("date conversion")
-
 test_that("generate_dtc works", {
   expect_equal(
     generate_dtc(datetime="2020-05-01T01:02:03"),
@@ -71,5 +69,63 @@ test_that("generate_dtc errors correctly", {
     regexp="Some output does not appear to be an ISO8601 datetime formatted with SDTM unknowns: fooTUN:UN:UN",
     fixed=TRUE,
     info="invalid formats are caught"
+  )
+})
+
+test_that("dateany_to_date", {
+  expect_error(
+    dateany_to_date(c("2022-01-02", "2022-02-31", "")),
+    "Not all input strings match date formats: ''"
+  )
+  expect_equal(
+    dateany_to_date("2022-01-02"),
+    as.Date("2022-01-02")
+  )
+  expect_equal(
+    dateany_to_date("2022-01-02T03:04"),
+    as.Date("2022-01-02")
+  )
+  expect_equal(
+    dateany_to_date(as.Date("2022-01-02")),
+    as.Date("2022-01-02")
+  )
+  expect_equal(
+    dateany_to_date(as.POSIXct("2022-01-02T03:04", tryFormats = "%Y-%m-%dT%H:%M")),
+    as.Date("2022-01-02")
+  )
+  expect_equal(
+    dateany_to_date(c("2022-01-02", "2022-01-03")),
+    as.Date(c("2022-01-02", "2022-01-03"))
+  )
+  expect_equal(
+    dateany_to_date(c("2022-01-02", "2022-01-03", NA)),
+    as.Date(c("2022-01-02", "2022-01-03", NA))
+  )
+  expect_error(
+    dateany_to_date(5),
+    "Invalid input class: numeric"
+  )
+  expect_error(
+    dateany_to_date(c("2022-01-02", "2022-02-31", NA)),
+    "NAs introduced in date conversion: '2022-02-31'"
+  )
+})
+
+test_that("make_dy", {
+  expect_equal(
+    make_dy(c("2022-01-02", "2022-01-03", "2022-01-04"), "2022-01-03"),
+    c(-1L, 1L, 2L)
+  )
+  expect_equal(
+    make_dy(c("2022-01-02", "2022-01-03", "2022-01-04", NA), "2022-01-03"),
+    c(-1L, 1L, 2L, NA_integer_)
+  )
+  expect_error(
+    make_dy(c("2022-01-02", "2022-01-03", "2022-01-04", NA), c("2022-01-03", "2022-01-04")),
+    c(-1L, 1L, 2L, NA_integer_)
+  )
+  expect_equal(
+    make_dy(c("2022-01-02", "2022-01-03", "2022-01-04", NA), rep(c("2022-01-03", "2022-01-04"), each = 2)),
+    c(-1L, 1L, 1L, NA_integer_)
   )
 })
