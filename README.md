@@ -1,8 +1,8 @@
 # Rsdtm
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/billdenney/Rsdtm.svg?branch=master)](https://travis-ci.org/billdenney/Rsdtm)
-[![Codecov test coverage](https://codecov.io/gh/billdenney/Rsdtm/branch/master/graph/badge.svg)](https://codecov.io/gh/billdenney/Rsdtm?branch=master)
+[![R-CMD-check](https://github.com/billdenney/Rsdtm/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/billdenney/Rsdtm/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/billdenney/Rsdtm/branch/main/graph/badge.svg)](https://app.codecov.io/gh/billdenney/Rsdtm?branch=main)
 [![CRAN status](https://www.r-pkg.org/badges/version/Rsdtm)](https://CRAN.R-project.org/package=Rsdtm)
 <!-- badges: end -->
 

@@ -21,10 +21,12 @@ Imports:
  rlang,
  tidyr
 Suggests:
- scales,
- testthat (>= 2.1.0),
- tibble
+    covr,
+    scales,
+    testthat (>= 2.1.0),
+    tibble
 License: AGPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.1
+URL: https://billdenney.github.io/Rsdtm/
