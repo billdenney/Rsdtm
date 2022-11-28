@@ -1,0 +1,9 @@
+pandoc: 2.19.2
+pkgdown: 2.0.6
+pkgdown_sha: ~
+articles: {}
+last_built: 2022-11-28T16:21Z
+urls:
+  reference: https://billdenney.github.io/Rsdtm/reference
+  article: https://billdenney.github.io/Rsdtm/articles
+
